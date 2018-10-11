@@ -1,5 +1,6 @@
 #include <vector>
 #include <cstdlib>
+#include <iostream>
 
 using Matrix = std::vector<std::vector<double>>;
 
@@ -60,5 +61,8 @@ int main(int argc, char** argv) {
 	auto c = a * b;
 
 	// check that the result is correct
+	if(c!=a){
+		std::cout<<"FAIL";	
+	}
 	return (c == a) ? EXIT_SUCCESS : EXIT_FAILURE;
 }

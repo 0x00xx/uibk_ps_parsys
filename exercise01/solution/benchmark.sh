@@ -2,8 +2,8 @@
 # Produces one output file per parameter per executable.
 
 # config
-# compiled with g++ mmul.cpp -o mmul -std=c++11 -Wall
-readonly executables=(mmul mmul_seq1 mmul_seq2) # exes
+# compiled with g++ mmul.cpp -o mmul -std=c++11 -Wall (for openMP you need to add -fopenmp -pthread)
+readonly executables=(mmul mmul_seq1 mmul_seq2 mmul_openMP) # exes
 readonly params=(128 256 512 1024 2048) # args
 
 
