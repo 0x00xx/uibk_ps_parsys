@@ -1,0 +1,21 @@
+Problem Sizes:
+128, 256, 512, 1024, 2048
+
+
+Hardware Platforms: (cat /proc/cpuinfo | grep "model name")
+Benni
+4x Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz
+Daniel
+?
+Lorenz
+6x Intel(R) Core(TM) i7-4710MQ CPU @ 2.50GHz
+
+Metric                      (program used to benchmark it):
+wall time                   (time)
+cpu (user) time             (time)
+bottleneck functions        (gperf)
+time spent in bottlenecks   (gperf)
+memory use?                 (valgrind)
+memory allocations?         (valgrind)
+cache hits/misses?          (cachegrind = valgrind tool)
+
