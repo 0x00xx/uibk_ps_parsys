@@ -1,0 +1,26 @@
+bench_time
+real 4.59
+user 4.53
+
+
+bench_memory
+==16618== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+bench_cache
+==16631== I   refs:      15,490,264,923
+==16631== I1  misses:             1,692
+==16631== LLi misses:             1,632
+==16631== I1  miss rate:           0.00%
+==16631== LLi miss rate:           0.00%
+==16631== 
+==16631== D   refs:       9,965,645,962  (6,332,741,619 rd   + 3,632,904,343 wr)
+==16631== D1  misses:        17,258,721  (   17,157,115 rd   +       101,606 wr)
+==16631== LLd misses:           122,298  (       21,595 rd   +       100,703 wr)
+==16631== D1  miss rate:            0.2% (          0.3%     +           0.0%  )
+==16631== LLd miss rate:            0.0% (          0.0%     +           0.0%  )
+==16631== 
+==16631== LL refs:           17,260,413  (   17,158,807 rd   +       101,606 wr)
+==16631== LL misses:            123,930  (       23,227 rd   +       100,703 wr)
+
+
