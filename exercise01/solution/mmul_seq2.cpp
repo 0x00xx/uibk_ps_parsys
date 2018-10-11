@@ -16,13 +16,25 @@ Matrix id(unsigned n) {
 	return res;
 }
 
+//initializes a matrix with 0
+Matrix init(unsigned n) {
+	Matrix res;
+	res.resize(n);
+	for(unsigned i=0; i<n; i++) {
+		res[i].resize(n);
+		for(unsigned j=0; j<n; j++) {
+			res[i][j] = 0;
+		}
+	}
+	return res;
+}
+
 // computes the product of two matrices
 Matrix operator*(const Matrix& a, const Matrix& b) {
 	unsigned n = a.size();
-	Matrix c = id(n);
+	Matrix c = init(n);
 	for(unsigned i=0; i<n; ++i) {
 		for(unsigned k=0; k<n; ++k) {
-			c[i][j] = 0;
 			for(unsigned j=0; j<n; ++j) {
 				c[i][j] += a[i][k] * b[k][j];
 			}
