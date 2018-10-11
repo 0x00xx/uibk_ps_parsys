@@ -28,7 +28,7 @@ name       the name of the function.  This is the minor sort
 	   the function in the gprof listing. If the index is
 	   in parenthesis it shows where it would appear in
 	   the gprof listing if it were to be printed.
-
+
 Copyright (C) 2012-2015 Free Software Foundation, Inc.
 
 Copying and distribution of this file, with or without modification,
@@ -45,5 +45,4 @@ The call graph shows, for each function, which functions called it, which other
 functions it called, and how many times. There is also an estimate of how much 
 time was spent in the subroutines of each function. This can suggest places  where 
 you might try to eliminate function calls that use a lot of time.
-
 
