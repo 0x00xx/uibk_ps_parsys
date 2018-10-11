@@ -34,6 +34,7 @@ bench_cache(){
 }
 
 # execution
+mkdir benchmarks
 mkdir benchmarks/${USER}
 
 for e in "${executables[@]}"; do
