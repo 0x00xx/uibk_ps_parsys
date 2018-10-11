@@ -30,6 +30,7 @@ Matrix init(unsigned n) {
 }
 
 // computes the product of two matrices
+//added seq1 together with change of inner loops for memory locality(improved cache hits)
 Matrix operator*(const Matrix& a, const Matrix& b) {
 	unsigned n = a.size();
 	Matrix c = init(n);
