@@ -6,7 +6,7 @@ Hardware Platforms: (cat /proc/cpuinfo | grep "model name")
 Benni
 4x Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz
 Daniel
-?
+4x Intel(R) Core(TM) i7-920 CPU @ 2.66GHz
 Lorenz
 4x Intel(R) Core(TM) i7-4710MQ CPU @ 2.50GHz
 
