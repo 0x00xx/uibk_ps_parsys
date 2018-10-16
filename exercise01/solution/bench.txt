@@ -8,7 +8,7 @@ Benni
 Daniel
 ?
 Lorenz
-6x Intel(R) Core(TM) i7-4710MQ CPU @ 2.50GHz
+4x Intel(R) Core(TM) i7-4710MQ CPU @ 2.50GHz
 
 Metric                      (program used to benchmark it):
 wall time                   (time)
