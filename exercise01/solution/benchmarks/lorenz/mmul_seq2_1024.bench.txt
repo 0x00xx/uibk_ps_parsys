@@ -1,5 +1,0 @@
-bench_time
-real 39.07
-user 38.93
-
-
