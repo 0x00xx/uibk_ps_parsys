@@ -1,9 +1,0 @@
-The optimized version contains only 3 different functions, while the unoptimized one has a lot of different ones
-
-*operator takes ~7 times as long in the unoptimized version
-
-Apart from *operator, most of the lost time comes from the vector accessor calls ([] operator)
-
-Plus some allocation calls.
-
-Seems like the optimized version improves memory allocation and access speeds
