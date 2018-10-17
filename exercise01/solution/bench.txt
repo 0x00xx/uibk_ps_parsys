@@ -13,8 +13,8 @@ Lorenz
 Metric                      (program used to benchmark it):
 wall time                   (time)
 cpu (user) time             (time)
-bottleneck functions        (gperf)
-time spent in bottlenecks   (gperf)
+bottleneck functions        (gprof)
+time spent in bottlenecks   (gprof)
 memory use?                 (valgrind)
 memory allocations?         (valgrind)
 cache hits/misses?          (cachegrind = valgrind tool)
