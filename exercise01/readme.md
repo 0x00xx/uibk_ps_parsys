@@ -1,8 +1,8 @@
 
 TEAM:
-Benjamin Floriani,
-Daniel Linter,
-Lorenz Hasler
+- Benjamin Floriani
+- Daniel Linter,
+- Lorenz Hasler
 
 
 # Exercise 1
