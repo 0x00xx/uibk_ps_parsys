@@ -1,7 +1,7 @@
 
 TEAM:
-Benjamin Floriani
-Daniel Linter
+Benjamin Floriani,
+Daniel Linter,
 Lorenz Hasler
 
 
