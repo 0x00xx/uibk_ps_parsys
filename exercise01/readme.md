@@ -1,7 +1,7 @@
 
 TEAM 5:
 - Benjamin Floriani
-- Daniel Linter,
+- Daniel Linter
 - Lorenz Hasler
 
 
