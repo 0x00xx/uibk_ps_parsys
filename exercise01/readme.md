@@ -1,3 +1,10 @@
+
+TEAM:
+Benjamin Floriani
+Daniel Linter
+Lorenz Hasler
+
+
 # Exercise 1
 
 This is an introductory exercise designed to show the ideas and tools involved with **performance-oriented programming**.
