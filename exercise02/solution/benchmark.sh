@@ -39,27 +39,29 @@ bench_cpu(){
     echo "bench_cpu" >> "$outfile"
     command perf stat -e cycles,instructions,cache-references,cache-misses,bus-cycles -o "$outfile" "./$e" "$p"
     echo -e "\n" >> "$outfile"
-
 }
 
 # execution
 mkdir benchmarks
 mkdir benchmarks/${USER}
 
-for e in "${executables[@]}"; do
-    echo -e "\nbenchmarking $e:"
+for r in {1..7}; do
+	mkdir benchmarks/${USER}/$r
+	for e in "${executables[@]}"; do
+		echo -e "\nbenchmarking $e:"
 
-    for p in "${params[@]}"; do
-	echo "param: $p"
-        # set and clear output file
-        outfile="benchmarks/${USER}/${e}_${p}.bench.txt"
-        > "$outfile"
+		for p in "${params[@]}"; do
+		echo "param: $p"
+		    # set and clear output file
+		    outfile="benchmarks/${USER}/$r/${e}_${p}.bench.txt"
+		    > "$outfile"
 
-        # benchmarks
-	bench_time
-	bench_mem
-	bench_cache
-        bench_cpu
-    done
+		    # benchmarks
+		#bench_time
+		#bench_mem
+		#bench_cache
+		bench_cpu
+		done
+	done
 done
 
