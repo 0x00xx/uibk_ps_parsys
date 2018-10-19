@@ -1,0 +1,15 @@
+# started on Fri Oct 19 03:51:34 2018
+
+
+ Performance counter stats for './mmul2 2048':
+
+   <not supported>      cycles                                                      
+   <not supported>      instructions                                                
+   <not supported>      cache-references                                            
+   <not supported>      cache-misses                                                
+   <not supported>      bus-cycles                                                  
+
+      17.998592937 seconds time elapsed
+
+
+

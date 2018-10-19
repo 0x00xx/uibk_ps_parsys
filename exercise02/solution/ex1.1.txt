@@ -1,0 +1,11 @@
+We have three different versions:
+1) struct Matrix : std::vector<std::vector<double>>
+	This data structure uses a vector of vector<double>. Since this version uses two vectors in order to store a matrix, it should be fast to access a single member of the matrix.
+	On the otherside since we're using a nested datastructure, the memory usage is higher then in the other two versions.
+
+2) struct Matrix : std::vector<double>
+	This one uses just a single vector of doubles to store a n*n matrix in it. In order to access members of the matrix, it computes the right place through the calculation i*matSize + j.
+
+3) struct Matrix : std::vector<double>
+	The last version uses again a single vector, but it does not need to calculate the position of the elements like version 2, because it uses an indirection (indirection[i] = &(*this)[i*n];).
+	Because of that it will be slower with the initialization of the matrix, but is afterwards faster then version 2 and should be as fast as version 1, with less memory overhead.

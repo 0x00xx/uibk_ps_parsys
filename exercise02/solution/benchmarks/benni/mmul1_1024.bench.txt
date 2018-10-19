@@ -1,0 +1,15 @@
+# started on Fri Oct 19 03:51:18 2018
+
+
+ Performance counter stats for './mmul1 1024':
+
+   <not supported>      cycles                                                      
+   <not supported>      instructions                                                
+   <not supported>      cache-references                                            
+   <not supported>      cache-misses                                                
+   <not supported>      bus-cycles                                                  
+
+       1.156781185 seconds time elapsed
+
+
+
