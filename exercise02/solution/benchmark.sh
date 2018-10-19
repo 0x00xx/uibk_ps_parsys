@@ -56,6 +56,9 @@ for e in "${executables[@]}"; do
         > "$outfile"
 
         # benchmarks
+	bench_time
+	bench_mem
+	bench_cache
         bench_cpu
     done
 done
