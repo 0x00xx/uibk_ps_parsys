@@ -57,9 +57,9 @@ for r in {1..7}; do
 		    > "$outfile"
 
 		    # benchmarks
-		#bench_time
-		#bench_mem
-		#bench_cache
+		bench_time
+		bench_mem
+		bench_cache
 		bench_cpu
 		done
 	done
