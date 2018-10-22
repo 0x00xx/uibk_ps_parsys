@@ -1,0 +1,9 @@
+bench_cpu
+
+
+bench_time
+Command terminated by signal 2
+real 3.09
+user 3.06
+
+

@@ -1,0 +1,8 @@
+bench_cpu
+
+
+bench_time
+real 7.68
+user 7.65
+
+

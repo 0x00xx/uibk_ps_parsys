@@ -4,7 +4,7 @@
 # config
 # compiled with g++ mmul.cpp -o mmul -std=c++11 -Wall (for openMP you need to add -fopenmp -pthread)
 readonly executables=(mmul1 mmul2 mmul3 mmul_1 mmul_1_omp) # exes
-readonly params=(128 256 512 1024 2048) # args
+readonly params=(64 128 256 512 1024) # args
 
 
 # benchmarks
