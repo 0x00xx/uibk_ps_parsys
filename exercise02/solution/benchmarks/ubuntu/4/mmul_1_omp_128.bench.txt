@@ -1,0 +1,41 @@
+# started on Mon Oct 22 16:52:03 2018
+
+
+ Performance counter stats for './mmul_1_omp 128':
+
+       133,141,930      cycles                                                      
+       187,870,537      instructions              #    1.41  insn per cycle         
+           252,214      cache-references                                            
+            75,453      cache-misses              #   29.916 % of all cache refs    
+         1,033,178      bus-cycles                                                  
+
+       0.012559850 seconds time elapsed
+
+
+
+bench_time
+real 0.01
+user 0.04
+
+
+bench_memory
+==11817== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+
+
+bench_cache
+==11823== I   refs:      186,172,086
+==11823== I1  misses:          2,594
+==11823== LLi misses:          2,290
+==11823== I1  miss rate:        0.00%
+==11823== LLi miss rate:        0.00%
+==11823== 
+==11823== D   refs:      123,415,054  (74,478,282 rd   + 48,936,772 wr)
+==11823== D1  misses:        190,531  (   175,087 rd   +     15,444 wr)
+==11823== LLd misses:         16,620  (     8,465 rd   +      8,155 wr)
+==11823== D1  miss rate:         0.2% (       0.2%     +        0.0%  )
+==11823== LLd miss rate:         0.0% (       0.0%     +        0.0%  )
+==11823== 
+==11823== LL refs:           193,125  (   177,681 rd   +     15,444 wr)
+==11823== LL misses:          18,910  (    10,755 rd   +      8,155 wr)
+
+

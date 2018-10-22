@@ -1,0 +1,20 @@
+# started on Mon Oct 22 16:56:38 2018
+
+
+ Performance counter stats for './mmul3 1024':
+
+     1,814,525,956      cycles                                                      
+     4,369,132,712      instructions              #    2.41  insn per cycle         
+       231,086,181      cache-references                                            
+       107,779,764      cache-misses              #   46.641 % of all cache refs    
+        14,080,681      bus-cycles                                                  
+
+       0.587007720 seconds time elapsed
+
+
+
+bench_time
+real 0.57
+user 0.57
+
+

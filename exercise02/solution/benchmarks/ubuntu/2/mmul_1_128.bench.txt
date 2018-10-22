@@ -1,0 +1,17 @@
+# started on Mon Oct 22 16:42:29 2018
+
+# started on Mon Oct 22 16:42:29 2018
+
+
+
+bench_time
+Command exited with non-zero status 127
+real 0.00
+user 0.00
+
+
+bench_memory
+
+
+
+
