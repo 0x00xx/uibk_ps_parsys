@@ -65,3 +65,5 @@ for r in {1..7}; do
 	done
 done
 
+rm *grind*
+
