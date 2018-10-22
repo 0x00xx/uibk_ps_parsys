@@ -57,10 +57,10 @@ for r in {1..7}; do
 		    > "$outfile"
 
 		    # benchmarks
+		bench_cpu
 		bench_time
 		bench_mem
 		bench_cache
-		bench_cpu
 		done
 	done
 done
