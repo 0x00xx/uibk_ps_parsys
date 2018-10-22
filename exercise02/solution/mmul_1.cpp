@@ -1,7 +1,7 @@
 #include <vector>
 #include <cstdlib>
 
-#include "chrono_timer.h"
+#include "../chrono_timer.h"
 
 #if !defined(NESTED_VECTOR) && !defined(CONTIGUOUS_WITH_MULTIPLICATION) && !defined(CONTIGUOUS_WITH_INDIRECTION)
 #define NESTED_VECTOR
