@@ -1,0 +1,21 @@
+# started on Tue Oct 23 18:20:30 2018
+
+
+ Performance counter stats for './mmul_utm 2048':
+
+    13.064.044.408      cycles                                                      
+    38.819.616.319      instructions              #    2,97  insn per cycle         
+       168.843.915      cache-references                                            
+        81.962.312      cache-misses              #   48,543 % of all cache refs    
+       376.325.380      bus-cycles                                                  
+
+       3,777349468 seconds time elapsed
+
+
+
+bench_time
+Command exited with non-zero status 1
+real 3.79
+user 3.77
+
+

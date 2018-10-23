@@ -1,15 +1,15 @@
-# started on Tue Oct 23 15:03:40 2018
+# started on Tue Oct 23 18:15:44 2018
 
 
  Performance counter stats for './mmul3 512':
 
-       188.044.195      cycles                                                      
-       618.493.623      instructions              #    3,29  insn per cycle         
-         2.087.995      cache-references                                            
-            38.007      cache-misses              #    1,820 % of all cache refs    
-         6.020.479      bus-cycles                                                  
+       176.867.943      cycles                                                      
+       557.687.629      instructions              #    3,15  insn per cycle         
+           420.701      cache-references                                            
+            39.413      cache-misses              #    9,368 % of all cache refs    
+         5.783.592      bus-cycles                                                  
 
-       0,060818791 seconds time elapsed
+       0,058481610 seconds time elapsed
 
 
 
@@ -19,23 +19,23 @@ user 0.05
 
 
 bench_memory
-==3907== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==5640== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 
 
 bench_cache
-==3910== I   refs:      621,784,205
-==3910== I1  misses:          1,230
-==3910== LLi misses:          1,210
-==3910== I1  miss rate:        0.00%
-==3910== LLi miss rate:        0.00%
-==3910== 
-==3910== D   refs:      279,068,184  (203,015,714 rd   + 76,052,470 wr)
-==3910== D1  misses:      9,093,021  (  8,893,995 rd   +    199,026 wr)
-==3910== LLd misses:        108,974  (      9,094 rd   +     99,880 wr)
-==3910== D1  miss rate:         3.3% (        4.4%     +        0.3%  )
-==3910== LLd miss rate:         0.0% (        0.0%     +        0.1%  )
-==3910== 
-==3910== LL refs:         9,094,251  (  8,895,225 rd   +    199,026 wr)
-==3910== LL misses:         110,184  (     10,304 rd   +     99,880 wr)
+==5643== I   refs:      560,983,983
+==5643== I1  misses:          1,870
+==5643== LLi misses:          1,816
+==5643== I1  miss rate:        0.00%
+==5643== LLi miss rate:        0.00%
+==5643== 
+==5643== D   refs:      213,330,373  (137,388,672 rd   + 75,941,701 wr)
+==5643== D1  misses:     17,156,935  ( 16,957,683 rd   +    199,252 wr)
+==5643== LLd misses:        113,829  (     13,782 rd   +    100,047 wr)
+==5643== D1  miss rate:         8.0% (       12.3%     +        0.3%  )
+==5643== LLd miss rate:         0.1% (        0.0%     +        0.1%  )
+==5643== 
+==5643== LL refs:        17,158,805  ( 16,959,553 rd   +    199,252 wr)
+==5643== LL misses:         115,645  (     15,598 rd   +    100,047 wr)
 
 
