@@ -1,0 +1,21 @@
+# started on Tue Oct 23 17:11:22 2018
+
+
+ Performance counter stats for './mmul_utm 512':
+
+       173,491,480      cycles                                                      
+       617,374,034      instructions              #    3.56  insn per cycle         
+        23,061,498      cache-references                                            
+           401,493      cache-misses              #    1.741 % of all cache refs    
+         1,346,289      bus-cycles                                                  
+
+       0.056444158 seconds time elapsed
+
+
+
+bench_time
+Command exited with non-zero status 1
+real 0.05
+user 0.05
+
+

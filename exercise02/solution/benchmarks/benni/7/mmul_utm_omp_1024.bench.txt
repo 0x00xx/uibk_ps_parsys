@@ -1,0 +1,21 @@
+# started on Tue Oct 23 17:15:06 2018
+
+
+ Performance counter stats for './mmul_utm_omp 1024':
+
+     2,757,934,508      cycles                                                      
+     4,876,348,770      instructions              #    1.77  insn per cycle         
+        88,700,068      cache-references                                            
+        35,722,257      cache-misses              #   40.273 % of all cache refs    
+        21,401,508      bus-cycles                                                  
+
+       0.233099726 seconds time elapsed
+
+
+
+bench_time
+Command exited with non-zero status 1
+real 0.23
+user 0.87
+
+
