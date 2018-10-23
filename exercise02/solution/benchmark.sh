@@ -3,13 +3,14 @@
 
 # config
 # compiled with:
-# mmul_1 = g++ mmul_1.cpp -o mmul1 -DNESTED_VECTOR -Wall -O3 -std=c++11
-# mmul_2 = g++ mmul_1.cpp -o mmul2 -DCONTIGUOUS_WITH_MULTIPLICATION -Wall -O3 -std=c++11
-# mmul_3 = g++ mmul_1.cpp -o mmul3 -DCONTIGUOUS_WITH_INDIRECTION -Wall -O3 -std=c++11
-# mmul_1_omp = g++ mmul_1.cpp -o mmul_1_omp -Wall -O3 -std=c++11 -fopenmp
+# mmul1 = g++ mmul.cpp -o mmul1 -DNESTED_VECTOR -Wall -O3 -std=c++11
+# mmul2 = g++ mmul.cpp -o mmul2 -DCONTIGUOUS_WITH_MULTIPLICATION -Wall -O3 -std=c++11
+# mmul3 = g++ mmul.cpp -o mmul3 -DCONTIGUOUS_WITH_INDIRECTION -Wall -O3 -std=c++11
+# mmul_utm = g++ mmul_utm.cpp -o mmul_utm -DNESTED_VECTOR -Wall -O3 -std=c++11
+# mmul_utm_omp = g++ mmul_utm_omp.cpp -o mmul_utm_omp -Wall -O3 -std=c++11 -fopenmp
 
-readonly executables=(mmul1 mmul2 mmul3 mmul_1_omp) # exes
-readonly params=(128 256 512 1024 2048) # args
+readonly executables=(mmul1 mmul2 mmul3 mmul_utm mmul_utm_omp) # exes
+readonly params=(256 512 1024 2048 4096) # args
 
 
 # benchmarks
