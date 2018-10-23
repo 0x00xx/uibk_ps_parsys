@@ -1,20 +1,20 @@
-# started on Tue Oct 23 18:15:27 2018
+# started on Tue Oct 23 20:52:35 2018
 
 
  Performance counter stats for './mmul2 2048':
 
-    25.439.406.992      cycles                                                      
-    86.145.998.072      instructions              #    3,39  insn per cycle         
-       238.639.804      cache-references                                            
-        87.424.740      cache-misses              #   36,635 % of all cache refs    
-       727.764.698      bus-cycles                                                  
+    25,190,218,931      cycles                                                      
+    86,147,150,000      instructions              #    3.42  insn per cycle         
+       226,233,631      cache-references                                            
+        78,742,306      cache-misses              #   34.806 % of all cache refs    
+       720,125,698      bus-cycles                                                  
 
-       7,302273098 seconds time elapsed
+       7.224372835 seconds time elapsed
 
 
 
 bench_time
-real 7.28
-user 7.25
+real 7.27
+user 7.24
 
 

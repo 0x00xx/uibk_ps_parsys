@@ -1,20 +1,20 @@
-# started on Tue Oct 23 18:19:50 2018
+# started on Tue Oct 23 20:56:56 2018
 
 
  Performance counter stats for './mmul1 256':
 
-        28.001.870      cycles                                                      
-        75.188.981      instructions              #    2,69  insn per cycle         
-           115.834      cache-references                                            
-            15.041      cache-misses              #   12,985 % of all cache refs    
-           836.599      bus-cycles                                                  
+        26,995,605      cycles                                                      
+        75,219,436      instructions              #    2.79  insn per cycle         
+           129,586      cache-references                                            
+            14,314      cache-misses              #   11.046 % of all cache refs    
+           791,312      bus-cycles                                                  
 
-       0,008592660 seconds time elapsed
+       0.008161889 seconds time elapsed
 
 
 
 bench_time
-real 0.01
+real 0.00
 user 0.00
 
 
