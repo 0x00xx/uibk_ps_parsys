@@ -2,9 +2,14 @@
 # Produces one output file per parameter per executable.
 
 # config
-# compiled with g++ mmul.cpp -o mmul -std=c++11 -Wall (for openMP you need to add -fopenmp -pthread)
-readonly executables=(mmul1 mmul2 mmul3 mmul_1 mmul_1_omp) # exes
-readonly params=(64 128 256 512 1024) # args
+# compiled with:
+# mmul_1 = g++ mmul_1.cpp -o mmul1 -DNESTED_VECTOR -Wall -O3 -std=c++11
+# mmul_2 = g++ mmul_1.cpp -o mmul2 -DCONTIGUOUS_WITH_MULTIPLICATION -Wall -O3 -std=c++11
+# mmul_3 = g++ mmul_1.cpp -o mmul3 -DCONTIGUOUS_WITH_INDIRECTION -Wall -O3 -std=c++11
+# mmul_1_omp = g++ mmul_1.cpp -o mmul_1_omp -Wall -O3 -std=c++11 -fopenmp
+
+readonly executables=(mmul1 mmul2 mmul3 mmul_1_omp) # exes
+readonly params=(128 256 512 1024 2048) # args
 
 
 # benchmarks
@@ -59,8 +64,11 @@ for r in {1..7}; do
 		    # benchmarks
 		bench_cpu
 		bench_time
-		bench_mem
-		bench_cache
+		if [ $r == 1 ]
+		then
+			bench_mem
+			bench_cache
+		fi
 		done
 	done
 done

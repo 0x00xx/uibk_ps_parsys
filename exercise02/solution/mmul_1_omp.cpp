@@ -4,7 +4,6 @@
 #include <vector>
 #include <cstdlib>
 
-#include "../chrono_timer.h"
 
 #if !defined(NESTED_VECTOR) && !defined(CONTIGUOUS_WITH_MULTIPLICATION) && !defined(CONTIGUOUS_WITH_INDIRECTION)
 #define NESTED_VECTOR
@@ -108,12 +107,10 @@ int main(int argc, char** argv) {
 	Matrix c;
 	// compute the product
 	{
-		ChronoTimer t("Multiplication");
 		c = a * b;
 	}
 
 	// check that the result is correct
 	auto ret = (c == a) ? EXIT_SUCCESS : EXIT_FAILURE;
-	std::cout << "Ret: " << ret << std::endl;
 	return ret;
 }
