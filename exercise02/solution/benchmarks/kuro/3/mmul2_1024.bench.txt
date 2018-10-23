@@ -1,0 +1,20 @@
+# started on Tue Oct 23 16:06:36 2018
+
+
+ Performance counter stats for './mmul2 1024':
+
+     4.788.849.153      cycles                                                      
+    10.806.745.110      instructions              #    2,26  insn per cycle                                            
+         7.246.276      cache-references                                            
+         4.565.042      cache-misses              #   62,998 % of all cache refs    
+   <not supported>      bus-cycles                                                  
+
+       1,487354805 seconds time elapsed
+
+
+
+bench_time
+real 1.47
+user 1.47
+
+

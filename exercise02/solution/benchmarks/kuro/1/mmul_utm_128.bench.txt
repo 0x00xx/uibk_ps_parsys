@@ -1,0 +1,42 @@
+# started on Tue Oct 23 16:04:15 2018
+
+
+ Performance counter stats for './mmul_utm 128':
+
+         7.714.001      cycles                                                      
+        13.099.137      instructions              #    1,70  insn per cycle                                            
+            39.415      cache-references                                            
+            16.130      cache-misses              #   40,924 % of all cache refs    
+   <not supported>      bus-cycles                                                  
+
+       0,004641733 seconds time elapsed
+
+
+
+bench_time
+Command exited with non-zero status 1
+real 0.00
+user 0.00
+
+
+bench_memory
+==27303== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+bench_cache
+==27306== I   refs:      12,097,345
+==27306== I1  misses:         1,227
+==27306== LLi misses:         1,189
+==27306== I1  miss rate:       0.01%
+==27306== LLi miss rate:       0.01%
+==27306== 
+==27306== D   refs:       5,011,665  (3,728,113 rd   + 1,283,552 wr)
+==27306== D1  misses:       184,734  (  169,900 rd   +    14,834 wr)
+==27306== LLd misses:        15,530  (    7,788 rd   +     7,742 wr)
+==27306== D1  miss rate:        3.7% (      4.6%     +       1.2%  )
+==27306== LLd miss rate:        0.3% (      0.2%     +       0.6%  )
+==27306== 
+==27306== LL refs:          185,961  (  171,127 rd   +    14,834 wr)
+==27306== LL misses:         16,719  (    8,977 rd   +     7,742 wr)
+
+

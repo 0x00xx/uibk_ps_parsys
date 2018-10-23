@@ -1,0 +1,41 @@
+# started on Tue Oct 23 16:03:04 2018
+
+
+ Performance counter stats for './mmul2 256':
+
+        81.187.233      cycles                                                      
+       174.727.409      instructions              #    2,15  insn per cycle                                            
+           120.826      cache-references                                            
+            37.950      cache-misses              #   31,409 % of all cache refs    
+   <not supported>      bus-cycles                                                  
+
+       0,031308854 seconds time elapsed
+
+
+
+bench_time
+real 0.02
+user 0.02
+
+
+bench_memory
+==27191== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+bench_cache
+==27194== I   refs:      172,772,279
+==27194== I1  misses:          1,831
+==27194== LLi misses:          1,727
+==27194== I1  miss rate:        0.00%
+==27194== LLi miss rate:        0.00%
+==27194== 
+==27194== D   refs:       68,234,309  (51,001,031 rd   + 17,233,278 wr)
+==27194== D1  misses:      2,196,531  ( 2,144,976 rd   +     51,555 wr)
+==27194== LLd misses:         34,031  (     7,951 rd   +     26,080 wr)
+==27194== D1  miss rate:         3.2% (       4.2%     +        0.3%  )
+==27194== LLd miss rate:         0.0% (       0.0%     +        0.2%  )
+==27194== 
+==27194== LL refs:         2,198,362  ( 2,146,807 rd   +     51,555 wr)
+==27194== LL misses:          35,758  (     9,678 rd   +     26,080 wr)
+
+

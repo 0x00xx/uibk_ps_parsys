@@ -1,0 +1,21 @@
+# started on Tue Oct 23 16:06:13 2018
+
+
+ Performance counter stats for './mmul_utm_omp 128':
+
+        14.239.803      cycles                                                      
+        14.777.132      instructions              #    1,04  insn per cycle                                            
+            71.174      cache-references                                            
+            24.757      cache-misses              #   34,784 % of all cache refs    
+   <not supported>      bus-cycles                                                  
+
+       0,003410526 seconds time elapsed
+
+
+
+bench_time
+Command exited with non-zero status 1
+real 0.00
+user 0.00
+
+
