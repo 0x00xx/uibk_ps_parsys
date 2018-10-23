@@ -1,15 +1,15 @@
-# started on Tue Oct 23 18:18:38 2018
+# started on Tue Oct 23 20:55:44 2018
 
 
  Performance counter stats for './mmul3 256':
 
-        28.559.199      cycles                                                      
-        74.626.523      instructions              #    2,61  insn per cycle         
-           103.186      cache-references                                            
-            17.661      cache-misses              #   17,116 % of all cache refs    
-           843.698      bus-cycles                                                  
+        27,074,443      cycles                                                      
+        74,673,817      instructions              #    2.76  insn per cycle         
+            97,853      cache-references                                            
+            17,523      cache-misses              #   17.907 % of all cache refs    
+           789,658      bus-cycles                                                  
 
-       0,008881559 seconds time elapsed
+       0.008487729 seconds time elapsed
 
 
 
