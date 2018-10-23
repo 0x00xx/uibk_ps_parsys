@@ -1,20 +1,20 @@
-# started on Tue Oct 23 00:44:42 2018
+# started on Tue Oct 23 15:06:59 2018
 
 
  Performance counter stats for './mmul_1_omp 1024':
 
-    66.447.669.870      cycles                                                      
-    91.190.515.526      instructions              #    1,37  insn per cycle         
-         7.742.277      cache-references                                            
-         1.282.473      cache-misses              #   16,565 % of all cache refs    
-     2.159.341.722      bus-cycles                                                  
+     1.542.861.131      cycles                                                      
+     4.884.412.793      instructions              #    3,17  insn per cycle         
+         9.688.220      cache-references                                            
+         2.765.906      cache-misses              #   28,549 % of all cache refs    
+        44.362.649      bus-cycles                                                  
 
-       2,848842723 seconds time elapsed
+       0,445971453 seconds time elapsed
 
 
 
 bench_time
-real 2.96
-user 22.54
+real 0.47
+user 0.45
 
 

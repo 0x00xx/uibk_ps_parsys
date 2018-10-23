@@ -1,41 +1,20 @@
-# started on Tue Oct 23 00:39:16 2018
+# started on Tue Oct 23 15:06:15 2018
 
 
  Performance counter stats for './mmul3 512':
 
-       180.477.470      cycles                                                      
-       557.818.892      instructions              #    3,09  insn per cycle         
-           569.551      cache-references                                            
-           112.700      cache-misses              #   19,788 % of all cache refs    
-         5.847.815      bus-cycles                                                  
+       201.278.423      cycles                                                      
+       618.421.398      instructions              #    3,07  insn per cycle         
+         1.738.369      cache-references                                            
+            34.559      cache-misses              #    1,988 % of all cache refs    
+         5.858.508      bus-cycles                                                  
 
-       0,059244985 seconds time elapsed
+       0,059146817 seconds time elapsed
 
 
 
 bench_time
 real 0.05
 user 0.05
-
-
-bench_memory
-==8747== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-
-
-bench_cache
-==8750== I   refs:      560,982,601
-==8750== I1  misses:          1,871
-==8750== LLi misses:          1,817
-==8750== I1  miss rate:        0.00%
-==8750== LLi miss rate:        0.00%
-==8750== 
-==8750== D   refs:      213,330,093  (137,388,392 rd   + 75,941,701 wr)
-==8750== D1  misses:     17,156,939  ( 16,957,692 rd   +    199,247 wr)
-==8750== LLd misses:        113,818  (     13,773 rd   +    100,045 wr)
-==8750== D1  miss rate:         8.0% (       12.3%     +        0.3%  )
-==8750== LLd miss rate:         0.1% (        0.0%     +        0.1%  )
-==8750== 
-==8750== LL refs:        17,158,810  ( 16,959,563 rd   +    199,247 wr)
-==8750== LL misses:         115,635  (     15,590 rd   +    100,045 wr)
 
 

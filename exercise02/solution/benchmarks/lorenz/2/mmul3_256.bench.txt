@@ -1,41 +1,20 @@
-# started on Tue Oct 23 00:30:10 2018
+# started on Tue Oct 23 15:04:29 2018
 
 
  Performance counter stats for './mmul3 256':
 
-        26.593.964      cycles                                                      
-        74.679.730      instructions              #    2,81  insn per cycle         
-            92.943      cache-references                                            
-            15.158      cache-misses              #   16,309 % of all cache refs    
-         1.273.424      bus-cycles                                                  
+        28.474.030      cycles                                                      
+        81.245.945      instructions              #    2,85  insn per cycle         
+           243.801      cache-references                                            
+            14.721      cache-misses              #    6,038 % of all cache refs    
+           885.728      bus-cycles                                                  
 
-       0,013145315 seconds time elapsed
+       0,009244118 seconds time elapsed
 
 
 
 bench_time
 real 0.00
 user 0.00
-
-
-bench_memory
-==7436== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-
-
-bench_cache
-==7439== I   refs:      74,309,926
-==7439== I1  misses:         1,873
-==7439== LLi misses:         1,785
-==7439== I1  miss rate:       0.00%
-==7439== LLi miss rate:       0.00%
-==7439== 
-==7439== D   refs:      28,187,895  (17,976,682 rd   + 10,211,213 wr)
-==7439== D1  misses:     2,205,063  ( 2,153,625 rd   +     51,438 wr)
-==7439== LLd misses:        34,126  (     7,949 rd   +     26,177 wr)
-==7439== D1  miss rate:        7.8% (      12.0%     +        0.5%  )
-==7439== LLd miss rate:        0.1% (       0.0%     +        0.3%  )
-==7439== 
-==7439== LL refs:        2,206,936  ( 2,155,498 rd   +     51,438 wr)
-==7439== LL misses:         35,911  (     9,734 rd   +     26,177 wr)
 
 

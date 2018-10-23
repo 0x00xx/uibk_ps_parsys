@@ -1,8 +1,20 @@
-bench_cpu
+# started on Tue Oct 23 15:03:29 2018
+
+
+ Performance counter stats for './mmul2 2048':
+
+    13.871.121.539      cycles                                                      
+    43.210.420.248      instructions              #    3,12  insn per cycle         
+       126.303.127      cache-references                                            
+        62.965.396      cache-misses              #   49,853 % of all cache refs    
+       396.927.022      bus-cycles                                                  
+
+       3,983636505 seconds time elapsed
+
 
 
 bench_time
-real 7.68
-user 7.65
+real 4.00
+user 3.96
 
 

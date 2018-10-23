@@ -1,0 +1,20 @@
+# started on Tue Oct 23 15:06:25 2018
+
+
+ Performance counter stats for './mmul_1_omp 2048':
+
+    12.864.824.960      cycles                                                      
+    38.855.415.492      instructions              #    3,02  insn per cycle         
+       164.785.300      cache-references                                            
+        78.922.829      cache-misses              #   47,894 % of all cache refs    
+       368.260.731      bus-cycles                                                  
+
+       3,696334016 seconds time elapsed
+
+
+
+bench_time
+real 3.70
+user 3.67
+
+

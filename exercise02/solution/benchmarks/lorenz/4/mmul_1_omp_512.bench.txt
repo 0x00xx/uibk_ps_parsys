@@ -1,41 +1,20 @@
-# started on Tue Oct 23 00:36:52 2018
+# started on Tue Oct 23 15:05:48 2018
 
 
  Performance counter stats for './mmul_1_omp 512':
 
-     8.561.077.117      cycles                                                      
-    11.481.639.295      instructions              #    1,34  insn per cycle         
-         1.254.151      cache-references                                            
-            50.113      cache-misses              #    3,996 % of all cache refs    
-       262.352.644      bus-cycles                                                  
+       185.563.034      cycles                                                      
+       619.621.704      instructions              #    3,34  insn per cycle         
+         1.737.667      cache-references                                            
+            56.495      cache-misses              #    3,251 % of all cache refs    
+         5.404.908      bus-cycles                                                  
 
-       0,354721000 seconds time elapsed
+       0,054948196 seconds time elapsed
 
 
 
 bench_time
-real 0.34
-user 2.60
-
-
-bench_memory
-==8509== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
-
-
-bench_cache
-==8519== I   refs:      11,439,181,155
-==8519== I1  misses:             2,563
-==8519== LLi misses:             2,433
-==8519== I1  miss rate:           0.00%
-==8519== LLi miss rate:           0.00%
-==8519== 
-==8519== D   refs:       7,645,973,278  (4,602,594,584 rd   + 3,043,378,694 wr)
-==8519== D1  misses:         9,070,646  (    8,869,661 rd   +       200,985 wr)
-==8519== LLd misses:           114,205  (       13,021 rd   +       101,184 wr)
-==8519== D1  miss rate:            0.1% (          0.2%     +           0.0%  )
-==8519== LLd miss rate:            0.0% (          0.0%     +           0.0%  )
-==8519== 
-==8519== LL refs:            9,073,209  (    8,872,224 rd   +       200,985 wr)
-==8519== LL misses:            116,638  (       15,454 rd   +       101,184 wr)
+real 0.05
+user 0.05
 
 
