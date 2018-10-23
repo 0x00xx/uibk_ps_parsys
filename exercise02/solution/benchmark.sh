@@ -10,7 +10,7 @@
 # mmul_utm_omp = g++ mmul_utm_omp.cpp -o mmul_utm_omp -Wall -O3 -std=c++11 -fopenmp
 
 readonly executables=(mmul1 mmul2 mmul3 mmul_utm mmul_utm_omp) # exes
-readonly params=(256 512 1024 2048 4096) # args
+readonly params=(128 256 512 1024 2048) # args
 
 
 # benchmarks
