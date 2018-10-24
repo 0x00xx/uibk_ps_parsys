@@ -81,8 +81,8 @@ Matrix operator*(const Matrix& a, const Matrix& b) {
 	unsigned n = a.matSize;
 	Matrix c = init(n, [](unsigned, unsigned) { return 0; });
 	for(unsigned i = 0; i < n; ++i) {
-		for(unsigned k = 0; k < n; ++k) {
-			for(unsigned j = k; j < n; ++j) {
+		for(unsigned k = 0; k < i+1; ++k) {
+			for(unsigned j = 0; j < n; ++j) {
 				c(i,j) += a(i,k) * b(k,j);
 			}
 		}
