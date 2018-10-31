@@ -21,9 +21,9 @@ Also investigate whether a compiler performs loop unrolling.
 
 |        	| gcc 8.2 	| clang 7.0 	| icc 19 	| MSVC 19 	|
 |--------	|---------	|-----------	|--------	|---------	|
-| double 	|         	|           	|        	|         	|
-| int    	|         	|           	|        	|         	|
-| float  	|         	|           	|        	|         	|
+| double 	|     1    	|      4     	|    2   	|         	|
+| int    	|     1    	|      4     	|    1   	|         	|
+| float  	|     1    	|      4     	|    2   	|         	|
 
 
 ### 02_mmul_c_dynamic.c
