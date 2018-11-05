@@ -19,26 +19,48 @@ Also investigate whether a compiler performs loop unrolling.
 
 ### 01_mmul_c_static.c
 
-|        	| gcc 8.2 	| clang 7.0 	| icc 19 	| MSVC 19 	|
+|        	| gcc 8.2 	| clang 7.0 	| icc 19 	| MSVC 19 2017 RTW 	|
 |--------	|---------	|-----------	|--------	|---------	|
-| double 	|     1    	|      4     	|    2   	|         	|
-| int    	|     1    	|      4     	|    1   	|         	|
-| float  	|     1    	|      4     	|    2   	|         	|
+| double 	|     1    	|      2x4     	|    2   	|     2x2    	|
+| int    	|     1    	|      4x4     	|    4   	|     4x2    	|
+| float  	|     1    	|      4x4     	|    4   	|     4x2    	|
 
 
 ### 02_mmul_c_dynamic.c
 
 |        	| gcc 8.2 	| clang 7.0 	| icc 19 	| MSVC 19 	|
 |--------	|---------	|-----------	|--------	|---------	|
-| double 	|         	|           	|        	|         	|
-| int    	|         	|           	|        	|         	|
-| float  	|         	|           	|        	|         	|
+| double 	|     1    	|     2x4      	|    2    	|     1x4    	|
+| int    	|     1    	|     4x4      	|    4    	|      1   	|
+| float  	|     1    	|     4x4      	|    4    	|     1x4    	|
 
 
 ### 03_mmul_cpp_dynamic.c
 
 |        	| gcc 8.2 	| clang 7.0 	| icc 19 	| MSVC 19 	|
 |--------	|---------	|-----------	|--------	|---------	|
-| double 	|         	|           	|        	|         	|
-| int    	|         	|           	|        	|         	|
-| float  	|         	|           	|        	|         	|
+| double 	|     1    	|      1x2     	|   1x4     	|    1x4     	|
+| int    	|     1    	|      1x2     	|   1x2     	|    1     	|
+| float  	|     1    	|      1x2     	|   1x8     	|    1x4     	|
+
+
+xN denotes loop unrolling.
+
+- ICC 01 double -> operation on packed doubles (2 cause 128 bit) 
+- ICC 01 int -> vpmulld: multiplies 4 ints
+- ICC 01 float -> see double variant: replaced all double operations with float operations
+- ICC 02 -> analog to ICC 01
+- ICC 03 double -> like ICC 01 but doesn't use packed-double operations anymore (just low packed) but it uses unrolling
+- ICC 03 int -> use imul instat of vpmull
+- Clang 01 double -> 4times vmulpd/vaddpd/vmovupd ... pd double packages (2 doubles)
+- Clang 01 int -> 4times vpmull/vpaddd/vmovdqu
+- Clang 01 float -> see double variant:  replaced all double operations with float operations
+- Clang 02 -> analog to Clang 01
+- Clang 03 double -> see ICC 03 double (nearly the same code)
+- Clang 03 int -> doesn't use vector operations anymore
+- MSVC 01 double-> computes 2 double values at the same time and unrolls a loop twice
+- MSVC 01 int/float -> takes 4 numbers at once and unrolls as well twice
+- MSVC 02 double/float -> only calculates 1 number but unrolls the loop 4 times
+- MSVC 02 int -> doesn't unroll at all
+- MSVC 03 -> same as MSVC 02
+
