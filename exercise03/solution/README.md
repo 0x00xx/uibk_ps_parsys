@@ -51,7 +51,7 @@ xN denotes loop unrolling.
 - ICC 01 float -> see double variant: replaced all double operations with float operations
 - ICC 02 -> analog to ICC 01
 - ICC 03 double -> like ICC 01 but doesn't use packed-double operations anymore (just low packed) but it uses unrolling
-- ICC 03 int -> use imul instat of vpmull
+- ICC 03 int -> use imul instead of vpmull
 - Clang 01 double -> 4times vmulpd/vaddpd/vmovupd ... pd double packages (2 doubles)
 - Clang 01 int -> 4times vpmull/vpaddd/vmovdqu
 - Clang 01 float -> see double variant:  replaced all double operations with float operations
