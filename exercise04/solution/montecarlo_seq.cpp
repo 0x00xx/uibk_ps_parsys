@@ -11,9 +11,10 @@
 
 int main(int argc, char** argv) {
 
-  int s = N;
+  long s = N;
+  char* temp;
   if (argc >= 2) {
-    s = atoi(argv[1]);
+    s = strtoul(argv[1],&temp,0);
   }
 
     // calculate random points

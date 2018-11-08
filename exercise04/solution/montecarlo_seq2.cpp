@@ -2,19 +2,20 @@
 #include <stdlib.h>
 #include <time.h>
 #include <math.h>
-#include "gmp.h"
+#include <gmp.h>
 
 #ifndef N
 	#define N 1000
 #endif
 
-#define VALUE float
+#define VALUE double
 
 int main(int argc, char** argv) {
 
   long long s = N;
+  char *temp;
   if (argc >= 2) {
-    s = atoi(argv[1]);
+    s = strtoul(argv[1],&temp,0);
   }
 
 	// calculate random points
@@ -32,15 +33,15 @@ int main(int argc, char** argv) {
         hit++;
     }
   }
-
-  mpz_t a;
-  mpz_t b;
-  mpz_t c;
-  mpz_init(a);
-  mpz_init(b);
-  mpz_init(c);
-	// print verification result
-	//printf("Verification: %1.8f\n", (((double)hit/s)*4));
-  printf("%lu %lu",sizeof(double),sizeof(long long));
+  mpz_t hit_big;
+  mpz_t s_big;
+  mpz_t result;
+  mpz_init(hit_big);
+  mpz_init(s_big);
+  mpz_init(result);
+  mpz_init_set_ui(hit_big,hit);
+  mpz_init_set_ui(s_big,s);
+	mpz_cdiv_q (result,hit_big,s_big);
+	gmp_printf("Verification: %1.8f\n", result);
 }
 
