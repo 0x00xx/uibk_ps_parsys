@@ -25,6 +25,7 @@ int main(int argc, char** argv) {
   VALUE x;
   VALUE y;
   // Check if it is in circle
+  #pragma omp parallel
   for (long long i=0; i<s; i++) {
     x = (VALUE)rand()/RAND_MAX;
     y = (VALUE)rand()/RAND_MAX;
