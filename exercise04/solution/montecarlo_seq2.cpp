@@ -1,4 +1,4 @@
-# g++ montecarlo_seq2.cpp -o montecarlo_seq -O3 -std=c++11 -Wall -lgmp 
+// g++ montecarlo_seq2.cpp -o montecarlo_seq -O3 -std=c++11 -Wall -lgmp 
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,6 +11,14 @@
 #endif
 
 #define VALUE double
+
+VALUE get_random()
+{
+    static std::random_device rd;
+    static std::mt19937 e(rd());
+    static std::uniform_real_distribution<> dis(0, 1); // rage 0 - 1
+    return dis(e);
+}
 
 int main(int argc, char** argv) {
 
@@ -28,8 +36,8 @@ int main(int argc, char** argv) {
   VALUE y;
   // Check if it is in circle
   for (long long i=0; i<s; i++) {
-    x = (VALUE)rand()/RAND_MAX;
-    y = (VALUE)rand()/RAND_MAX;
+    x = get_random();
+    y = get_random();
     VALUE temp = pow(x,2)+pow(y,2);
     if(temp <= 1.0){
         hit++;

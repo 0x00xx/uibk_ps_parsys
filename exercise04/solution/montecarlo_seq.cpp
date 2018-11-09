@@ -1,3 +1,5 @@
+// g++ montecarlo_seq.cpp -o montecarlo_seq -O3 -std=c++11 -Wall -lgmp 
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
