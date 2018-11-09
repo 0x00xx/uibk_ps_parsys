@@ -7,6 +7,7 @@ TEST(mergeSortSeqTest, RevertedArray) {
     for (int i = 0; i < 10; ++i) {
         ASSERT_EQ(i, test_array[i]);
     }
+	ASSERT_TRUE(isOrdered(test_array, 10));	
 }
 
 TEST(mergeSortParTest, RevertedArray) { 
@@ -15,6 +16,7 @@ TEST(mergeSortParTest, RevertedArray) {
     for (int i = 0; i < 10; ++i) {
         ASSERT_EQ(i, test_array[i]);
     }
+	ASSERT_TRUE(isOrdered(test_array, 10));	
 }
 
 TEST(mergeSortSeqTest, MixedArrayNeg) {
@@ -24,6 +26,7 @@ TEST(mergeSortSeqTest, MixedArrayNeg) {
 	for (int i = 0; i < 10; ++i) {
         ASSERT_EQ(comparison_array[i], test_array[i]);
     }	
+	ASSERT_TRUE(isOrdered(test_array, 10));	
 }
 
 TEST(mergeSortParTest, MixedArrayNeg) {
@@ -32,7 +35,8 @@ TEST(mergeSortParTest, MixedArrayNeg) {
 	mergeSortPar(test_array, 10);
 	for (int i = 0; i < 10; ++i) {
         ASSERT_EQ(comparison_array[i], test_array[i]);
-    }	
+    }
+	ASSERT_TRUE(isOrdered(test_array, 10));		
 }
 
 TEST(mergeSortSeqTest, ArrayNeg) {
@@ -42,6 +46,7 @@ TEST(mergeSortSeqTest, ArrayNeg) {
 	for (int i = 0; i < 10; ++i) {
         ASSERT_EQ(comparison_array[i], test_array[i]);
     }	
+	ASSERT_TRUE(isOrdered(test_array, 10));	
 }
 
 TEST(mergeSortParTest, ArrayNeg) {
@@ -50,7 +55,8 @@ TEST(mergeSortParTest, ArrayNeg) {
 	mergeSortPar(test_array, 10);
 	for (int i = 0; i < 10; ++i) {
         ASSERT_EQ(comparison_array[i], test_array[i]);
-    }	
+    }
+	ASSERT_TRUE(isOrdered(test_array, 10));		
 }
 
 TEST(mergeSortSeqTest, ArrayPos) {
@@ -59,7 +65,8 @@ TEST(mergeSortSeqTest, ArrayPos) {
 	mergeSortSeq(test_array, 10);
 	for (int i = 0; i < 10; ++i) {
         ASSERT_EQ(comparison_array[i], test_array[i]);
-    }	
+    }
+	ASSERT_TRUE(isOrdered(test_array, 10));	
 }
 
 TEST(mergeSortParTest, ArrayPos) {
@@ -68,7 +75,8 @@ TEST(mergeSortParTest, ArrayPos) {
 	mergeSortPar(test_array, 10);
 	for (int i = 0; i < 10; ++i) {
         ASSERT_EQ(comparison_array[i], test_array[i]);
-    }	
+    }
+	ASSERT_TRUE(isOrdered(test_array, 10));	
 }
 
 int main(int argc, char **argv) {
