@@ -3,6 +3,6 @@
 
 int main(){
 	
-	std::cout << solveNQ(4);
+	std::cout << solveNQ(12) << "\n";
 	return 0;
 }

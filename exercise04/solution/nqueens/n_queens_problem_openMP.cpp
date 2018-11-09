@@ -53,10 +53,9 @@ bool isSafe(vector<vector<int>> board, int row, int col) {
 					#pragma omp flush(abort)
 				}
 			}
-			return !abort; 
-			
 		}
 	}
+	return !abort; 
 } 
   
 /* A recursive utility function to solve N 
