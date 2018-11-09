@@ -1,4 +1,4 @@
-#include "n_queens_problem.cpp"
+#include "n_queens_problem_seq.cpp"
 #include "gtest/gtest.h"
 #include <map>
 

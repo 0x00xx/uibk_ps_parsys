@@ -24,34 +24,39 @@ void printSolution(vector<vector<int>> board) {
  * column)
  */
 bool isSafe(vector<vector<int>> board, int row, int col) { 
-  
-	/* Check this row on left side */
-	//#pragma omp parallel
-	for (int i = 0; i < col; i++) {
-		//#pragma omp critical
-		if (board[row][i]) {
-			return false; 
+	bool abort = false;
+	#pragma omp parallel
+	{
+		#pragma omp sections
+		{
+			#pragma omp section
+			/* Check this row on left side */
+			for (int i = 0; i < col && !abort; i++) {
+				if (board[row][i]) {
+					abort = true; 
+					#pragma omp flush(abort)
+				}
+			}
+			#pragma omp section
+			/* Check upper diagonal on left side */
+			for (int i=row, j=col; i>=0 && j>=0 && !abort; i--, j--) {
+				if (board[i][j]) {
+					abort = true;
+					#pragma omp flush(abort)
+				}
+			}
+			#pragma omp section
+			/* Check lower diagonal on left side */
+			for (int i=row, j=col; j>=0 && i<board.size() && !abort; i++, j--){ 
+				if (board[i][j]) {
+					abort = true; 
+					#pragma omp flush(abort)
+				}
+			}
+			return !abort; 
+			
 		}
 	}
-	
-	/* Check upper diagonal on left side */
-	//#pragma omp parallel
-	for (int i=row, j=col; i>=0 && j>=0; i--, j--) {
-		//#pragma omp critical
-		if (board[i][j]) {
-			return false; 
-		}
-	}
-  
-	/* Check lower diagonal on left side */
-	//#pragma omp parallel
-	for (int i=row, j=col; j>=0 && i<board.size(); i++, j--){ 
-		//#pragma omp critical
-		if (board[i][j]) {
-			return false; 
-		}
-	}
-	return true; 
 } 
   
 /* A recursive utility function to solve N 
