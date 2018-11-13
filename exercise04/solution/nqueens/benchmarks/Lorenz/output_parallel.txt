@@ -1,0 +1,68 @@
+
+Problemsize: 12
+Iterations: 10
+Average time: 0.02799081802368164
+Median time: 0.02896130084991455
+Average Values
+	Cycles: 502806310 
+	instr: 702711466 
+	Cache Misses: 15068 
+	Seconds: 0.0264952662
+
+Median Values
+	Cycles: 486616838 
+	instr: 700327198 
+	Cache Misses: 14904 
+	Seconds: 0.0245257215
+
+
+
+Problemsize: 13
+Iterations: 10
+Average time: 0.14329795837402343
+Median time: 0.14311909675598145
+Average Values
+	Cycles: 2707489849 
+	instr: 4339466588 
+	Cache Misses: 15672 
+	Seconds: 0.1432572618
+
+Median Values
+	Cycles: 2710425867 
+	instr: 4342008049 
+	Cache Misses: 15280 
+	Seconds: 0.14299684699999998
+
+
+Problemsize: 14
+Iterations: 10
+Average time: 0.8213907480239868
+Median time: 0.8217999935150146
+Average Values
+	Cycles: 17028350078 
+	instr: 29240540856 
+	Cache Misses: 16105 
+	Seconds: 0.8231340594000001
+
+Median Values
+	Cycles: 17028963295 
+	instr: 29238546600 
+	Cache Misses: 15484 
+	Seconds: 0.8221426995000001
+
+
+Problemsize: 15
+Iterations: 10
+Average time: 5.612234902381897
+Median time: 5.608063578605652
+Average Values
+	Cycles: 121115530331 
+	instr: 213246258376 
+	Cache Misses: 19498 
+	Seconds: 5.6853513209
+
+Median Values
+	Cycles: 121174573263 
+	instr: 213250122108 
+	Cache Misses: 17894 
+	Seconds: 5.698536174
