@@ -9,8 +9,7 @@ std::map<int, int> nQueensResults = {{1, 1}, {2, 0}, {3, 0},
 		
 		//, {14, 365596}, {15, 2279184}, {16, 14772512}, {17, 95815104}
 
-TEST (NQueensTest, VerifyResult) { 
-	int x = 4;	
+TEST (NQueensTest, VerifyResult) { 	
     for (std::map<int, int>::const_iterator it = nQueensResults.begin(); it != nQueensResults.end(); ++it){
 		ASSERT_EQ (it->second, solve(it->first));
 		ASSERT_EQ (it->second, solve_parallel(it->first));
