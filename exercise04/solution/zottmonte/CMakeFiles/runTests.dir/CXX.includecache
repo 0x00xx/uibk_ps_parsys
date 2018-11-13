@@ -6,7 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/lorenz/Documents/Parsys/uibk_ps_parsys/exercise04/solution/zottmonte/montecarlo_par.cpp
+/home/kuro/Documents/ParSys/master/exercise04/solution/zottmonte/Montecarlo.cpp
+Montecarlo.h
+/home/kuro/Documents/ParSys/master/exercise04/solution/zottmonte/Montecarlo.h
+
+/home/kuro/Documents/ParSys/master/exercise04/solution/zottmonte/Montecarlo.h
 stdio.h
 -
 stdlib.h
@@ -22,11 +26,9 @@ omp.h
 random
 -
 
-/home/lorenz/Documents/Parsys/uibk_ps_parsys/exercise04/solution/zottmonte/montecarlo_test.cpp
-montecarlo_par.cpp
-/home/lorenz/Documents/Parsys/uibk_ps_parsys/exercise04/solution/zottmonte/montecarlo_par.cpp
+/home/kuro/Documents/ParSys/master/exercise04/solution/zottmonte/montecarlo_test.cpp
+Montecarlo.h
+/home/kuro/Documents/ParSys/master/exercise04/solution/zottmonte/Montecarlo.h
 gtest/gtest.h
-/home/lorenz/Documents/Parsys/uibk_ps_parsys/exercise04/solution/zottmonte/gtest/gtest.h
-map
--
+/home/kuro/Documents/ParSys/master/exercise04/solution/zottmonte/gtest/gtest.h
 

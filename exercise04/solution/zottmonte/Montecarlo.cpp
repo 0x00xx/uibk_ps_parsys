@@ -50,6 +50,9 @@ void montecarloPar(long long s,mpf_t result){
   // Check if it is in circle
   #pragma omp parallel private(temp, x, y, i) reduction (+:hit)
   {
+    x = 0.0;
+    y = 0.0;
+    temp = 0.0;
     #pragma omp parallel for
     for (i=0; i<s/omp_get_max_threads(); i++) {
       x = get_random();
@@ -62,8 +65,6 @@ void montecarloPar(long long s,mpf_t result){
     }
   }
   for(i = 0; i < (s%omp_get_max_threads());i++){
-    double x;
-    double y;
     x = get_random();
     y = get_random();
     double temp = pow(x,2)+pow(y,2);

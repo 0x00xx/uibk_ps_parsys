@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/lorenz/Documents/Parsys/uibk_ps_parsys/exercise04/solution/zottmonte
+CMAKE_SOURCE_DIR = /home/kuro/Documents/ParSys/master/exercise04/solution/zottmonte
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/lorenz/Documents/Parsys/uibk_ps_parsys/exercise04/solution/zottmonte
+CMAKE_BINARY_DIR = /home/kuro/Documents/ParSys/master/exercise04/solution/zottmonte
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lorenz/Documents/Parsys/uibk_ps_parsys/exercise04/solution/zottmonte/CMakeFiles /home/lorenz/Documents/Parsys/uibk_ps_parsys/exercise04/solution/zottmonte/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kuro/Documents/ParSys/master/exercise04/solution/zottmonte/CMakeFiles /home/kuro/Documents/ParSys/master/exercise04/solution/zottmonte/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lorenz/Documents/Parsys/uibk_ps_parsys/exercise04/solution/zottmonte/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kuro/Documents/ParSys/master/exercise04/solution/zottmonte/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,6 +123,33 @@ runTests/fast:
 	$(MAKE) -f CMakeFiles/runTests.dir/build.make CMakeFiles/runTests.dir/build
 .PHONY : runTests/fast
 
+Montecarlo.o: Montecarlo.cpp.o
+
+.PHONY : Montecarlo.o
+
+# target to build an object file
+Montecarlo.cpp.o:
+	$(MAKE) -f CMakeFiles/runTests.dir/build.make CMakeFiles/runTests.dir/Montecarlo.cpp.o
+.PHONY : Montecarlo.cpp.o
+
+Montecarlo.i: Montecarlo.cpp.i
+
+.PHONY : Montecarlo.i
+
+# target to preprocess a source file
+Montecarlo.cpp.i:
+	$(MAKE) -f CMakeFiles/runTests.dir/build.make CMakeFiles/runTests.dir/Montecarlo.cpp.i
+.PHONY : Montecarlo.cpp.i
+
+Montecarlo.s: Montecarlo.cpp.s
+
+.PHONY : Montecarlo.s
+
+# target to generate assembly for a file
+Montecarlo.cpp.s:
+	$(MAKE) -f CMakeFiles/runTests.dir/build.make CMakeFiles/runTests.dir/Montecarlo.cpp.s
+.PHONY : Montecarlo.cpp.s
+
 montecarlo_test.o: montecarlo_test.cpp.o
 
 .PHONY : montecarlo_test.o
@@ -159,6 +186,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... runTests"
 	@echo "... edit_cache"
+	@echo "... Montecarlo.o"
+	@echo "... Montecarlo.i"
+	@echo "... Montecarlo.s"
 	@echo "... montecarlo_test.o"
 	@echo "... montecarlo_test.i"
 	@echo "... montecarlo_test.s"

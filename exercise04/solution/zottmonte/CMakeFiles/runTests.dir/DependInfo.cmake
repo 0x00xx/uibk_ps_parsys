@@ -4,7 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/lorenz/Documents/Parsys/uibk_ps_parsys/exercise04/solution/zottmonte/montecarlo_test.cpp" "/home/lorenz/Documents/Parsys/uibk_ps_parsys/exercise04/solution/zottmonte/CMakeFiles/runTests.dir/montecarlo_test.cpp.o"
+  "/home/kuro/Documents/ParSys/master/exercise04/solution/zottmonte/Montecarlo.cpp" "/home/kuro/Documents/ParSys/master/exercise04/solution/zottmonte/CMakeFiles/runTests.dir/Montecarlo.cpp.o"
+  "/home/kuro/Documents/ParSys/master/exercise04/solution/zottmonte/montecarlo_test.cpp" "/home/kuro/Documents/ParSys/master/exercise04/solution/zottmonte/CMakeFiles/runTests.dir/montecarlo_test.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

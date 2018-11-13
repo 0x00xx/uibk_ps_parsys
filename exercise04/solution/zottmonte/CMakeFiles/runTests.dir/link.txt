@@ -1,1 +1,1 @@
-/usr/bin/c++    -rdynamic CMakeFiles/runTests.dir/montecarlo_test.cpp.o  -o runTests -Wl,-Bstatic -lgtest -Wl,-Bdynamic -lpthread -std=c++17 -Wall -fopenmp -lgmp -O3 
+/usr/bin/c++    -rdynamic CMakeFiles/runTests.dir/montecarlo_test.cpp.o CMakeFiles/runTests.dir/Montecarlo.cpp.o  -o runTests -Wl,-Bstatic -lgtest -Wl,-Bdynamic -lpthread -std=c++17 -Wall -fopenmp -lgmp -O3 
