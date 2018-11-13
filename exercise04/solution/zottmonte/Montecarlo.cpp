@@ -15,6 +15,10 @@ double get_random(){
   return dis(e);
 }
 
+/*double get_random(){
+  return ((double) rand() / (RAND_MAX));
+}*/
+
 void montecarloSeq(long long s,mpf_t result)
 {
   long long hit = 0;
@@ -22,6 +26,7 @@ void montecarloSeq(long long s,mpf_t result)
   double y;
   // Check if it is in circle
   for (long long i=0; i<s; i++) {
+    //srand (12345+i);
     x = get_random();
     y = get_random();
     double temp = pow(x,2)+pow(y,2);
@@ -55,6 +60,7 @@ void montecarloPar(long long s,mpf_t result){
     temp = 0.0;
     #pragma omp parallel for
     for (i=0; i<s/omp_get_max_threads(); i++) {
+      //srand (12345+i);
       x = get_random();
       y = get_random();
       temp = pow(x,2)+pow(y,2);
@@ -65,6 +71,7 @@ void montecarloPar(long long s,mpf_t result){
     }
   }
   for(i = 0; i < (s%omp_get_max_threads());i++){
+    //srand (12345+i);
     x = get_random();
     y = get_random();
     double temp = pow(x,2)+pow(y,2);

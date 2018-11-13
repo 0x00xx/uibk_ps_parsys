@@ -9,10 +9,13 @@ int main(int argc, char** argv) {
   if (argc >= 2) {
     s = strtoul(argv[1],&temp,0);
   }
-  double piSeq = getDoubleSeq(s);
-  //gmp_printf("Verification: %.20Ff\n", result);
-  printf("Seq: %.12f\n",piSeq);
-  double piPar = getDoublePar(s);
-  //gmp_printf("Verification: %.20Ff\n", result);
-  printf("Par: %.12f\n",piPar);
+  if (argc == 3) {
+	  double piPar = getDoublePar(s);
+	  //gmp_printf("Verification: %.20Ff\n", result);
+	  printf("Par: %.12f\n",piPar);
+  }else{
+	  double piSeq = getDoubleSeq(s);
+	  //gmp_printf("Verification: %.20Ff\n", result);
+	  printf("Seq: %.12f\n",piSeq);
+  }
 }

@@ -1,3 +1,0 @@
-/home/kuro/Documents/ParSys/master/exercise04/solution/zottmonte/CMakeFiles/rebuild_cache.dir
-/home/kuro/Documents/ParSys/master/exercise04/solution/zottmonte/CMakeFiles/runTests.dir
-/home/kuro/Documents/ParSys/master/exercise04/solution/zottmonte/CMakeFiles/edit_cache.dir
