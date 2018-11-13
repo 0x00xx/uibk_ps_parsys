@@ -1,0 +1,37 @@
+14200
+14200
+14200
+14200
+14200
+14200
+14200
+14200
+14200
+14200
+14200
+14200
+14200
+14200
+14200
+14200
+14200
+14200
+14200
+14200
+Building
+
+Problemsize: 12
+Iterations: 10
+Average time: 0.041134309768676755
+Median time: 0.04075741767883301
+Average Values
+	Cycles: 632691830 
+	instr: 707335823 
+	Cache Misses: 29397 
+	Seconds: 0.0385461648
+
+Median Values
+	Cycles: 621873106 
+	instr: 707186224 
+	Cache Misses: 29338 
+	Seconds: 0.0376522

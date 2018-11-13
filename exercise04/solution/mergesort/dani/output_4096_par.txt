@@ -1,0 +1,57 @@
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Building
+
+Problemsize: 4096
+Iterations: 10
+Average time: 0.013057851791381836
+Median time: 0.013067364692687988
+Average Values
+	Cycles: 154136283 
+	instr: 63175489 
+	Cache Misses: 25338 
+	Seconds: 0.010691573499999999
+
+Median Values
+	Cycles: 151660941 
+	instr: 62524503 
+	Cache Misses: 25275 
+	Seconds: 0.010690700000000001

@@ -1,0 +1,57 @@
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Building
+
+Problemsize: 8192
+Iterations: 10
+Average time: 0.004053854942321777
+Median time: 0.004054903984069824
+Average Values
+	Cycles: 6297113 
+	instr: 6453757 
+	Cache Misses: 15923 
+	Seconds: 0.0035492921
+
+Median Values
+	Cycles: 6216208 
+	instr: 6459791 
+	Cache Misses: 15622 
+	Seconds: 0.0035792899999999997
