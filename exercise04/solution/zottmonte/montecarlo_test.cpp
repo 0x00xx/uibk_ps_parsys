@@ -8,6 +8,7 @@ long long n_values[] = {10000,100000,1000000,10000000,100000000,1000000000};
 TEST (MonteCarloTest, VerifyResult) { 
     ASSERT_DOUBLE_EQ (piResults.find(n_values[0])->second, getDouble(n_values[0]));
     ASSERT_DOUBLE_EQ (piResults.find(n_values[1])->second, getDouble(n_values[1]));
+    
 }
 
 int main(int argc, char **argv) {

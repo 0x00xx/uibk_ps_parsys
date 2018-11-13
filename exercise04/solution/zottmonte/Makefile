@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kuro/Documents/ParSys/exercise04/solution/zottmonte
+CMAKE_SOURCE_DIR = /home/lorenz/Documents/Parsys/uibk_ps_parsys/exercise04/solution/zottmonte
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kuro/Documents/ParSys/exercise04/solution/zottmonte
+CMAKE_BINARY_DIR = /home/lorenz/Documents/Parsys/uibk_ps_parsys/exercise04/solution/zottmonte
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kuro/Documents/ParSys/exercise04/solution/zottmonte/CMakeFiles /home/kuro/Documents/ParSys/exercise04/solution/zottmonte/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lorenz/Documents/Parsys/uibk_ps_parsys/exercise04/solution/zottmonte/CMakeFiles /home/lorenz/Documents/Parsys/uibk_ps_parsys/exercise04/solution/zottmonte/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kuro/Documents/ParSys/exercise04/solution/zottmonte/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lorenz/Documents/Parsys/uibk_ps_parsys/exercise04/solution/zottmonte/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

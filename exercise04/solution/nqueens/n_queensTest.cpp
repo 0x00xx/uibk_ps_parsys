@@ -1,5 +1,5 @@
 #include "n_queens_problem_seq.cpp"
-#include "n_queens_problem_openMP.cpp"
+#include "n_queens_problem_parallel.cpp"
 #include "gtest/gtest.h"
 #include <map>
 
