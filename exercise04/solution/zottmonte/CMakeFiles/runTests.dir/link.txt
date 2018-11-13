@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/runTests.dir/montecarlo_par.cpp.o  -o runTests -Wl,-Bstatic -lgtest -Wl,-Bdynamic -lpthread -fopenmp -lgmp -O3 
