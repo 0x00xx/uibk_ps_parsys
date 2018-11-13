@@ -43,7 +43,7 @@ def parse_content(output):
             seconds = strip_string(line)
             break
 
-    return int(cycles.replace(b',', b"")), int(instructions.replace(b',', b"")), int(cache_misses.replace(b',', b"")), float(seconds.replace(b',', b""))
+    return int(cycles.replace(b'.', b"")), int(instructions.replace(b'.', b"")), int(cache_misses.replace(b'.', b"")), float(seconds.replace(b',', b"."))
 
 def perf_bench():
     global cycles_avg, instructions_avg, cache_misses_avg, seconds_avg
