@@ -1,98 +1,44 @@
+#include <iostream>  // std::cout, cin, cerr ...
+#include <iomanip>   // modify std::out
+#include <omp.h>
 
-#include <iostream>
-#include <string.h>
-#include <vector>
+void setQueen_parallel(int queens[], int row, int col, int size, int &numberOfSolutions) {
+	//check all previously placed rows for attacks
+	for(int i=0; i<row; i++) {
+	   // vertical attacks
+	   if (queens[i]==col) {
+		   return;
+	   }
 
-using namespace std;
-
-int numberOfResults = 0;
-
-//print solution
-void printSolution(vector<vector<int>> board) { 
-	static int k = 1; 
-	cout<<k++<< "-\n"; 
-	for (int i = 0; i < board.size(); i++) { 
-		for (int j = 0; j < board.size(); j++) 
-			cout<<" "<< board[i][j]<<" "; 
-		cout<<"\n"; 
-	} 
-	cout<<"\n"; 
-} 
-  
-/*
- * looks if a queen can be placed on this position (checks diagonals and 
- * column)
- */
-bool isSafe(vector<vector<int>> board, int row, int col) { 
-	bool abort = false;
-	#pragma omp parallel
-	{
-		#pragma omp sections
-		{
-			#pragma omp section
-			/* Check this row on left side */
-			for (int i = 0; i < col && !abort; i++) {
-				if (board[row][i]) {
-					abort = true; 
-					#pragma omp flush(abort)
-				}
-			}
-			#pragma omp section
-			/* Check upper diagonal on left side */
-			for (int i=row, j=col; i>=0 && j>=0 && !abort; i--, j--) {
-				if (board[i][j]) {
-					abort = true;
-					#pragma omp flush(abort)
-				}
-			}
-			#pragma omp section
-			/* Check lower diagonal on left side */
-			for (int i=row, j=col; j>=0 && i<board.size() && !abort; i++, j--){ 
-				if (board[i][j]) {
-					abort = true; 
-					#pragma omp flush(abort)
-				}
-			}
-		}
+	   // diagonal attacks
+	   if (abs(queens[i]-col) == (row-i) ) {
+		  return;
+	   }
 	}
-	return !abort; 
-} 
-  
-/* A recursive utility function to solve N 
-Queen problem */
-bool solveNQUtil(vector<vector<int>> board, int col) { 
-	
-	/* all queens are placed*/
-	if (col == board.size()) { 
-		//printSolution(board); 
-		numberOfResults++; 
-		return true;
-	} 
-  
-	/* Consider column and try placing this queen in all rows*/
-	bool res = false; 
-	for (int i = 0; i < board.size(); i++) { 
-		if ( isSafe(board, i, col) ) { 
-			board[i][col] = 1; 
-			if(solveNQUtil(board, col + 1) || res){
-				res = true;
-			} 
-			board[i][col] = 0; // BACKTRACK 
-		} 
-	} 
-	return res; 
-} 
-  
-/* This function solves the N Queen problem using 
-Backtracking. */
-int solveNQ(int N) { 
-	vector<vector<int>> board(N, vector<int>(N));;
-	
-	if (solveNQUtil(board, 0) == false) { 
-		printf("Solution does not exist"); 
-		return 0; 
-	} 
-  
-	return numberOfResults; 
-} 
- 
+
+	// column is ok, set the queen
+	queens[row]=col;
+	if(row==size-1) {
+		#pragma omp atomic
+		numberOfSolutions++;  //Placed final queen, found a solution
+	}
+	else {
+		 // try to fill next row
+		 for(int i=0; i<size; i++) {
+			 setQueen_parallel(queens, row+1, i, size, numberOfSolutions);
+		 }
+	}
+}
+
+//Function to find all solutions for nQueens problem on size x size chessboard.
+int solve_parallel(int size) {
+	int numberOfSolutions = 0;
+	#pragma omp parallel for
+    for(int i=0; i<size; i++) {
+         // try all positions in first row
+         int * queens = new int[size];  //array representing queens placed on a chess board.  Index is row position, value is column.
+         setQueen_parallel(queens, 0, i, size, numberOfSolutions);
+         delete[](queens);
+     }
+     return numberOfSolutions;
+}
