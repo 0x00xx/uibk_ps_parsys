@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/runTests.dir/montecarlo_test.cpp.o"
+  "CMakeFiles/runTests.dir/Montecarlo.cpp.o"
   "runTests.pdb"
   "runTests"
 )
