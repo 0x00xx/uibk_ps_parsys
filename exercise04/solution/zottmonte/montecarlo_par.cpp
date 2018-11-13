@@ -18,29 +18,34 @@ double get_random(){
 
 void montecarlo(long long s,mpf_t result){
   long long hit = 0;
+  double x;
+  double y;
+  double temp;
+  long long i;
   // Check if it is in circle
-  #pragma omp for
-  for (long long i=0; i<s; i++) {
+  #pragma omp parallel private(temp, x, y, i) reduction (+:hit)
+  {
+    #pragma omp parallel for
+    for (i=0; i<s/omp_get_max_threads(); i++) {
+      x = get_random();
+      y = get_random();
+      temp = pow(x,2)+pow(y,2);
+      if(temp <= 1.0){
+      //#pragma omp atomic
+        hit++;
+      }
+    }
+  }
+  for(i = 0; i < (s%omp_get_max_threads());i++){
     double x;
     double y;
     x = get_random();
     y = get_random();
     double temp = pow(x,2)+pow(y,2);
     if(temp <= 1.0){
-    #pragma omp atomic
       hit++;
     }
   }
-  /*for(int i = 0; i < (s%omp_get_max_threads());i++){
-    double x;
-    double y;
-    x = get_random();
-    y = get_random();
-    double temp = pow(x,2)+pow(y,2);
-    if(temp <= 1.0){
-      hit++;
-    }
-  }*/
   // Big int divison
   mpf_t hit_big;
   mpf_t s_big;
