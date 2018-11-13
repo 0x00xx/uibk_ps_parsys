@@ -23,16 +23,8 @@ VALUE get_random()
     return dis(e);
 }
 
-int main(int argc, char** argv) {
-
-  long long s = N;
-  char *temp;
-  if (argc >= 2) {
-    s = strtoul(argv[1],&temp,0)/omp_get_max_threads();
-  }
-
-// calculate random points
-
+void montecarlo(long long s,mpf_t result)
+{
   long long hit = 0;
   VALUE x;
   VALUE y;
@@ -49,7 +41,6 @@ int main(int argc, char** argv) {
 
     mpf_t hit_big;
     mpf_t s_big;
-    mpf_t result;
     mpf_init(hit_big);
     mpf_init(s_big);
     mpf_init2(result,256);
@@ -57,5 +48,24 @@ int main(int argc, char** argv) {
     mpf_mul_ui(hit_big,hit_big,4);
     mpf_set_ui(s_big,s);
     mpf_div(result,hit_big,s_big);
-	gmp_printf("Verification: %.20Ff\n", result);
+}
+
+double getDouble(long long s){
+  mpf_t result;
+  montecarlo(s,result);
+  double pi = mpf_get_d(result);
+  return pi;
+}
+
+int main(int argc, char** argv) {
+
+  long long s = N;
+  char *temp;
+  if (argc >= 2) {
+    s = strtoul(argv[1],&temp,0)/omp_get_max_threads();
+  }
+
+  double pi = getDouble(s);
+  //gmp_printf("Verification: %.20Ff\n", result);
+  printf("%.12f\n",pi);
 }
