@@ -1,4 +1,4 @@
-// g++ montecarlo_par2.cpp -o montecarlo_par -O3 -std=c++11 -Wall -lgmp -fopenmp
+// g++ montecarlo_par.cpp -o montecarlo_par -O3 -std=c++11 -Wall -lgmp -fopenmp
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -6,7 +6,6 @@
 #include <math.h>
 #include <gmp.h>
 #include <omp.h>
-#include <random>
 
 #ifndef N
 	#define N 1000
@@ -14,39 +13,37 @@
 
 #define VALUE double
 
-VALUE get_random()
-{
-    // static std::random_device rd;
-    // static std::mt19937 e(rd());
-    static std::mt19937 e(123456789);
-    static std::uniform_real_distribution<> dis(0, 1); // rage 0 - 1
-    return dis(e);
-}
+int state;
 
 int main(int argc, char** argv) {
 
   long long s = N;
   char *temp;
   if (argc >= 2) {
-    s = strtoul(argv[1],&temp,0)/omp_get_max_threads();
+    s = strtoul(argv[1],&temp,0);
   }
 
-// calculate random points
+	// calculate random points
+	srandom(time(NULL));
 
   long long hit = 0;
   VALUE x;
   VALUE y;
   // Check if it is in circle
+  #pragma omp threadprivate(state)
+  #pragma omp parallel private(x,y) reduction(+:hit) 
+  {
+    state = omp_get_thread_num();
     #pragma omp for
     for (long long i=0; i<s; i++) {
-      x = get_random();
-      y = get_random();
+      x = (VALUE)rand()/RAND_MAX;
+      y = (VALUE)rand()/RAND_MAX;
       VALUE temp = pow(x,2)+pow(y,2);
       if(temp <= 1.0){
         hit++;
       }
     }
-
+  }
     mpf_t hit_big;
     mpf_t s_big;
     mpf_t result;
