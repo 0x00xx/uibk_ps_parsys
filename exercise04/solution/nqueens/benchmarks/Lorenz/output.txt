@@ -53,16 +53,17 @@ Median Values
 
 Problemsize: 15
 Iterations: 10
-Average time: 23.75260286331177
-Median time: 23.70219600200653
+Average time: 23.72772057056427
+Median time: 23.70627272129059
 Average Values
-	Cycles: 83278658953 
-	instr: 223626896832 
-	Cache Misses: 14247 
-	Seconds: 23.8756654424
+	Cycles: 82655367746 
+	instr: 223626412804 
+	Cache Misses: 18410 
+	Seconds: 23.7178243097
 
 Median Values
-	Cycles: 82654518452 
-	instr: 223626735491 
-	Cache Misses: 13702 
-	Seconds: 23.7270184425
+	Cycles: 82656659231 
+	instr: 223626414396 
+	Cache Misses: 18155 
+	Seconds: 23.709300448
+
