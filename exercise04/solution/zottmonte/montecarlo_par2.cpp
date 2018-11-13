@@ -18,6 +18,7 @@ VALUE get_random()
 {
     static std::random_device rd;
     static std::mt19937 e(rd());
+    e.seed(1337);
     static std::uniform_real_distribution<> dis(0, 1); // rage 0 - 1
     return dis(e);
 }
@@ -30,8 +31,7 @@ int main(int argc, char** argv) {
     s = strtoul(argv[1],&temp,0)/omp_get_max_threads();
   }
 
-	// calculate random points
-	srandom(time(NULL));
+// calculate random points
 
   long long hit = 0;
   VALUE x;
