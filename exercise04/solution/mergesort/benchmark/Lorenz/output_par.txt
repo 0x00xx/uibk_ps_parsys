@@ -1,0 +1,228 @@
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Building
+
+Problemsize: 1024
+Iterations: 10
+Average time: 0.004829263687133789
+Median time: 0.004365205764770508
+Average Values
+	Cycles: 37888396 
+	instr: 19879454 
+	Cache Misses: 15265 
+	Seconds: 0.0031543739
+
+Median Values
+	Cycles: 39702833 
+	instr: 20632664 
+	Cache Misses: 14448 
+	Seconds: 0.003180062
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Building
+
+Problemsize: 2048
+Iterations: 10
+Average time: 0.004865527153015137
+Median time: 0.004582405090332031
+Average Values
+	Cycles: 57310355 
+	instr: 30327234 
+	Cache Misses: 16286 
+	Seconds: 0.0044160268
+
+Median Values
+	Cycles: 59502487 
+	instr: 31248220 
+	Cache Misses: 15169 
+	Seconds: 0.004177067
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Building
+
+Problemsize: 4096
+Iterations: 10
+Average time: 0.005428194999694824
+Median time: 0.004866242408752441
+Average Values
+	Cycles: 71480958 
+	instr: 41232036 
+	Cache Misses: 16525 
+	Seconds: 0.0047478975
+
+Median Values
+	Cycles: 64108935 
+	instr: 38415076 
+	Cache Misses: 16257 
+	Seconds: 0.004576636
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Parallel Version
+Array is sorted
+Building
+
+Problemsize: 8192
+Iterations: 10
+Average time: 0.007840752601623535
+Median time: 0.007458329200744629
+Average Values
+	Cycles: 123986280 
+	instr: 72736239 
+	Cache Misses: 16319 
+	Seconds: 0.0070296813
+
+Median Values
+	Cycles: 111114549 
+	instr: 67537270 
+	Cache Misses: 15407 
+	Seconds: 0.00604993
