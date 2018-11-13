@@ -123,32 +123,32 @@ runTests/fast:
 	$(MAKE) -f CMakeFiles/runTests.dir/build.make CMakeFiles/runTests.dir/build
 .PHONY : runTests/fast
 
-montecarlo_par.o: montecarlo_par.cpp.o
+montecarlo_test.o: montecarlo_test.cpp.o
 
-.PHONY : montecarlo_par.o
+.PHONY : montecarlo_test.o
 
 # target to build an object file
-montecarlo_par.cpp.o:
-	$(MAKE) -f CMakeFiles/runTests.dir/build.make CMakeFiles/runTests.dir/montecarlo_par.cpp.o
-.PHONY : montecarlo_par.cpp.o
+montecarlo_test.cpp.o:
+	$(MAKE) -f CMakeFiles/runTests.dir/build.make CMakeFiles/runTests.dir/montecarlo_test.cpp.o
+.PHONY : montecarlo_test.cpp.o
 
-montecarlo_par.i: montecarlo_par.cpp.i
+montecarlo_test.i: montecarlo_test.cpp.i
 
-.PHONY : montecarlo_par.i
+.PHONY : montecarlo_test.i
 
 # target to preprocess a source file
-montecarlo_par.cpp.i:
-	$(MAKE) -f CMakeFiles/runTests.dir/build.make CMakeFiles/runTests.dir/montecarlo_par.cpp.i
-.PHONY : montecarlo_par.cpp.i
+montecarlo_test.cpp.i:
+	$(MAKE) -f CMakeFiles/runTests.dir/build.make CMakeFiles/runTests.dir/montecarlo_test.cpp.i
+.PHONY : montecarlo_test.cpp.i
 
-montecarlo_par.s: montecarlo_par.cpp.s
+montecarlo_test.s: montecarlo_test.cpp.s
 
-.PHONY : montecarlo_par.s
+.PHONY : montecarlo_test.s
 
 # target to generate assembly for a file
-montecarlo_par.cpp.s:
-	$(MAKE) -f CMakeFiles/runTests.dir/build.make CMakeFiles/runTests.dir/montecarlo_par.cpp.s
-.PHONY : montecarlo_par.cpp.s
+montecarlo_test.cpp.s:
+	$(MAKE) -f CMakeFiles/runTests.dir/build.make CMakeFiles/runTests.dir/montecarlo_test.cpp.s
+.PHONY : montecarlo_test.cpp.s
 
 # Help Target
 help:
@@ -159,9 +159,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... runTests"
 	@echo "... edit_cache"
-	@echo "... montecarlo_par.o"
-	@echo "... montecarlo_par.i"
-	@echo "... montecarlo_par.s"
+	@echo "... montecarlo_test.o"
+	@echo "... montecarlo_test.i"
+	@echo "... montecarlo_test.s"
 .PHONY : help
 
 

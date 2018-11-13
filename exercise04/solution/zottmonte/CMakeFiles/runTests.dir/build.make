@@ -57,38 +57,38 @@ include CMakeFiles/runTests.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/runTests.dir/flags.make
 
-CMakeFiles/runTests.dir/montecarlo_par.cpp.o: CMakeFiles/runTests.dir/flags.make
-CMakeFiles/runTests.dir/montecarlo_par.cpp.o: montecarlo_par.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kuro/Documents/ParSys/exercise04/solution/zottmonte/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/runTests.dir/montecarlo_par.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/runTests.dir/montecarlo_par.cpp.o -c /home/kuro/Documents/ParSys/exercise04/solution/zottmonte/montecarlo_par.cpp
+CMakeFiles/runTests.dir/montecarlo_test.cpp.o: CMakeFiles/runTests.dir/flags.make
+CMakeFiles/runTests.dir/montecarlo_test.cpp.o: montecarlo_test.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kuro/Documents/ParSys/exercise04/solution/zottmonte/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/runTests.dir/montecarlo_test.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/runTests.dir/montecarlo_test.cpp.o -c /home/kuro/Documents/ParSys/exercise04/solution/zottmonte/montecarlo_test.cpp
 
-CMakeFiles/runTests.dir/montecarlo_par.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/runTests.dir/montecarlo_par.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kuro/Documents/ParSys/exercise04/solution/zottmonte/montecarlo_par.cpp > CMakeFiles/runTests.dir/montecarlo_par.cpp.i
+CMakeFiles/runTests.dir/montecarlo_test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/runTests.dir/montecarlo_test.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kuro/Documents/ParSys/exercise04/solution/zottmonte/montecarlo_test.cpp > CMakeFiles/runTests.dir/montecarlo_test.cpp.i
 
-CMakeFiles/runTests.dir/montecarlo_par.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/runTests.dir/montecarlo_par.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kuro/Documents/ParSys/exercise04/solution/zottmonte/montecarlo_par.cpp -o CMakeFiles/runTests.dir/montecarlo_par.cpp.s
+CMakeFiles/runTests.dir/montecarlo_test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/runTests.dir/montecarlo_test.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kuro/Documents/ParSys/exercise04/solution/zottmonte/montecarlo_test.cpp -o CMakeFiles/runTests.dir/montecarlo_test.cpp.s
 
-CMakeFiles/runTests.dir/montecarlo_par.cpp.o.requires:
+CMakeFiles/runTests.dir/montecarlo_test.cpp.o.requires:
 
-.PHONY : CMakeFiles/runTests.dir/montecarlo_par.cpp.o.requires
+.PHONY : CMakeFiles/runTests.dir/montecarlo_test.cpp.o.requires
 
-CMakeFiles/runTests.dir/montecarlo_par.cpp.o.provides: CMakeFiles/runTests.dir/montecarlo_par.cpp.o.requires
-	$(MAKE) -f CMakeFiles/runTests.dir/build.make CMakeFiles/runTests.dir/montecarlo_par.cpp.o.provides.build
-.PHONY : CMakeFiles/runTests.dir/montecarlo_par.cpp.o.provides
+CMakeFiles/runTests.dir/montecarlo_test.cpp.o.provides: CMakeFiles/runTests.dir/montecarlo_test.cpp.o.requires
+	$(MAKE) -f CMakeFiles/runTests.dir/build.make CMakeFiles/runTests.dir/montecarlo_test.cpp.o.provides.build
+.PHONY : CMakeFiles/runTests.dir/montecarlo_test.cpp.o.provides
 
-CMakeFiles/runTests.dir/montecarlo_par.cpp.o.provides.build: CMakeFiles/runTests.dir/montecarlo_par.cpp.o
+CMakeFiles/runTests.dir/montecarlo_test.cpp.o.provides.build: CMakeFiles/runTests.dir/montecarlo_test.cpp.o
 
 
 # Object files for target runTests
 runTests_OBJECTS = \
-"CMakeFiles/runTests.dir/montecarlo_par.cpp.o"
+"CMakeFiles/runTests.dir/montecarlo_test.cpp.o"
 
 # External object files for target runTests
 runTests_EXTERNAL_OBJECTS =
 
-runTests: CMakeFiles/runTests.dir/montecarlo_par.cpp.o
+runTests: CMakeFiles/runTests.dir/montecarlo_test.cpp.o
 runTests: CMakeFiles/runTests.dir/build.make
 runTests: /usr/lib/libgtest.a
 runTests: CMakeFiles/runTests.dir/link.txt
@@ -100,7 +100,7 @@ CMakeFiles/runTests.dir/build: runTests
 
 .PHONY : CMakeFiles/runTests.dir/build
 
-CMakeFiles/runTests.dir/requires: CMakeFiles/runTests.dir/montecarlo_par.cpp.o.requires
+CMakeFiles/runTests.dir/requires: CMakeFiles/runTests.dir/montecarlo_test.cpp.o.requires
 
 .PHONY : CMakeFiles/runTests.dir/requires
 

@@ -22,3 +22,11 @@ omp.h
 random
 -
 
+/home/kuro/Documents/ParSys/exercise04/solution/zottmonte/montecarlo_test.cpp
+montecarlo_par.cpp
+/home/kuro/Documents/ParSys/exercise04/solution/zottmonte/montecarlo_par.cpp
+gtest/gtest.h
+/home/kuro/Documents/ParSys/exercise04/solution/zottmonte/gtest/gtest.h
+map
+-
+

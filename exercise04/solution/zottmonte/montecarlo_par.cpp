@@ -8,64 +8,44 @@
 #include <omp.h>
 #include <random>
 
-#ifndef N
-	#define N 1000
-#endif
-
-#define VALUE double
-
-VALUE get_random()
-{
-    // static std::random_device rd;
-    // static std::mt19937 e(rd());
-    static std::mt19937 e(123456789);
-    static std::uniform_real_distribution<> dis(0, 1); // rage 0 - 1
-    return dis(e);
+double get_random(){
+  // static std::random_device rd;
+  // static std::mt19937 e(rd());
+  static std::mt19937 e(123456789);
+  static std::uniform_real_distribution<> dis(0, 1); // range 0 - 1
+  return dis(e);
 }
 
-void montecarlo(long long s,mpf_t result)
-{
+void montecarlo(long long s,mpf_t result){
   long long hit = 0;
-  VALUE x;
-  VALUE y;
+  double x;
+  double y;
   // Check if it is in circle
-    #pragma omp for
-    for (long long i=0; i<s; i++) {
-      x = get_random();
-      y = get_random();
-      VALUE temp = pow(x,2)+pow(y,2);
-      if(temp <= 1.0){
-        hit++;
-      }
+  #pragma omp for
+  for (long long i=0; i<s; i++) {
+    x = get_random();
+    y = get_random();
+    double temp = pow(x,2)+pow(y,2);
+    if(temp <= 1.0){
+      hit++;
     }
-
-    mpf_t hit_big;
-    mpf_t s_big;
-    mpf_init(hit_big);
-    mpf_init(s_big);
-    mpf_init2(result,256);
-    mpf_set_ui(hit_big,hit);
-    mpf_mul_ui(hit_big,hit_big,4);
-    mpf_set_ui(s_big,s);
-    mpf_div(result,hit_big,s_big);
+  }
+  // Big int divison
+  mpf_t hit_big;
+  mpf_t s_big;
+  mpf_init(hit_big);
+  mpf_init(s_big);
+  mpf_init2(result,256);
+  mpf_set_ui(hit_big,hit);
+  mpf_mul_ui(hit_big,hit_big,4);
+  mpf_set_ui(s_big,s);
+  mpf_div(result,hit_big,s_big);
 }
 
 double getDouble(long long s){
   mpf_t result;
+  s = s / omp_get_max_threads();
   montecarlo(s,result);
   double pi = mpf_get_d(result);
   return pi;
-}
-
-int main(int argc, char** argv) {
-
-  long long s = N;
-  char *temp;
-  if (argc >= 2) {
-    s = strtoul(argv[1],&temp,0)/omp_get_max_threads();
-  }
-
-  double pi = getDouble(s);
-  //gmp_printf("Verification: %.20Ff\n", result);
-  printf("%.12f\n",pi);
 }
