@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <math.h>
-#include <gmp.h>
+#include "gmp.h"
 #include <omp.h>
 #include <random>
 
