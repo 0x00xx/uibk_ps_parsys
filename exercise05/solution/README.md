@@ -85,7 +85,7 @@ _Seq. Compiler Command:_
 
 _Par. Compiler Command:_
 
-### Sequentiell
+### Optimized
 
 | size\threads | seq | 1 | 2 | 4 | 8 |
 |------|-------|--------|--------|--------|--------|
