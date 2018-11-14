@@ -1,0 +1,228 @@
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Building
+
+Problemsize: 1024
+Iterations: 10
+Average time: 0.0018709897994995117
+Median time: 0.0018613338470458984
+Average Values
+	Cycles: 3536931 
+	instr: 3754555 
+	Cache Misses: 48186 
+	Seconds: 0.0015087076
+
+Median Values
+	Cycles: 3550334 
+	instr: 3747233 
+	Cache Misses: 47686 
+	Seconds: 0.0014586500000000001
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Building
+
+Problemsize: 2048
+Iterations: 10
+Average time: 0.0019561052322387695
+Median time: 0.0019469261169433594
+Average Values
+	Cycles: 3801610 
+	instr: 4139418 
+	Cache Misses: 48887 
+	Seconds: 0.0016134223
+
+Median Values
+	Cycles: 3833153 
+	instr: 4143574 
+	Cache Misses: 47896 
+	Seconds: 0.0015694335
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Building
+
+Problemsize: 4096
+Iterations: 10
+Average time: 0.0022248268127441407
+Median time: 0.002222895622253418
+Average Values
+	Cycles: 4337607 
+	instr: 4892219 
+	Cache Misses: 48203 
+	Seconds: 0.001778373
+
+Median Values
+	Cycles: 4332270 
+	instr: 4893090 
+	Cache Misses: 46432 
+	Seconds: 0.001718675
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Sequential Version
+Array is sorted
+Building
+
+Problemsize: 8192
+Iterations: 10
+Average time: 0.0025177717208862303
+Median time: 0.002529144287109375
+Average Values
+	Cycles: 5480565 
+	instr: 6466754 
+	Cache Misses: 50183 
+	Seconds: 0.0021641819999999997
+
+Median Values
+	Cycles: 5502545 
+	instr: 6460624 
+	Cache Misses: 49458 
+	Seconds: 0.0021034745
