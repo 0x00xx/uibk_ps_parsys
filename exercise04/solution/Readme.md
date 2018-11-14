@@ -1,9 +1,14 @@
-# Results:
+# Results
 
-### Rigs:
-benni:
-dani: 
-lorenz:
+### Rigs
+Benni:
+Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz (2 Cores, 4 Threads)
+
+Dani:
+Intel(R) Core(TM) i7-920 CPU @ 3.2GHz (4 Cores, 8 Threads)
+
+Lorenz:
+Intel(R) Core(TM) i7-4710MQ CPU @ 2.50GHz (4 Cores, 8 Threads)
 
 ### Benchmark Settings
 
@@ -17,11 +22,9 @@ Testing values:
 | 15       | 80 Mio.    | 8192      |
 |          | 160 Mio.   |           |
 
-**Both sequentiell and parallel**
+Both **sequentiell** and **parallel**
 
-# Results:
-
-## N-Queens Problem:
+## N-Queens Problem
 
 ### Sequentiell
 
@@ -60,7 +63,7 @@ Perf Tools (lorenz):
 | 14   | 17,028,963,295  | 29,238,546,600  | 15,484     |
 | 15   | 121,174,573,263 | 213,250,122,108 | 17,894     |
 
-## Montecarlo:
+## Montecarlo
 
 ### Sequentiell
 
@@ -102,9 +105,9 @@ Perf Tools (lorenz):
 | 80 Mio.  | 52,408,332,113  | 21,971,138,659 | 26,085     |
 | 160 Mio. | 108,016,437,236 | 43,855,406,895 | 20,255     |
 
-## Mergesort:
+## Mergesort
 
-### Sequentiell:
+### Sequentiell
 
 | size | benni | dani   | lorenz |
 |------|-------|--------|--------|
@@ -122,7 +125,7 @@ Perf Tools (lorenz):
 | 4096 | 4,637,893 | 4,855,153 | 11,908     |
 | 8192 | 5,666,624 | 6,443,851 | 12,081     |
 
-### Parallel:
+### Parallel
 
 | size | benni | dani   | lorenz |
 |------|-------|--------|--------|
