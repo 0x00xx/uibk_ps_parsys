@@ -1,35 +1,66 @@
 #include "Montecarlo.h"
 #include "gtest/gtest.h"
+#include <math.h>
 
 TEST(MontecarloTestSeq, VerifyResult1) { 
-    long long s = 10000;
-    double result = getDoubleSeq(s);
-    ASSERT_DOUBLE_EQ (result, 3.1388);
+    long s = 1000;
+    double precision = 0.5
+    EXPECT_NEAR(M_PI, montecarloSeq(s), precision);
 }
 
 TEST(MontecarloTestSeq, VerifyResult2) { 
-    long long s = 100000;
-    double result = getDoubleSeq(s);
-    ASSERT_DOUBLE_EQ (result, 3.13928);
+    long s = 10000;
+    double precision = 0.1
+    EXPECT_NEAR(M_PI, montecarloSeq(s), precision);
 }
 
 TEST(MontecarloTestSeq, VerifyResult3) { 
-    long long s = 1000000;
-    double result = getDoubleSeq(s);
-    ASSERT_DOUBLE_EQ (result, 3.142896);
+    long s = 100000;
+    double precision = 0.05
+    EXPECT_NEAR(M_PI, montecarloSeq(s), precision);
 }
 
 TEST(MontecarloTestSeq, VerifyResult4) { 
-    long long s = 10000000;
-    double result = getDoubleSeq(s);
-    ASSERT_DOUBLE_EQ (result, 3.1421912);
+    long s = 1000000;
+    double precision = 0.01
+    EXPECT_NEAR(M_PI, montecarloSeq(s), precision);
 }
 
-/*TEST(MontecarloTestPar, VerifyResult1) { 
-    long long s = 100000;
-    double result = getDoublePar(s);
-    ASSERT_DOUBLE_EQ (result, 3.1438);
-}*/
+TEST(MontecarloTestSeq, VerifyResult5) { 
+    long s = 10000000;
+    double precision = 0.005
+    EXPECT_NEAR(M_PI, montecarloSeq(s), precision);
+}
+
+TEST(MontecarloTestPar, VerifyResult1) { 
+    long s = 1000;
+    double precision = 0.5
+    EXPECT_NEAR(M_PI, montecarloPar(s), precision);
+}
+
+TEST(MontecarloTestPar, VerifyResult2) { 
+    long s = 10000;
+    double precision = 0.1
+    EXPECT_NEAR(M_PI, montecarloPar(s), precision);
+}
+
+TEST(MontecarloTestPar, VerifyResult3) { 
+    long s = 100000;
+    double precision = 0.05
+    EXPECT_NEAR(M_PI, montecarloPar(s), precision);
+}
+
+TEST(MontecarloTestPar, VerifyResult4) { 
+    long s = 1000000;
+    double precision = 0.01
+    EXPECT_NEAR(M_PI, montecarloPar(s), precision);
+}
+
+TEST(MontecarloTestPar, VerifyResult5) { 
+    long s = 10000000;
+    double precision = 0.005
+    EXPECT_NEAR(M_PI, montecarloPar(s), precision);
+}
 
 int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);
