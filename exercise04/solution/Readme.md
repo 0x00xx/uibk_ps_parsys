@@ -24,6 +24,8 @@ Testing values:
 
 Both **sequentiell** and **parallel**
 
+Benchmark times are the **median** over **10** iterations in **seconds**
+
 ## N-Queens Problem
 
 ### Sequentiell
