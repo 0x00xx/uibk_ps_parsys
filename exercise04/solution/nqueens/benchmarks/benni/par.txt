@@ -22,19 +22,19 @@ Building
 
 Problemsize: 12
 Iterations: 10
-Average time: 0.10687777996063233
-Median time: 0.10485172271728516
+Average time: 0.04850969314575195
+Median time: 0.04825639724731445
 Average Values
-	Cycles: 320875236 
-	instr: 691386795 
-	Cache Misses: 45266 
-	Seconds: 0.1051265819
+	Cycles: 530159910 
+	instr: 683568265 
+	Cache Misses: 65773 
+	Seconds: 0.0477044772
 
 Median Values
-	Cycles: 319826328 
-	instr: 691393537 
-	Cache Misses: 44414 
-	Seconds: 0.104219827
+	Cycles: 530138269 
+	instr: 683587273 
+	Cache Misses: 64387 
+	Seconds: 0.047570865000000004
 73712
 73712
 73712
@@ -59,19 +59,19 @@ Building
 
 Problemsize: 13
 Iterations: 10
-Average time: 0.6115833282470703
-Median time: 0.6109580993652344
+Average time: 0.292184853553772
+Median time: 0.2934979200363159
 Average Values
-	Cycles: 1880234692 
-	instr: 4451623688 
-	Cache Misses: 53229 
-	Seconds: 0.6105013994
+	Cycles: 3098581993 
+	instr: 4322365863 
+	Cache Misses: 83474 
+	Seconds: 0.2963162842
 
 Median Values
-	Cycles: 1877795688 
-	instr: 4451625781 
-	Cache Misses: 55005 
-	Seconds: 0.610057101
+	Cycles: 3103723894 
+	instr: 4322323040 
+	Cache Misses: 79495 
+	Seconds: 0.293873573
 365596
 365596
 365596
@@ -96,19 +96,19 @@ Building
 
 Problemsize: 14
 Iterations: 10
-Average time: 3.8980236291885375
-Median time: 3.8968923091888428
+Average time: 1.7894774436950684
+Median time: 1.788786768913269
 Average Values
-	Cycles: 12033309306 
-	instr: 30736406732 
-	Cache Misses: 55273 
-	Seconds: 3.8955814949
+	Cycles: 18377334415 
+	instr: 29225348604 
+	Cache Misses: 82417 
+	Seconds: 1.7898544769
 
 Median Values
-	Cycles: 12012611344 
-	instr: 30736389827 
-	Cache Misses: 53626 
-	Seconds: 3.888704316
+	Cycles: 18411877503 
+	instr: 29225332626 
+	Cache Misses: 76688 
+	Seconds: 1.782428683
 2279184
 2279184
 2279184
@@ -133,16 +133,16 @@ Building
 
 Problemsize: 15
 Iterations: 10
-Average time: 26.466798663139343
-Median time: 26.42104423046112
+Average time: 12.541887736320495
+Median time: 12.494198203086853
 Average Values
-	Cycles: 81716756081 
-	instr: 223629069305 
-	Cache Misses: 131146 
-	Seconds: 26.4768369503
+	Cycles: 125643756945 
+	instr: 213233691104 
+	Cache Misses: 154258 
+	Seconds: 12.8148720012
 
 Median Values
-	Cycles: 81625880835 
-	instr: 223628828114 
-	Cache Misses: 88402 
-	Seconds: 26.428692361499998
+	Cycles: 125752757797 
+	instr: 213233763869 
+	Cache Misses: 151049 
+	Seconds: 12.807822318500001
