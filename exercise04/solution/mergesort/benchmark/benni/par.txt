@@ -1,228 +1,228 @@
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
 Building
 
 Problemsize: 1024
 Iterations: 10
-Average time: 0.0019371747970581056
-Median time: 0.0019184350967407227
+Average time: 0.004015374183654785
+Median time: 0.003965854644775391
 Average Values
-	Cycles: 3554997 
-	instr: 3760550 
-	Cache Misses: 47760 
-	Seconds: 0.0014971861
+	Cycles: 15359170 
+	instr: 10568211 
+	Cache Misses: 62475 
+	Seconds: 0.0030621625
 
 Median Values
-	Cycles: 3573081 
-	instr: 3751384 
-	Cache Misses: 46021 
-	Seconds: 0.0014690375
-Sequential Version
+	Cycles: 14908928 
+	instr: 10549972 
+	Cache Misses: 61238 
+	Seconds: 0.002937187
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
 Building
 
 Problemsize: 2048
 Iterations: 10
-Average time: 0.0019488334655761719
-Median time: 0.0019669532775878906
+Average time: 0.004746747016906738
+Median time: 0.004408478736877441
 Average Values
-	Cycles: 3795580 
-	instr: 4125133 
-	Cache Misses: 48693 
-	Seconds: 0.0015605351
+	Cycles: 25414811 
+	instr: 17385816 
+	Cache Misses: 62757 
+	Seconds: 0.0040533951
 
 Median Values
-	Cycles: 3816063 
-	instr: 4122707 
-	Cache Misses: 47394 
-	Seconds: 0.001543337
-Sequential Version
+	Cycles: 25328665 
+	instr: 17396637 
+	Cache Misses: 61463 
+	Seconds: 0.0040451555
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
 Building
 
 Problemsize: 4096
 Iterations: 10
-Average time: 0.0021298408508300783
-Median time: 0.0021255016326904297
+Average time: 0.00689244270324707
+Median time: 0.006751060485839844
 Average Values
-	Cycles: 4341878 
-	instr: 4895177 
-	Cache Misses: 49143 
-	Seconds: 0.001782857
+	Cycles: 47333056 
+	instr: 31131641 
+	Cache Misses: 64087 
+	Seconds: 0.0063630896
 
 Median Values
-	Cycles: 4351741 
-	instr: 4905471 
-	Cache Misses: 48708 
-	Seconds: 0.0017297605
-Sequential Version
+	Cycles: 46262504 
+	instr: 31048037 
+	Cache Misses: 64123 
+	Seconds: 0.0062367045
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
-Sequential Version
+Parallel Version
 Array is sorted
 Building
 
 Problemsize: 8192
 Iterations: 10
-Average time: 0.0025710105895996095
-Median time: 0.002527594566345215
+Average time: 0.010924911499023438
+Median time: 0.01091301441192627
 Average Values
-	Cycles: 5466378 
-	instr: 6475862 
-	Cache Misses: 48978 
-	Seconds: 0.0021344339
+	Cycles: 89008765 
+	instr: 58512680 
+	Cache Misses: 68949 
+	Seconds: 0.0108121924
 
 Median Values
-	Cycles: 5482143 
-	instr: 6473951 
-	Cache Misses: 48298 
-	Seconds: 0.0021192785000000002
+	Cycles: 87681605 
+	instr: 58385157 
+	Cache Misses: 67382 
+	Seconds: 0.010608881
