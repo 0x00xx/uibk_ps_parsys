@@ -2,7 +2,10 @@
 #include <iomanip>   // modify std::out
 #include <omp.h>
 
-void setQueen_parallel(int queens[], int row, int col, int size, int &numberOfSolutions) {
+int numberOfSolutions = 0;
+int size = 0;
+
+void setQueen_parallel(int queens[], int row, int col, int id) {
 	//check all previously placed rows for attacks
 	for(int i=0; i<row; i++) {
 	   // vertical attacks
@@ -21,24 +24,27 @@ void setQueen_parallel(int queens[], int row, int col, int size, int &numberOfSo
 	if(row==size-1) {
 		#pragma omp atomic
 		numberOfSolutions++;  //Placed final queen, found a solution
-	}
-	else {
+	}else {
 		 // try to fill next row
 		 for(int i=0; i<size; i++) {
-			 setQueen_parallel(queens, row+1, i, size, numberOfSolutions);
+			 setQueen_parallel(queens, row+1, i, id);
 		 }
 	}
 }
 
 //Function to find all solutions for nQueens problem on size x size chessboard.
-int solve_parallel(int size) {
-	int numberOfSolutions = 0;
-	#pragma omp parallel for
-    for(int i=0; i<size; i++) {
-         // try all positions in first row
-         int * queens = new int[size];  //array representing queens placed on a chess board.  Index is row position, value is column.
-         setQueen_parallel(queens, 0, i, size, numberOfSolutions);
-         delete[](queens);
-     }
+int solve_parallel(int N) {
+	size = N;
+	int myid = 0;
+	#pragma omp parallel
+	#pragma omp single
+	{
+		for(int i=0; i<size; i++) {
+			myid = omp_get_thread_num(); 
+			// try all positions in first row
+			#pragma omp task
+			setQueen_parallel(new int[size], 0, i, myid);
+		 }
+	 }
      return numberOfSolutions;
 }
