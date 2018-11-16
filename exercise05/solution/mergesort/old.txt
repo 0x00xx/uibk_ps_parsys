@@ -1,0 +1,11 @@
+seq:
+Problemsize: 4096
+Iterations: 10
+Average time: 0.006546330451965332
+Median time: 0.0065305233001708984
+
+par:
+Problemsize: 4096
+Iterations: 10
+Average time: 0.024877429008483887
+Median time: 0.02072620391845703

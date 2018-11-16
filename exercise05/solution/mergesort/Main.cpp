@@ -11,17 +11,15 @@ int main(int argc, char** argv) {
 
     srand (time(NULL));
     for (int i = 0; i < arraySize; ++i) {
-        array[i] = rand() % arraySize*2;
+        array[i] = rand() % arraySize;
     }
 
     if (argc == 3) {
-        cout << "Parallel Version" << endl;
         mergeSortPar(array, arraySize);
+	//mergeSortRecPar(array, 0, arraySize-1);
     } else {
-        cout << "Sequential Version" << endl;
         mergeSortSeq(array, arraySize);
+	//mergeSortRecSeq(array, 0, arraySize-1);
     }
-    cout << (isOrdered(array, arraySize) ? "Array is sorted" : "Array is not sorted") << endl;
-
-    return EXIT_SUCCESS;
+    return isOrdered(array, arraySize);
 }

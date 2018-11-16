@@ -71,14 +71,14 @@ def print_results():
     print("\nProblemsize: %s\nIterations: %s" % (PROBLEM_SIZE, NUMBER_OF_ITERATIONS))
     print("Average time: %s" % (statistics.mean(time_list)))
     print("Median time: %s" % (statistics.median(time_list)))
-    print("Average Values\n\tCycles: %i \n\tinstr: %i \n\tCache Misses: %i \n\tSeconds: %s" % (statistics.mean(cycles_list), statistics.mean(instructions_list), statistics.mean(cache_misses_list), statistics.mean(seconds_list)))
-    print("\nMedian Values\n\tCycles: %i \n\tinstr: %i \n\tCache Misses: %i \n\tSeconds: %s" % (statistics.median(cycles_list), statistics.median(instructions_list), statistics.median(cache_misses_list), statistics.median(seconds_list)))
+    #print("Average Values\n\tCycles: %i \n\tinstr: %i \n\tCache Misses: %i \n\tSeconds: %s" % (statistics.mean(cycles_list), statistics.mean(instructions_list), statistics.mean(cache_misses_list), statistics.mean(seconds_list)))
+    #print("\nMedian Values\n\tCycles: %i \n\tinstr: %i \n\tCache Misses: %i \n\tSeconds: %s" % (statistics.median(cycles_list), statistics.median(instructions_list), statistics.median(cache_misses_list), statistics.median(seconds_list)))
 
 def main():
     print("Building")
     os.system("g++ Main.cpp MergeSort.h MergeSort.cpp -fopenmp -Wall -O3 -std=c++11 -o merge")
     time_bench()
-    perf_bench()
+    #perf_bench()
     print_results()
     os.system("rm merge")
 
