@@ -34,8 +34,7 @@ int solve(int size) {
 	int numberOfSolutions = 0;
     for(int i=0; i<size; i++) {
          // try all positions in first row
-         int * queens = new int[size];  //array representing queens placed on a chess board.  Index is row position, value is column.
-         setQueen(queens, 0, i, size, numberOfSolutions);
+         setQueen(new int[size], 0, i, size, numberOfSolutions);
          delete[](queens);
      }
      return numberOfSolutions;

@@ -37,7 +37,7 @@ int solve_parallel(int N) {
 	size = N;
 	int myid = 0;
 	#pragma omp parallel
-	#pragma omp single
+	#pragma omp master
 	{
 		for(int i=0; i<size; i++) {
 			myid = omp_get_thread_num(); 
