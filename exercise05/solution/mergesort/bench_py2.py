@@ -71,6 +71,7 @@ def print_results():
     print("\nProblemsize: %s\nIterations: %s" % (PROBLEM_SIZE, NUMBER_OF_ITERATIONS))
     print("Average time: %s" % (numpy.mean(time_list)))
     print("Median time: %s" % (numpy.median(time_list)))
+    print("Minimum time: %s" % (min(time_list)))
     #print("Average Values\n\tCycles: %i \n\tinstr: %i \n\tCache Misses: %i \n\tSeconds: %s" % (statistics.mean(cycles_list), statistics.mean(instructions_list), statistics.mean(cache_misses_list), statistics.mean(seconds_list)))
     #print("\nMedian Values\n\tCycles: %i \n\tinstr: %i \n\tCache Misses: %i \n\tSeconds: %s" % (statistics.median(cycles_list), statistics.median(instructions_list), statistics.median(cache_misses_list), statistics.median(seconds_list)))
 
