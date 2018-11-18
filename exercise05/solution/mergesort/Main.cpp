@@ -1,25 +1,28 @@
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+#include <iostream>
+
+
 #include "MergeSort.h"
 
 
-using namespace std;
-
 int main(int argc, char** argv) {
+	int N = atoi(argv[1]);
+	int* A = new int[N];
+    int* tmp = new int[N];
+	srand(time(NULL));
 
-    if (argc < 2) return EXIT_FAILURE;
-    int32_t arraySize = atoi(argv[1]);
-    int32_t array[atoi(argv[1])];
+	for (int i = 0; i < N; i++)
+		tmp[i] = A[i] = rand();
 
-    srand (time(NULL));
-    for (int i = 0; i < arraySize; ++i) {
-        array[i] = rand() % arraySize;
-    }
-
-    if (argc == 3) {
-        mergeSortPar(array, arraySize);
-	//mergeSortRecPar(array, 0, arraySize-1);
+    if (argc == 2) {
+	    mergeSortSeq(A, tmp, N);
     } else {
-        mergeSortSeq(array, arraySize);
-	//mergeSortRecSeq(array, 0, arraySize-1);
+        mergeSortPar(A, tmp, N);
     }
-    return isOrdered(array, arraySize);
+
+	delete[] A;
+	return 0;
+    //return isOrdered(A, N);
 }

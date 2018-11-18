@@ -5,8 +5,8 @@
 #ifndef MERGESORT_H
 #define MERGESORT_H
 
-void mergeSortSeq(int arr[], int n);
-void mergeSortPar(int arr[], int n);
+void mergeSortSeq(int arr[], int tmp[], int n);
+void mergeSortPar(int arr[], int tmp[], int n);
 void mergeSortRecSeq(int arr[], int l, int r);
 void mergeSortRecPar(int arr[], int l, int r);
 bool isOrdered(int array[], int arraySize);
