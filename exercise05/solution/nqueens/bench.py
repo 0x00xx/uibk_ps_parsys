@@ -1,7 +1,7 @@
 import time
 import os
 import subprocess
-import statistics
+import numpy
 import sys
 
 PROBLEM_SIZE = 0
@@ -68,22 +68,23 @@ def time_bench():
 def print_results():
     global time_list, cycles_avg, instructions_avg, cache_misses_avg, seconds_avg
     print("\nProblemsize: %s\nIterations: %s" % (PROBLEM_SIZE, NUMBER_OF_ITERATIONS))
-    print("Average time: %s" % (statistics.mean(time_list)))
-    print("Median time: %s" % (statistics.median(time_list)))
-    print("Average Values\n\tCycles: %i \n\tinstr: %i \n\tCache Misses: %i \n\tSeconds: %s" % (statistics.mean(cycles_list), statistics.mean(instructions_list), statistics.mean(cache_misses_list), statistics.mean(seconds_list)))
-    print("\nMedian Values\n\tCycles: %i \n\tinstr: %i \n\tCache Misses: %i \n\tSeconds: %s" % (statistics.median(cycles_list), statistics.median(instructions_list), statistics.median(cache_misses_list), statistics.median(seconds_list)))
+    print("Average time: %s" % (numpy.mean(time_list)))
+    print("Median time: %s" % (numpy.median(time_list)))
+    print("Minimum time: %s" % (numpy.min(time_list)))
+    #print("Average Values\n\tCycles: %i \n\tinstr: %i \n\tCache Misses: %i \n\tSeconds: %s" % (statistics.mean(cycles_list), statistics.mean(instructions_list), statistics.mean(cache_misses_list), statistics.mean(seconds_list)))
+    #print("\nMedian Values\n\tCycles: %i \n\tinstr: %i \n\tCache Misses: %i \n\tSeconds: %s" % (statistics.median(cycles_list), statistics.median(instructions_list), statistics.median(cache_misses_list), statistics.median(seconds_list)))
 
 def main():
     print("Building")
     os.system("g++ main_seq.cpp -Wall -O3 -std=c++11 -o nqueens")
     os.system("g++ main_parallel.cpp -fopenmp -Wall -O3 -std=c++11 -o nqueens_par")
     time_bench()
-    perf_bench()
+    #perf_bench()
     print_results()
     os.system("rm nqueens nqueens_par")
 
 def print_help(exe):
-    print("Usage:\n\tpython3 %s [problemsize] [version]\n\t\tproblemsize: Size of the array which should be used for the nqueens problem\n\t\tversion: Either parallel or sequential" % exe)
+    print("Usage:\n\tpython2 %s [problemsize] [version]\n\t\tproblemsize: Size of the array which should be used for the nqueens problem\n\t\tversion: Either parallel or sequential" % exe)
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
