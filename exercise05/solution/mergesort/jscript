@@ -1,6 +1,6 @@
 td.q
 #$ -cwd
-#$ -o output_8T_no_dat
+#$ -o output_1T_no_dat
 #$ -e error.dat
 
 python bench_py2.py 10000000 parallel
