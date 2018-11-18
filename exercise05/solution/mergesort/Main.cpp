@@ -22,7 +22,8 @@ int main(int argc, char** argv) {
         mergeSortPar(A, tmp, N);
     }
 
+	
+    char a = isOrdered(A, N);
 	delete[] A;
-	return 0;
-    //return isOrdered(A, N);
+	return a;
 }
