@@ -1,0 +1,6 @@
+td.q
+#$ -cwd
+#$ -o output.dat
+#$ -e error.dat
+
+python bench_py2.py 1024 sequential

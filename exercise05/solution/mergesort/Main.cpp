@@ -6,8 +6,8 @@ using namespace std;
 int main(int argc, char** argv) {
 
     if (argc < 2) return EXIT_FAILURE;
-    int arraySize = atoi(argv[1]);
-    int array[atoi(argv[1])];
+    int32_t arraySize = atoi(argv[1]);
+    int32_t array[atoi(argv[1])];
 
     srand (time(NULL));
     for (int i = 0; i < arraySize; ++i) {
