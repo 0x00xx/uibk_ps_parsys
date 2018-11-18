@@ -1,0 +1,21 @@
+Building
+
+Problemsize: 100000000
+Iterations: 10
+Average time: 8.56972932816
+Median time: 8.50774800777
+Minimum time: 8.49754905701
+Building
+
+Problemsize: 50000000
+Iterations: 10
+Average time: 4.05027210712
+Median time: 4.04622542858
+Minimum time: 4.03845882416
+Building
+
+Problemsize: 10000000
+Iterations: 10
+Average time: 0.761844277382
+Median time: 0.759724378586
+Minimum time: 0.757694005966
