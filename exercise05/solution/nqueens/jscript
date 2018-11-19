@@ -2,7 +2,7 @@
 
 #$ -q std.q
 #$ -cwd
-#$ -o output_8T
+#$ -o output_nqueens
 #$ -e error.dat
 #$ -pe openmp 8
 
