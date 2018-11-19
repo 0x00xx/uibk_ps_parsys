@@ -10,3 +10,23 @@ export OMP_NUM_THREADS=8
 python bench_py2.py 100000000 parallel
 python bench_py2.py 50000000 parallel
 python bench_py2.py 10000000 parallel
+
+export OMP_NUM_THREADS=4
+python bench_py2.py 100000000 parallel
+python bench_py2.py 50000000 parallel
+python bench_py2.py 10000000 parallel
+
+export OMP_NUM_THREADS=2
+python bench_py2.py 100000000 parallel
+python bench_py2.py 50000000 parallel
+python bench_py2.py 10000000 parallel
+
+export OMP_NUM_THREADS=1
+python bench_py2.py 100000000 parallel
+python bench_py2.py 50000000 parallel
+python bench_py2.py 10000000 parallel
+
+export OMP_NUM_THREADS=1
+python bench_py2.py 100000000 sequential
+python bench_py2.py 50000000 sequential
+python bench_py2.py 10000000 sequential
