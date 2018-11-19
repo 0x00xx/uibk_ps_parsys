@@ -1,6 +1,8 @@
-td.q
+#!/bin/bash
+
+#$ -q std.q
 #$ -cwd
-#$ -o output_8T_no_dat
+#$ -o output_8T
 #$ -e error.dat
 
-python bench_py2.py 10000000 parallel
+python bench.py 8 parallel

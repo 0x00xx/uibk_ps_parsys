@@ -30,6 +30,7 @@ void setQueen_parallel(int queens[], int row, int col, int id) {
 			 setQueen_parallel(queens, row+1, i, id);
 		 }
 	}
+	delete[](queens);
 }
 
 //Function to find all solutions for nQueens problem on size x size chessboard.
