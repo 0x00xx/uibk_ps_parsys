@@ -4,5 +4,29 @@
 #$ -cwd
 #$ -o output_8T
 #$ -e error.dat
+#$ -pe openmp 8
 
+export OMP_NUM_THREADS=8
 python bench.py 8 parallel
+python bench.py 10 parallel
+python bench.py 12 parallel
+
+export OMP_NUM_THREADS=4
+python bench.py 8 parallel
+python bench.py 10 parallel
+python bench.py 12 parallel
+
+export OMP_NUM_THREADS=2
+python bench.py 8 parallel
+python bench.py 10 parallel
+python bench.py 12 parallel
+
+export OMP_NUM_THREADS=1
+python bench.py 8 parallel
+python bench.py 10 parallel
+python bench.py 12 parallel
+
+export OMP_NUM_THREADS=1
+python bench.py 8 sequential
+python bench.py 10 sequential
+python bench.py 12 sequential
