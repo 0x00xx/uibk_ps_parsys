@@ -1,0 +1,105 @@
+Building
+
+Problemsize: 100000000
+Iterations: 10
+Average time: 0.00385599136353
+Median time: 0.00370907783508
+Minimum time: 0.00362992286682
+Building
+
+Problemsize: 10000000
+Iterations: 10
+Average time: 0.00390796661377
+Median time: 0.0037454366684
+Minimum time: 0.00369501113892
+Building
+
+Problemsize: 1000000
+Iterations: 10
+Average time: 0.00390059947968
+Median time: 0.00375151634216
+Minimum time: 0.00367999076843
+Building
+
+Problemsize: 100000000
+Iterations: 10
+Average time: 0.00394225120544
+Median time: 0.00380039215088
+Minimum time: 0.00376796722412
+Building
+
+Problemsize: 10000000
+Iterations: 10
+Average time: 0.00396311283112
+Median time: 0.00381946563721
+Minimum time: 0.00375413894653
+Building
+
+Problemsize: 1000000
+Iterations: 10
+Average time: 0.00395183563232
+Median time: 0.00384700298309
+Minimum time: 0.00373911857605
+Building
+
+Problemsize: 100000000
+Iterations: 10
+Average time: 0.00398194789886
+Median time: 0.003830909729
+Minimum time: 0.00370287895203
+Building
+
+Problemsize: 10000000
+Iterations: 10
+Average time: 0.00391931533813
+Median time: 0.00372660160065
+Minimum time: 0.00366377830505
+Building
+
+Problemsize: 1000000
+Iterations: 10
+Average time: 0.00392074584961
+Median time: 0.00377416610718
+Minimum time: 0.00367999076843
+Building
+
+Problemsize: 100000000
+Iterations: 10
+Average time: 0.00393600463867
+Median time: 0.00378143787384
+Minimum time: 0.00371384620667
+Building
+
+Problemsize: 10000000
+Iterations: 10
+Average time: 0.00396163463593
+Median time: 0.00381398200989
+Minimum time: 0.00377011299133
+Building
+
+Problemsize: 1000000
+Iterations: 10
+Average time: 0.00396292209625
+Median time: 0.00381505489349
+Minimum time: 0.00371098518372
+Building
+
+Problemsize: 100000000
+Iterations: 10
+Average time: 0.00399770736694
+Median time: 0.00383603572845
+Minimum time: 0.00378799438477
+Building
+
+Problemsize: 10000000
+Iterations: 10
+Average time: 0.00400700569153
+Median time: 0.00381696224213
+Minimum time: 0.00371599197388
+Building
+
+Problemsize: 1000000
+Iterations: 10
+Average time: 0.0039341211319
+Median time: 0.00377917289734
+Minimum time: 0.00366187095642
