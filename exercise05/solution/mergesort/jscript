@@ -4,5 +4,9 @@
 #$ -cwd
 #$ -o output_1T_dat
 #$ -e error.dat
+#$ -pe openmp 8
 
+export OMP_NUM_THREADS=8
+python bench_py2.py 100000000 parallel
+python bench_py2.py 50000000 parallel
 python bench_py2.py 10000000 parallel
