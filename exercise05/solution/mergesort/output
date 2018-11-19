@@ -1,3 +1,5 @@
+----8 Threads
+
 Building
 
 Problemsize: 100000000
@@ -21,6 +23,7 @@ Median time: 0.774746656418
 Minimum time: 0.773750066757
 Building
 
+----4 Threads
 Problemsize: 100000000
 Iterations: 10
 Average time: 9.38027994633
@@ -42,6 +45,7 @@ Median time: 0.810879945755
 Minimum time: 0.808686971664
 Building
 
+----2 Threads
 Problemsize: 100000000
 Iterations: 10
 Average time: 13.6966865301
@@ -63,6 +67,7 @@ Median time: 1.22425448895
 Minimum time: 1.21888995171
 Building
 
+----1 Thread
 Problemsize: 100000000
 Iterations: 10
 Average time: 23.4376573086
@@ -84,6 +89,7 @@ Median time: 2.01680254936
 Minimum time: 2.01568889618
 Building
 
+----Sequential
 Problemsize: 100000000
 Iterations: 10
 Average time: 23.670998764
