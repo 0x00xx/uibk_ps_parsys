@@ -27,7 +27,6 @@ void setQueen(int queens[], int row, int col, int size, int &numberOfSolutions) 
 			 setQueen(queens, row+1, i, size, numberOfSolutions);
 		 }
 	}
-	delete[](queens);
 }
 
 //Function to find all solutions for nQueens problem on size x size chessboard.
@@ -36,7 +35,6 @@ int solve(int size) {
     for(int i=0; i<size; i++) {
          // try all positions in first row
          setQueen(new int[size], 0, i, size, numberOfSolutions);
-         
      }
      return numberOfSolutions;
 }
