@@ -35,7 +35,6 @@ int solve(int size) {
     for(int i=0; i<size; i++) {
          // try all positions in first row
          setQueen(new int[size], 0, i, size, numberOfSolutions);
-         delete[](queens);
      }
      return numberOfSolutions;
 }
