@@ -1,11 +1,10 @@
-// g++ montecarlo_par2.cpp -o montecarlo_par -O3 -std=c++11 -Wall -lgmp -fopenmp
+	// g++ montecarlo_par2.cpp -o montecarlo_par -O3 -std=c++11 -Wall -lgmp -fopenmp
 
 #include "Montecarlo.h"
 
 using namespace std;
 
-double getDoubleSeq(long s);
-double getDoublePar(long s);
+unsigned int state;
 
 double get_random(){
   static std::random_device rd;
@@ -19,12 +18,12 @@ double montecarloSeq(long s)
   long hit = 0;
   double x;
   double y;
+  unsigned int state2 = 32 *3232 *232;
   // Check if it is in circle
   for (long i=0; i<s; i++) {
-    x = get_random();
-    y = get_random();
-    double temp = pow(x,2)+pow(y,2);
-    if(temp <= 1.0){
+    x = (double)rand_r(&state2) / RAND_MAX;
+    y = (double)rand_r(&state2) / RAND_MAX;
+    if(pow(x,2)+pow(y,2) <= 1.0){
       hit++;
     }
   }
@@ -32,33 +31,22 @@ double montecarloSeq(long s)
 }
 
 double montecarloPar(long s){
-  long hit = 0;
+  long hit = 0;				
   double x;
   double y;
-  double temp;
   long i;
   // Check if it is in circle
-  #pragma omp parallel private(temp, x, y, i) reduction (+:hit)
+  #pragma omp threadprivate(state)
+  #pragma omp parallel private(x,y) reduction (+:hit)
   {
-    x = 0.0;
-    y = 0.0;
-    temp = 0.0;
-    #pragma omp parallel for
-    for (i=0; i<s/omp_get_max_threads(); i++) {
-      x = get_random();
-      y = get_random();
-      temp = pow(x,2)+pow(y,2);
-      if(temp <= 1.0){
+    state = 2234 + 3337 * omp_get_thread_num();
+    #pragma omp for
+    for (i=0; i<s; i++) {
+      x = (double)rand_r(&state) / RAND_MAX;
+      y = (double)rand_r(&state) / RAND_MAX;
+      if(pow(x,2)+pow(y,2) <= 1.0){
         hit++;
       }
-    }
-  }
-  for(i = 0; i < (s%omp_get_max_threads());i++){
-    x = get_random();
-    y = get_random();
-    double temp = pow(x,2)+pow(y,2);
-    if(temp <= 1.0){
-      hit++;
     }
   }
   return (double) (hit*4)/s;
