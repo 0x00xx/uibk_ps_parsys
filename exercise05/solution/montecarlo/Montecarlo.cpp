@@ -18,7 +18,7 @@ double montecarloSeq(long s)
   long hit = 0;
   double x;
   double y;
-  unsigned int state2 = 32 *3232 *232;
+  unsigned int state2 = 324646435;
   // Check if it is in circle
   for (long i=0; i<s; i++) {
     x = (double)rand_r(&state2) / RAND_MAX;

@@ -2,7 +2,7 @@
 #
 #$ -q std.q
 #$ -cwd
-#$ -o output_montecarlo
+#$ -o output_montecarlo_noprint
 #$ -e error.dat
 #$ -pe openmp 8
 

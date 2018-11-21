@@ -10,12 +10,10 @@ int main(int argc, char** argv) {
     s = strtoul(argv[1],&temp,0);
   }
   if (argc == 3) {
-	  double piPar = montecarloPar(s);
+	  montecarloPar(s);
 	  //gmp_printf("Verification: %.20Ff\n", result);
-	  printf("Par: %.12f\n",piPar);
   }else{
-	  double piSeq = montecarloSeq(s);
+	  montecarloSeq(s);
 	  //gmp_printf("Verification: %.20Ff\n", result);
-	  printf("Seq: %.12f\n",piSeq);
   }
 }
