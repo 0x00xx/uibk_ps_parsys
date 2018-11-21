@@ -29,10 +29,6 @@ Benchmark times is the **minimum** of 10 runs achieved in various testing in sec
 | **10**   | 0.01159 | 0.01192 | 0.00948 | 0.00869 | 0.00841 |
 | **12**   | 0.17557 | 0.17730 | 0.09252 | 0.05337 | 0.03888 |
 
-_Seq. Compiler Command:_
-
-_Par. Compiler Command:_
-
 ### Optimized
 
 | size\threads | seq | 1 | 2 | 4 | 8 |
@@ -41,9 +37,9 @@ _Par. Compiler Command:_
 | **10**   | 0.01114 | 0.01160 | 0.00927 | 0.00833 | 0.00799 |
 | **12**   | 0.17544 | 0.18216 | 0.09636 | 0.05359 | 0.03849 |
 
-_Seq. Compiler Command:_
+_Seq. Compiler Command:_ g++ main_seq.cpp -Wall -O3 -std=c++11 -o nqueens
 
-_Par. Compiler Command:_
+_Par. Compiler Command:_ g++ main_parallel.cpp -fopenmp -Wall -O3 -std=c++11 -o nqueens_par
 
 ## Montecarlo
 
@@ -55,10 +51,6 @@ _Par. Compiler Command:_
 | 10,000,000   | N/A | N/A| N/A | N/A | N/A |
 | 100,000,000   | N/A | N/A| N/A | N/A | N/A |
 
-_Seq. Compiler Command:_
-
-_Par. Compiler Command:_
-
 ### Optimized
 
 | size\threads | seq | 1 | 2 | 4 | 8 |
@@ -67,9 +59,9 @@ _Par. Compiler Command:_
 | 10,000,000   | 0.22523 | 0.16723 | 0.08724| 0.04707 | 0.02709 |
 | 100,000,000   | 2.19556 | 1.61435 | 0.81155 | 0.40988 | 0.20855 |
 
-_Seq. Compiler Command:_
+_Seq. Compiler Command:_ g++ Main.cpp Montecarlo.h Montecarlo.cpp -fopenmp -Wall -O3 -std=c++11 -o montecarlo
 
-_Par. Compiler Command:_
+_Par. Compiler Command:_ g++ Main.cpp Montecarlo.h Montecarlo.cpp -fopenmp -Wall -O3 -std=c++11 -o montecarlo
 
 ## Mergesort
 
@@ -80,10 +72,6 @@ _Par. Compiler Command:_
 | **100,000,000**   | N/A | N/A| N/A | N/A | N/A |
 | 50,000,000   | N/A | N/A| N/A | N/A | N/A |
 | 10,000,000   | N/A | N/A| N/A | N/A | N/A |
-
-_Seq. Compiler Command:_
-
-_Par. Compiler Command:_
 
 ### Optimized with array check
 
@@ -101,6 +89,6 @@ _Par. Compiler Command:_
 | 10,000,000   |2.02651500702|2.00008797646|1.20089912415|0.794095039368|0.758894920349|
 
 
-_Seq. Compiler Command:_
+_Seq. Compiler Command:_ g++ Main.cpp MergeSort.h MergeSort.cpp -fopenmp -Wall -O3 -std=c++11 -o merge
 
-_Par. Compiler Command:_
+_Par. Compiler Command:_ g++ Main.cpp MergeSort.h MergeSort.cpp -fopenmp -Wall -O3 -std=c++11 -o merge
