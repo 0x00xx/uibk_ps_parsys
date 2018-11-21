@@ -1,5 +1,5 @@
-#include <iostream>  // std::cout, cin, cerr ...
-#include <iomanip>   // modify std::out
+#include <iostream>  
+#include <iomanip>   
 #include <omp.h>
 
 int numberOfSolutions = 0;
@@ -24,6 +24,7 @@ void setQueen_parallel(int queens[], int row, int col, int id) {
 	if(row==size-1) {
 		#pragma omp atomic
 		numberOfSolutions++;  //Placed final queen, found a solution
+
 	}else {
 		 // try to fill next row
 		 for(int i=0; i<size; i++) {
