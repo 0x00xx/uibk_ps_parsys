@@ -51,6 +51,8 @@ _Par. Compiler Command:_ g++ main_parallel.cpp -fopenmp -Wall -O3 -std=c++11 -o 
 | 10,000,000   | N/A | N/A| N/A | N/A | N/A |
 | 100,000,000   | N/A | N/A| N/A | N/A | N/A |
 
+_GMP is not installed on the cluster_
+
 ### Optimized
 
 | size\threads | seq | 1 | 2 | 4 | 8 |
@@ -72,6 +74,8 @@ _Par. Compiler Command:_ g++ Main.cpp Montecarlo.h Montecarlo.cpp -fopenmp -Wall
 | **100,000,000**   | N/A | N/A| N/A | N/A | N/A |
 | 50,000,000   | N/A | N/A| N/A | N/A | N/A |
 | 10,000,000   | N/A | N/A| N/A | N/A | N/A |
+
+_Memory error_
 
 ### Optimized with array check
 
