@@ -78,8 +78,8 @@ _Par. Compiler Command:_
 | size\threads | seq | 1 | 2 | 4 | 8 |
 |------|-------|--------|--------|--------|--------|
 | **100,000,000**   | N/A | N/A|N/A |N/A |N/A |
-| 200,000,000   | N/A| N/A|N/A |N/A |N/A |
-| 400,000,000   | N/A|N/A | N/A| N/A|N/A |
+| 50,000,000   | N/A| N/A|N/A |N/A |N/A |
+| 10,000,000   | N/A|N/A | N/A| N/A|N/A |
 
 _Seq. Compiler Command:_
 
