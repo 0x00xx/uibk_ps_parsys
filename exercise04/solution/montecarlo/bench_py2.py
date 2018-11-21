@@ -77,7 +77,7 @@ def print_results():
 
 def main():
     print("Building")
-    os.system("g++ Main.cpp Montecarlo.h Montecarlo.cpp -fopenmp -Wall -O3 -std=c++11 -o montecarlo")
+    os.system("g++ Main.cpp Montecarlo.h gmp.h Montecarlo.cpp -fopenmp -Wall -O3 -std=c++11 -o montecarlo")
     time_bench()
     #perf_bench()
     print_results()
