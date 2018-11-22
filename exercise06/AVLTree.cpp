@@ -1,22 +1,5 @@
-#include <memory>
 #include <algorithm>
-#include <iostream>
-
-class Node{
-	public:
-	int value;
-	std::shared_ptr<Node> left;
-    std::shared_ptr<Node> right;
-    int height;
-    Node(int value) : value(value){
-		left = NULL;
-		right = NULL;
-		height = 1;
-    }
-    ~Node(){
-         
-    }
-}
+#include "AVLTree.h"
 
 
 std::shared_ptr<Node> rotateToRight(std::shared_ptr<Node> top){
