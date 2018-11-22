@@ -4,6 +4,10 @@
 #ifndef AVLTREE_H
 #define AVLTREE_H
 
+std::shared_ptr<Node> insert(std::shared_ptr<Node> tree, int value);
+std::shared_ptr<Node> rotateToLeft(std::shared_ptr<Node> top);
+std::shared_ptr<Node> rotateToRight(std::shared_ptr<Node> top);
+
 class Node{
 	public:
 	int value;
@@ -18,6 +22,6 @@ class Node{
     ~Node(){
          
     }
-}
+};
 
 #endif //AVLTREE_H
