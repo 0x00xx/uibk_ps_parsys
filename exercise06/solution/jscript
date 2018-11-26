@@ -6,7 +6,7 @@
 #$ -e error.dat
 #$ -pe openmp 8
 
-g++ AvlMain.cpp AvlTree.h AvlNode.h chrono_timer.h AvlTree.cpp AnlNode.cpp -fopenmp -Wall -Wextra -O3 -march=native -std=c++11 -o avltree
+g++ AvlTree.cpp AvlTree.h AvlNode.cpp AvlNode.h AvlMain.cpp -std=c++11 -g -Wall -Wextra -O3 -march=native -fopenmp
 
 export OMP_NUM_THREADS=8
 ./avltree 2000 parallel
