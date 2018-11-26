@@ -1,0 +1,39 @@
+#!/bin/bash
+#
+#$ -q std.q
+#$ -cwd
+#$ -o output_montecarlo_noprint
+#$ -e error.dat
+#$ -pe openmp 8
+
+g++ AvlMain.cpp AvlTree.h AvlNode.h chrono_timer.h AvlTree.cpp AnlNode.cpp -fopenmp -Wall -Wextra -O3 -march=native -std=c++11 -o avltree
+
+export OMP_NUM_THREADS=8
+./avltree 2000 parallel
+./avltree 2000 parallel
+./avltree 2000 parallel
+./avltree 2000 parallel
+
+export OMP_NUM_THREADS=4
+./avltree 2000 parallel
+./avltree 2000 parallel
+./avltree 2000 parallel
+./avltree 2000 parallel
+
+export OMP_NUM_THREADS=2
+./avltree 2000 parallel
+./avltree 2000 parallel
+./avltree 2000 parallel
+./avltree 2000 parallel
+
+export OMP_NUM_THREADS=1
+./avltree 2000 parallel
+./avltree 2000 parallel
+./avltree 2000 parallel
+./avltree 2000 parallel
+
+export OMP_NUM_THREADS=1
+./avltree 2000 
+./avltree 2000
+./avltree 2000 
+./avltree 2000 
