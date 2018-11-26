@@ -26,13 +26,14 @@ int main(int argc, char** argv) {
     if (argc == 3 ){
             ChronoTimer t("Parallel version");
             tree.insertPar(arr,n);
+            std::cout<< "Timer - " << "Parallel version" << ": " << t.getElapsedTime().count() << " ms " << std::endl;
     }
     else {
             ChronoTimer t("Sequential version");
             tree.insertSeq(arr,n);
+            std::cout<< "Timer - " << "Parallel version" << ": " << t.getElapsedTime().count() << " ms " << std::endl;
+
     }
     std::cout << "Valid? " << (tree.isValid()?"yes":"no") << std::endl;
     std::cout << "Size: " << tree.size() << std::endl;
-    if(n<=500)
-        tree.printAllValues();
 }

@@ -201,33 +201,6 @@ inline void AvlNode<T>::incCount(){
 }
 
 template <typename T>
-void AvlNode<T>::print(int indent) const{
-    if(this->right) {
-        this->right->print(indent+4);
-    }
-    if (indent) {
-        std::cout << std::setw(indent) << ' ';
-    }
-    if (this->right) std::cout<<" /\n" << std::setw(indent) << ' ';
-    std::cout<< this->value << "\n ";
-    if(this->left) {
-        std::cout << std::setw(indent) << ' ' << " \\\n";
-        this->left->print(indent + 4);
-    }
-}
-
-template <typename T>
-void AvlNode<T>::print_info() const {
-    std::cout << "Node:" << this->value << " parent:" << (this->parent?this->parent->value:-1);
-    std::cout << " right child:" << (this->right?this->right->value:-1);
-    std::cout << " left child:" << (this->left?this->left->value:-1) << std::endl;
-    if(this->right)
-        this->right->print_info();
-    if(this->left)
-        this->left->print_info();
-}
-
-template <typename T>
 int AvlNode<T>::size() const
 {
     int tmp = count;

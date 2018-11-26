@@ -17,7 +17,6 @@ public:
     void insertSeq(const T* arr, int len);
     void insertPar(const T* arr, int len);
     void setRoot(AvlNode<T>* newRoot);
-    void printAllValues() const;
     int size() const;
 
 private:

@@ -39,14 +39,6 @@ void AvlTree<T>::insert(T value)
 }
 
 template <typename T>
-void AvlTree<T>::printAllValues() const{
-    std::cout << std::endl;
-    if(root)
-        root->print();
-    std::cout << std::endl;
-}
-
-template <typename T>
 void AvlTree<T>::setRoot(AvlNode<T> *newRoot) {
     this->root = newRoot;
 }
@@ -66,9 +58,9 @@ void AvlTree<T>::insertSeq(const T* arr,int len) {
 
 template <typename T>
 void AvlTree<T>::insertPar(const T* arr,int len) {
-    int threshold = len/8;
+    int threshold = len/8 + 56;
     this->insertSeq(arr,threshold);
-
+	
    #pragma omp parallel
     {
         #pragma omp single
