@@ -2,38 +2,36 @@
 #
 #$ -q std.q
 #$ -cwd
-#$ -o output_montecarlo_noprint
+#$ -o output_avltree
 #$ -e error.dat
 #$ -pe openmp 8
 
-g++ AvlTree.cpp AvlTree.h AvlNode.cpp AvlNode.h AvlMain.cpp -std=c++11 -g -Wall -Wextra -O3 -march=native -fopenmp
-
 export OMP_NUM_THREADS=8
-./avltree 2000 parallel
-./avltree 2000 parallel
-./avltree 2000 parallel
-./avltree 2000 parallel
+./avltree 10000 parallel
+./avltree 20000 parallel
+./avltree 40000 parallel
+./avltree 80000 parallel
 
 export OMP_NUM_THREADS=4
-./avltree 2000 parallel
-./avltree 2000 parallel
-./avltree 2000 parallel
-./avltree 2000 parallel
+./avltree 10000 parallel
+./avltree 20000 parallel
+./avltree 40000 parallel
+./avltree 80000 parallel
 
 export OMP_NUM_THREADS=2
-./avltree 2000 parallel
-./avltree 2000 parallel
-./avltree 2000 parallel
-./avltree 2000 parallel
+./avltree 10000 parallel
+./avltree 20000 parallel
+./avltree 40000 parallel
+./avltree 80000 parallel
 
 export OMP_NUM_THREADS=1
-./avltree 2000 parallel
-./avltree 2000 parallel
-./avltree 2000 parallel
-./avltree 2000 parallel
+./avltree 10000 parallel
+./avltree 20000 parallel
+./avltree 40000 parallel
+./avltree 80000 parallel
 
 export OMP_NUM_THREADS=1
-./avltree 2000 
-./avltree 2000
-./avltree 2000 
-./avltree 2000 
+./avltree 10000
+./avltree 20000
+./avltree 40000
+./avltree 80000
