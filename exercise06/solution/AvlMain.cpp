@@ -61,7 +61,7 @@ int main(int argc, char** argv) {
         else {
                 ChronoTimer t("Sequential version");
                 tree.insertSeq(arr,n);
-                std::cout<< "Timer - " << "Parallel version" << ": " << t.getElapsedTime().count() << " ms " << std::endl;
+                std::cout<< "Timer - " << "Sequentiell version" << ": " << t.getElapsedTime().count() << " ms " << std::endl;
                 ms[i] = t.getElapsedTime().count();
         }
         std::cout << "Valid? " << (tree.isValid()?"yes":"no") << std::endl;
@@ -69,7 +69,7 @@ int main(int argc, char** argv) {
     }
     std::vector<int> result_vector (ms, ms+result_size);
     std::sort (result_vector.begin(), result_vector.end(), mysort);
-    std::cout << "Timestamps for this run:";
+    std::cout << "Timestamps for this run with size " << n << ":";
     for (std::vector<int>::iterator it=result_vector.begin(); it!=result_vector.end(); ++it)
         std::cout << ' ' << *it;
         std::cout << '\n';
