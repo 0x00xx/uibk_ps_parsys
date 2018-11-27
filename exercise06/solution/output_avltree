@@ -1,0 +1,700 @@
+Timer - Parallel version: 49 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 47 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 47 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 48 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 47 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 47 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 48 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 48 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 48 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 46 ms 
+Valid? yes
+Size: 10000
+Timestamps for this run with size 10000: 46 47 47 47 47 48 48 48 48 49
+Median: 47.5 ms
+Average: 47.5 ms
+Minimum: 46 ms
+Maximum: 49 ms
+Timer - Parallel version: 142 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 140 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 142 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 140 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 141 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 145 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 142 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 142 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 140 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 141 ms 
+Valid? yes
+Size: 20000
+Timestamps for this run with size 20000: 140 140 140 141 141 142 142 142 142 145
+Median: 141.5 ms
+Average: 141.5 ms
+Minimum: 140 ms
+Maximum: 145 ms
+Timer - Parallel version: 477 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 467 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 470 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 468 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 467 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 469 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 466 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 480 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 462 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 473 ms 
+Valid? yes
+Size: 40000
+Timestamps for this run with size 40000: 462 466 467 467 468 469 470 473 477 480
+Median: 468.5 ms
+Average: 469.9 ms
+Minimum: 462 ms
+Maximum: 480 ms
+Timer - Parallel version: 1693 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1705 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1744 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1674 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1680 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1676 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1714 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1681 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1694 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1675 ms 
+Valid? yes
+Size: 80000
+Timestamps for this run with size 80000: 1674 1675 1676 1680 1681 1693 1694 1706 1714 1744
+Median: 1687 ms
+Average: 1693.7 ms
+Minimum: 1674 ms
+Maximum: 1744 ms
+Timer - Parallel version: 36 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 37 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 37 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 36 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 35 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 37 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 36 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 36 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 36 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 36 ms 
+Valid? yes
+Size: 10000
+Timestamps for this run with size 10000: 35 36 36 36 36 36 37 37 37 37
+Median: 36 ms
+Average: 36.3 ms
+Minimum: 35 ms
+Maximum: 37 ms
+Timer - Parallel version: 119 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 122 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 119 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 120 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 118 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 118 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 117 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 118 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 123 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 120 ms 
+Valid? yes
+Size: 20000
+Timestamps for this run with size 20000: 117 118 118 118 119 119 120 120 122 123
+Median: 119 ms
+Average: 119.4 ms
+Minimum: 117 ms
+Maximum: 123 ms
+Timer - Parallel version: 427 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 422 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 430 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 425 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 424 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 416 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 422 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 425 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 421 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 428 ms 
+Valid? yes
+Size: 40000
+Timestamps for this run with size 40000: 416 421 422 422 424 425 425 427 428 430
+Median: 424.5 ms
+Average: 424 ms
+Minimum: 416 ms
+Maximum: 430 ms
+Timer - Parallel version: 1605 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1567 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1579 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1562 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1566 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1552 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1569 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1548 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1566 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1586 ms 
+Valid? yes
+Size: 80000
+Timestamps for this run with size 80000: 1548 1552 1562 1566 1566 1567 1569 1579 1586 1605
+Median: 1566.5 ms
+Average: 1570 ms
+Minimum: 1548 ms
+Maximum: 1605 ms
+Timer - Parallel version: 29 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 29 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 30 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 29 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 29 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 30 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 30 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 29 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 30 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 30 ms 
+Valid? yes
+Size: 10000
+Timestamps for this run with size 10000: 29 29 29 29 30 30 30 30 30 30
+Median: 30 ms
+Average: 29.6 ms
+Minimum: 29 ms
+Maximum: 30 ms
+Timer - Parallel version: 104 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 107 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 104 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 105 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 106 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 108 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 103 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 105 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 104 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 104 ms 
+Valid? yes
+Size: 20000
+Timestamps for this run with size 20000: 103 104 104 104 104 105 105 106 107 108
+Median: 104.5 ms
+Average: 105 ms
+Minimum: 103 ms
+Maximum: 108 ms
+Timer - Parallel version: 391 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 393 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 397 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 396 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 397 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 404 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 395 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 398 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 398 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 399 ms 
+Valid? yes
+Size: 40000
+Timestamps for this run with size 40000: 391 393 395 396 397 397 398 398 399 404
+Median: 397 ms
+Average: 396.8 ms
+Minimum: 391 ms
+Maximum: 404 ms
+Timer - Parallel version: 1547 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1526 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1518 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1553 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1502 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1529 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1504 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1511 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1529 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1533 ms 
+Valid? yes
+Size: 80000
+Timestamps for this run with size 80000: 1502 1504 1511 1518 1526 1529 1530 1533 1547 1553
+Median: 1527.5 ms
+Average: 1525.3 ms
+Minimum: 1502 ms
+Maximum: 1553 ms
+Timer - Parallel version: 21 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 21 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 20 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 20 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 21 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 21 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 20 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 21 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 21 ms 
+Valid? yes
+Size: 10000
+Timer - Parallel version: 20 ms 
+Valid? yes
+Size: 10000
+Timestamps for this run with size 10000: 20 20 20 20 21 21 21 21 21 21
+Median: 21 ms
+Average: 20.6 ms
+Minimum: 20 ms
+Maximum: 21 ms
+Timer - Parallel version: 86 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 87 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 87 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 88 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 85 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 87 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 85 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 87 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 87 ms 
+Valid? yes
+Size: 20000
+Timer - Parallel version: 85 ms 
+Valid? yes
+Size: 20000
+Timestamps for this run with size 20000: 85 85 85 86 87 87 87 87 87 88
+Median: 87 ms
+Average: 86.4 ms
+Minimum: 85 ms
+Maximum: 88 ms
+Timer - Parallel version: 350 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 370 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 354 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 353 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 362 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 372 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 358 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 363 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 351 ms 
+Valid? yes
+Size: 40000
+Timer - Parallel version: 351 ms 
+Valid? yes
+Size: 40000
+Timestamps for this run with size 40000: 350 351 351 353 354 358 362 363 370 372
+Median: 356 ms
+Average: 358.4 ms
+Minimum: 350 ms
+Maximum: 372 ms
+Timer - Parallel version: 1427 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1467 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1420 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1447 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1416 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1439 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1450 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1410 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1455 ms 
+Valid? yes
+Size: 80000
+Timer - Parallel version: 1424 ms 
+Valid? yes
+Size: 80000
+Timestamps for this run with size 80000: 1411 1416 1421 1424 1427 1439 1447 1450 1456 1467
+Median: 1433 ms
+Average: 1435.8 ms
+Minimum: 1411 ms
+Maximum: 1467 ms
+Timer - Sequentiell version: 20 ms 
+Valid? yes
+Size: 10000
+Timer - Sequentiell version: 20 ms 
+Valid? yes
+Size: 10000
+Timer - Sequentiell version: 20 ms 
+Valid? yes
+Size: 10000
+Timer - Sequentiell version: 19 ms 
+Valid? yes
+Size: 10000
+Timer - Sequentiell version: 20 ms 
+Valid? yes
+Size: 10000
+Timer - Sequentiell version: 20 ms 
+Valid? yes
+Size: 10000
+Timer - Sequentiell version: 20 ms 
+Valid? yes
+Size: 10000
+Timer - Sequentiell version: 19 ms 
+Valid? yes
+Size: 10000
+Timer - Sequentiell version: 20 ms 
+Valid? yes
+Size: 10000
+Timer - Sequentiell version: 20 ms 
+Valid? yes
+Size: 10000
+Timestamps for this run with size 10000: 19 19 20 20 20 20 20 20 20 20
+Median: 20 ms
+Average: 19.8 ms
+Minimum: 19 ms
+Maximum: 20 ms
+Timer - Sequentiell version: 85 ms 
+Valid? yes
+Size: 20000
+Timer - Sequentiell version: 84 ms 
+Valid? yes
+Size: 20000
+Timer - Sequentiell version: 82 ms 
+Valid? yes
+Size: 20000
+Timer - Sequentiell version: 85 ms 
+Valid? yes
+Size: 20000
+Timer - Sequentiell version: 85 ms 
+Valid? yes
+Size: 20000
+Timer - Sequentiell version: 83 ms 
+Valid? yes
+Size: 20000
+Timer - Sequentiell version: 86 ms 
+Valid? yes
+Size: 20000
+Timer - Sequentiell version: 83 ms 
+Valid? yes
+Size: 20000
+Timer - Sequentiell version: 83 ms 
+Valid? yes
+Size: 20000
+Timer - Sequentiell version: 86 ms 
+Valid? yes
+Size: 20000
+Timestamps for this run with size 20000: 82 83 83 83 84 85 85 85 86 86
+Median: 84.5 ms
+Average: 84.2 ms
+Minimum: 82 ms
+Maximum: 86 ms
+Timer - Sequentiell version: 350 ms 
+Valid? yes
+Size: 40000
+Timer - Sequentiell version: 347 ms 
+Valid? yes
+Size: 40000
+Timer - Sequentiell version: 364 ms 
+Valid? yes
+Size: 40000
+Timer - Sequentiell version: 345 ms 
+Valid? yes
+Size: 40000
+Timer - Sequentiell version: 357 ms 
+Valid? yes
+Size: 40000
+Timer - Sequentiell version: 352 ms 
+Valid? yes
+Size: 40000
+Timer - Sequentiell version: 346 ms 
+Valid? yes
+Size: 40000
+Timer - Sequentiell version: 365 ms 
+Valid? yes
+Size: 40000
+Timer - Sequentiell version: 346 ms 
+Valid? yes
+Size: 40000
+Timer - Sequentiell version: 352 ms 
+Valid? yes
+Size: 40000
+Timestamps for this run with size 40000: 345 346 346 347 350 352 352 357 364 365
+Median: 351 ms
+Average: 352.4 ms
+Minimum: 345 ms
+Maximum: 365 ms
+Timer - Sequentiell version: 1399 ms 
+Valid? yes
+Size: 80000
+Timer - Sequentiell version: 1445 ms 
+Valid? yes
+Size: 80000
+Timer - Sequentiell version: 1429 ms 
+Valid? yes
+Size: 80000
+Timer - Sequentiell version: 1494 ms 
+Valid? yes
+Size: 80000
+Timer - Sequentiell version: 1402 ms 
+Valid? yes
+Size: 80000
+Timer - Sequentiell version: 1469 ms 
+Valid? yes
+Size: 80000
+Timer - Sequentiell version: 1414 ms 
+Valid? yes
+Size: 80000
+Timer - Sequentiell version: 1440 ms 
+Valid? yes
+Size: 80000
+Timer - Sequentiell version: 1414 ms 
+Valid? yes
+Size: 80000
+Timer - Sequentiell version: 1397 ms 
+Valid? yes
+Size: 80000
+Timestamps for this run with size 80000: 1397 1399 1402 1414 1414 1429 1440 1445 1469 1494
+Median: 1421.5 ms
+Average: 1430.3 ms
+Minimum: 1397 ms
+Maximum: 1494 ms
