@@ -20,4 +20,4 @@ Benchmark times are the **median** of 10 runs achieved in various testing in sec
 | 40,000 | | | | | |
 | 80,000 | | | | | |
 
-_Compiler Command:_ ++ AvlTree.cpp AvlTree.h AvlNode.cpp AvlNode.h AvlMain.cpp -o avltree -std=c++11 -g -Wall -Wextra -O3 -fopenmp
+_Compiler Command:_ g++ AvlTree.cpp AvlTree.h AvlNode.cpp AvlNode.h AvlMain.cpp -o avltree -std=c++11 -Wall -Wextra -O3 -fopenmp
