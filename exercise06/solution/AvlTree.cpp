@@ -58,7 +58,7 @@ void AvlTree<T>::insertSeq(const T* arr,int len) {
 
 template <typename T>
 void AvlTree<T>::insertPar(const T* arr,int len) {
-    int threshold = len/8 + 56;
+    int threshold = len/8;
     this->insertSeq(arr,threshold);
 	
    #pragma omp parallel
