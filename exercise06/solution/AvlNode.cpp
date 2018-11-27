@@ -140,14 +140,14 @@ void AvlNode<T>::insert(T value)
         this->incCount(); 
         return;
     }
-    this->setBalance();
+    //this->setBalance();
 
     if (this->value > value){
         if (!this->left) {
             this->left = new AvlNode<T>(value, this->tree, this);
         }
         else{
-            #pragma omp task untied
+            #pragma omp task
             this->left->insert(value);
         }
     }
@@ -156,7 +156,7 @@ void AvlNode<T>::insert(T value)
             this->right = new AvlNode<T>(value, this->tree, this);
         }
         else{
-            #pragma omp task untied
+            #pragma omp task
             this->right->insert(value);
         }
     }
@@ -196,8 +196,8 @@ int AvlNode<T>::getCount() const
 
 template <typename T>
 inline void AvlNode<T>::incCount(){
-#pragma omp atomic
-    count++;
+	#pragma omp atomic
+	count++;
 }
 
 template <typename T>
