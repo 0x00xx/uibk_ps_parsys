@@ -28,11 +28,12 @@ public:
     int size() const;
 
 private:
-    AvlNode<T> *parent = nullptr;
+    
     AvlNode<T> *left = nullptr;
     AvlNode<T> *right = nullptr;
-    AvlTree<T> *tree = nullptr;
     T value;
+    AvlTree<T> *tree = nullptr;
+    AvlNode<T> *parent = nullptr;
     int balanceFactor = 0; // Update this on every call to insert()!
     int count = 1; //Count how many same elements we have
 
