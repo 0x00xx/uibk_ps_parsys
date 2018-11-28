@@ -71,10 +71,10 @@ void AvlTree<T>::insertPar(const T* arr,int len) {
                 if (tmp)
                     tmp->incCount();
                 else {
-                    //#pragma omp task
-                    //{
+                    #pragma omp task
+                    {
                         this->insert(arr[i]);
-                    //}
+                    }
                 }
             }
             
