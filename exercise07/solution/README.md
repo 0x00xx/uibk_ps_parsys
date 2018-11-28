@@ -20,7 +20,7 @@ Benchmark times are the **median** of 10 runs achieved in various testing in sec
 ## 5 Point Heat 2D Stencil
 
 | N | 1 | 2 | 4 | 8 |
-|------|-------|--------|--------|--------|--------|
+|------|-------|--------|--------|--------|
 | 512x512 | | | | |
 
 _Times in ms_
