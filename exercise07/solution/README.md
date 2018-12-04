@@ -25,4 +25,4 @@ Benchmark times are the **median** of 10 runs achieved in various testing in sec
 
 _Times in ms_
 
-_Compiler Command:_ 
+_Compiler Command:_  g++ Stencil.cpp StencilMain.cpp Stencil.h -o stencil -O3 -march=native -Wall -fopenmp
