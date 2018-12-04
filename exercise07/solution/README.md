@@ -15,14 +15,16 @@ All tests are performed on the **University cluster**
 
 With 1, 2, 4 and 8 threads on a single node of the cluster.
 
-Benchmark times are the **median** of 10 runs achieved in various testing in seconds.
+Benchmark times are the **median** of 10 runs achieved in various testing in milliseconds.
 
 ## 5 Point Heat 2D Stencil
 
-| N | 1 | 2 | 4 | 8 |
-|------|-------|--------|--------|--------|
-| 512x512 | | | | |
+| N | seq | 1 | 2 | 4 | 8 |
+|------|-------|--------|--------|--------|--------|
+| 512x512 | 673 | 672.5 | 339.5 | 170 | 1352.5 |
 
 _Times in ms_
+
+High StdDev when running on 8 threads -> Cache?
 
 _Compiler Command:_  g++ Stencil.cpp StencilMain.cpp Stencil.h -o stencil -O3 -march=native -Wall -fopenmp
