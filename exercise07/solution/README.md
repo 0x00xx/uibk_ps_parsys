@@ -19,6 +19,8 @@ Benchmark times are the **median** of 10 runs achieved in various testing in mil
 
 ## 5 Point Heat 2D Stencil
 
+### First (wrong) version (int boundries vector)
+
 #### gcc 5.1.0
 
 | N | seq | 1 | 2 | 4 | 8 |
@@ -31,9 +33,15 @@ Benchmark times are the **median** of 10 runs achieved in various testing in mil
 |------|-------|--------|--------|--------|--------|
 | 512x512 | 668.5 | 671.5 | 336 | 170 | 89 |
 
-_Times in ms_
-
 High StdDev when running on 8 threads -> Cache?
+
+### Correct version
+
+| N | seq | 1 | 2 | 4 | 8 |
+|------|-------|--------|--------|--------|--------|
+| 512x512 | 2952 | 2954.5 | 1500 | 767 | 398.5 |
+
+_Times in ms_
 
 _Compiler Command:_  g++ Stencil.cpp StencilMain.cpp Stencil.h -o stencil -O3 -march=native -Wall -fopenmp
 
