@@ -20,16 +20,16 @@ int main(int argc, char **argv) {
     unsigned int threads = atoi(argv[4]);
 
     // Allocate memory for the bounds depending on the problem dimensions
-    std::vector<int> *bounds;
+    std::vector<double> *bounds;
     switch (dim) {
     case 1:
-        bounds = new std::vector<int>(2);
+        bounds = new std::vector<double>(2);
         break;
     case 2:
-        bounds = new std::vector<int>(4);
+        bounds = new std::vector<double>(4);
         break;
     case 3:
-        bounds = new std::vector<int>(6);
+        bounds = new std::vector<double>(6);
         break;
     default:
         std::cerr << "Invalid dimension" << std::endl;
@@ -40,7 +40,7 @@ int main(int argc, char **argv) {
     for (unsigned long i = 0; i < bounds->size(); ++i) {
         auto arg = 5 + i;
         if (argc > arg)
-            bounds->at(i) = atol(argv[arg]);
+            bounds->at(i) = atof(argv[arg]);
         else
             bounds->at(i) = default_bounds[i];
     }
@@ -78,6 +78,9 @@ int main(int argc, char **argv) {
             ChronoTimer t("2D Parallel version");
             jacobi2DPar(*bounds,epsilon,n,in,out);
         }
+        //std::cout<<out->at(10*514+11)<<std::endl;
+        //std::cout<<out->at(387*514+216)<<std::endl;
+        //std::cout<<out->at(502*514+8)<<std::endl;
         break;
 
     case 3:

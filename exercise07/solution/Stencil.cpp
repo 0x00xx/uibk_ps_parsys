@@ -9,6 +9,8 @@
 
 using namespace std;
 
+int count = 0;
+
 // Positions in bounds array
 constexpr unsigned long B_L = 0; // left
 constexpr unsigned long B_R = 1; // right
@@ -17,13 +19,13 @@ constexpr unsigned long B_D = 3; // down
 constexpr unsigned long B_F = 4; // forward
 constexpr unsigned long B_B = 5; // backward
 
-void jacobiIter1DSeq(const vector<int> &bounds, const vector<double> &in, vector<double> &out) {
+void jacobiIter1DSeq(const vector<double> &bounds, const vector<double> &in, vector<double> &out) {
     for (unsigned long i = 1; i < (in.size() - 1); ++i) {
         out.at(i) = calc1D(in.at(i), in.at(i - 1), in.at(i + 1));
     }
 }
 
-void jacobiIter2DSeq(const unsigned long n, const vector<int> &bounds, const vector<double> &in, vector<double> &out) {
+void jacobiIter2DSeq(const unsigned long n, const vector<double> &bounds, const vector<double> &in, vector<double> &out) {
     for (unsigned long i = 1; i < n - 1; ++i) {
         for (unsigned long j = 1; j < n - 1; ++j) {
             out.at(n*i + j) = calc2D(in.at(n*i + j), in.at(n*i + j - 1), in.at(n*i + j + 1), in.at(n*(i - 1) + j), in.at(n*(i + 1) + j));
@@ -32,7 +34,7 @@ void jacobiIter2DSeq(const unsigned long n, const vector<int> &bounds, const vec
     
 }
 
-void jacobiIter3DSeq(const unsigned long n, const vector<int> &bounds, const vector<double> &in, vector<double> &out) {
+void jacobiIter3DSeq(const unsigned long n, const vector<double> &bounds, const vector<double> &in, vector<double> &out) {
     for (unsigned long i = 1; i < n - 1; ++i) {
         for (unsigned long j = 1; j < n - 1; ++j) {
             for (unsigned long k = 1; k < n - 1; ++k) {
@@ -43,7 +45,7 @@ void jacobiIter3DSeq(const unsigned long n, const vector<int> &bounds, const vec
     }
 }
 
-void jacobi1DSeq(const vector<int> &bounds, const double epsilon, vector<double> *in, vector<double> *out) {
+void jacobi1DSeq(const vector<double> &bounds, const double epsilon, vector<double> *in, vector<double> *out) {
     assert(in->size() == out->size());
     assert(bounds.size() >= 2);
 
@@ -54,23 +56,25 @@ void jacobi1DSeq(const vector<int> &bounds, const double epsilon, vector<double>
         in = tmp;
     } while (!deltaBelowEpsilon(epsilon, *out, *in));
     std::copy(in->begin(), in->end(), out->begin());
+    
 }
 
-void jacobi2DSeq(const vector<int> &bounds, const double epsilon, const unsigned long n, std::vector<double> *in, std::vector<double> *out) {
+void jacobi2DSeq(const vector<double> &bounds, const double epsilon, const unsigned long n, std::vector<double> *in, std::vector<double> *out) {
     assert(in->size() == out->size());
     assert(bounds.size() >= 4);
 
     do {
+		count++;
         jacobiIter2DSeq(n, bounds, *in, *out);
         auto tmp = out;
         out = in;
         in = tmp;
     } while (!deltaBelowEpsilon(epsilon, *out, *in));
     std::copy(in->begin(), in->end(), out->begin());
-
+    //std::cout<<count<<std::endl;
 }
 
-void jacobi3DSeq(const std::vector<int> &bounds, const double epsilon, const unsigned long n, std::vector<double> *in, std::vector<double> *out) {
+void jacobi3DSeq(const std::vector<double> &bounds, const double epsilon, const unsigned long n, std::vector<double> *in, std::vector<double> *out) {
     assert(in->size() == out->size());
     assert(bounds.size() >= 6);
 
@@ -84,14 +88,14 @@ void jacobi3DSeq(const std::vector<int> &bounds, const double epsilon, const uns
 
 }
 
-void jacobiIter1DPar(const vector<int> &bounds, const vector<double> &in, vector<double> &out) {
+void jacobiIter1DPar(const vector<double> &bounds, const vector<double> &in, vector<double> &out) {
     #pragma omp parallel for schedule(static)
     for (unsigned long i = 1; i < (in.size() - 1); ++i) {
         out.at(i) = calc1D(in.at(i), in.at(i - 1), in.at(i + 1));
     }
 }
 
-void jacobiIter2DPar(const unsigned long n, const vector<int> &bounds, const vector<double> &in, vector<double> &out) {
+void jacobiIter2DPar(const unsigned long n, const vector<double> &bounds, const vector<double> &in, vector<double> &out) {
     #pragma omp parallel for schedule(static)
     for (unsigned long i = 1; i < n - 1; ++i) {
         for (unsigned long j = 1; j < n - 1; ++j) {
@@ -100,7 +104,7 @@ void jacobiIter2DPar(const unsigned long n, const vector<int> &bounds, const vec
     }
 }
 
-void jacobiIter3DPar(const unsigned long n, const vector<int> &bounds, const vector<double> &in, vector<double> &out) {
+void jacobiIter3DPar(const unsigned long n, const vector<double> &bounds, const vector<double> &in, vector<double> &out) {
     #pragma omp parallel for schedule(static)
     for (unsigned long i = 1; i < n - 1; ++i) {
         for (unsigned long j = 1; j < n - 1; ++j) {
@@ -112,7 +116,7 @@ void jacobiIter3DPar(const unsigned long n, const vector<int> &bounds, const vec
     }
 }
 
-void jacobi1DPar(const vector<int> &bounds, const double epsilon, vector<double> *in, vector<double> *out) {
+void jacobi1DPar(const vector<double> &bounds, const double epsilon, vector<double> *in, vector<double> *out) {
     assert(in->size() == out->size());
     assert(bounds.size() >= 2);
     putenv(const_cast<char *>("OMP_CANCELLATION=true"));
@@ -126,7 +130,7 @@ void jacobi1DPar(const vector<int> &bounds, const double epsilon, vector<double>
     std::copy(in->begin(), in->end(), out->begin());
 }
 
-void jacobi2DPar(const vector<int> &bounds, const double epsilon, const unsigned long n, std::vector<double> *in, std::vector<double> *out) {
+void jacobi2DPar(const vector<double> &bounds, const double epsilon, const unsigned long n, std::vector<double> *in, std::vector<double> *out) {
     assert(in->size() == out->size());
     assert(bounds.size() >= 4);
 
@@ -141,7 +145,7 @@ void jacobi2DPar(const vector<int> &bounds, const double epsilon, const unsigned
 
 }
 
-void jacobi3DPar(const std::vector<int> &bounds, const double epsilon, const unsigned long n, std::vector<double>* in, std::vector<double>* out) {
+void jacobi3DPar(const std::vector<double> &bounds, const double epsilon, const unsigned long n, std::vector<double>* in, std::vector<double>* out) {
     assert(in->size() == out->size());
     assert(bounds.size() >= 6);
     putenv(const_cast<char *>("OMP_CANCELLATION=true"));
@@ -156,7 +160,7 @@ void jacobi3DPar(const std::vector<int> &bounds, const double epsilon, const uns
 
 }
 
-void setBoundaries(const int dim, const unsigned long n, const std::vector<int> &bounds, std::vector<double> &in) {
+void setBoundaries(const int dim, const unsigned long n, const std::vector<double> &bounds, std::vector<double> &in) {
     switch (dim) {
         case 1:
             in.at(0) = bounds.at(B_L);

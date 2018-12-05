@@ -3,19 +3,19 @@
 
 #include <vector>
 
-void jacobi1DSeq(const std::vector<int> &bounds, double epsilon, std::vector<double> *in, std::vector<double> *out);
+void jacobi1DSeq(const std::vector<double> &bounds, double epsilon, std::vector<double> *in, std::vector<double> *out);
 
-void jacobi2DSeq(const std::vector<int> &bounds, const double epsilon, const unsigned long n, std::vector<double> *in, std::vector<double> *out);
+void jacobi2DSeq(const std::vector<double> &bounds, const double epsilon, const unsigned long n, std::vector<double> *in, std::vector<double> *out);
 
-void jacobi3DSeq(const std::vector<int> &bounds, const double epsilon, const unsigned long n, std::vector<double> *in, std::vector<double> *out);
+void jacobi3DSeq(const std::vector<double> &bounds, const double epsilon, const unsigned long n, std::vector<double> *in, std::vector<double> *out);
 
-void jacobi1DPar(const std::vector<int> &bounds, double epsilon, std::vector<double> *in, std::vector<double> *out);
+void jacobi1DPar(const std::vector<double> &bounds, double epsilon, std::vector<double> *in, std::vector<double> *out);
 
-void jacobi2DPar(const std::vector<int> &bounds, const double epsilon, const unsigned long n, std::vector<double> *in, std::vector<double> *out);
+void jacobi2DPar(const std::vector<double> &bounds, const double epsilon, const unsigned long n, std::vector<double> *in, std::vector<double> *out);
 
-void jacobi3DPar(const std::vector<int> &bounds, const double epsilon, const unsigned long n, std::vector<double> *in, std::vector<double> *out);
+void jacobi3DPar(const std::vector<double> &bounds, const double epsilon, const unsigned long n, std::vector<double> *in, std::vector<double> *out);
 
-void setBoundaries(const int dim, const unsigned long n, const std::vector<int> &bounds, std::vector<double> &in);
+void setBoundaries(const int dim, const unsigned long n, const std::vector<double> &bounds, std::vector<double> &in);
 
 bool deltaBelowEpsilon(double epsilon, const std::vector<double> &before, const std::vector<double> &after);
 
