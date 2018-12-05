@@ -78,9 +78,9 @@ int main(int argc, char **argv) {
             ChronoTimer t("2D Parallel version");
             jacobi2DPar(*bounds,epsilon,n,in,out);
         }
-        //std::cout<<out->at(10*514+11)<<std::endl;
+        //std::cout<<out->at(11*514+11)<<std::endl;
         //std::cout<<out->at(387*514+216)<<std::endl;
-        //std::cout<<out->at(502*514+8)<<std::endl;
+        //std::cout<<out->at(503*514+8)<<std::endl;
         break;
 
     case 3:
