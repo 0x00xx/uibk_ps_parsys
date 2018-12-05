@@ -22,15 +22,15 @@ bool deltaBelowEpsilon(double epsilon, const std::vector<double> &before, const 
 bool deltaBelowEpsilonPar(double epsilon, const std::vector<double> &before, const std::vector<double> &after);
 
 inline double calc1D(const double x, const double xLeft, const double xRight) {
-    return (xLeft+xRight)/2;
+    return (xLeft+xRight+x)/3;
 }
 
 inline double calc2D(const double x, const double xLeft, const double xRight, const double xUp, const double xDown) {
-    return (xLeft+xRight+xUp+xDown)/4;
+    return (xLeft+xRight+xUp+xDown+x)/5;
 }
 
 inline double calc3D(const double x, const double xLeft, const double xRight, const double xUp, const double xDown, const double xFront, const double xBehind) {
-    return (xLeft+xRight+xUp+xDown+xFront+xBehind)/6;
+    return (xLeft+xRight+xUp+xDown+xFront+xBehind+x)/7;
 }
 
 #endif

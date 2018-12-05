@@ -29,6 +29,7 @@ void jacobiIter2DSeq(const unsigned long n, const vector<int> &bounds, const vec
             out.at(n*i + j) = calc2D(in.at(n*i + j), in.at(n*i + j - 1), in.at(n*i + j + 1), in.at(n*(i - 1) + j), in.at(n*(i + 1) + j));
         }
     }
+    
 }
 
 void jacobiIter3DSeq(const unsigned long n, const vector<int> &bounds, const vector<double> &in, vector<double> &out) {
@@ -52,6 +53,7 @@ void jacobi1DSeq(const vector<int> &bounds, const double epsilon, vector<double>
         out = in;
         in = tmp;
     } while (!deltaBelowEpsilon(epsilon, *out, *in));
+    std::copy(in->begin(), in->end(), out->begin());
 }
 
 void jacobi2DSeq(const vector<int> &bounds, const double epsilon, const unsigned long n, std::vector<double> *in, std::vector<double> *out) {
@@ -64,6 +66,8 @@ void jacobi2DSeq(const vector<int> &bounds, const double epsilon, const unsigned
         out = in;
         in = tmp;
     } while (!deltaBelowEpsilon(epsilon, *out, *in));
+    std::copy(in->begin(), in->end(), out->begin());
+
 }
 
 void jacobi3DSeq(const std::vector<int> &bounds, const double epsilon, const unsigned long n, std::vector<double> *in, std::vector<double> *out) {
@@ -76,6 +80,8 @@ void jacobi3DSeq(const std::vector<int> &bounds, const double epsilon, const uns
         out = in;
         in = tmp;
     } while (!deltaBelowEpsilon(epsilon, *out, *in));
+    std::copy(in->begin(), in->end(), out->begin());
+
 }
 
 void jacobiIter1DPar(const vector<int> &bounds, const vector<double> &in, vector<double> &out) {
@@ -117,6 +123,7 @@ void jacobi1DPar(const vector<int> &bounds, const double epsilon, vector<double>
         out = in;
         in = tmp;
     } while (!deltaBelowEpsilonPar(epsilon, *out, *in));
+    std::copy(in->begin(), in->end(), out->begin());
 }
 
 void jacobi2DPar(const vector<int> &bounds, const double epsilon, const unsigned long n, std::vector<double> *in, std::vector<double> *out) {
@@ -130,6 +137,8 @@ void jacobi2DPar(const vector<int> &bounds, const double epsilon, const unsigned
         out = in;
         in = tmp;
     } while (!deltaBelowEpsilonPar(epsilon, *out, *in));
+    std::copy(in->begin(), in->end(), out->begin());
+
 }
 
 void jacobi3DPar(const std::vector<int> &bounds, const double epsilon, const unsigned long n, std::vector<double>* in, std::vector<double>* out) {
@@ -143,6 +152,8 @@ void jacobi3DPar(const std::vector<int> &bounds, const double epsilon, const uns
         out = in;
         in = tmp;
     } while (!deltaBelowEpsilonPar(epsilon, *out, *in));
+    std::copy(in->begin(), in->end(), out->begin());
+
 }
 
 void setBoundaries(const int dim, const unsigned long n, const std::vector<int> &bounds, std::vector<double> &in) {
