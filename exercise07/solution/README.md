@@ -36,3 +36,5 @@ _Times in ms_
 High StdDev when running on 8 threads -> Cache?
 
 _Compiler Command:_  g++ Stencil.cpp StencilMain.cpp Stencil.h -o stencil -O3 -march=native -Wall -fopenmp
+
+_Execute Command:_ ./stencil EPSILON DIM N THREADS WEST EAST NORTH SOUTH
