@@ -1,4 +1,5 @@
-// g++ Main.cpp Montecarlo.h Montecarlo.cpp -fopenmp -Wall -O3 -std=c++11 -o montecarlo"
+// mpic++ Main.cpp Montecarlo.h Montecarlo.cpp -fopenmp -Wall -O3 -std=c++11 -o montecarlo
+// mpirun -np 4 ./montecarlo 100000000 par
 
 #include "Montecarlo.h"
 #include <mpi.h>
@@ -22,7 +23,6 @@ int main(int argc, char** argv) {
   
   if(rank == 0 && size != 0){
 	  double *value = new double[size];
-	  
 	  MPI_Recv(value, size, MPI_DOUBLE, MPI_ANY_SOURCE, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
 	  for(int i = 0; i<size; i++){
 		  result += value[i];
