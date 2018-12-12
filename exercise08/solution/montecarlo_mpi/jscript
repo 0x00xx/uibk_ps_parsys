@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+#$ -q std.q
+#$ -cwd
+#$ -o output_montecarlo
+#$ -e error.dat
+#$ -l h_vmem=1G	
+#$ -pe openmpi-fillup 16
+
+export OMP_NUM_THREADS=16
+time mpirun -np 16 ./montecarlo 10000000 par
+
+export OMP_NUM_THREADS=1
+time mpirun -np 16 ./montecarlo 10000000 seq
