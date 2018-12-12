@@ -64,6 +64,7 @@ void jacobi1DSeq(const vector<double> &bounds, const double epsilon, vector<doub
         out = in;
         in = tmp;
     } while (!deltaBelowEpsilon(epsilon, *out, *in));
+    std::copy(in->begin(), in->end(), out->begin());
 }
 
 void jacobi2DSeq(const vector<double> &bounds, const double epsilon, const unsigned long n, std::vector<double> *in, std::vector<double> *out)
@@ -77,6 +78,7 @@ void jacobi2DSeq(const vector<double> &bounds, const double epsilon, const unsig
         out = in;
         in = tmp;
     } while (!deltaBelowEpsilon(epsilon, *out, *in));
+    std::copy(in->begin(), in->end(), out->begin());
 }
 
 void
@@ -91,6 +93,7 @@ jacobi3DSeq(const std::vector<double> &bounds, const double epsilon, const unsig
         out = in;
         in = tmp;
     } while (!deltaBelowEpsilon(epsilon, *out, *in));
+    std::copy(in->begin(), in->end(), out->begin());
 }
 
 

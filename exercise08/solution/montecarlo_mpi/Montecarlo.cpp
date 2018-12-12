@@ -18,7 +18,7 @@ double montecarloSeq(long s, int rank){
   long hit = 0;
   double x;
   double y;
-  unsigned int state2 = 324646435+rank;
+  unsigned int state2 = 324646435 + rank;
   // Check if it is in circle
   for (long i=0; i<s; i++) {	
     x = (double)rand_r(&state2) / RAND_MAX;
@@ -39,7 +39,7 @@ double montecarloPar(long s, int rank){
   #pragma omp threadprivate(state)
   #pragma omp parallel private(x,y) reduction (+:hit)
   {
-    state = 2234 + 3337 * omp_get_thread_num();
+    state = 2234 + 3337 * omp_get_thread_num() + rank;
     #pragma omp for
     for (i=0; i<s; i++) {
       x = (double)rand_r(&state) / RAND_MAX;
