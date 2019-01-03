@@ -1,6 +1,4 @@
-//
-// Created by bennett on 11/22/17.
-//
+
 
 #include <cassert>
 #include <cmath>
@@ -12,6 +10,8 @@
 #include <unistd.h>
 
 using namespace std;
+
+int count = 0;
 
 // Positions in bounds array
 constexpr unsigned long B_L = 0; // left
@@ -75,7 +75,9 @@ void jacobi2DSeq(const vector<double> &bounds, const double epsilon, const unsig
         auto tmp = out;
         out = in;
         in = tmp;
+        count++;
     } while (!deltaBelowEpsilon(epsilon, *out, *in));
+    std::cout<<count<<std::endl;
 }
 
 void
@@ -212,7 +214,7 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
     double localsum;
     double globalsum;
     do {
-
+		count++;
         //if changing ghosts are 0 --> exchange the ghosts
         if (currGhosts == 0) {
             //cout << "exchange" << endl;
@@ -263,6 +265,8 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
 
         //cout << "GS " << globalsum << " currGhosts: " << currGhosts << endl;
     } while (globalsum > epsilon);
+    
+    std::cout<<count<<std::endl;
     return in;
 }
 
