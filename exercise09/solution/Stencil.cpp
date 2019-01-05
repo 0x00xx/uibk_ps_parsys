@@ -22,12 +22,7 @@ constexpr unsigned long B_F = 4; // forward
 constexpr unsigned long B_B = 5; // backward
 
 
-void jacobiIter1DSeq(const vector<double> &bounds, const vector<double> &in, vector<double> &out)
-{
-    for (unsigned long i = 1; i < (in.size() - 1); ++i) {
-        out.at(i) = calc1D(in.at(i), in.at(i - 1), in.at(i + 1));
-    }
-}
+
 
 void jacobiIter2DSeq(const unsigned long n, const vector<double> &bounds, const vector<double> &in, vector<double> &out)
 {
@@ -35,83 +30,6 @@ void jacobiIter2DSeq(const unsigned long n, const vector<double> &bounds, const 
         for (unsigned long j = 1; j < n - 1; ++j) {
             out.at(n*i + j) = calc2D(in.at(n*i + j), in.at(n*i + j - 1), in.at(n*i + j + 1), in.at(n*(i - 1) + j), in.at(n*(i + 1) + j));
         }
-    }
-}
-
-
-void jacobiIter3DSeq(const unsigned long n, const vector<double> &bounds, const vector<double> &in, vector<double> &out)
-{
-    for (unsigned long i = 1; i < n - 1; ++i) {
-        for (unsigned long j = 1; j < n - 1; ++j) {
-            for (unsigned long k = 1; k < n - 1; ++k) {
-                out.at(n*n*i + n*j + k) = calc3D(in.at(n*n*i + n*j + k), in.at(n*n*i + n*j + k - 1), in.at(n*n*i + n*j + k + 1),
-                                                 in.at(n*n*i + n*(j - 1) + k), in.at(n*n*i + n*(j + 1) + k), in.at(n*n*(i - 1) + n*j + k),
-                                                 in.at(n*n*(i + 1) + n*j + k));
-            }
-        }
-    }
-}
-
-void jacobi1DSeq(const vector<double> &bounds, const double epsilon, vector<double> *in, vector<double> *out)
-{
-    assert(in->size() == out->size());
-    assert(bounds.size() >= 2);
-
-    do {
-        jacobiIter1DSeq(bounds, *in, *out);
-        auto tmp = out;
-        out = in;
-        in = tmp;
-    } while (!deltaBelowEpsilon(epsilon, *out, *in));
-}
-
-void jacobi2DSeq(const vector<double> &bounds, const double epsilon, const unsigned long n, std::vector<double> *in, std::vector<double> *out)
-{
-    assert(in->size() == out->size());
-    assert(bounds.size() >= 4);
-	int i = 0;
-    do {
-		count++;
-        jacobiIter2DSeq(n, bounds, *in, *out);
-        auto tmp = out;
-        out = in;
-        in = tmp;
-		if(i == 0){
-			for (int j = 0; j < n; ++j) {
-				for (int i = 0; i < n; ++i) {
-					std::cout << in->at(n*j + i) << " ";
-				}
-				std::cout << std::endl;
-			}
-		}
-		i++;
-    } while (!deltaBelowEpsilon(epsilon, *out, *in));
-    std::cout<<count<<std::endl;
-}
-
-void
-jacobi3DSeq(const std::vector<double> &bounds, const double epsilon, const unsigned long n, std::vector<double> *in, std::vector<double> *out)
-{
-    assert(in->size() == out->size());
-    assert(bounds.size() >= 6);
-
-    do {
-        jacobiIter3DSeq(n, bounds, *in, *out);
-        auto tmp = out;
-        out = in;
-        in = tmp;
-    } while (!deltaBelowEpsilon(epsilon, *out, *in));
-}
-
-
-void jacobiIter1DPar(const unsigned long n, const vector<double> &bounds, const vector<double> &in, vector<double> &out, int rank, int size,
-                     int ghosts, int lowerGhosts, int upperGhosts){
-    int extensionSize = 2*ghosts;
-    if(rank==0 || rank==size-1)
-        extensionSize = ghosts;
-//#pragma omp parallel for schedule(static)
-    for (unsigned long i = ghosts - lowerGhosts; i < n/size + extensionSize - ghosts + upperGhosts; ++i) {
-        out.at(i) = calc1D(in.at(i), in.at(i - 1), in.at(i + 1));
     }
 }
 
@@ -130,87 +48,8 @@ void jacobiIter2DPar(const unsigned long n, const vector<double> &bounds, const 
 }
 
 
-void jacobiIter3DPar(const unsigned long n, const vector<double> &bounds, const vector<double> &in, vector<double> &out, int rank, int size,
-                     int ghosts, int lowerGhosts, int upperGhosts)
-{
-    int extensionSize = 2*ghosts;
-    if(rank==0 || rank==size-1)
-        extensionSize = ghosts;
-    //double localDiff = 0;
-    //cout << "Iter 3D -> Calc layers:" << (n/size - ghosts + upperGhosts + extensionSize) << "-" << (ghosts - lowerGhosts) <<
-    //     " size in " << in.size() << " " << rank << std::endl;
-    //#pragma omp parallel for schedule(static)
-    for (unsigned long i = ghosts - lowerGhosts; i < n/size + extensionSize - ghosts + upperGhosts; ++i) {
-        for (unsigned long j = 1; j < n - 1; ++j) {
-            for (unsigned long k = 1; k < n - 1; ++k) {
-                //cout << i << j << k << endl;
-                out.at(n*n*i + n*j + k) = calc3D(in.at(n*n*i + n*j + k), in.at(n*n*i + n*j + k - 1), in.at(n*n*i + n*j + k + 1),
-                                                 in.at(n*n*i + n*(j - 1) + k), in.at(n*n*i + n*(j + 1) + k), in.at(n*n*(i - 1) + n*j + k),
-                                                 in.at(n*n*(i + 1) + n*j + k));
-                //localDiff += fabs(out.at(n*n*i + n*j + k)-in.at(n*n*i + n*j + k));
-            }
-        }
-    }
-    //cout << "END Iter 3D" << std::endl;
-    //return localDiff;
-}
 
-std::vector<double> * jacobi1DPar(const vector<double> &bounds, const double epsilon, const unsigned long n, std::vector<double> *in, std::vector<double> *out,
-                                  int rank, int size, int ghosts){
-    assert(in->size() == out->size());
-    assert(bounds.size() >= 2);
 
-    int currGhosts = ghosts;
-    double localsum;
-    double globalsum;
-    MPI_Status status;
-    do {
-
-        //if changing ghosts are 0 --> exchange the ghosts
-        if (currGhosts == 0) {
-            //cout << "exchange" << endl;
-            MPI_Barrier(MPI_COMM_WORLD);
-            //Send up
-            if (rank < size - 1)
-                MPI_Send(&in->at(in->size() - 2*ghosts), ghosts, MPI_DOUBLE, rank + 1, 2, MPI_COMM_WORLD);
-            if (rank > 0)
-                MPI_Recv(&in->at(0), ghosts, MPI_DOUBLE, rank - 1, 2, MPI_COMM_WORLD, &status);
-            MPI_Barrier(MPI_COMM_WORLD);
-            // Send down
-            if (rank > 0)
-                MPI_Send(&in->at(ghosts), ghosts, MPI_DOUBLE, rank - 1, 1, MPI_COMM_WORLD);
-            if (rank < size - 1)
-                MPI_Recv(&in->at(in->size() - ghosts), ghosts, MPI_DOUBLE, rank + 1, 1, MPI_COMM_WORLD, &status);
-            MPI_Barrier(MPI_COMM_WORLD);
-
-            currGhosts = ghosts;
-            std::copy(in->begin(), in->end(), out->begin());
-        }
-        if (rank == 0) {
-            jacobiIter1DPar(n, bounds, *in, *out, rank, size, ghosts, ghosts - 1, currGhosts - 1);
-            localsum = deltaPar(*out, *in, 0, ghosts);
-        } else if (rank == size - 1) {
-            jacobiIter1DPar(n, bounds, *in, *out, rank, size, ghosts, currGhosts - 1, ghosts - 1);
-            localsum = deltaPar(*out, *in, ghosts, 0);
-        } else {
-            jacobiIter1DPar(n, bounds, *in, *out, rank, size, ghosts, currGhosts - 1, currGhosts - 1);
-            localsum = deltaPar(*out, *in, ghosts, ghosts);
-        }
-        currGhosts--;
-        auto tmp = out;
-        out = in;
-        in = tmp;
-
-        //MPI_Reduce(&localsum, &globalsum, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
-        //MPI_Bcast(&globalsum, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
-        MPI_Barrier(MPI_COMM_WORLD);
-        globalsum = 0;
-        MPI_Allreduce(&localsum, &globalsum, 1, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD);
-
-        //cout << "GS " << globalsum << " currGhosts: " << currGhosts << endl;
-    } while (globalsum > epsilon);
-    return in;
-}
 
 std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double epsilon, const unsigned long n, std::vector<double> *in, std::vector<double> *out,
                  int rank, int size, int ghosts)
@@ -280,68 +119,6 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
     
     std::cout<<count<<std::endl;
    
-    return in;
-}
-
-std::vector<double> *jacobi3DPar(const std::vector<double> &bounds, const double epsilon, const unsigned long n, std::vector<double> *in, std::vector<double> *out,
-            int rank, int size, int ghosts)
-{
-
-    assert(in->size() == out->size());
-    assert(in->size()%(n*n) == 0);
-    assert(bounds.size() >= 6);
-
-    int currGhosts = ghosts;
-    double localsum;
-    double globalsum;
-    MPI_Status status;
-    do {
-
-        //if changing ghosts are 0 --> exchange the ghosts
-        if (currGhosts == 0) {
-            //cout << "exchange" << endl;
-            MPI_Barrier(MPI_COMM_WORLD);
-            //Send up
-            if (rank < size - 1)
-                MPI_Send(&in->at(in->size() - 2*ghosts*n*n), ghosts*n*n, MPI_DOUBLE,
-                         rank + 1, 2, MPI_COMM_WORLD);
-            if (rank > 0)
-                MPI_Recv(&in->at(0), ghosts*n*n, MPI_DOUBLE, rank - 1, 2, MPI_COMM_WORLD, &status);
-            MPI_Barrier(MPI_COMM_WORLD);
-            // Send down
-            if (rank > 0)
-                MPI_Send(&in->at(ghosts*n*n), ghosts*n*n, MPI_DOUBLE, rank - 1, 1, MPI_COMM_WORLD);
-            if (rank < size - 1)
-                MPI_Recv(&in->at(in->size() - ghosts*n*n), ghosts*n*n, MPI_DOUBLE,
-                         rank + 1, 1, MPI_COMM_WORLD, &status);
-            MPI_Barrier(MPI_COMM_WORLD);
-
-            currGhosts = ghosts;
-            std::copy(in->begin(), in->end(), out->begin());
-        }
-        if (rank == 0) {
-            jacobiIter3DPar(n, bounds, *in, *out, rank, size, ghosts, ghosts-1, currGhosts-1);
-            localsum = deltaPar(*out, *in, 0, ghosts*n*n);
-        } else if (rank == size - 1) {
-            jacobiIter3DPar(n, bounds, *in, *out, rank, size, ghosts, currGhosts-1, ghosts-1);
-            localsum = deltaPar(*out, *in, ghosts*n*n, 0);
-        } else {
-            jacobiIter3DPar(n, bounds, *in, *out, rank, size, ghosts, currGhosts-1, currGhosts-1);
-            localsum = deltaPar(*out, *in, ghosts*n*n, ghosts*n*n);
-        }
-        currGhosts--;
-        auto tmp = out;
-        out = in;
-        in = tmp;
-
-        //MPI_Reduce(&localsum, &globalsum, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
-        //MPI_Bcast(&globalsum, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
-        MPI_Barrier(MPI_COMM_WORLD);
-        globalsum = 0;
-        MPI_Allreduce( &localsum, &globalsum, 1, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD );
-
-        //cout << "GS " << globalsum << " currGhosts: " << currGhosts << endl;
-    } while (globalsum > epsilon);
     return in;
 }
 
