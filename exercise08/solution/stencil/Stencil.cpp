@@ -10,6 +10,8 @@
 
 using namespace std;
 
+int count = 0;
+
 // Positions in bounds array
 constexpr unsigned long B_L = 0; // left
 constexpr unsigned long B_R = 1; // right
@@ -196,7 +198,7 @@ std::vector<double> * jacobi1DPar(const vector<double> &bounds, const double eps
         auto tmp = out;
         out = in;
         in = tmp;
-
+		
         //MPI_Reduce(&localsum, &globalsum, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
         //MPI_Bcast(&globalsum, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
         MPI_Barrier(MPI_COMM_WORLD);
@@ -257,7 +259,7 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
         auto tmp = out;
         out = in;
         in = tmp;
-
+		count++;
         //MPI_Reduce(&localsum, &globalsum, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
         //MPI_Bcast(&globalsum, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
         MPI_Barrier(MPI_COMM_WORLD);
@@ -266,6 +268,8 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
 
         //cout << "GS " << globalsum << " currGhosts: " << currGhosts << endl;
     } while (globalsum > epsilon);
+    
+    std::cout<<count<<std::endl;
     return in;
 }
 

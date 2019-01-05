@@ -136,34 +136,43 @@ int main(int argc, char **argv)
             out = new std::vector<double>(n*n);
             std::copy(in->begin(), in->end(), out->begin());
         } else if (rank == 0) { //first item
-            int tmpSize = n*(n/size) + ghosts*n;
+			in = new std::vector<double>(n*n);
+            setBoundaries(2, n, *bounds, *in);
+            out = new std::vector<double>(n*n);
+            std::copy(in->begin(), in->end(), out->begin());
+			/*int tmpSize = n*(n/size) + ghosts*n;
             in = new std::vector<double>(tmpSize);
             result = new std::vector<double>(n*n);
             setBoundaries(2, n, *bounds, *result);
             for (int i = 1; i < size-1; ++i) {
+				//std::cout<<"at: "<<n*(n/size)*i-ghosts*n<< "  el: "<<n*(n/size)+2*ghosts*n<<std::endl;
                 MPI_Send(&result->at(n*(n/size)*i-ghosts*n), n*(n/size)+2*ghosts*n,
                          MPI_DOUBLE, i, 1, MPI_COMM_WORLD);
             }
             MPI_Send(&result->at(n*(n/size)*(size-1)-ghosts*n), n*(n/size)+ghosts*n,
                      MPI_DOUBLE, size-1, 1, MPI_COMM_WORLD);
+            //std::cout<<"at: "<<n*(n/size)*(size-1)-ghosts*n<< "  el: "<<n*(n/size)+ghosts*n*2<<std::endl;
             out = new std::vector<double>(tmpSize);
             std::copy(result->begin(), result->begin()+n*ghosts+n*(n/size), in->begin());
-            std::copy(in->begin(), in->end(), out->begin());
+            std::copy(in->begin(), in->end(), out->begin());*/
         } else if (rank == size - 1) { //last item
-            int tmpSize = n*(n/size) + ghosts*n;
+            /*int tmpSize = n*(n/size) + ghosts*n;
             in = new std::vector<double>(tmpSize);
             MPI_Recv(&in->at(0), tmpSize, MPI_DOUBLE,
                      0, 1, MPI_COMM_WORLD, &status);
             out = new std::vector<double>(tmpSize);
-            std::copy(in->begin(), in->end(), out->begin());
+            std::copy(in->begin(), in->end(), out->begin());*/
         } else { //middle items
-            int tmpSize = n*(n/size) + 2*ghosts*n;
+            /*int tmpSize = n*(n/size) + 2*ghosts*n;
             in = new std::vector<double>(tmpSize);
             MPI_Recv(&in->at(0), tmpSize, MPI_DOUBLE,
                      0, 1, MPI_COMM_WORLD, &status);
             out = new std::vector<double>(tmpSize);
-            std::copy(in->begin(), in->end(), out->begin());
+            
+			std::cout << std::endl;
+            std::copy(in->begin(), in->end(), out->begin());*/
         }
+        
         if (size < 2) {
             ChronoTimer t("2D Serial version");
             jacobi2DSeq(*bounds, epsilon, n, in, out);
@@ -171,6 +180,13 @@ int main(int argc, char **argv)
             ChronoTimer t("2D Parallel version");
             in = jacobi2DPar(*bounds, epsilon, n, in, out, rank, size, ghosts);
             std::cout << rank << " ends here" << std::endl;
+
+			for (int j = 0; j < n; ++j) {
+				for (int i = 0; i < n; ++i) {
+					std::cout << in->at(n*j + i) << " ";
+				}
+				std::cout << std::endl;
+			}
 
             int offset = rank==0?0:ghosts*n;
             double *results;
@@ -182,8 +198,8 @@ int main(int argc, char **argv)
                 for (int i = 0; i < n*n; ++i) {
                     result->at(i) = results[i];
                 }
-                //std::cout << "Print" << std::endl;
-                //print_Array(dim, result, n);
+                std::cout << "Print" << std::endl;
+                print_Array(dim, result, n);
             }
         }
         break;
@@ -213,13 +229,16 @@ int main(int argc, char **argv)
             MPI_Recv(&in->at(0), tmpSize, MPI_DOUBLE,
                      0, 1, MPI_COMM_WORLD, &status);
             out = new std::vector<double>(tmpSize);
+            
             std::copy(in->begin(), in->end(), out->begin());
         } else { //middle items
             int tmpSize = n*n*(n/size) + 2*ghosts*n*n;
             in = new std::vector<double>(tmpSize);
             MPI_Recv(&in->at(0), tmpSize, MPI_DOUBLE,
                      0, 1, MPI_COMM_WORLD, &status);
+			
             out = new std::vector<double>(tmpSize);
+            
             std::copy(in->begin(), in->end(), out->begin());
         }
         if (size < 2) {

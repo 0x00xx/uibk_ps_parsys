@@ -136,13 +136,14 @@ void jacobi2DPar(const vector<double> &bounds, const double epsilon, const unsig
 
     putenv(const_cast<char *>("OMP_CANCELLATION=true"));
     do {
+		count++;
         jacobiIter2DPar(n, bounds, *in, *out);
         auto tmp = out;
         out = in;
         in = tmp;
     } while (!deltaBelowEpsilonPar(epsilon, *out, *in));
     std::copy(in->begin(), in->end(), out->begin());
-
+	std::cout<<count<<std::endl;
 }
 
 void jacobi3DPar(const std::vector<double> &bounds, const double epsilon, const unsigned long n, std::vector<double>* in, std::vector<double>* out) {

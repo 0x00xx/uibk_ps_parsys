@@ -69,13 +69,22 @@ void jacobi2DSeq(const vector<double> &bounds, const double epsilon, const unsig
 {
     assert(in->size() == out->size());
     assert(bounds.size() >= 4);
-
+	int i = 0;
     do {
+		count++;
         jacobiIter2DSeq(n, bounds, *in, *out);
         auto tmp = out;
         out = in;
         in = tmp;
-        count++;
+		if(i == 0){
+			for (int j = 0; j < n; ++j) {
+				for (int i = 0; i < n; ++i) {
+					std::cout << in->at(n*j + i) << " ";
+				}
+				std::cout << std::endl;
+			}
+		}
+		i++;
     } while (!deltaBelowEpsilon(epsilon, *out, *in));
     std::cout<<count<<std::endl;
 }
@@ -213,31 +222,27 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
     int currGhosts = ghosts;
     double localsum;
     double globalsum;
+    
     do {
-		count++;
+		
         //if changing ghosts are 0 --> exchange the ghosts
         if (currGhosts == 0) {
             //cout << "exchange" << endl;
-            MPI_Barrier(MPI_COMM_WORLD); // TODO is this needed?
-
-            MPI_Request ioToWaitFor[4] = {MPI_REQUEST_NULL, MPI_REQUEST_NULL, MPI_REQUEST_NULL, MPI_REQUEST_NULL};
-
+            MPI_Barrier(MPI_COMM_WORLD);
             //Send up
             if (rank < size - 1)
-                MPI_Isend(&in->at(in->size() - 2*ghosts*n), ghosts*n, MPI_DOUBLE,
-                         rank + 1, 2, MPI_COMM_WORLD, &ioToWaitFor[0]);
+                MPI_Send(&in->at(in->size() - 2*ghosts*n), ghosts*n, MPI_DOUBLE,
+                         rank + 1, 2, MPI_COMM_WORLD);
             if (rank > 0)
-                MPI_Irecv(&in->at(0), ghosts*n, MPI_DOUBLE, rank - 1, 2, MPI_COMM_WORLD, &ioToWaitFor[1]);
-            //MPI_Barrier(MPI_COMM_WORLD); // TODO is this needed?
+                MPI_Recv(&in->at(0), ghosts*n, MPI_DOUBLE, rank - 1, 2, MPI_COMM_WORLD, &status);
+            MPI_Barrier(MPI_COMM_WORLD);
             // Send down
             if (rank > 0)
-                MPI_Isend(&in->at(ghosts*n), ghosts*n, MPI_DOUBLE, rank - 1, 1, MPI_COMM_WORLD, &ioToWaitFor[2]);
+                MPI_Send(&in->at(ghosts*n), ghosts*n, MPI_DOUBLE, rank - 1, 1, MPI_COMM_WORLD);
             if (rank < size - 1)
-                MPI_Irecv(&in->at(in->size() - ghosts*n), ghosts*n, MPI_DOUBLE,
-                         rank + 1, 1, MPI_COMM_WORLD, &ioToWaitFor[3]);
-
-            MPI_Waitall(4, ioToWaitFor, MPI_STATUSES_IGNORE);
-            MPI_Barrier(MPI_COMM_WORLD); // TODO is this needed?
+                MPI_Recv(&in->at(in->size() - ghosts*n), ghosts*n, MPI_DOUBLE,
+                         rank + 1, 1, MPI_COMM_WORLD, &status);
+            MPI_Barrier(MPI_COMM_WORLD);
 
             currGhosts = ghosts;
             std::copy(in->begin(), in->end(), out->begin());
@@ -252,6 +257,7 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
             jacobiIter2DPar(n, bounds, *in, *out, rank, size, ghosts, currGhosts-1, currGhosts-1);
             localsum = deltaPar(*out, *in, ghosts*n, ghosts*n);
         }
+        
         currGhosts--;
         auto tmp = out;
         out = in;
@@ -262,11 +268,18 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
         MPI_Barrier(MPI_COMM_WORLD);
         globalsum = 0;
         MPI_Allreduce( &localsum, &globalsum, 1, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD );
-
+        if(count == 0){
+			
+			return in;
+		}
+		count++;
         //cout << "GS " << globalsum << " currGhosts: " << currGhosts << endl;
     } while (globalsum > epsilon);
     
+    //cout << "GS " << globalsum << " currGhosts: " << currGhosts << endl;
+    
     std::cout<<count<<std::endl;
+   
     return in;
 }
 
