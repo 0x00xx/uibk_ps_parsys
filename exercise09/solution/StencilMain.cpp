@@ -95,11 +95,11 @@ int main(int argc, char **argv)
         } else {
 			
             ChronoTimer t("2D Parallel version");
-            in = jacobi2DPar(*bounds, epsilon, n, in, out, rank, size);
+            jacobi2DPar(*bounds, epsilon, n, in, out, rank, size);
             std::cout << rank << " ends here" << std::endl;
 
-            
-            double *results;
+           
+            /*double *results;
             if(rank==0){
                 results = (double*) malloc(n*n*sizeof(double));
                 for (int i = 0; i < n*n; ++i) {
@@ -107,7 +107,7 @@ int main(int argc, char **argv)
                 }
                 //std::cout << "Print" << std::endl;
                 //print_Array(dim, result, n);
-            }
+            }*/
         }
         break;
     case 3:
