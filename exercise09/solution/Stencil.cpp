@@ -168,7 +168,7 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
 				std::vector<double> *left = new std::vector<double>(66*66);
 				MPI_Send(&blockIn->begin()), blockSize*blockSize, MPI_DOUBLE, rank - 1, 0, MPI_COMM_WORLD);
 				MPI_Send(&blockIn->begin()), blockSize*blockSize, MPI_DOUBLE, rank + 1, 0, MPI_COMM_WORLD);
-				MPI_Send(&blockIn->begin()), blockSize*blockSize, MPI_DOUBLE, rank 8 8, 0, MPI_COMM_WORLD);
+				MPI_Send(&blockIn->begin()), blockSize*blockSize, MPI_DOUBLE, rank + 8, 0, MPI_COMM_WORLD);
 				
 				MPI_Recv(&left->begin(), blockSize*blockSize, MPI_DOUBLE, rank - 1, 1, MPI_COMM_WORLD, &status);
 				MPI_Recv(&bot->begin(), blockSize*blockSize, MPI_DOUBLE, rank + 8, 1, MPI_COMM_WORLD, &status);
@@ -179,7 +179,7 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
 					blockIn[blockSize*i+1] = left->at(blockSize*i+(blockSize-1)); 
 					blockIn[blockSize*i+(blockSize-1)] = right->at(blockSize*i+1)); 
 				}		
-			}else if(rank%8 == 0){	//left
+			}else if(rank % 8 == 0){	//left
 				std::vector<double> *bot = new std::vector<double>(66*66);
 				std::vector<double> *top = new std::vector<double>(66*66);
 				std::vector<double> *right = new std::vector<double>(66*66);
@@ -196,7 +196,7 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
 				for(int i = 0; i<blockSize; i++){ 
 					blockIn[blockSize*i+(blockSize-1)] = right->at(blockSize*i+1)); 
 				}		
-			}else if(rank%7==0){	//right
+			}else if(rank % 8 == 7){	//right
 				std::vector<double> *bot = new std::vector<double>(66*66);
 				std::vector<double> *top = new std::vector<double>(66*66);
 				std::vector<double> *left = new std::vector<double>(66*66);
