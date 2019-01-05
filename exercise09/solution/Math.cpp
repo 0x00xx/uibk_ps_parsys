@@ -17,11 +17,11 @@ bool deltaBelowEpsilon(const double epsilon, const std::vector<double> &before, 
     return epsilon > delta;
 }
 
-double deltaPar(const std::vector<double> &before, const std::vector<double> &after, int upperghosts, int lowerghosts)
+double deltaPar(const std::vector<double> &before, const std::vector<double> &after)
 {
     //std::cout << "Delta 3D " << after.size()-lowerghosts-upperghosts << std::endl;
     double delta = 0;
-    for (unsigned long i = 0 + lowerghosts; i < before.size() - upperghosts; ++i) {
+    for (unsigned long i = 0; i < before.size(); ++i) {
         delta += fabs(before.at(i) - after.at(i));
     }
     //std::cout << "DELTA " << delta << std::endl;

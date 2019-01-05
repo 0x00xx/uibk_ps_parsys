@@ -23,7 +23,13 @@ int main(int argc, char **argv)
     unsigned int dim = atoi(argv[2]);
     unsigned long n = atol(argv[3]) + 2;
     unsigned int ghosts = atoi(argv[4]);
-
+	if(n%64 == 0){
+        std::cerr << "N cannot be divided by 64" << std::endl;
+		exit(EXIT_FAILURE);
+	}
+	if(n%2 != 0){
+		n++;
+	}
     if (n < 1 || ghosts > n || ghosts < 1 || dim < 1 || dim > 3) {
         std::cerr << "N > 0 && N>Ghosts>0 && 0<dim<4" << std::endl;
         exit(EXIT_FAILURE);
@@ -59,96 +65,53 @@ int main(int argc, char **argv)
     // allocate the in and output vector and initialize it
     // run program
 
+	std::vector<double> *in;
+    std::vector<double> *out;
+	in = new std::vector<double>(n*n);
+    setBoundaries(2, n, *bounds, *in);
+    out = new std::vector<double>(n*n);
+    std::copy(in->begin(), in->end(), out->begin());
+
     MPI_Init(&argc, &argv);
 
     int size, rank;
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &size);
 
-    std::vector<double> *in;
-    std::vector<double> *out;
-    std::vector<double> *result;
+    
     MPI_Status status;
+
 
     switch (dim) {
     case 1:
         
     case 2:
-        if (size == 1) { //sequential
-            in = new std::vector<double>(n*n);
-            setBoundaries(2, n, *bounds, *in);
-            out = new std::vector<double>(n*n);
-            std::copy(in->begin(), in->end(), out->begin());
-        } else if (rank == 0) { //first item
-			in = new std::vector<double>(n*n);
-            setBoundaries(2, n, *bounds, *in);
-            out = new std::vector<double>(n*n);
-            std::copy(in->begin(), in->end(), out->begin());
-			/*int tmpSize = n*(n/size) + ghosts*n;
-            in = new std::vector<double>(tmpSize);
-            result = new std::vector<double>(n*n);
-            setBoundaries(2, n, *bounds, *result);
-            for (int i = 1; i < size-1; ++i) {
-				//std::cout<<"at: "<<n*(n/size)*i-ghosts*n<< "  el: "<<n*(n/size)+2*ghosts*n<<std::endl;
-                MPI_Send(&result->at(n*(n/size)*i-ghosts*n), n*(n/size)+2*ghosts*n,
-                         MPI_DOUBLE, i, 1, MPI_COMM_WORLD);
-            }
-            MPI_Send(&result->at(n*(n/size)*(size-1)-ghosts*n), n*(n/size)+ghosts*n,
-                     MPI_DOUBLE, size-1, 1, MPI_COMM_WORLD);
-            //std::cout<<"at: "<<n*(n/size)*(size-1)-ghosts*n<< "  el: "<<n*(n/size)+ghosts*n*2<<std::endl;
-            out = new std::vector<double>(tmpSize);
-            std::copy(result->begin(), result->begin()+n*ghosts+n*(n/size), in->begin());
-            std::copy(in->begin(), in->end(), out->begin());*/
-        } else if (rank == size - 1) { //last item
-            /*int tmpSize = n*(n/size) + ghosts*n;
-            in = new std::vector<double>(tmpSize);
-            MPI_Recv(&in->at(0), tmpSize, MPI_DOUBLE,
-                     0, 1, MPI_COMM_WORLD, &status);
-            out = new std::vector<double>(tmpSize);
-            std::copy(in->begin(), in->end(), out->begin());*/
-        } else { //middle items
-            /*int tmpSize = n*(n/size) + 2*ghosts*n;
-            in = new std::vector<double>(tmpSize);
-            MPI_Recv(&in->at(0), tmpSize, MPI_DOUBLE,
-                     0, 1, MPI_COMM_WORLD, &status);
-            out = new std::vector<double>(tmpSize);
-            
-			std::cout << std::endl;
-            std::copy(in->begin(), in->end(), out->begin());*/
-        }
         
-        if (size < 2) {
+        
+        
+        if (size < 2) {//sequentiell
             ChronoTimer t("2D Serial version");
             jacobi2DSeq(*bounds, epsilon, n, in, out);
         } else {
+			
             ChronoTimer t("2D Parallel version");
-            in = jacobi2DPar(*bounds, epsilon, n, in, out, rank, size, ghosts);
+            in = jacobi2DPar(*bounds, epsilon, n, in, out, rank, size);
             std::cout << rank << " ends here" << std::endl;
 
-			for (int j = 0; j < n; ++j) {
-				for (int i = 0; i < n; ++i) {
-					std::cout << in->at(n*j + i) << " ";
-				}
-				std::cout << std::endl;
-			}
-
-            int offset = rank==0?0:ghosts*n;
+            
             double *results;
-            if(rank==0)
+            if(rank==0){
                 results = (double*) malloc(n*n*sizeof(double));
-            MPI_Gather(&in->at(offset), n*(n/size), MPI_DOUBLE, results, n*(n/size), MPI_DOUBLE, 0, MPI_COMM_WORLD);// Get all results
-
-            if (rank == 0) {
                 for (int i = 0; i < n*n; ++i) {
-                    result->at(i) = results[i];
+                    out->at(i) = results[i];
                 }
-                std::cout << "Print" << std::endl;
-                print_Array(dim, result, n);
+                //std::cout << "Print" << std::endl;
+                //print_Array(dim, result, n);
             }
         }
         break;
     case 3:
-        
+        break;
     }
     MPI_Finalize();
     return EXIT_SUCCESS;

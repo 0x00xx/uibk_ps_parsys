@@ -17,8 +17,7 @@
  * @param after  values after iteration
  * @return       whether the jacobi process can be terminated
  */
-double deltaPar(const std::vector<double> &before, const std::vector<double> &after,
-                       int upperghosts, int lowerghosts);
+double deltaPar(const std::vector<double> &before, const std::vector<double> &after);
 
 /**
  * Check whether delta between iterations is below epsilon

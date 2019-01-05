@@ -34,79 +34,79 @@ void jacobiIter2DSeq(const unsigned long n, const vector<double> &bounds, const 
 }
 
 
-void jacobiIter2DPar(const unsigned long n, const vector<double> &bounds, const vector<double> &in, vector<double> &out, int rank, int size,
-                     int ghosts, int lowerGhosts, int upperGhosts){
-    int extensionSize = 2*ghosts;
-    if(rank==0 || rank==size-1)
-        extensionSize = ghosts;
-//#pragma omp parallel for schedule(static)
-    for (unsigned long i = ghosts - lowerGhosts; i < n/size + extensionSize - ghosts + upperGhosts; ++i) {
+void jacobiIter2DPar(const unsigned long n, const vector<double> &bounds, const vector<double> &in, vector<double> &out, int rank, int size){
+    for (unsigned long i = 0; i < n*n; ++i) {
         for (unsigned long j = 1; j < n - 1; ++j) {
             out.at(n*i + j) = calc2D(in.at(n*i + j), in.at(n*i + j - 1), in.at(n*i + j + 1), in.at(n*(i - 1) + j), in.at(n*(i + 1) + j));
         }
     }
 }
 
+void jacobi2DSeq(const vector<double> &bounds, const double epsilon, const unsigned long n, std::vector<double> *in, std::vector<double> *out)
+{
+    assert(in->size() == out->size());
+    assert(bounds.size() >= 4);
+
+    do {
+        jacobiIter2DSeq(n, bounds, *in, *out);
+        auto tmp = out;
+        out = in;
+        in = tmp;
+    } while (!deltaBelowEpsilon(epsilon, *out, *in));
+    std::copy(in->begin(), in->end(), out->begin());
+}
 
 
 
 
 std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double epsilon, const unsigned long n, std::vector<double> *in, std::vector<double> *out,
-                 int rank, int size, int ghosts)
+                 int rank, int size)
 {
     assert(in->size() == out->size());
     assert(in->size()%(n) == 0);
     assert(bounds.size() >= 4);
-
-    int currGhosts = ghosts;
+    int blocksize = 66;
+	if(rank == 0){
+		std::vector<double> *out = new std::vector<double>(66*66);
+		for(int i = 0; i< blocksize; i++){
+			std::copy(in->begin()+n*i+((n-2)/8)*(rank%8) + ((rank/8)*(n*(n-2))), 
+			in->begin()+n*i+((n-2)/8)*(rank%8) + ((rank/8)*(n*(n-2))) + 66, out->begin()+blocksize*i);
+		}
+		//std::cout<<std::endl << in->at(65)<<std::endl;
+		
+		for(int i = 0; i<66; i++){
+			for(int j = 0; j<66; j++){
+				std::cout<<out->at(i*66 + j)<< " ";
+			}
+			std::cout << std::endl;
+		}
+		return out;
+	}else{
+		return out;
+	}
     double localsum;
     double globalsum;
     
     do {
 		
-        //if changing ghosts are 0 --> exchange the ghosts
-        if (currGhosts == 0) {
-            //cout << "exchange" << endl;
-            MPI_Barrier(MPI_COMM_WORLD);
-            //Send up
-            if (rank < size - 1)
-                MPI_Send(&in->at(in->size() - 2*ghosts*n), ghosts*n, MPI_DOUBLE,
-                         rank + 1, 2, MPI_COMM_WORLD);
-            if (rank > 0)
-                MPI_Recv(&in->at(0), ghosts*n, MPI_DOUBLE, rank - 1, 2, MPI_COMM_WORLD, &status);
-            MPI_Barrier(MPI_COMM_WORLD);
-            // Send down
-            if (rank > 0)
-                MPI_Send(&in->at(ghosts*n), ghosts*n, MPI_DOUBLE, rank - 1, 1, MPI_COMM_WORLD);
-            if (rank < size - 1)
-                MPI_Recv(&in->at(in->size() - ghosts*n), ghosts*n, MPI_DOUBLE,
-                         rank + 1, 1, MPI_COMM_WORLD, &status);
-            MPI_Barrier(MPI_COMM_WORLD);
-
-            currGhosts = ghosts;
-            std::copy(in->begin(), in->end(), out->begin());
-        }
         if (rank == 0) {
-            jacobiIter2DPar(n, bounds, *in, *out, rank, size, ghosts, ghosts-1, currGhosts-1);
-            localsum = deltaPar(*out, *in, 0, ghosts*n);
+            jacobiIter2DPar(n, bounds, *in, *out, rank, size);
+            localsum = deltaPar(*out, *in);
         } else if (rank == size - 1) {
-            jacobiIter2DPar(n, bounds, *in, *out, rank, size, ghosts, currGhosts-1, ghosts-1);
-            localsum = deltaPar(*out, *in, ghosts*n, 0);
+            jacobiIter2DPar(n, bounds, *in, *out, rank, size);
+            localsum = deltaPar(*out, *in);
         } else {
-            jacobiIter2DPar(n, bounds, *in, *out, rank, size, ghosts, currGhosts-1, currGhosts-1);
-            localsum = deltaPar(*out, *in, ghosts*n, ghosts*n);
+            jacobiIter2DPar(n, bounds, *in, *out, rank, size);
+            localsum = deltaPar(*out, *in);
         }
         
-        currGhosts--;
         auto tmp = out;
         out = in;
         in = tmp;
 
-        //MPI_Reduce(&localsum, &globalsum, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
-        //MPI_Bcast(&globalsum, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
-        MPI_Barrier(MPI_COMM_WORLD);
+        //MPI_Barrier(MPI_COMM_WORLD);
         globalsum = 0;
-        MPI_Allreduce( &localsum, &globalsum, 1, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD );
+        //MPI_Allreduce( &localsum, &globalsum, 1, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD );
         if(count == 0){
 			
 			return in;
