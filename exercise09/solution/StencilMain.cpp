@@ -95,7 +95,7 @@ int main(int argc, char **argv)
         } else {
 			
             ChronoTimer t("2D Parallel version");
-            jacobi2DPar(*bounds, epsilon, n, *in, out, rank, size);
+            jacobi2DPar(*bounds, epsilon, n, in, out, rank, size);
             std::cout << rank << " ends here" << std::endl;
 
            

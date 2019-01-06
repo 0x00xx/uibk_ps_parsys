@@ -61,16 +61,17 @@ void jacobi2DSeq(const vector<double> &bounds, const double epsilon, const unsig
 std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double epsilon, const unsigned long n, std::vector<double> *in, std::vector<double> *out,
                  int rank, int size)
 {
-    assert(in.size() == out->size());
-    assert(in.size()%(n) == 0);
+    assert(in->size() == out->size());
+    assert(in->size()%(n) == 0);
     assert(bounds.size() >= 4);
     int blockSize = 66;
     std::vector<double> *blockIn = new std::vector<double>(66*66);
     std::vector<double> *blockOut = new std::vector<double>(66*66);
 
+	//make different blocks based on rank
 	for(int i = 0; i< blockSize; i++){
-		std::copy(in.begin()+n*i+((n-2)/8)*(rank%8) + ((rank/8)*(n*(n-2))), 
-			in.begin()+n*i+((n-2)/8)*(rank%8) + ((rank/8)*(n*(n-2))) + 66, blockIn->begin()+blockSize*i);
+		std::copy(in->begin()+n*i+((n-2)/8)*(rank%8) + ((rank/8)*(n*(n-2))), 
+			in->begin()+n*i+((n-2)/8)*(rank%8) + ((rank/8)*(n*(n-2))) + 66, blockIn->begin()+blockSize*i);
 	}
 	
 	std::copy(blockIn->begin(), blockIn->end(), blockOut->begin());
@@ -79,10 +80,11 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
 	
     double localsum;
     double globalsum;
-    
+	MPI_Status status;
     int count = 0;
     do {
-		
+		MPI_Request ioToWaitFor[8] = {MPI_REQUEST_NULL, MPI_REQUEST_NULL, MPI_REQUEST_NULL, MPI_REQUEST_NULL, MPI_REQUEST_NULL,
+                                      MPI_REQUEST_NULL, MPI_REQUEST_NULL, MPI_REQUEST_NULL};
 		if(count>0){
 			/*std::copy(blockIn->begin()+blockSize*(blockSize-2)+1, blockIn->begin()+blockSize*(blockSize-1)-1, 
 						in.begin()+n*(blockSize-2)+(n*(rank/8)*(blockSize-2))+((blockSize-2)*(rank%8)));
@@ -94,154 +96,138 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
 					in[n*i+(n*(rank/8)*(blockSize-2))+((blockSize-2)*(rank%8))+(blockSize-2)] = blockOut->at(blockSize*i+(blockSize-2)); 
 				}
 			}*/
+			std::vector<double> *bot = new std::vector<double>(66*66);
+			std::vector<double> *right = new std::vector<double>(66*66);
+			std::vector<double> *top = new std::vector<double>(66*66);
+			std::vector<double> *left = new std::vector<double>(66*66);
 			if(rank == 0){	//left above
-				std::vector<double> *bot = new std::vector<double>(66*66);
-				std::vector<double> *right = new std::vector<double>(66*66);
-				MPI_Send(&blockIn->begin()), blockSize*blockSize, MPI_DOUBLE, rank + 1, 0, MPI_COMM_WORLD);
-				MPI_Send(&blockIn->begin()), blockSize*blockSize, MPI_DOUBLE, rank + 8, 0, MPI_COMM_WORLD);
+				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, rank + 1, 0, MPI_COMM_WORLD, &ioToWaitFor[0]); 
+				//MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, rank + 8, 0, MPI_COMM_WORLD, &ioToWaitFor[1]);
 				
-				MPI_Recv(&bot->begin(), blockSize*blockSize, MPI_DOUBLE, rank + 8, 1, MPI_COMM_WORLD, &status);
-				MPI_Recv(&right->begin(), blockSize*blockSize, MPI_DOUBLE, rank + 1, 1, MPI_COMM_WORLD, &status);
-				
-				std::copy(bot->begin()+blockSize+1, bot->begin()+2*blockSize-1, blockIn->begin()+blockSize*(blockSize-2)+1)
-				for(int i = 0; i<blockSize; i++){
-					blockIn[blockSize*i+(blockSize-1)] = right->at(blockSize*i+1)); 
-				}
+				//MPI_Irecv(&bot->at(0), blockSize*blockSize, MPI_DOUBLE, rank + 8, 0, MPI_COMM_WORLD, &ioToWaitFor[2]);
+				MPI_Irecv(&right->at(0), blockSize*blockSize, MPI_DOUBLE, rank + 1, 0, MPI_COMM_WORLD, &ioToWaitFor[3]);
 			}else if(rank == 63){	//right down
-				std::vector<double> *top = new std::vector<double>(66*66);
-				std::vector<double> *left = new std::vector<double>(66*66);
-				MPI_Send(&blockIn->begin()), blockSize*blockSize, MPI_DOUBLE, rank - 1, 0, MPI_COMM_WORLD);
-				MPI_Send(&blockIn->begin()), blockSize*blockSize, MPI_DOUBLE, rank - 8, 0, MPI_COMM_WORLD);
+				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, rank - 1, 0, MPI_COMM_WORLD, &ioToWaitFor[0]);
+				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, rank - 8, 0, MPI_COMM_WORLD, &ioToWaitFor[1]);
 				
-				MPI_Recv(&top->begin(), blockSize*blockSize, MPI_DOUBLE, rank - 8, 1, MPI_COMM_WORLD, &status);
-				MPI_Recv(&left->begin(), blockSize*blockSize, MPI_DOUBLE, rank - 1, 1, MPI_COMM_WORLD, &status);
-				
-				std::copy(top->begin()+blockSize*(blockSize-2)+1, top->begin()+blockSize*(blockSize-1)-1, blockIn->begin()+blockSize+1);
-				for(int i = 0; i<blockSize; i++){
-					blockIn[blockSize*i+1] = left->at(blockSize*i+(blockSize-1)); 
-				}
+				MPI_Irecv(&top->at(0), blockSize*blockSize, MPI_DOUBLE, rank - 8, 0, MPI_COMM_WORLD, &ioToWaitFor[2]);
+				MPI_Irecv(&left->at(0), blockSize*blockSize, MPI_DOUBLE, rank - 1, 0, MPI_COMM_WORLD, &ioToWaitFor[3]);
 			}else if(rank == 7){	//right above
-				std::vector<double> *left = new std::vector<double>(66*66);
-				std::vector<double> *bot = new std::vector<double>(66*66);
-				MPI_Send(&blockIn->begin()), blockSize*blockSize, MPI_DOUBLE, rank - 1, 0, MPI_COMM_WORLD);
-				MPI_Send(&blockIn->begin()), blockSize*blockSize, MPI_DOUBLE, rank + 8, 0, MPI_COMM_WORLD);
+				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, rank - 1, 0, MPI_COMM_WORLD, &ioToWaitFor[0]);
+				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, rank + 8, 0, MPI_COMM_WORLD, &ioToWaitFor[1]);
 				
-				MPI_Recv(&left->begin(), blockSize*blockSize, MPI_DOUBLE, rank - 1, 1, MPI_COMM_WORLD, &status);
-				MPI_Recv(&bot->begin(), blockSize*blockSize, MPI_DOUBLE, rank + 8, 1, MPI_COMM_WORLD, &status);
-				
-				for(int i = 0; i<blockSize; i++){
-					blockIn[blockSize*i+1] = left->at(blockSize*i+(blockSize-1)); 
-				}
+				MPI_Irecv(&left->at(0), blockSize*blockSize, MPI_DOUBLE, rank - 1, 0, MPI_COMM_WORLD, &ioToWaitFor[2]);
+				MPI_Irecv(&bot->at(0), blockSize*blockSize, MPI_DOUBLE, rank + 8, 0, MPI_COMM_WORLD, &ioToWaitFor[3]);
 			}else if(rank == 56){	//left down
-				std::vector<double> *top = new std::vector<double>(66*66);
-				std::vector<double> *right = new std::vector<double>(66*66);
-				MPI_Send(&blockIn->begin()), blockSize*blockSize, MPI_DOUBLE, rank - 8, 0, MPI_COMM_WORLD);
-				MPI_Send(&blockIn->begin()), blockSize*blockSize, MPI_DOUBLE, rank + 1, 0, MPI_COMM_WORLD);
+				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, rank - 8, 0, MPI_COMM_WORLD, &ioToWaitFor[0]);
+				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, rank + 1, 0, MPI_COMM_WORLD, &ioToWaitFor[1]);
 				
-				MPI_Recv(&right->begin(), blockSize*blockSize, MPI_DOUBLE, rank + 1, 1, MPI_COMM_WORLD, &status);
-				MPI_Recv(&top->begin(), blockSize*blockSize, MPI_DOUBLE, rank - 8, 1, MPI_COMM_WORLD, &status);
-				
-				std::copy(top->begin()+blockSize*(blockSize-2)+1, top->begin()+blockSize*(blockSize-1)-1, blockIn->begin()+blockSize+1);
-				for(int i = 0; i<blockSize; i++){
-					blockIn[blockSize*i+(blockSize-1)] = right->at(blockSize*i+1));  
-				}
+				MPI_Irecv(&right->at(0), blockSize*blockSize, MPI_DOUBLE, rank + 1, 0, MPI_COMM_WORLD, &ioToWaitFor[2]);
+				MPI_Irecv(&top->at(0), blockSize*blockSize, MPI_DOUBLE, rank - 8, 0, MPI_COMM_WORLD, &ioToWaitFor[3]);
 			}else if(rank >56){	//bot
-				std::vector<double> *left = new std::vector<double>(66*66);
-				std::vector<double> *right = new std::vector<double>(66*66);
-				std::vector<double> *top = new std::vector<double>(66*66);
-				MPI_Send(&blockIn->begin()), blockSize*blockSize, MPI_DOUBLE, rank - 1, 0, MPI_COMM_WORLD);
-				MPI_Send(&blockIn->begin()), blockSize*blockSize, MPI_DOUBLE, rank + 1, 0, MPI_COMM_WORLD);
-				MPI_Send(&blockIn->begin()), blockSize*blockSize, MPI_DOUBLE, rank - 8, 0, MPI_COMM_WORLD);
+				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, rank - 1, 0, MPI_COMM_WORLD, &ioToWaitFor[0]);
+				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, rank + 1, 0, MPI_COMM_WORLD, &ioToWaitFor[1]);
+				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, rank - 8, 0, MPI_COMM_WORLD, &ioToWaitFor[2]);
 				
-				MPI_Recv(&left->begin(), blockSize*blockSize, MPI_DOUBLE, rank - 1, 1, MPI_COMM_WORLD, &status);
-				MPI_Recv(&top->begin(), blockSize*blockSize, MPI_DOUBLE, rank - 8, 1, MPI_COMM_WORLD, &status);
-				MPI_Recv(&right->begin(), blockSize*blockSize, MPI_DOUBLE, rank + 1, 1, MPI_COMM_WORLD, &status);
+				MPI_Irecv(&left->at(0), blockSize*blockSize, MPI_DOUBLE, rank - 1, 0, MPI_COMM_WORLD, &ioToWaitFor[3]);
+				MPI_Irecv(&top->at(0), blockSize*blockSize, MPI_DOUBLE, rank - 8, 0, MPI_COMM_WORLD, &ioToWaitFor[4]);
+				MPI_Irecv(&right->at(0), blockSize*blockSize, MPI_DOUBLE, rank + 0, 1, MPI_COMM_WORLD, &ioToWaitFor[5]);
+			}else if(rank >0 && rank < 7){	//top				
+				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, rank - 1, 0, MPI_COMM_WORLD, &ioToWaitFor[0]);
+				//MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, rank + 1, 0, MPI_COMM_WORLD, &ioToWaitFor[1]);
+				//MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, rank + 8, 0, MPI_COMM_WORLD, &ioToWaitFor[2]);
 				
-				std::copy(top->begin()+blockSize*(blockSize-2)+1, top->begin()+blockSize*(blockSize-1)-1, blockIn->begin()+blockSize+1);
-				for(int i = 0; i<blockSize; i++){
-					blockIn[blockSize*i+1] = left->at(blockSize*i+(blockSize-1)); 
-					blockIn[blockSize*i+(blockSize-1)] = right->at(blockSize*i+1)); 
-				}
-			}else if(rank >0 && rank < 7){	//top
-				std::vector<double> *bot = new std::vector<double>(66*66);
-				std::vector<double> *right = new std::vector<double>(66*66);
-				std::vector<double> *left = new std::vector<double>(66*66);
-				MPI_Send(&blockIn->begin()), blockSize*blockSize, MPI_DOUBLE, rank - 1, 0, MPI_COMM_WORLD);
-				MPI_Send(&blockIn->begin()), blockSize*blockSize, MPI_DOUBLE, rank + 1, 0, MPI_COMM_WORLD);
-				MPI_Send(&blockIn->begin()), blockSize*blockSize, MPI_DOUBLE, rank + 8, 0, MPI_COMM_WORLD);
-				
-				MPI_Recv(&left->begin(), blockSize*blockSize, MPI_DOUBLE, rank - 1, 1, MPI_COMM_WORLD, &status);
-				MPI_Recv(&bot->begin(), blockSize*blockSize, MPI_DOUBLE, rank + 8, 1, MPI_COMM_WORLD, &status);
-				MPI_Recv(&right->begin(), blockSize*blockSize, MPI_DOUBLE, rank + 1, 1, MPI_COMM_WORLD, &status);
-				
-				std::copy(bot->begin()+blockSize+1, bot->begin()+2*blockSize-1, blockIn->begin()+blockSize*(blockSize-2)+1)
-				for(int i = 0; i<blockSize; i++){
-					blockIn[blockSize*i+1] = left->at(blockSize*i+(blockSize-1)); 
-					blockIn[blockSize*i+(blockSize-1)] = right->at(blockSize*i+1)); 
-				}		
+				MPI_Irecv(&left->at(0), blockSize*blockSize, MPI_DOUBLE, rank - 1, 0, MPI_COMM_WORLD, &ioToWaitFor[3]);
+				//MPI_Irecv(&bot->at(0), blockSize*blockSize, MPI_DOUBLE, rank + 8, 0, MPI_COMM_WORLD, &ioToWaitFor[4]);
+				//MPI_Irecv(&right->at(0), blockSize*blockSize, MPI_DOUBLE, rank + 1, 0, MPI_COMM_WORLD, &ioToWaitFor[5]);
 			}else if(rank % 8 == 0){	//left
-				std::vector<double> *bot = new std::vector<double>(66*66);
-				std::vector<double> *top = new std::vector<double>(66*66);
-				std::vector<double> *right = new std::vector<double>(66*66);
-				MPI_Send(&blockIn->begin()), blockSize*blockSize, MPI_DOUBLE, rank - 8, 0, MPI_COMM_WORLD);
-				MPI_Send(&blockIn->begin()), blockSize*blockSize, MPI_DOUBLE, rank + 1, 0, MPI_COMM_WORLD);
-				MPI_Send(&blockIn->begin()), blockSize*blockSize, MPI_DOUBLE, rank + 8, 0, MPI_COMM_WORLD);
+				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, rank - 8, 0, MPI_COMM_WORLD, &ioToWaitFor[0]);
+				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, rank + 1, 0, MPI_COMM_WORLD, &ioToWaitFor[1]);
+				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, rank + 8, 0, MPI_COMM_WORLD, &ioToWaitFor[2]);
 				
-				MPI_Recv(&bot->begin(), blockSize*blockSize, MPI_DOUBLE, rank + 8, 1, MPI_COMM_WORLD, &status);
-				MPI_Recv(&top->begin(), blockSize*blockSize, MPI_DOUBLE, rank - 8, 1, MPI_COMM_WORLD, &status);
-				MPI_Recv(&right->begin(), blockSize*blockSize, MPI_DOUBLE, rank + 1, 1, MPI_COMM_WORLD, &status);
-				
-				std::copy(top->begin()+blockSize*(blockSize-2)+1, top->begin()+blockSize*(blockSize-1)-1, blockIn->begin()+blockSize+1);
-				std::copy(bot->begin()+blockSize+1, bot->begin()+2*blockSize-1, blockIn->begin()+blockSize*(blockSize-2)+1)
-				for(int i = 0; i<blockSize; i++){ 
-					blockIn[blockSize*i+(blockSize-1)] = right->at(blockSize*i+1)); 
-				}		
+				MPI_Irecv(&bot->at(0), blockSize*blockSize, MPI_DOUBLE, rank + 8, 0, MPI_COMM_WORLD, &ioToWaitFor[3]);
+				MPI_Irecv(&top->at(0), blockSize*blockSize, MPI_DOUBLE, rank - 8, 0, MPI_COMM_WORLD, &ioToWaitFor[4]);
+				MPI_Irecv(&right->at(0), blockSize*blockSize, MPI_DOUBLE, rank + 1, 0, MPI_COMM_WORLD, &ioToWaitFor[5]);		
 			}else if(rank % 8 == 7){	//right
-				std::vector<double> *bot = new std::vector<double>(66*66);
-				std::vector<double> *top = new std::vector<double>(66*66);
-				std::vector<double> *left = new std::vector<double>(66*66);
-				MPI_Send(&blockIn->begin()), blockSize*blockSize, MPI_DOUBLE, rank - 1, 0, MPI_COMM_WORLD);
-				MPI_Send(&blockIn->begin()), blockSize*blockSize, MPI_DOUBLE, rank + 8, 0, MPI_COMM_WORLD);
-				MPI_Send(&blockIn->begin()), blockSize*blockSize, MPI_DOUBLE, rank - 8, 0, MPI_COMM_WORLD);
+				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, rank - 1, 0, MPI_COMM_WORLD, &ioToWaitFor[0]);
+				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, rank + 8, 0, MPI_COMM_WORLD, &ioToWaitFor[1]);
+				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, rank - 8, 0, MPI_COMM_WORLD, &ioToWaitFor[2]);
 				
-				MPI_Recv(&left->begin(), blockSize*blockSize, MPI_DOUBLE, rank - 1, 1, MPI_COMM_WORLD, &status);
-				MPI_Recv(&top->begin(), blockSize*blockSize, MPI_DOUBLE, rank - 8, 1, MPI_COMM_WORLD, &status);
-				MPI_Recv(&right->begin(), blockSize*blockSize, MPI_DOUBLE, rank + 1, 1, MPI_COMM_WORLD, &status);
-				
-				std::copy(top->begin()+blockSize*(blockSize-2)+1, top->begin()+blockSize*(blockSize-1)-1, blockIn->begin()+blockSize+1);
-				for(int i = 0; i<blockSize; i++){
-					blockIn[blockSize*i+1] = left->at(blockSize*i+(blockSize-1)); 
-					blockIn[blockSize*i+(blockSize-1)] = right->at(blockSize*i+1));  
-				}
+				MPI_Irecv(&left->at(0), blockSize*blockSize, MPI_DOUBLE, rank - 1, 0, MPI_COMM_WORLD, &ioToWaitFor[3]);
+				MPI_Irecv(&top->at(0), blockSize*blockSize, MPI_DOUBLE, rank - 8, 0, MPI_COMM_WORLD, &ioToWaitFor[4]);
+				MPI_Irecv(&bot->at(0), blockSize*blockSize, MPI_DOUBLE, rank + 1, 0, MPI_COMM_WORLD, &ioToWaitFor[5]);
 			}else {	//middle
-				std::vector<double> *bot = new std::vector<double>(66*66);
-				std::vector<double> *top = new std::vector<double>(66*66);
-				std::vector<double> *left = new std::vector<double>(66*66);
-				std::vector<double> *right = new std::vector<double>(66*66);
-				MPI_Send(&blockIn->begin()), blockSize*blockSize, MPI_DOUBLE, rank - 1, 0, MPI_COMM_WORLD);
-				MPI_Send(&blockIn->begin()), blockSize*blockSize, MPI_DOUBLE, rank + 8, 0, MPI_COMM_WORLD);
-				MPI_Send(&blockIn->begin()), blockSize*blockSize, MPI_DOUBLE, rank - 8, 0, MPI_COMM_WORLD);
-				MPI_Send(&blockIn->begin()), blockSize*blockSize, MPI_DOUBLE, rank + 1, 0, MPI_COMM_WORLD);
+				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, rank - 1, 0, MPI_COMM_WORLD, &ioToWaitFor[0]);
+				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, rank + 8, 0, MPI_COMM_WORLD, &ioToWaitFor[1]);
+				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, rank - 8, 0, MPI_COMM_WORLD, &ioToWaitFor[2]);
+				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, rank + 1, 0, MPI_COMM_WORLD, &ioToWaitFor[3]);
 				
-				MPI_Recv(&bot->begin(), blockSize*blockSize, MPI_DOUBLE, rank + 8, 1, MPI_COMM_WORLD, &status);
-				MPI_Recv(&top->begin(), blockSize*blockSize, MPI_DOUBLE, rank - 8, 1, MPI_COMM_WORLD, &status);
-				MPI_Recv(&right->begin(), blockSize*blockSize, MPI_DOUBLE, rank + 1, 1, MPI_COMM_WORLD, &status);
-				MPI_Recv(&left->begin(), blockSize*blockSize, MPI_DOUBLE, rank - 1, 1, MPI_COMM_WORLD, &status);
-				
-				std::copy(bot->begin()+blockSize+1, bot->begin()+2*blockSize-1, blockIn->begin()+blockSize*(blockSize-2)+1)
-				std::copy(top->begin()+blockSize*(blockSize-2)+1, top->begin()+blockSize*(blockSize-1)-1, blockIn->begin()+blockSize+1);
-				for(int i = 0; i<blockSize; i++){
-					blockIn[blockSize*i+(blockSize-1)] = right->at(blockSize*i+1));  
-					blockIn[blockSize*i+(blockSize-1)] = right->at(blockSize*i+(blockSize-2)); 
-				}
+				MPI_Irecv(&bot->at(0), blockSize*blockSize, MPI_DOUBLE, rank + 8, 0, MPI_COMM_WORLD, &ioToWaitFor[4]);
+				MPI_Irecv(&top->at(0), blockSize*blockSize, MPI_DOUBLE, rank - 8, 0, MPI_COMM_WORLD, &ioToWaitFor[5]);
+				MPI_Irecv(&right->at(0), blockSize*blockSize, MPI_DOUBLE, rank + 1, 0, MPI_COMM_WORLD, &ioToWaitFor[6]);
+				MPI_Irecv(&left->at(0), blockSize*blockSize, MPI_DOUBLE, rank - 1, 0, MPI_COMM_WORLD, &ioToWaitFor[7]);
 			}
 			
-			
+			MPI_Barrier(MPI_COMM_WORLD);
+			if(rank == 0){	//left top
+				//std::copy(bot->begin()+blockSize+1, bot->begin()+2*blockSize-1, blockIn->begin()+blockSize*(blockSize-2)+1);
+				for(int i = 0; i<blockSize; i++){
+					(*blockIn)[blockSize*i+(blockSize-1)] = right->at(blockSize*i+1); 
+				}
+			}else if(rank >0 && rank < 7){	//top	
+				//std::copy(bot->begin()+blockSize+1, bot->begin()+2*blockSize-1, blockIn->begin()+blockSize*(blockSize-2)+1);
+				for(int i = 0; i<blockSize; i++){
+					(*blockIn)[blockSize*i+1] = left->at(blockSize*i+(blockSize-2)); 
+					//(*blockIn)[blockSize*i+(blockSize-1)] = right->at(blockSize*i+1); 
+				}	
+			}else if (rank == 63){
+				std::copy(top->begin()+blockSize*(blockSize-2)+1, top->begin()+blockSize*(blockSize-1)-1, blockIn->begin()+blockSize+1);
+				for(int i = 0; i<blockSize; i++){
+					(*blockIn)[blockSize*i+1] = left->at(blockSize*i+(blockSize-2)); 
+				}
+			}else if(rank == 7){
+				std::copy(bot->begin()+blockSize+1, bot->begin()+2*blockSize-1, blockIn->begin()+blockSize*(blockSize-2)+1);
+				for(int i = 0; i<blockSize; i++){
+					(*blockIn)[blockSize*i+1] = left->at(blockSize*i+(blockSize-2)); 
+				}
+			}else if(rank == 56){
+				std::copy(top->begin()+blockSize*(blockSize-2)+1, top->begin()+blockSize*(blockSize-1)-1, blockIn->begin()+blockSize+1);
+				for(int i = 0; i<blockSize; i++){
+					(*blockIn)[blockSize*i+(blockSize-1)] = right->at(blockSize*i+1);  
+				}
+			}else if(rank > 56){
+				std::copy(top->begin()+blockSize*(blockSize-2)+1, top->begin()+blockSize*(blockSize-1)-1, blockIn->begin()+blockSize+1);
+				for(int i = 0; i<blockSize; i++){
+					(*blockIn)[blockSize*i+1] = left->at(blockSize*i+(blockSize-2)); 
+					(*blockIn)[blockSize*i+(blockSize-1)] = right->at(blockSize*i+1); 
+				}
+			}else if(rank % 8 == 0){	//left
+				std::copy(top->begin()+blockSize*(blockSize-2)+1, top->begin()+blockSize*(blockSize-1)-1, blockIn->begin()+blockSize+1);
+				std::copy(bot->begin()+blockSize+1, bot->begin()+2*blockSize-1, blockIn->begin()+blockSize*(blockSize-2)+1);
+				for(int i = 0; i<blockSize; i++){ 
+					(*blockIn)[blockSize*i+(blockSize-1)] = right->at(blockSize*i+1); 
+				}		
+			}else if(rank % 8 == 7){	//right
+				std::copy(top->begin()+blockSize*(blockSize-2)+1, top->begin()+blockSize*(blockSize-1)-1, blockIn->begin()+blockSize+1);
+				std::copy(bot->begin()+blockSize+1, bot->begin()+2*blockSize-1, blockIn->begin()+blockSize*(blockSize-2)+1);
+				for(int i = 0; i<blockSize; i++){
+					(*blockIn)[blockSize*i+1] = left->at(blockSize*i+(blockSize-2));   
+				}
+			}else {	//middle
+				std::copy(bot->begin()+blockSize+1, bot->begin()+2*blockSize-1, blockIn->begin()+blockSize*(blockSize-2)+1);
+				std::copy(top->begin()+blockSize*(blockSize-2)+1, top->begin()+blockSize*(blockSize-1)-1, blockIn->begin()+blockSize+1);
+				for(int i = 0; i<blockSize; i++){
+					(*blockIn)[blockSize*i+(blockSize-1)] = right->at(blockSize*i+1);  
+					(*blockIn)[blockSize*i+1] = left->at(blockSize*i+(blockSize-2)); 
+				}
+			}
+				
 			MPI_Barrier(MPI_COMM_WORLD);
 			if(rank == 0){
-				for(int i = 0; i<120; i++){
-					std::cout<<in.at(n+i)<<" ";
+				for(int i = 0; i<blockSize; i++){
+					std::cout<<right->at(blockSize*i+1)<<" ";
 				}
+				std::cout<<std::endl;
 			}
 			
 			/*for(int i = 0; i<blockSize; i++){
@@ -250,8 +236,9 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
 				}
 				std::cout << std::endl;
 			}*/
-			return out;
+			//return out;
 		}
+        
         
 		jacobiIter2DPar(blockSize, *blockIn, *blockOut, rank, size);
 		localsum = deltaPar(*blockOut, *blockIn);
@@ -260,15 +247,16 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
         auto tmp = blockOut;
         blockOut = blockIn;
         blockIn = tmp;
-
+		
         //MPI_Barrier(MPI_COMM_WORLD);
-        globalsum = 11;
-        //MPI_Allreduce( &localsum, &globalsum, 1, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD );
-        //if(count == 0){
+        globalsum = 0;
+        MPI_Allreduce( &localsum, &globalsum, 1, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD );
+        if(count == 1){
 			
-			//return in;
-		//}
+			return in;
+		}
 		count++;
+		
         //cout << "GS " << globalsum << " currGhosts: " << currGhosts << endl;
     } while (globalsum > epsilon);
     
