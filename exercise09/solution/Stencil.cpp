@@ -323,13 +323,13 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
         globalsum = 0;
         MPI_Allreduce( &localsum, &globalsum, 1, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD );
         MPI_Barrier(MPI_COMM_WORLD);
-        if(count == 1){
+        /*if(count == 1){
 			
 			return in;
-		}
+		}*/
 		count++;
 		
-        cout << "GS " << globalsum << "  "<<count << endl;
+        //cout << "GS " << globalsum << "  "<<count << endl;
     } while (globalsum > epsilon);
     
     //cout << "GS " << globalsum << " currGhosts: " << currGhosts << endl;
