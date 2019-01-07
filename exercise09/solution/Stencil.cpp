@@ -131,7 +131,7 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
 				
 				MPI_Irecv(&left->at(0), blockSize*blockSize, MPI_DOUBLE, rank - 1, 0, MPI_COMM_WORLD, &ioToWaitFor[3]);
 				MPI_Irecv(&top->at(0), blockSize*blockSize, MPI_DOUBLE, rank - 8, 0, MPI_COMM_WORLD, &ioToWaitFor[4]);
-				MPI_Irecv(&right->at(0), blockSize*blockSize, MPI_DOUBLE, rank + 0, 1, MPI_COMM_WORLD, &ioToWaitFor[5]);
+				MPI_Irecv(&right->at(0), blockSize*blockSize, MPI_DOUBLE, rank + 1, 0, MPI_COMM_WORLD, &ioToWaitFor[5]);
 			}else if(rank >0 && rank < 7){	//top				
 				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, rank - 1, 0, MPI_COMM_WORLD, &ioToWaitFor[0]);
 				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, rank + 1, 0, MPI_COMM_WORLD, &ioToWaitFor[1]);
@@ -155,7 +155,7 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
 				
 				MPI_Irecv(&left->at(0), blockSize*blockSize, MPI_DOUBLE, rank - 1, 0, MPI_COMM_WORLD, &ioToWaitFor[3]);
 				MPI_Irecv(&top->at(0), blockSize*blockSize, MPI_DOUBLE, rank - 8, 0, MPI_COMM_WORLD, &ioToWaitFor[4]);
-				MPI_Irecv(&bot->at(0), blockSize*blockSize, MPI_DOUBLE, rank + 1, 0, MPI_COMM_WORLD, &ioToWaitFor[5]);
+				MPI_Irecv(&bot->at(0), blockSize*blockSize, MPI_DOUBLE, rank + 8, 0, MPI_COMM_WORLD, &ioToWaitFor[5]);
 			}else {	//middle
 				/*MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, rank - 1, 0, MPI_COMM_WORLD, &ioToWaitFor[0]);
 				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, rank + 8, 0, MPI_COMM_WORLD, &ioToWaitFor[1]);
