@@ -122,10 +122,10 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
 			
 			}else if(rank == 1){
 				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, 0, 0, MPI_COMM_WORLD, &ioToWaitFor[0]);
-				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, 2, 0, MPI_COMM_WORLD, &ioToWaitFor[1]);
+				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, 3, 0, MPI_COMM_WORLD, &ioToWaitFor[1]);
 				
 				MPI_Irecv(&left->at(0), blockSize*blockSize, MPI_DOUBLE, 0, 0, MPI_COMM_WORLD, &ioToWaitFor[2]);
-				MPI_Irecv(&bot->at(0), blockSize*blockSize, MPI_DOUBLE, 2, 0, MPI_COMM_WORLD, &ioToWaitFor[3]);
+				MPI_Irecv(&bot->at(0), blockSize*blockSize, MPI_DOUBLE, 3, 0, MPI_COMM_WORLD, &ioToWaitFor[3]);
 			
 			}else if(rank == 2){
 				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, 3, 0, MPI_COMM_WORLD, &ioToWaitFor[0]);
