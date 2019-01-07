@@ -65,8 +65,8 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
     assert(in->size()%(n) == 0);
     assert(bounds.size() >= 4);
     int blockSize = 66;
-    std::vector<double> *blockIn = new std::vector<double>(66*66);
-    std::vector<double> *blockOut = new std::vector<double>(66*66);
+    std::vector<double> *blockIn = new std::vector<double>(blockSize*blockSize);
+    std::vector<double> *blockOut = new std::vector<double>(blockSize*blockSize);
 
 	//make different blocks based on rank
 	for(int i = 0; i< blockSize; i++){
@@ -96,10 +96,10 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
 					in[n*i+(n*(rank/8)*(blockSize-2))+((blockSize-2)*(rank%8))+(blockSize-2)] = blockOut->at(blockSize*i+(blockSize-2)); 
 				}
 			}*/
-			std::vector<double> *bot = new std::vector<double>(66*66);
-			std::vector<double> *right = new std::vector<double>(66*66);
-			std::vector<double> *top = new std::vector<double>(66*66);
-			std::vector<double> *left = new std::vector<double>(66*66);
+			std::vector<double> *bot = new std::vector<double>(blockSize*blockSize);
+			std::vector<double> *right = new std::vector<double>(blockSize*blockSize);
+			std::vector<double> *top = new std::vector<double>(blockSize*blockSize);
+			std::vector<double> *left = new std::vector<double>(blockSize*blockSize);
 			if(rank == 0){	//left above
 				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, rank + 1, 0, MPI_COMM_WORLD, &ioToWaitFor[0]); 
 				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, rank + 8, 0, MPI_COMM_WORLD, &ioToWaitFor[1]);
@@ -196,7 +196,7 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
 					(*blockIn)[blockSize*i+(blockSize-1)] = right->at(blockSize*i+1);  
 				}
 			}else if(rank > 56){
-				std::copy(top->begin()+blockSize*(blockSize-2)+1, top->begin()+blockSize*(blockSize-1)-1, blockIn->begin()+blockSize+1);
+				//std::copy(top->begin()+blockSize*(blockSize-2)+1, top->begin()+blockSize*(blockSize-1)-1, blockIn->begin()+blockSize+1);
 				for(int i = 0; i<blockSize; i++){
 					(*blockIn)[blockSize*i+1] = left->at(blockSize*i+(blockSize-2)); 
 					(*blockIn)[blockSize*i+(blockSize-1)] = right->at(blockSize*i+1); 
