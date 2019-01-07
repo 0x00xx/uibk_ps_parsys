@@ -202,11 +202,11 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
 					(*blockIn)[blockSize*i+(blockSize-1)] = right->at(blockSize*i+1); 
 				}
 			}else if(rank % 8 == 0){	//left
-				std::copy(top->begin()+blockSize*(blockSize-2)+1, top->begin()+blockSize*(blockSize-1)-1, blockIn->begin()+blockSize+1);
+				/*std::copy(top->begin()+blockSize*(blockSize-2)+1, top->begin()+blockSize*(blockSize-1)-1, blockIn->begin()+blockSize+1);
 				std::copy(bot->begin()+blockSize+1, bot->begin()+2*blockSize-1, blockIn->begin()+blockSize*(blockSize-2)+1);
 				for(int i = 0; i<blockSize; i++){ 
 					(*blockIn)[blockSize*i+(blockSize-1)] = right->at(blockSize*i+1); 
-				}		
+				}		*/
 			}else if(rank % 8 == 7){	//right
 				std::copy(top->begin()+blockSize*(blockSize-2)+1, top->begin()+blockSize*(blockSize-1)-1, blockIn->begin()+blockSize+1);
 				std::copy(bot->begin()+blockSize+1, bot->begin()+2*blockSize-1, blockIn->begin()+blockSize*(blockSize-2)+1);
