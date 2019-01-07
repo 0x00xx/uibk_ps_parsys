@@ -258,7 +258,7 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
 		}
 		count++;
 		
-        //cout << "GS " << globalsum << " currGhosts: " << currGhosts << endl;
+        cout << "GS " << globalsum << " currGhosts: " << currGhosts << endl;
     } while (globalsum > epsilon);
     
     //cout << "GS " << globalsum << " currGhosts: " << currGhosts << endl;
