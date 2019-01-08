@@ -82,14 +82,25 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
 			in->begin()+n*i+((n-2)/8)*(rank%8) + ((rank/8)*(n*(n-2))) + 66, blockIn->begin()+blockSize*i);
 	}*/
 	int blockSize = 0;
-	
+    int blockSizeM = 0;
+	int blockSizeN = 0;
+
 	if(size == 4){
-		blockSize = (n-2)/2 +2;
+		blockSize = (n-2)/2 + 2;
 	}else if(size == 16){
-		blockSize = (n-2)/4+2;
+		blockSize = (n-2)/4 + 2;
 	}else if(size == 64){
-		blockSize =(n-2)/2 +2;
-	}
+		blockSize =(n-2)/8 + 2;
+	}else if(size == 2){
+        blockSizeM = n;
+        blockSizeN = (n-2)/2 + 2; 
+    }else if(size == 8){
+        blockSizeM = (n-2)/2 + 2; 
+        blockSizeN = (n-2)/4 + 2; 
+    }else if(size == 32){
+        blockSizeM = (n-2)/4 + 2; 
+        blockSizeN = (n-2)/8 + 2; 
+    }
 	 
 	//std::cout << blockSize<<std::endl;
 	std::vector<double> *blockIn = new std::vector<double>(blockSize*blockSize);
@@ -124,7 +135,16 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
 			std::copy(in->begin()+n*i+((n-2)/8)*(rank%8) + ((rank/8)*(n*(n-2))), 
 				in->begin()+n*i+((n-2)/8)*(rank%8) + ((rank/8)*(n*(n-2))) + blockSize, blockIn->begin()+blockSize*i);
 		}
-	}
+	}else if(size == 2){
+        if(rank == 0){
+            for(int i = 0; i< blockSizeM; i++){
+                std::copy(in->begin()+n*i, in->begin()+n*i+blockSizeN, blockIn->begin()+blockSizeN*i);
+            }
+        }else if(rank == 1){
+            for(int i = 0; i< blockSize; i++){
+                std::copy(in->begin()+n*i+n*(blockSizeN-2), in->begin()+n*i+n*(blockSizeN-2)+blockSizeN, blockIn->begin()+blockSizeN*i);
+            }
+    }
 	
 	std::copy(blockIn->begin(), blockIn->end(), blockOut->begin());
 	
@@ -217,7 +237,7 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
 						(*blockIn)[blockSize*i] = left->at(blockSize*i+(blockSize-2)); //
 					}
 				}else if(rank == 2){
-					std::copy(top->begin()+blockSize*(blockSize-2)+1, top->begin()+blockSize*(blockSize-2)+blockSize-1, blockIn->begin()+1);
+					std::copy(top->begin()+blockSize*(blockSize-2)+1, top->begin()+blockSize*(blockSize-2)+blockSize-1, blockIn->begin());
 					for(int i = 0; i<blockSize; i++){
 						(*blockIn)[blockSize*i+(blockSize-1)] = right->at(blockSize*i+1);  
 					}
@@ -473,7 +493,26 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
 						(*blockIn)[blockSize*i+(blockSize-1)] = right->at(blockSize*i+1);
 					}
 				}
-			}
+			}else if(size == 2){
+                if(rank == 0){ 
+                    MPI_Isend(&blockIn->at(0), blockSizeN*blockSizeM, MPI_DOUBLE, 1, 0, MPI_COMM_WORLD, &ioToWaitFor[0]); 
+                    
+                    MPI_Irecv(&right->at(0), blockSizeN*blockSizeM, MPI_DOUBLE, 1, 0, MPI_COMM_WORLD, &ioToWaitFor[1]);
+                
+                }else if(rank == 1){
+                    MPI_Isend(&blockIn->at(0), blockSizeN*blockSizeM, MPI_DOUBLE, 0, 0, MPI_COMM_WORLD, &ioToWaitFor[0]);
+                    
+                    MPI_Irecv(&left->at(0), blockSizeN*blockSizeM, MPI_DOUBLE, 0, 0, MPI_COMM_WORLD, &ioToWaitFor[1]);
+                }
+
+                MPI_Barrier(MPI_COMM_WORLD);
+                
+                if(rank == 0){  //left above
+                    std::copy(bot->begin()+blockSizeN+1, bot->begin()+blockSizeN+1+blockSizeN-1, blockIn->begin()+blockSizeN*(blockSizeM-1)+1); //
+                }else if(rank == 1){
+                    std::copy(top->begin()+blockSizeN*(blockSizeM-2)+1, top->begin()+blockSizeN*(blockSizeM-2)+blockSizeN-1, blockIn->begin()+blockSizeN*(blockSizeM-1)+1);
+                }
+            }
 				
 			
 				
@@ -490,8 +529,11 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
 		}
 		//MPI_Barrier(MPI_COMM_WORLD);
         
-        
-		jacobiIter2DPar(blockSize, *blockIn, *blockOut, rank, size);
+        if(rank == 2 || rank == 8 || rank ==32){   
+            jacobiIter2DParNonQuad(blockSizeN, blockSizeM, *blockIn, *blockOut, rank, size);
+        }else{
+            jacobiIter2DPar(blockSize, *blockIn, *blockOut, rank, size);
+        }
 		localsum = deltaPar(*blockOut, *blockIn);
         //cout << "LS " << localsum << "  "<<rank << endl;
         
@@ -521,7 +563,6 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
     
     return in;
 }
-
 
 void setBoundaries(const int dim, const unsigned long n, const std::vector<double> &bounds, std::vector<double> &in)
 {
