@@ -23,10 +23,10 @@ int main(int argc, char **argv)
     unsigned int dim = atoi(argv[2]);
     unsigned long n = atol(argv[3]) + 2;
     unsigned int ghosts = atoi(argv[4]);
-	if(n%64 == 0){
+	/*if(n%64 == 0){
         std::cerr << "N cannot be divided by 64" << std::endl;
 		exit(EXIT_FAILURE);
-	}
+	}*/
 	if(n%2 != 0){
 		n++;
 	}

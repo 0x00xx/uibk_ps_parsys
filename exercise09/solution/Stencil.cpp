@@ -74,32 +74,33 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
 			in->begin()+n*i+((n-2)/8)*(rank%8) + ((rank/8)*(n*(n-2))) + 66, blockIn->begin()+blockSize*i);
 	}*/
 	
-	int blockSize = 258;
+	int blockSize = (n-2)/2 +2;
 	std::vector<double> *blockIn = new std::vector<double>(blockSize*blockSize);
     std::vector<double> *blockOut = new std::vector<double>(blockSize*blockSize);
-
+   
 	if(rank == 0){
 		for(int i = 0; i< blockSize; i++){
-			std::copy(in->begin()+n*i, in->begin()+258*258, blockIn->begin()+blockSize*i);
+			std::copy(in->begin()+n*i, in->begin()+n*i+blockSize, blockIn->begin()+blockSize*i);
 		}
 	}else if(rank == 1){
 		for(int i = 0; i< blockSize; i++){
-			std::copy(in->begin()+256+n*i, in->begin()+258*258, blockIn->begin()+blockSize*i);
+			std::copy(in->begin()+(blockSize-2)+n*i, in->begin()+(blockSize-2)+n*i+blockSize, blockIn->begin()+blockSize*i);
 		}
 	}else if(rank == 2){
 		for(int i = 0; i< blockSize; i++){
-			std::copy(in->begin()+n*i+256*n, in->begin()+258*258, blockIn->begin()+blockSize*i);
+			std::copy(in->begin()+n*i+n*(blockSize-2), in->begin()+n*i+n*(blockSize-2)+blockSize, blockIn->begin()+blockSize*i);
 		}
 	}else if(rank == 3){
 		for(int i = 0; i< blockSize; i++){
-			std::copy(in->begin()+n*i+256*n+256, in->begin()+258*258, blockIn->begin()+blockSize*i);
+			std::copy(in->begin()+n*i+n*(blockSize-2)+blockSize-2, in->begin()+n*i+n*(blockSize-2)+blockSize*2, blockIn->begin()+blockSize*i);
 		}
 	}
 	
 	std::copy(blockIn->begin(), blockIn->end(), blockOut->begin());
-	//std::cout<<std::endl << in->at(65)<<std::endl;
 	
 	
+	
+		
     double localsum;
     double globalsum;
 	MPI_Status status;
@@ -129,10 +130,10 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
 			
 			}else if(rank == 2){
 				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, 3, 0, MPI_COMM_WORLD, &ioToWaitFor[0]);
-				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, 1, 0, MPI_COMM_WORLD, &ioToWaitFor[1]);
+				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, 0, 0, MPI_COMM_WORLD, &ioToWaitFor[1]);
 				
 				MPI_Irecv(&right->at(0), blockSize*blockSize, MPI_DOUBLE, 3, 0, MPI_COMM_WORLD, &ioToWaitFor[2]);
-				MPI_Irecv(&top->at(0), blockSize*blockSize, MPI_DOUBLE, 1, 0, MPI_COMM_WORLD, &ioToWaitFor[3]);
+				MPI_Irecv(&top->at(0), blockSize*blockSize, MPI_DOUBLE, 0, 0, MPI_COMM_WORLD, &ioToWaitFor[3]);
 			}else if(rank ==3){
 				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, 1, 0, MPI_COMM_WORLD, &ioToWaitFor[0]);
 				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, 2, 0, MPI_COMM_WORLD, &ioToWaitFor[1]);
@@ -144,27 +145,45 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
 			MPI_Barrier(MPI_COMM_WORLD);
 			
 			if(rank == 0){	//left above
-				std::copy(bot->begin()+blockSize+1, bot->begin()+2*blockSize-1, blockIn->begin()+blockSize*(blockSize-2)+1);
+				std::copy(bot->begin()+blockSize+1, bot->begin()+blockSize+1+blockSize-1, blockIn->begin()+blockSize*(blockSize-1)+1); //
 				for(int i = 0; i<blockSize; i++){
-					(*blockIn)[blockSize*i+(blockSize-1)] = right->at(blockSize*i+1);   
+					(*blockIn)[blockSize*i+(blockSize-1)] = right->at(blockSize*i+1);   //
 				}
 			}else if(rank == 1){
-				std::copy(bot->begin()+blockSize+1, bot->begin()+2*blockSize-1, blockIn->begin()+blockSize*(blockSize-2)+1);
-				for(int i = 0; i<blockSize; i++){
-					(*blockIn)[blockSize*i+1] = left->at(blockSize*i+(blockSize-2)); 
+				std::copy(bot->begin()+blockSize, bot->begin()+blockSize+blockSize-1, blockIn->begin()+blockSize*(blockSize-1));
+				for(int i = 1; i<blockSize; i++){
+					(*blockIn)[blockSize*i] = left->at(blockSize*i+(blockSize-2)); //
 				}
 			}else if(rank == 2){
-				std::copy(top->begin()+blockSize*(blockSize-2)+1, top->begin()+blockSize*(blockSize-1)-1, blockIn->begin()+blockSize+1);
+				std::copy(top->begin()+blockSize*(blockSize-2)+1, top->begin()+blockSize*(blockSize-2)+blockSize-1, blockIn->begin()+1);
 				for(int i = 0; i<blockSize; i++){
 					(*blockIn)[blockSize*i+(blockSize-1)] = right->at(blockSize*i+1);  
 				}
 			}else if(rank ==3){
-				std::copy(top->begin()+blockSize*(blockSize-2)+1, top->begin()+blockSize*(blockSize-1)-1, blockIn->begin()+blockSize+1);
+				std::copy(top->begin()+blockSize*(blockSize-2), top->begin()+blockSize*(blockSize-2)+blockSize, blockIn->begin());
 				for(int i = 0; i<blockSize; i++){
-					(*blockIn)[blockSize*i+1] = left->at(blockSize*i+(blockSize-2)); 
+					(*blockIn)[blockSize*i+1] = left->at(blockSize*i+(blockSize-1)); 
 				}
 			}
+			//MPI_Barrier(MPI_COMM_WORLD);
 			
+			
+			
+			
+			/*if(rank == 1 && (count == 1 || count ==2)){
+				/*for(int i = 0; i<blockSize; i++){
+					std::cout<<bot->at(blockSize + i)<< " ";
+				}
+				std::cout <<std::endl;
+				
+				for(int i = 0; i<blockSize; i++){
+					for(int j = 0; j<blockSize; j++){
+						std::cout << blockIn->at(blockSize*i+j) << " ";
+					}
+					std::cout <<std::endl;
+				}
+				std::cout <<std::endl;
+			}	*/				
 			
 			/*
 			std::vector<double> *bot = new std::vector<double>(blockSize*blockSize);
@@ -293,13 +312,8 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
 				}
 			}*/
 				
-			MPI_Barrier(MPI_COMM_WORLD);
-			/*if(rank == 0){
-				for(int i = 0; i<blockSize; i++){
-					std::cout<<right->at(blockSize*i+1)<<" ";
-				}
-				std::cout<<std::endl;
-			}*/
+			//MPI_Barrier(MPI_COMM_WORLD);
+			
 			
 			/*for(int i = 0; i<blockSize; i++){
 				for(int j = 0; j<blockSize; j++){
@@ -309,34 +323,38 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
 			}*/
 			//return out;
 		}
+		//MPI_Barrier(MPI_COMM_WORLD);
         
         
 		jacobiIter2DPar(blockSize, *blockIn, *blockOut, rank, size);
 		localsum = deltaPar(*blockOut, *blockIn);
-        
+        //cout << "LS " << localsum << "  "<<rank << endl;
         
         auto tmp = blockOut;
         blockOut = blockIn;
         blockIn = tmp;
 		
-        MPI_Barrier(MPI_COMM_WORLD);
-        globalsum = 0;
-        MPI_Allreduce( &localsum, &globalsum, 1, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD );
-        MPI_Barrier(MPI_COMM_WORLD);
-        /*if(count == 1){
 			
-			return in;
-		}*/
+        
+        globalsum = 0;
+        //MPI_Barrier(MPI_COMM_WORLD);
+        MPI_Allreduce( &localsum, &globalsum, 1, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD );
+        //MPI_Barrier(MPI_COMM_WORLD);
+       
+
 		count++;
 		
         //cout << "GS " << globalsum << "  "<<count << endl;
     } while (globalsum > epsilon);
     
     //cout << "GS " << globalsum << " currGhosts: " << currGhosts << endl;
-    
-    std::cout<<count<<std::endl;
+    if(rank == 0){
+		std::cout<<count<<std::endl;
    
-    return out;
+	}
+	
+    
+    return in;
 }
 
 
