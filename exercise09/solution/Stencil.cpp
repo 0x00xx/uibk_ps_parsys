@@ -114,7 +114,38 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
 			std::vector<double> *right = new std::vector<double>(blockSize*blockSize);
 			std::vector<double> *top = new std::vector<double>(blockSize*blockSize);
 			std::vector<double> *left = new std::vector<double>(blockSize*blockSize);
-			if(rank == 0){	//left above
+			switch(rank){
+				case 0:
+					MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, 1, 0, MPI_COMM_WORLD, &ioToWaitFor[0]); 
+					MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, 2, 0, MPI_COMM_WORLD, &ioToWaitFor[1]);
+					
+					MPI_Irecv(&bot->at(0), blockSize*blockSize, MPI_DOUBLE, 2, 0, MPI_COMM_WORLD, &ioToWaitFor[2]);
+					MPI_Irecv(&right->at(0), blockSize*blockSize, MPI_DOUBLE, 1, 0, MPI_COMM_WORLD, &ioToWaitFor[3]);
+					break;
+				case 1:
+					MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, 0, 0, MPI_COMM_WORLD, &ioToWaitFor[0]);
+					MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, 3, 0, MPI_COMM_WORLD, &ioToWaitFor[1]);
+					
+					MPI_Irecv(&left->at(0), blockSize*blockSize, MPI_DOUBLE, 0, 0, MPI_COMM_WORLD, &ioToWaitFor[2]);
+					MPI_Irecv(&bot->at(0), blockSize*blockSize, MPI_DOUBLE, 3, 0, MPI_COMM_WORLD, &ioToWaitFor[3]);
+					break;
+				case 2:
+					MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, 1, 0, MPI_COMM_WORLD, &ioToWaitFor[0]);
+					MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, 2, 0, MPI_COMM_WORLD, &ioToWaitFor[1]);
+					
+					MPI_Irecv(&top->at(0), blockSize*blockSize, MPI_DOUBLE, 1, 0, MPI_COMM_WORLD, &ioToWaitFor[2]);
+					MPI_Irecv(&left->at(0), blockSize*blockSize, MPI_DOUBLE, 2, 0, MPI_COMM_WORLD, &ioToWaitFor[3]);
+					break;
+				case 3:
+					MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, 1, 0, MPI_COMM_WORLD, &ioToWaitFor[0]);
+					MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, 2, 0, MPI_COMM_WORLD, &ioToWaitFor[1]);
+					
+					MPI_Irecv(&top->at(0), blockSize*blockSize, MPI_DOUBLE, 1, 0, MPI_COMM_WORLD, &ioToWaitFor[2]);
+					MPI_Irecv(&left->at(0), blockSize*blockSize, MPI_DOUBLE, 2, 0, MPI_COMM_WORLD, &ioToWaitFor[3]);
+					break;
+					
+			}
+			/*if(rank == 0){	//left above
 				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, 1, 0, MPI_COMM_WORLD, &ioToWaitFor[0]); 
 				MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, 2, 0, MPI_COMM_WORLD, &ioToWaitFor[1]);
 				
@@ -140,10 +171,37 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
 				
 				MPI_Irecv(&top->at(0), blockSize*blockSize, MPI_DOUBLE, 1, 0, MPI_COMM_WORLD, &ioToWaitFor[2]);
 				MPI_Irecv(&left->at(0), blockSize*blockSize, MPI_DOUBLE, 2, 0, MPI_COMM_WORLD, &ioToWaitFor[3]);
-			}
+			}*/
 			
 			MPI_Barrier(MPI_COMM_WORLD);
 			
+			switch(rank){
+				case 0:
+					std::copy(bot->begin()+blockSize+1, bot->begin()+blockSize+1+blockSize-1, blockIn->begin()+blockSize*(blockSize-1)+1); //
+					for(int i = 0; i<blockSize; i++){
+						(*blockIn)[blockSize*i+(blockSize-1)] = right->at(blockSize*i+1);   //
+					}
+					break;
+				case 1:
+					std::copy(bot->begin()+blockSize, bot->begin()+blockSize+blockSize-1, blockIn->begin()+blockSize*(blockSize-1));
+					for(int i = 1; i<blockSize; i++){
+						(*blockIn)[blockSize*i] = left->at(blockSize*i+(blockSize-2)); //
+					}
+					break;
+				case 2:
+					std::copy(top->begin()+blockSize*(blockSize-2)+1, top->begin()+blockSize*(blockSize-2)+blockSize-1, blockIn->begin()+1);
+					for(int i = 0; i<blockSize; i++){
+						(*blockIn)[blockSize*i+(blockSize-1)] = right->at(blockSize*i+1);  
+					}
+					break;
+				case 3:
+					std::copy(top->begin()+blockSize*(blockSize-2), top->begin()+blockSize*(blockSize-2)+blockSize, blockIn->begin());
+					for(int i = 0; i<blockSize; i++){
+						(*blockIn)[blockSize*i+1] = left->at(blockSize*i+(blockSize-1)); 
+					}
+					break;
+			}
+			/*
 			if(rank == 0){	//left above
 				std::copy(bot->begin()+blockSize+1, bot->begin()+blockSize+1+blockSize-1, blockIn->begin()+blockSize*(blockSize-1)+1); //
 				for(int i = 0; i<blockSize; i++){
@@ -164,7 +222,7 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
 				for(int i = 0; i<blockSize; i++){
 					(*blockIn)[blockSize*i+1] = left->at(blockSize*i+(blockSize-1)); 
 				}
-			}
+			}*/
 			//MPI_Barrier(MPI_COMM_WORLD);
 			
 			
