@@ -41,6 +41,14 @@ void jacobiIter2DPar(const unsigned long n, const vector<double> &in, vector<dou
     }
 }
 
+void jacobiIter2DParNonQuad(const unsigned long n, const unsigned long m, const const vector<double> &in, vector<double> &out, int rank, int size){
+    for (unsigned long i = 1; i < n - 1; ++i) {
+        for (unsigned long j = 1; j < m - 1; ++j) {
+            out.at(m*i + j) = calc2D(in.at(m*i + j), in.at(m*i + j - 1), in.at(m*i + j + 1), in.at(m*(i - 1) + j), in.at(m*(i + 1) + j));
+        }
+    }
+}
+
 void jacobi2DSeq(const vector<double> &bounds, const double epsilon, const unsigned long n, std::vector<double> *in, std::vector<double> *out)
 {
     assert(in->size() == out->size());
