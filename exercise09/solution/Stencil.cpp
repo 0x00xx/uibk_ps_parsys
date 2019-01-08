@@ -654,7 +654,7 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
                     MPI_Irecv(&left->at(0), blockSizeN*blockSizeM, MPI_DOUBLE, rank - 1, 0, MPI_COMM_WORLD, &ioToWaitFor[4]);
                     MPI_Irecv(&right->at(0), blockSizeN*blockSizeM, MPI_DOUBLE, rank + 1, 0, MPI_COMM_WORLD, &ioToWaitFor[5]);
                     MPI_Irecv(&top->at(0), blockSizeN*blockSizeM, MPI_DOUBLE, rank - 8, 0, MPI_COMM_WORLD, &ioToWaitFor[6]);
-                    MPI_Irecv(&bottom->at(0), blockSizeN*blockSizeM, MPI_DOUBLE, rank + 8, 0, MPI_COMM_WORLD, &ioToWaitFor[7]);
+                    MPI_Irecv(&bot->at(0), blockSizeN*blockSizeM, MPI_DOUBLE, rank + 8, 0, MPI_COMM_WORLD, &ioToWaitFor[7]);
                 }
                 
                 MPI_Barrier(MPI_COMM_WORLD);
