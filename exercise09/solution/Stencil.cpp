@@ -162,10 +162,12 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
             for(int i = 0; i< blockSizeM; i++){
                 std::copy(in->begin()+n*i, in->begin()+n*i+blockSizeN, blockIn->begin()+blockSizeN*i);
             }
+            
        }else if(rank == 1){
             for(int i = 0; i< blockSizeM; i++){
-                std::copy(in->begin()+n*i+n*(blockSizeM-2), in->begin()+n*i+n*(blockSizeM-2)+blockSizeN-2, blockIn->begin()+blockSizeN*i);
+                std::copy(in->begin()+n*i+n*(blockSizeM-2), in->begin()+n*i+n*(blockSizeM-2)+blockSizeN, blockIn->begin()+blockSizeN*i);
             }
+            
        }
     }else if(size == 8){
         for(int i = 0; i< blockSizeM; i++){
@@ -720,7 +722,12 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
 			//return out;
 		}
 		//MPI_Barrier(MPI_COMM_WORLD);
-        
+        /*for(int i = 0; i<blockSizeM; i++){
+			for(int j = 0; j<blockSizeN; j++){
+				std::cout<<blockOut->at(i*blockSizeN + j)<< " ";
+			}
+			std::cout << std::endl;
+		}*/
         if(size == 2 || size == 8 || size == 32){   
             jacobiIter2DParNonQuad(blockSizeN, blockSizeM, *blockIn, *blockOut, rank, size);
         }else{
@@ -728,12 +735,9 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
         }
 		localsum = deltaPar(*blockOut, *blockIn);
         //cout << "LS " << localsum << "  "<<rank << endl;
-        for(int i = 0; i<blockSizeM; i++){
-			for(int j = 0; j<blockSizeN; j++){
-				std::cout<<blockOut->at(i*blockSizeN + j)<< " ";
-			}
-			std::cout << std::endl;
-		}
+        
+        
+	
 		if(count == 0){
 			return in;
 		}
