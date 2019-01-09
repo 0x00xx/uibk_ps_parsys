@@ -756,10 +756,10 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
     } while (globalsum > epsilon);
     
     //cout << "GS " << globalsum << " currGhosts: " << currGhosts << endl;
-    if(rank == 0){
+    /*if(rank == 0){
 		std::cout<<count<<std::endl;
    
-	}
+	}*/
 	
     
     return in;
