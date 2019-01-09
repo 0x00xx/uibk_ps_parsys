@@ -101,34 +101,31 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
         blockSizeN = (n-2)/4 + 2; 
         blockSizeM = (n-2)/8 + 2; 
     }
-	/* 
+	 
 	//std::cout << blockSize<<std::endl;
-    //std::vector<double> *blockIn;
-    //std::vector<double> *blockOut;
+    std::vector<double> *blockIn;
+    std::vector<double> *blockOut;
     std::vector<double> *bot;
     std::vector<double> *top;
     std::vector<double> *right;
     std::vector<double> *left;
 
     if(size == 2 || size == 8 || size == 32){
-        //blockIn = new std::vector<double>(blockSizeN,blockSizeM);
-        //blockOut = new std::vector<double>(blockSizeN,blockSizeM);
-        bot = new std::vector<double>(blockSizeN,blockSizeM);
-        right = new std::vector<double>(blockSizeN,blockSizeM);
-        top = new std::vector<double>(blockSizeN,blockSizeM);
-        left = new std::vector<double>(blockSizeN,blockSizeM);
+        blockIn = new std::vector<double>(blockSizeN*blockSizeM);
+        blockOut = new std::vector<double>(blockSizeN*blockSizeM);
+        bot = new std::vector<double>(blockSizeN*blockSizeM);
+        right = new std::vector<double>(blockSizeN*blockSizeM);
+        top = new std::vector<double>(blockSizeN*blockSizeM);
+        left = new std::vector<double>(blockSizeN*blockSizeM);
     }else{
-        //blockIn = new std::vector<double>(blockSize,blockSize);
-        //blockOut = new std::vector<double>(blockSize,blockSize);
-        bot = new std::vector<double>(blockSize,blockSize);
-        right = new std::vector<double>(blockSize,blockSize);
-        top = new std::vector<double>(blockSize,blockSize);
-        left = new std::vector<double>(blockSize,blockSize);
+        blockIn = new std::vector<double>(blockSize*blockSize);
+        blockOut = new std::vector<double>(blockSize*blockSize);
+        bot = new std::vector<double>(blockSize*blockSize);
+        right = new std::vector<double>(blockSize*blockSize);
+        top = new std::vector<double>(blockSize*blockSize);
+        left = new std::vector<double>(blockSize*blockSize);
 
-    }*/
-	
-	std::vector<double> *blockIn = new std::vector<double>(blockSize*blockSize);
-	std::vector<double> *blockOut = new std::vector<double>(blockSize*blockSize);
+    }
 	
 	
 	if(size == 4){
@@ -150,41 +147,42 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
 			}
 		}
 	}else if(size == 16){
+		
 		for(int i = 0; i< blockSize; i++){
-			std::copy(in->begin()+n*i+((n-2)/4)*(rank%4) + ((rank/4)*(n*(n-2))), 
-				in->begin()+n*i+((n-2)/4)*(rank%4) + ((rank/4)*(n*(n-2))) + blockSize, blockIn->begin()+blockSize*i);
+			std::copy(in->begin()+n*i+(blockSize-2)*(rank%4) + ((rank/4)*n*(blockSize-2)), 
+				in->begin()+n*i+(blockSize-2)*(rank%4) + ((rank/4)*n*(blockSize-2)) + blockSize, blockIn->begin()+blockSize*i);
 		}
 	}else if(size == 64){
 		for(int i = 0; i< blockSize; i++){
-			std::copy(in->begin()+n*i+((n-2)/8)*(rank%8) + ((rank/8)*(n*(n-2))), 
-				in->begin()+n*i+((n-2)/8)*(rank%8) + ((rank/8)*(n*(n-2))) + blockSize, blockIn->begin()+blockSize*i);
+			std::copy(in->begin()+n*i+(blockSize-2)*(rank%8) + ((rank/8)*n*(blockSize-2)), 
+				in->begin()+n*i+(blockSize-2)*(rank%8) + ((rank/8)*n*(blockSize-2)) + blockSize, blockIn->begin()+blockSize*i);
 		}
 	}else if(size == 2){
-        if(rank == 0){
+       if(rank == 0){
             for(int i = 0; i< blockSizeM; i++){
                 std::copy(in->begin()+n*i, in->begin()+n*i+blockSizeN, blockIn->begin()+blockSizeN*i);
             }
-        }else if(rank == 1){
+       }else if(rank == 1){
             for(int i = 0; i< blockSizeM; i++){
-                std::copy(in->begin()+n*i+n*(blockSizeN-2), in->begin()+n*i+n*(blockSizeN-2)+blockSizeN, blockIn->begin()+blockSizeN*i);
+                std::copy(in->begin()+n*i+n*(blockSizeM-2), in->begin()+n*i+n*(blockSizeM-2)+blockSizeN-2, blockIn->begin()+blockSizeN*i);
             }
-        }
+       }
     }else if(size == 8){
         for(int i = 0; i< blockSizeM; i++){
-            std::copy(in->begin()+n*i+(rank%4)*n*(blockSizeM-2)+(rank%4)*blockSizeN, 
-                in->begin()+n*i+(rank%4)*n*(blockSizeM-2)+(rank%4)*blockSizeN + blockSizeN, blockIn->begin()+blockSizeN*i);
+            /*std::copy(in->begin()+n*i+(blockSizeM-2)*(rank%4) + ((rank/4)*n*(blockSizeM-2)), 
+				in->begin()+n*i+(blockSizeM-2)*(rank%4) + ((rank/4)*n*(blockSizeM-2)) + blockSizeN, blockIn->begin()+blockSizeN*i);
+		*/
+            std::copy(in->begin()+n*i+(rank%4)*(blockSizeM-2)+(rank/4)*n*(blockSizeN-2), 
+                in->begin()+n*i+(rank%4)*(blockSizeM-2)+(rank/4)*n*(blockSizeN-2) + blockSizeN, blockIn->begin()+blockSizeN*i);
         }
+        
     }else if(size == 32){
         for(int i = 0; i< blockSizeM; i++){
             std::copy(in->begin()+n*i+(rank%8)*n*(blockSizeM-2)+(rank%8)*blockSizeN, 
                 in->begin()+n*i+(rank%8)*n*(blockSizeM-2)+(rank%8)*blockSizeN + blockSizeN, blockIn->begin()+blockSizeN*i);
         }
     }
-	std::vector<double> *bot = new std::vector<double>(blockSize*blockSize);
-	std::vector<double> *right = new std::vector<double>(blockSize*blockSize);
-	std::vector<double> *top = new std::vector<double>(blockSize*blockSize);
-	std::vector<double> *left = new std::vector<double>(blockSize*blockSize);
-
+	
 	std::copy(blockIn->begin(), blockIn->end(), blockOut->begin());
 		
     double localsum;
@@ -195,38 +193,7 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
 		MPI_Request ioToWaitFor[8] = {MPI_REQUEST_NULL, MPI_REQUEST_NULL, MPI_REQUEST_NULL, MPI_REQUEST_NULL, MPI_REQUEST_NULL,
                                       MPI_REQUEST_NULL, MPI_REQUEST_NULL, MPI_REQUEST_NULL};
 		if(count>0){
-			
-			/*switch(rank){
-				case 0:
-					MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, 1, 0, MPI_COMM_WORLD, &ioToWaitFor[0]); 
-					MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, 2, 0, MPI_COMM_WORLD, &ioToWaitFor[1]);
-					
-					MPI_Irecv(&bot->at(0), blockSize*blockSize, MPI_DOUBLE, 2, 0, MPI_COMM_WORLD, &ioToWaitFor[2]);
-					MPI_Irecv(&right->at(0), blockSize*blockSize, MPI_DOUBLE, 1, 0, MPI_COMM_WORLD, &ioToWaitFor[3]);
-					break;
-				case 1:
-					MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, 0, 0, MPI_COMM_WORLD, &ioToWaitFor[0]);
-					MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, 3, 0, MPI_COMM_WORLD, &ioToWaitFor[1]);
-					
-					MPI_Irecv(&left->at(0), blockSize*blockSize, MPI_DOUBLE, 0, 0, MPI_COMM_WORLD, &ioToWaitFor[2]);
-					MPI_Irecv(&bot->at(0), blockSize*blockSize, MPI_DOUBLE, 3, 0, MPI_COMM_WORLD, &ioToWaitFor[3]);
-					break;
-				case 2:
-					MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, 1, 0, MPI_COMM_WORLD, &ioToWaitFor[0]);
-					MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, 2, 0, MPI_COMM_WORLD, &ioToWaitFor[1]);
-					
-					MPI_Irecv(&top->at(0), blockSize*blockSize, MPI_DOUBLE, 1, 0, MPI_COMM_WORLD, &ioToWaitFor[2]);
-					MPI_Irecv(&left->at(0), blockSize*blockSize, MPI_DOUBLE, 2, 0, MPI_COMM_WORLD, &ioToWaitFor[3]);
-					break;
-				case 3:
-					MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, 1, 0, MPI_COMM_WORLD, &ioToWaitFor[0]);
-					MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, 2, 0, MPI_COMM_WORLD, &ioToWaitFor[1]);
-					
-					MPI_Irecv(&top->at(0), blockSize*blockSize, MPI_DOUBLE, 1, 0, MPI_COMM_WORLD, &ioToWaitFor[2]);
-					MPI_Irecv(&left->at(0), blockSize*blockSize, MPI_DOUBLE, 2, 0, MPI_COMM_WORLD, &ioToWaitFor[3]);
-					break;
-					
-			}*/
+		
 			if(size == 4){
 				if(rank == 0){	//left above
 					MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, 1, 0, MPI_COMM_WORLD, &ioToWaitFor[0]); 
