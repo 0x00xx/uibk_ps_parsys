@@ -190,7 +190,6 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
 		MPI_Request ioToWaitFor[8] = {MPI_REQUEST_NULL, MPI_REQUEST_NULL, MPI_REQUEST_NULL, MPI_REQUEST_NULL, MPI_REQUEST_NULL,
                                       MPI_REQUEST_NULL, MPI_REQUEST_NULL, MPI_REQUEST_NULL};
 		if(count>0){
-		
 			if(size == 4){
 				if(rank == 0){	//left above
 					MPI_Isend(&blockIn->at(0), blockSize*blockSize, MPI_DOUBLE, 1, 0, MPI_COMM_WORLD, &ioToWaitFor[0]); 
@@ -717,12 +716,7 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
 			//MPI_Barrier(MPI_COMM_WORLD);
 			
 			
-			/*for(int i = 0; i<blockSizeM; i++){
-				for(int j = 0; j<blockSizeN; j++){
-					std::cout<<blockOut->at(i*blockSizeN + j)<< " ";
-				}
-				std::cout << std::endl;
-			}*/
+			
 			//return out;
 		}
 		//MPI_Barrier(MPI_COMM_WORLD);
@@ -734,7 +728,16 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
         }
 		localsum = deltaPar(*blockOut, *blockIn);
         //cout << "LS " << localsum << "  "<<rank << endl;
-        
+        for(int i = 0; i<blockSizeM; i++){
+			for(int j = 0; j<blockSizeN; j++){
+				std::cout<<blockOut->at(i*blockSizeN + j)<< " ";
+			}
+			std::cout << std::endl;
+		}
+		if(count == 0){
+			return in;
+		}
+		
         auto tmp = blockOut;
         blockOut = blockIn;
         blockIn = tmp;
