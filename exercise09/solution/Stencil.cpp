@@ -737,10 +737,6 @@ std::vector<double> * jacobi2DPar(const vector<double> &bounds, const double eps
         //cout << "LS " << localsum << "  "<<rank << endl;
         
         
-	
-		if(count == 0){
-			return in;
-		}
 		
         auto tmp = blockOut;
         blockOut = blockIn;
