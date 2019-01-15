@@ -1,0 +1,32 @@
+#!/bin/bash
+
+#$ -N nqueens
+#$ -q std.q
+#$ -cwd
+#$ -o nqueens_output
+#$ -e nqueens_error
+
+# exclusively reserve whatever nodes this is running on
+#$ -l excl=true
+
+# reserve 4GB of memory per process
+#$ -l h_vmem="4G"
+
+#$ -pe openmpi-8perhost 64
+
+module load gcc/8.2.0
+module load openmpi/3.1.1
+
+mpirun -np 1 ./nqueens 15
+
+mpirun -np 2 ./nqueens 15
+
+mpirun -np 4 ./nqueens 15
+
+mpirun -np 8 ./nqueens 15
+
+mpirun -np 16 ./nqueens 15
+
+mpirun -np 32 ./nqueens 15
+
+mpirun -np 64 ./nqueens 15
