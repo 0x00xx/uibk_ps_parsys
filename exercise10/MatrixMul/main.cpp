@@ -3,6 +3,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <mpi.h>
+#include "chrono_timer.h"
 
 #define VALUE double
 
@@ -98,45 +99,50 @@ int main(int argc, char** argv) {
 
 	// compute the product
 	auto c = a * b;
-    if (rank != 0) {
-        
-        //std::cout << x << std::endl;
-        //std::cout << bound - x << std::endl;
-        //printMatrix(c);
-        MPI_Request req;
-        MPI_Isend(&toSend[0], toSend.size(), MPI_DOUBLE, 0, 0, MPI_COMM_WORLD, &req);
-        //printMatrix(c);
-    } else {
 
-        for (int l = 1; l < numProc; l++) {
-            MPI_Status status;
-            MPI_Probe(MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
-            int senderRank = status.MPI_SOURCE;
+	{
+		ChronoTimer t("Time");
 
-            int row = (n / numProc);
-            if (senderRank == numProc - 1 && (n % numProc) != 0) {
-                row++;
-            }
-            std::vector<VALUE> buff = std::vector<VALUE>();
-            buff.resize(n * row);
-            MPI_Recv(&buff[0], n * row, MPI_DOUBLE, senderRank, 0, MPI_COMM_WORLD, &status);
-            int y = (n / numProc) * senderRank;
-            int z = 0;
-            for (int i = 0; i < buff.size(); ++i) {
-               //std::cout << buff[i] << std::endl;
-               c[y][z] = buff[i];
-               z++;
-               if (z == n) {
-                z = 0;
-                y++;
-               } 
-            }
-        }
-    }
+	    if (rank != 0) {
+	        
+	        //std::cout << x << std::endl;
+	        //std::cout << bound - x << std::endl;
+	        //printMatrix(c);
+	        MPI_Request req;
+	        MPI_Isend(&toSend[0], toSend.size(), MPI_DOUBLE, 0, 0, MPI_COMM_WORLD, &req);
+	        //printMatrix(c);
+	    } else {
 
-    MPI_Barrier(MPI_COMM_WORLD);
-    MPI_Finalize();
+	        for (int l = 1; l < numProc; l++) {
+	            MPI_Status status;
+	            MPI_Probe(MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+	            int senderRank = status.MPI_SOURCE;
 
+	            int row = (n / numProc);
+	            if (senderRank == numProc - 1 && (n % numProc) != 0) {
+	                row++;
+	            }
+	            std::vector<VALUE> buff = std::vector<VALUE>();
+	            buff.resize(n * row);
+	            MPI_Recv(&buff[0], n * row, MPI_DOUBLE, senderRank, 0, MPI_COMM_WORLD, &status);
+	            int y = (n / numProc) * senderRank;
+	            int z = 0;
+	            for (int i = 0; i < buff.size(); ++i) {
+	               //std::cout << buff[i] << std::endl;
+	               c[y][z] = buff[i];
+	               z++;
+	               if (z == n) {
+	                z = 0;
+	                y++;
+	               } 
+	            }
+	        }
+	    }
+
+	    MPI_Barrier(MPI_COMM_WORLD);
+	    MPI_Finalize();
+	}
+	
 	// check that the result is correct
     if (rank == 0) {
         if (c == a) {
