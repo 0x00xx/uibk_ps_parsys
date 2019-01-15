@@ -85,23 +85,22 @@ int main(int argc, char** argv) {
 
     int rank;
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+    {
+	    ChronoTimer t("Time");
 
-    if (rank == 0) {
-        x = 0;
-        bound = (n / numProc);
-    } else if (rank == numProc - 1 && (n % numProc) != 0) {
-        x = (n / numProc) * rank;
-        bound = x + (n / numProc)+1;
-    } else {
-        x = (n / numProc) * rank;
-        bound = x + (n / numProc);
-    }
+	    if (rank == 0) {
+	        x = 0;
+	        bound = (n / numProc);
+	    } else if (rank == numProc - 1 && (n % numProc) != 0) {
+	        x = (n / numProc) * rank;
+	        bound = x + (n / numProc)+1;
+	    } else {
+	        x = (n / numProc) * rank;
+	        bound = x + (n / numProc);
+	    }
 
-	// compute the product
-	auto c = a * b;
-
-	{
-		ChronoTimer t("Time");
+		// compute the product
+		auto c = a * b;
 
 	    if (rank != 0) {
 	        
@@ -142,7 +141,8 @@ int main(int argc, char** argv) {
 	    MPI_Barrier(MPI_COMM_WORLD);
 	    MPI_Finalize();
 	}
-	
+
+	/*
 	// check that the result is correct
     if (rank == 0) {
         if (c == a) {
@@ -150,7 +150,7 @@ int main(int argc, char** argv) {
         } else {
             std::cout << "Not\n";
         }
-    }
+    }*/
 
 	return EXIT_SUCCESS;
 }
