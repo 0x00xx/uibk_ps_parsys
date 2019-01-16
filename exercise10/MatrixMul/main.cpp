@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <mpi.h>
 #include "chrono_timer.h"
+#include <omp.h>
 
 #define VALUE double
 
@@ -43,11 +44,13 @@ Matrix operator*(const Matrix& a, const Matrix& b) {
 	unsigned n = a.size();
 	Matrix c = zero(n);
     int y = 0;
+    #pragma omp parallel for
 	for(unsigned i=x; i<bound; ++i) {
 		for(unsigned j=0; j<n; ++j) {
 			for(unsigned k=0; k<n; ++k) {
 				c[i][j] += a[i][k] * b[k][j];
 			}
+			#pragma omp ordered
             toSend.push_back(c[i][j]);
 		}
 	}
@@ -86,6 +89,7 @@ int main(int argc, char** argv) {
     int rank;
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     {
+		MPI_Barrier(MPI_COMM_WORLD);
 	    ChronoTimer t("Time");
 
 	    if (rank == 0) {
@@ -103,15 +107,9 @@ int main(int argc, char** argv) {
 		auto c = a * b;
 
 	    if (rank != 0) {
-	        
-	        //std::cout << x << std::endl;
-	        //std::cout << bound - x << std::endl;
-	        //printMatrix(c);
 	        MPI_Request req;
 	        MPI_Isend(&toSend[0], toSend.size(), MPI_DOUBLE, 0, 0, MPI_COMM_WORLD, &req);
-	        //printMatrix(c);
 	    } else {
-
 	        for (int l = 1; l < numProc; l++) {
 	            MPI_Status status;
 	            MPI_Probe(MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
@@ -127,7 +125,6 @@ int main(int argc, char** argv) {
 	            int y = (n / numProc) * senderRank;
 	            int z = 0;
 	            for (int i = 0; i < buff.size(); ++i) {
-	               //std::cout << buff[i] << std::endl;
 	               c[y][z] = buff[i];
 	               z++;
 	               if (z == n) {
@@ -142,7 +139,6 @@ int main(int argc, char** argv) {
 	    MPI_Finalize();
 	}
 
-	/*
 	// check that the result is correct
     if (rank == 0) {
         if (c == a) {
@@ -150,7 +146,7 @@ int main(int argc, char** argv) {
         } else {
             std::cout << "Not\n";
         }
-    }*/
+    }
 
 	return EXIT_SUCCESS;
 }
