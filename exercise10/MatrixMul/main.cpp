@@ -88,6 +88,7 @@ int main(int argc, char** argv) {
 
     int rank;
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+    Matrix c;
     {
 		MPI_Barrier(MPI_COMM_WORLD);
 	    ChronoTimer t("Time");
@@ -104,7 +105,7 @@ int main(int argc, char** argv) {
 	    }
 
 		// compute the product
-		auto c = a * b;
+		c = a * b;
 
 	    if (rank != 0) {
 	        MPI_Request req;
