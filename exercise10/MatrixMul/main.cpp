@@ -139,7 +139,7 @@ int main(int argc, char** argv) {
 	    MPI_Barrier(MPI_COMM_WORLD);
 	    MPI_Finalize();
 	}
-
+/*
 	// check that the result is correct
     if (rank == 0) {
         if (c == a) {
@@ -148,7 +148,7 @@ int main(int argc, char** argv) {
             std::cout << "Not\n";
         }
     }
-
+*/
 	return EXIT_SUCCESS;
 }
 
