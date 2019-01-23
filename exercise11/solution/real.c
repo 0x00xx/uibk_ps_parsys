@@ -456,6 +456,7 @@ static void psinv(void *or, void *ou, int n1, int n2, int n3,
 
   if (timeron) timer_start(T_psinv);
   for (i3 = 1; i3 < n3-1; i3++) {
+	#pragma omp parallel for private(r1,r2)
     for (i2 = 1; i2 < n2-1; i2++) {
       for (i1 = 0; i1 < n1; i1++) {
         r1[i1] = r[i3][i2-1][i1] + r[i3][i2+1][i1]
@@ -517,6 +518,7 @@ static void resid(void *ou, void *ov, void *or, int n1, int n2, int n3,
   double u1[M], u2[M];
 
   if (timeron) timer_start(T_resid);
+  #pragma omp parallel for private(u1,u2) collapse(2)
   for (i3 = 1; i3 < n3-1; i3++) {
     for (i2 = 1; i2 < n2-1; i2++) {
       for (i1 = 0; i1 < n1; i1++) {
@@ -598,7 +600,7 @@ static void rprj3(void *or, int m1k, int m2k, int m3k,
     i3 = 2*j3-d3;
     for (j2 = 1; j2 < m2j-1; j2++) {
       i2 = 2*j2-d2;
-
+		 
       for (j1 = 1; j1 < m1j; j1++) {
         i1 = 2*j1-d1;
         x1[i1] = r[i3+1][i2  ][i1] + r[i3+1][i2+2][i1]
@@ -606,7 +608,7 @@ static void rprj3(void *or, int m1k, int m2k, int m3k,
         y1[i1] = r[i3  ][i2  ][i1] + r[i3+2][i2  ][i1]
                + r[i3  ][i2+2][i1] + r[i3+2][i2+2][i1];
       }
-
+		 
       for (j1 = 1; j1 < m1j-1; j1++) {
         i1 = 2*j1-d1;
         y2 = r[i3  ][i2  ][i1+1] + r[i3+2][i2  ][i1+1]
@@ -662,6 +664,7 @@ static void interp(void *oz, int mm1, int mm2, int mm3,
 
   if (timeron) timer_start(T_interp);
   if (n1 != 3 && n2 != 3 && n3 != 3) {
+	 
     for (i3 = 0; i3 < mm3-1; i3++) {
       for (i2 = 0; i2 < mm2-1; i2++) {
         for (i1 = 0; i1 < mm1; i1++) {
@@ -820,12 +823,28 @@ static void norm2u3(void *or, int n1, int n2, int n3,
   max_rnmu = 0.0;
 
   double my_rnmu = 0.0;
-  for (i3 = 1; i3 < n3-1; i3++) {
-    for (i2 = 1; i2 < n2-1; i2++) {
-      for (i1 = 1; i1 < n1-1; i1++) {
-        s = s + pow(r[i3][i2][i1], 2.0);
-        a = fabs(r[i3][i2][i1]);
-        my_rnmu = (a > my_rnmu) ? a : my_rnmu;
+  #pragma omp parallel
+  {
+    double l_rnmu = 0.0;
+    #pragma omp for collapse(3)
+    for (i3 = 1; i3 < n3 - 1; i3++) {
+      for (i2 = 1; i2 < n2 - 1; i2++) {
+        for (i1 = 1; i1 < n1 - 1; i1++) {
+          a = fabs(r[i3][i2][i1]);
+          l_rnmu = (a > l_rnmu) ? a : l_rnmu;
+        }
+      }
+    }
+    #pragma omp critical
+    {
+      my_rnmu = (l_rnmu > my_rnmu) ? l_rnmu : my_rnmu;
+    };
+    #pragma omp for collapse(3) reduction(+:s)
+    for (i3 = 1; i3 < n3 - 1; i3++) {
+      for (i2 = 1; i2 < n2 - 1; i2++) {
+        for (i1 = 1; i1 < n1 - 1; i1++) {
+          s += pow(r[i3][i2][i1], 2.0);
+        }
       }
     }
   }
@@ -1151,6 +1170,7 @@ static void bubble(double ten[][2], int j1[][2], int j2[][2], int j3[][2],
   int i, j_temp;
 
   if (ind == 1) {
+	  
     for (i = 0; i < m-1; i++) {
       if (ten[i][ind] > ten[i+1][ind]) {
         temp = ten[i+1][ind];
