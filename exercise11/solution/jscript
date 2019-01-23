@@ -6,14 +6,27 @@
 #$ -e error_real
 #$ -pe openmp 8
 
+module load gcc/8.2.0
+
 export OMP_NUM_THREADS=1
 time ./real
+perf stat -e cycles,instructions,cache-references,cache-misses,bus-cycles ./real
+perf report --stdio --sort comm,dso
 
 export OMP_NUM_THREADS=2
 time ./real
+perf stat -e cycles,instructions,cache-references,cache-misses,bus-cycles ./real
+perf report --stdio --sort comm,dso
 
 export OMP_NUM_THREADS=4
 time ./real
+perf stat -e cycles,instructions,cache-references,cache-misses,bus-cycles ./real
+perf report --stdio --sort comm,dso
 
 export OMP_NUM_THREADS=8
 time ./real
+perf stat -e cycles,instructions,cache-references,cache-misses,bus-cycles,cpu-clock ./real
+perf record -e cycles,instructions,cache-references,cache-misses,bus-cycles,cpu-clock ./real
+perf report --stdio --dsos=real,libgomp.so.1.0.0,libc-2.17.so
+perf annotate --stdio --dsos=real --symbol=resid._omp_fn.1
+perf annotate --stdio --dsos=real --symbol=psinv._omp_fn.0 

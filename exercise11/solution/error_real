@@ -1,0 +1,64 @@
+  Loading gcc/8.2.0
+
+real	0m17.418s
+user	0m17.242s
+sys	0m0.172s
+
+ Performance counter stats for './real':
+
+    43,357,902,428      cycles                                                        (39.99%)
+    31,833,167,533      instructions              #    0.73  insn per cycle           (60.00%)
+     1,169,592,640      cache-references                                              (60.01%)
+        29,015,074      cache-misses              #    2.481 % of all cache refs      (60.01%)
+     5,784,468,789      bus-cycles                                                    (40.00%)
+
+      17.496384016 seconds time elapsed
+
+
+real	0m13.044s
+user	0m20.439s
+sys	0m0.216s
+
+ Performance counter stats for './real':
+
+    46,244,502,528      cycles                                                        (39.99%)
+    32,342,745,985      instructions              #    0.70  insn per cycle           (59.98%)
+     1,171,190,208      cache-references                                              (59.99%)
+        30,031,648      cache-misses              #    2.564 % of all cache refs      (60.01%)
+     6,170,386,131      bus-cycles                                                    (40.01%)
+
+      12.063031387 seconds time elapsed
+
+
+real	0m10.721s
+user	0m26.267s
+sys	0m0.245s
+
+ Performance counter stats for './real':
+
+    67,455,291,259      cycles                                                        (40.03%)
+    33,672,018,508      instructions              #    0.50  insn per cycle           (60.01%)
+     1,184,378,524      cache-references                                              (59.97%)
+        36,879,419      cache-misses              #    3.114 % of all cache refs      (59.98%)
+     9,001,654,199      bus-cycles                                                    (40.03%)
+
+      11.004131770 seconds time elapsed
+
+
+real	0m11.606s
+user	0m54.196s
+sys	0m0.354s
+
+ Performance counter stats for './real':
+
+   135,909,925,888      cycles                    #    2.478 GHz                      (39.99%)
+    35,820,937,890      instructions              #    0.26  insn per cycle           (60.00%)
+     1,205,202,433      cache-references          #   21.975 M/sec                    (60.02%)
+        84,964,400      cache-misses              #    7.050 % of all cache refs      (60.02%)
+    18,137,946,785      bus-cycles                #  330.719 M/sec                    (39.99%)
+      54844.033535      cpu-clock (msec)          #    4.700 CPUs utilized          
+
+      11.667747480 seconds time elapsed
+
+[ perf record: Woken up 104 times to write data ]
+[ perf record: Captured and wrote 35.433 MB perf.data (773579 samples) ]

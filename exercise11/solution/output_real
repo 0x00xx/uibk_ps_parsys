@@ -1,0 +1,2807 @@
+
+
+ Benchmark
+
+ No input file. Using compiled defaults 
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+
+  iter   1
+  iter   5
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed
+ VERIFICATION SUCCESSFUL
+ L2 Norm is  1.8005644013551E-06
+ Error is    6.6330115975290E-14
+
+
+ Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.3.1
+  SECTION   Time (secs)
+  benchmk :   14.599  (100.00%)
+  mg3P    :   10.832  ( 74.20%)
+  psinv   :    3.647  ( 24.98%)
+  resid   :    7.398  ( 50.67%)
+    --> mg-resid:    3.736  ( 25.59%)
+  rprj3   :    1.480  ( 10.14%)
+  interp  :    1.432  (  9.81%)
+  norm2   :    0.105  (  0.72%)
+  comm3   :    0.318  (  2.18%)
+
+
+ Benchmark
+
+ No input file. Using compiled defaults 
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+
+  iter   1
+  iter   5
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed
+ VERIFICATION SUCCESSFUL
+ L2 Norm is  1.8005644013551E-06
+ Error is    6.6330115975290E-14
+
+
+ Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.3.1
+  SECTION   Time (secs)
+  benchmk :   14.655  (100.00%)
+  mg3P    :   10.879  ( 74.23%)
+  psinv   :    3.665  ( 25.01%)
+  resid   :    7.420  ( 50.63%)
+    --> mg-resid:    3.750  ( 25.59%)
+  rprj3   :    1.487  ( 10.15%)
+  interp  :    1.438  (  9.81%)
+  norm2   :    0.106  (  0.72%)
+  comm3   :    0.319  (  2.18%)
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 88K of event 'cycles'
+# Event count (approx.): 53749775156
+#
+# Overhead  Command  Shared Object    
+# ........  .......  .................
+#
+    90.03%  real     real             
+     6.46%  real     libgomp.so.1.0.0 
+     2.49%  real     [kernel.kallsyms]
+     0.97%  real     libc-2.17.so     
+     0.03%  real     [kvm]            
+     0.01%  real     [nfs]            
+     0.00%  real     [e1000e]         
+     0.00%  real     ld-2.17.so       
+     0.00%  real     [sunrpc]         
+     0.00%  real     [vdso]           
+     0.00%  perf     [kernel.kallsyms]
+
+
+# Samples: 129K of event 'instructions'
+# Event count (approx.): 22284638988
+#
+# Overhead  Command  Shared Object    
+# ........  .......  .................
+#
+    85.99%  real     real             
+    11.86%  real     libgomp.so.1.0.0 
+     1.70%  real     [kernel.kallsyms]
+     0.42%  real     libc-2.17.so     
+     0.01%  real     [kvm]            
+     0.01%  real     [nfs]            
+     0.00%  real     [sunrpc]         
+     0.00%  real     ld-2.17.so       
+     0.00%  perf     [kernel.kallsyms]
+
+
+# Samples: 127K of event 'cache-references'
+# Event count (approx.): 804350274
+#
+# Overhead  Command  Shared Object    
+# ........  .......  .................
+#
+    93.72%  real     real             
+     4.43%  real     [kernel.kallsyms]
+     1.40%  real     libc-2.17.so     
+     0.37%  real     libgomp.so.1.0.0 
+     0.08%  real     [kvm]            
+     0.01%  real     [sunrpc]         
+     0.00%  real     [vdso]           
+     0.00%  perf     [kernel.kallsyms]
+
+
+# Samples: 118K of event 'cache-misses'
+# Event count (approx.): 49733400
+#
+# Overhead  Command  Shared Object    
+# ........  .......  .................
+#
+    93.93%  real     real             
+     2.73%  real     libc-2.17.so     
+     2.22%  real     [kernel.kallsyms]
+     1.08%  real     libgomp.so.1.0.0 
+     0.01%  real     [vdso]           
+     0.01%  real     [nfs]            
+     0.00%  real     [kvm]            
+     0.00%  real     ld-2.17.so       
+     0.00%  real     [sunrpc]         
+     0.00%  real     [xt_conntrack]   
+     0.00%  real     [e1000e]         
+     0.00%  real     [nf_conntrack]   
+
+
+# Samples: 88K of event 'bus-cycles'
+# Event count (approx.): 7199509026
+#
+# Overhead  Command  Shared Object    
+# ........  .......  .................
+#
+    90.66%  real     real             
+     6.13%  real     libgomp.so.1.0.0 
+     2.25%  real     [kernel.kallsyms]
+     0.91%  real     libc-2.17.so     
+     0.03%  real     [kvm]            
+     0.01%  real     [nfs]            
+     0.00%  real     [e1000e]         
+     0.00%  real     [vdso]           
+
+
+# Samples: 221K of event 'cpu-clock'
+# Event count (approx.): 55493250000
+#
+# Overhead  Command  Shared Object    
+# ........  .......  .................
+#
+    92.15%  real     real             
+     6.21%  real     libgomp.so.1.0.0 
+     0.90%  real     libc-2.17.so     
+     0.73%  real     [kernel.kallsyms]
+     0.01%  real     [nfs]            
+     0.00%  real     [sunrpc]         
+     0.00%  real     [vdso]           
+     0.00%  real     ld-2.17.so       
+     0.00%  real     [xfs]            
+
+
+
+
+ Benchmark
+
+ No input file. Using compiled defaults 
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+
+  iter   1
+  iter   5
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed
+ VERIFICATION SUCCESSFUL
+ L2 Norm is  1.8005644013551E-06
+ Error is    6.6330115975290E-14
+
+
+ Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.3.1
+  SECTION   Time (secs)
+  benchmk :   10.557  (100.00%)
+  mg3P    :    8.000  ( 75.78%)
+  psinv   :    2.084  ( 19.74%)
+  resid   :    4.901  ( 46.42%)
+    --> mg-resid:    2.449  ( 23.19%)
+  rprj3   :    1.476  ( 13.98%)
+  interp  :    1.430  ( 13.54%)
+  norm2   :    0.105  (  0.99%)
+  comm3   :    0.346  (  3.27%)
+
+
+ Benchmark
+
+ No input file. Using compiled defaults 
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+
+  iter   1
+  iter   5
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed
+ VERIFICATION SUCCESSFUL
+ L2 Norm is  1.8005644013551E-06
+ Error is    6.6330115975290E-14
+
+
+ Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.3.1
+  SECTION   Time (secs)
+  benchmk :    9.570  (100.00%)
+  mg3P    :    7.441  ( 77.75%)
+  psinv   :    1.936  ( 20.23%)
+  resid   :    4.035  ( 42.16%)
+    --> mg-resid:    2.010  ( 21.01%)
+  rprj3   :    1.487  ( 15.53%)
+  interp  :    1.441  ( 15.06%)
+  norm2   :    0.105  (  1.10%)
+  comm3   :    0.349  (  3.65%)
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 88K of event 'cycles'
+# Event count (approx.): 53749775156
+#
+# Overhead  Command  Shared Object    
+# ........  .......  .................
+#
+    90.03%  real     real             
+     6.46%  real     libgomp.so.1.0.0 
+     2.49%  real     [kernel.kallsyms]
+     0.97%  real     libc-2.17.so     
+     0.03%  real     [kvm]            
+     0.01%  real     [nfs]            
+     0.00%  real     [e1000e]         
+     0.00%  real     ld-2.17.so       
+     0.00%  real     [sunrpc]         
+     0.00%  real     [vdso]           
+     0.00%  perf     [kernel.kallsyms]
+
+
+# Samples: 129K of event 'instructions'
+# Event count (approx.): 22284638988
+#
+# Overhead  Command  Shared Object    
+# ........  .......  .................
+#
+    85.99%  real     real             
+    11.86%  real     libgomp.so.1.0.0 
+     1.70%  real     [kernel.kallsyms]
+     0.42%  real     libc-2.17.so     
+     0.01%  real     [kvm]            
+     0.01%  real     [nfs]            
+     0.00%  real     [sunrpc]         
+     0.00%  real     ld-2.17.so       
+     0.00%  perf     [kernel.kallsyms]
+
+
+# Samples: 127K of event 'cache-references'
+# Event count (approx.): 804350274
+#
+# Overhead  Command  Shared Object    
+# ........  .......  .................
+#
+    93.72%  real     real             
+     4.43%  real     [kernel.kallsyms]
+     1.40%  real     libc-2.17.so     
+     0.37%  real     libgomp.so.1.0.0 
+     0.08%  real     [kvm]            
+     0.01%  real     [sunrpc]         
+     0.00%  real     [vdso]           
+     0.00%  perf     [kernel.kallsyms]
+
+
+# Samples: 118K of event 'cache-misses'
+# Event count (approx.): 49733400
+#
+# Overhead  Command  Shared Object    
+# ........  .......  .................
+#
+    93.93%  real     real             
+     2.73%  real     libc-2.17.so     
+     2.22%  real     [kernel.kallsyms]
+     1.08%  real     libgomp.so.1.0.0 
+     0.01%  real     [vdso]           
+     0.01%  real     [nfs]            
+     0.00%  real     [kvm]            
+     0.00%  real     ld-2.17.so       
+     0.00%  real     [sunrpc]         
+     0.00%  real     [xt_conntrack]   
+     0.00%  real     [e1000e]         
+     0.00%  real     [nf_conntrack]   
+
+
+# Samples: 88K of event 'bus-cycles'
+# Event count (approx.): 7199509026
+#
+# Overhead  Command  Shared Object    
+# ........  .......  .................
+#
+    90.66%  real     real             
+     6.13%  real     libgomp.so.1.0.0 
+     2.25%  real     [kernel.kallsyms]
+     0.91%  real     libc-2.17.so     
+     0.03%  real     [kvm]            
+     0.01%  real     [nfs]            
+     0.00%  real     [e1000e]         
+     0.00%  real     [vdso]           
+
+
+# Samples: 221K of event 'cpu-clock'
+# Event count (approx.): 55493250000
+#
+# Overhead  Command  Shared Object    
+# ........  .......  .................
+#
+    92.15%  real     real             
+     6.21%  real     libgomp.so.1.0.0 
+     0.90%  real     libc-2.17.so     
+     0.73%  real     [kernel.kallsyms]
+     0.01%  real     [nfs]            
+     0.00%  real     [sunrpc]         
+     0.00%  real     [vdso]           
+     0.00%  real     ld-2.17.so       
+     0.00%  real     [xfs]            
+
+
+
+
+ Benchmark
+
+ No input file. Using compiled defaults 
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+
+  iter   1
+  iter   5
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed
+ VERIFICATION SUCCESSFUL
+ L2 Norm is  1.8005644013551E-06
+ Error is    6.6330115975290E-14
+
+
+ Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.3.1
+  SECTION   Time (secs)
+  benchmk :    8.309  (100.00%)
+  mg3P    :    6.467  ( 77.83%)
+  psinv   :    1.321  ( 15.90%)
+  resid   :    3.383  ( 40.72%)
+    --> mg-resid:    1.647  ( 19.82%)
+  rprj3   :    1.472  ( 17.72%)
+  interp  :    1.428  ( 17.18%)
+  norm2   :    0.105  (  1.26%)
+  comm3   :    0.384  (  4.62%)
+
+
+ Benchmark
+
+ No input file. Using compiled defaults 
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+
+  iter   1
+  iter   5
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed
+ VERIFICATION SUCCESSFUL
+ L2 Norm is  1.8005644013551E-06
+ Error is    6.6330115975290E-14
+
+
+ Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.3.1
+  SECTION   Time (secs)
+  benchmk :    8.581  (100.00%)
+  mg3P    :    6.689  ( 77.94%)
+  psinv   :    1.389  ( 16.19%)
+  resid   :    3.506  ( 40.85%)
+    --> mg-resid:    1.718  ( 20.02%)
+  rprj3   :    1.502  ( 17.51%)
+  interp  :    1.468  ( 17.11%)
+  norm2   :    0.105  (  1.23%)
+  comm3   :    0.390  (  4.54%)
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 88K of event 'cycles'
+# Event count (approx.): 53749775156
+#
+# Overhead  Command  Shared Object    
+# ........  .......  .................
+#
+    90.03%  real     real             
+     6.46%  real     libgomp.so.1.0.0 
+     2.49%  real     [kernel.kallsyms]
+     0.97%  real     libc-2.17.so     
+     0.03%  real     [kvm]            
+     0.01%  real     [nfs]            
+     0.00%  real     [e1000e]         
+     0.00%  real     ld-2.17.so       
+     0.00%  real     [sunrpc]         
+     0.00%  real     [vdso]           
+     0.00%  perf     [kernel.kallsyms]
+
+
+# Samples: 129K of event 'instructions'
+# Event count (approx.): 22284638988
+#
+# Overhead  Command  Shared Object    
+# ........  .......  .................
+#
+    85.99%  real     real             
+    11.86%  real     libgomp.so.1.0.0 
+     1.70%  real     [kernel.kallsyms]
+     0.42%  real     libc-2.17.so     
+     0.01%  real     [kvm]            
+     0.01%  real     [nfs]            
+     0.00%  real     [sunrpc]         
+     0.00%  real     ld-2.17.so       
+     0.00%  perf     [kernel.kallsyms]
+
+
+# Samples: 127K of event 'cache-references'
+# Event count (approx.): 804350274
+#
+# Overhead  Command  Shared Object    
+# ........  .......  .................
+#
+    93.72%  real     real             
+     4.43%  real     [kernel.kallsyms]
+     1.40%  real     libc-2.17.so     
+     0.37%  real     libgomp.so.1.0.0 
+     0.08%  real     [kvm]            
+     0.01%  real     [sunrpc]         
+     0.00%  real     [vdso]           
+     0.00%  perf     [kernel.kallsyms]
+
+
+# Samples: 118K of event 'cache-misses'
+# Event count (approx.): 49733400
+#
+# Overhead  Command  Shared Object    
+# ........  .......  .................
+#
+    93.93%  real     real             
+     2.73%  real     libc-2.17.so     
+     2.22%  real     [kernel.kallsyms]
+     1.08%  real     libgomp.so.1.0.0 
+     0.01%  real     [vdso]           
+     0.01%  real     [nfs]            
+     0.00%  real     [kvm]            
+     0.00%  real     ld-2.17.so       
+     0.00%  real     [sunrpc]         
+     0.00%  real     [xt_conntrack]   
+     0.00%  real     [e1000e]         
+     0.00%  real     [nf_conntrack]   
+
+
+# Samples: 88K of event 'bus-cycles'
+# Event count (approx.): 7199509026
+#
+# Overhead  Command  Shared Object    
+# ........  .......  .................
+#
+    90.66%  real     real             
+     6.13%  real     libgomp.so.1.0.0 
+     2.25%  real     [kernel.kallsyms]
+     0.91%  real     libc-2.17.so     
+     0.03%  real     [kvm]            
+     0.01%  real     [nfs]            
+     0.00%  real     [e1000e]         
+     0.00%  real     [vdso]           
+
+
+# Samples: 221K of event 'cpu-clock'
+# Event count (approx.): 55493250000
+#
+# Overhead  Command  Shared Object    
+# ........  .......  .................
+#
+    92.15%  real     real             
+     6.21%  real     libgomp.so.1.0.0 
+     0.90%  real     libc-2.17.so     
+     0.73%  real     [kernel.kallsyms]
+     0.01%  real     [nfs]            
+     0.00%  real     [sunrpc]         
+     0.00%  real     [vdso]           
+     0.00%  real     ld-2.17.so       
+     0.00%  real     [xfs]            
+
+
+
+
+ Benchmark
+
+ No input file. Using compiled defaults 
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+
+  iter   1
+  iter   5
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed
+ VERIFICATION SUCCESSFUL
+ L2 Norm is  1.8005644013551E-06
+ Error is    6.6330115975290E-14
+
+
+ Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.3.1
+  SECTION   Time (secs)
+  benchmk :    9.121  (100.00%)
+  mg3P    :    6.877  ( 75.40%)
+  psinv   :    1.365  ( 14.97%)
+  resid   :    4.147  ( 45.47%)
+    --> mg-resid:    2.008  ( 22.02%)
+  rprj3   :    1.473  ( 16.15%)
+  interp  :    1.427  ( 15.64%)
+  norm2   :    0.105  (  1.15%)
+  comm3   :    0.387  (  4.25%)
+
+
+ Benchmark
+
+ No input file. Using compiled defaults 
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+
+  iter   1
+  iter   5
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed
+ VERIFICATION SUCCESSFUL
+ L2 Norm is  1.8005644013551E-06
+ Error is    6.6330115975290E-14
+
+
+ Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.3.1
+  SECTION   Time (secs)
+  benchmk :    9.174  (100.00%)
+  mg3P    :    6.917  ( 75.40%)
+  psinv   :    1.373  ( 14.97%)
+  resid   :    4.171  ( 45.47%)
+    --> mg-resid:    2.020  ( 22.02%)
+  rprj3   :    1.481  ( 16.14%)
+  interp  :    1.437  ( 15.67%)
+  norm2   :    0.105  (  1.15%)
+  comm3   :    0.389  (  4.24%)
+
+
+ Benchmark
+
+ No input file. Using compiled defaults 
+ Size:  256x 256x 256  (class B)
+ Iterations:                     20
+
+  iter   1
+  iter   5
+  iter  10
+  iter  15
+  iter  20
+
+ Benchmark completed
+ VERIFICATION SUCCESSFUL
+ L2 Norm is  1.8005644013551E-06
+ Error is    6.6330115975290E-14
+
+
+ Benchmark Completed.
+ Class           =                        B
+ Size            =            256x 256x 256
+ Iterations      =                       20
+ Operation type  =           floating point
+ Verification    =               SUCCESSFUL
+ Version         =                    3.3.1
+  SECTION   Time (secs)
+  benchmk :    9.358  (100.00%)
+  mg3P    :    7.062  ( 75.47%)
+  psinv   :    1.364  ( 14.57%)
+  resid   :    4.219  ( 45.09%)
+    --> mg-resid:    2.033  ( 21.73%)
+  rprj3   :    1.547  ( 16.53%)
+  interp  :    1.493  ( 15.96%)
+  norm2   :    0.110  (  1.17%)
+  comm3   :    0.400  (  4.27%)
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 88K of event 'cycles'
+# Event count (approx.): 53666421356
+#
+# Overhead  Command  Shared Object     Symbol                          
+# ........  .......  ................  ................................
+#
+    62.66%  real     real              [.] resid._omp_fn.1
+    18.39%  real     real              [.] psinv._omp_fn.0
+     3.96%  real     libgomp.so.1.0.0  [.] gomp_barrier_wait_end
+     2.87%  real     real              [.] interp
+     2.87%  real     real              [.] rprj3
+     2.40%  real     real              [.] vranlc
+     1.87%  real     libgomp.so.1.0.0  [.] gomp_team_barrier_wait_end
+     0.92%  real     libc-2.17.so      [.] __memset_sse2
+     0.76%  real     real              [.] comm3.isra.2
+     0.45%  real     real              [.] norm2u3
+     0.16%  real     real              [.] zran3.isra.3.constprop.5
+     0.12%  real     libgomp.so.1.0.0  [.] gomp_thread_start
+     0.09%  real     libgomp.so.1.0.0  [.] omp_get_num_threads
+     0.07%  real     libgomp.so.1.0.0  [.] gomp_barrier_wait
+     0.05%  real     libgomp.so.1.0.0  [.] gomp_team_barrier_wait_final
+     0.03%  real     libgomp.so.1.0.0  [.] gomp_team_start
+     0.02%  real     libgomp.so.1.0.0  [.] gomp_new_team
+     0.01%  real     real              [.] mg3P.constprop.4
+     0.01%  real     libgomp.so.1.0.0  [.] gomp_team_end
+     0.01%  real     real              [.] randlc
+     0.01%  real     real              [.] omp_get_num_threads@plt
+     0.00%  real     libgomp.so.1.0.0  [.] gomp_init_work_share
+     0.00%  real     real              [.] memset@plt
+     0.00%  real     libgomp.so.1.0.0  [.] gomp_init_task
+     0.00%  real     real              [.] psinv
+     0.00%  real     libc-2.17.so      [.] free
+     0.00%  real     libgomp.so.1.0.0  [.] GOMP_parallel_end
+     0.00%  real     libgomp.so.1.0.0  [.] GOMP_parallel
+     0.00%  real     libgomp.so.1.0.0  [.] omp_get_wtime
+     0.00%  real     libc-2.17.so      [.] __clock_gettime
+     0.00%  real     libgomp.so.1.0.0  [.] gomp_end_task
+
+
+# Samples: 128K of event 'instructions'
+# Event count (approx.): 22146227251
+#
+# Overhead  Command  Shared Object     Symbol                          
+# ........  .......  ................  ................................
+#
+    44.74%  real     real              [.] resid._omp_fn.1
+    22.70%  real     real              [.] psinv._omp_fn.0
+     7.65%  real     libgomp.so.1.0.0  [.] gomp_barrier_wait_end
+     6.66%  real     real              [.] interp
+     5.91%  real     real              [.] rprj3
+     3.55%  real     libgomp.so.1.0.0  [.] gomp_team_barrier_wait_end
+     3.37%  real     real              [.] vranlc
+     1.97%  real     real              [.] norm2u3
+     0.83%  real     real              [.] zran3.isra.3.constprop.5
+     0.39%  real     libc-2.17.so      [.] __memset_sse2
+     0.30%  real     real              [.] comm3.isra.2
+     0.03%  real     libgomp.so.1.0.0  [.] gomp_team_start
+     0.02%  real     real              [.] randlc
+     0.01%  real     real              [.] mg3P.constprop.4
+     0.01%  real     libgomp.so.1.0.0  [.] gomp_new_team
+     0.00%  real     libgomp.so.1.0.0  [.] gomp_thread_start
+     0.00%  real     libgomp.so.1.0.0  [.] omp_get_num_threads
+     0.00%  real     real              [.] memset@plt
+     0.00%  real     libgomp.so.1.0.0  [.] gomp_team_barrier_wait_final
+     0.00%  real     libgomp.so.1.0.0  [.] gomp_barrier_wait
+     0.00%  real     libgomp.so.1.0.0  [.] GOMP_parallel
+     0.00%  real     real              [.] main
+     0.00%  real     libgomp.so.1.0.0  [.] gomp_init_task
+     0.00%  real     libc-2.17.so      [.] _dl_addr
+     0.00%  real     libgomp.so.1.0.0  [.] gomp_team_end
+
+
+# Samples: 127K of event 'cache-references'
+# Event count (approx.): 802994340
+#
+# Overhead  Command  Shared Object     Symbol                          
+# ........  .......  ................  ................................
+#
+    55.79%  real     real              [.] resid._omp_fn.1
+    22.36%  real     real              [.] psinv._omp_fn.0
+     8.19%  real     real              [.] rprj3
+     5.01%  real     real              [.] interp
+     1.41%  real     libc-2.17.so      [.] __memset_sse2
+     1.03%  real     real              [.] comm3.isra.2
+     0.70%  real     real              [.] norm2u3
+     0.40%  real     real              [.] zran3.isra.3.constprop.5
+     0.36%  real     real              [.] vranlc
+     0.07%  real     libgomp.so.1.0.0  [.] gomp_thread_start
+     0.06%  real     libgomp.so.1.0.0  [.] gomp_team_start
+     0.05%  real     libgomp.so.1.0.0  [.] gomp_barrier_wait_end
+     0.05%  real     libgomp.so.1.0.0  [.] omp_get_num_threads
+     0.04%  real     libgomp.so.1.0.0  [.] gomp_team_barrier_wait_end
+     0.03%  real     libgomp.so.1.0.0  [.] gomp_team_barrier_wait_final
+     0.02%  real     real              [.] mg3P.constprop.4
+     0.02%  real     real              [.] memset@plt
+     0.01%  real     real              [.] psinv
+     0.01%  real     libgomp.so.1.0.0  [.] gomp_barrier_wait
+     0.01%  real     real              [.] main
+     0.01%  real     libgomp.so.1.0.0  [.] gomp_team_end
+     0.01%  real     libgomp.so.1.0.0  [.] gomp_new_team
+     0.01%  real     libgomp.so.1.0.0  [.] GOMP_parallel
+     0.00%  real     libgomp.so.1.0.0  [.] GOMP_parallel_end
+     0.00%  real     real              [.] randlc
+     0.00%  real     libc-2.17.so      [.] free
+     0.00%  real     libc-2.17.so      [.] __clock_gettime
+     0.00%  real     libgomp.so.1.0.0  [.] gomp_init_task
+     0.00%  real     real              [.] timer_stop
+     0.00%  real     libgomp.so.1.0.0  [.] omp_get_wtime
+     0.00%  real     libgomp.so.1.0.0  [.] gomp_end_task
+     0.00%  real     real              [.] omp_get_num_threads@plt
+     0.00%  real     libgomp.so.1.0.0  [.] omp_get_thread_num
+     0.00%  real     libgomp.so.1.0.0  [.] gomp_init_work_share
+
+
+# Samples: 118K of event 'cache-misses'
+# Event count (approx.): 49583556
+#
+# Overhead  Command  Shared Object     Symbol                          
+# ........  .......  ................  ................................
+#
+    64.87%  real     real              [.] resid._omp_fn.1
+     9.77%  real     real              [.] comm3.isra.2
+     9.14%  real     real              [.] rprj3
+     8.22%  real     real              [.] psinv._omp_fn.0
+     2.83%  real     libc-2.17.so      [.] __memset_sse2
+     1.09%  real     real              [.] interp
+     0.28%  real     libgomp.so.1.0.0  [.] gomp_thread_start
+     0.23%  real     real              [.] norm2u3
+     0.17%  real     real              [.] zran3.isra.3.constprop.5
+     0.17%  real     libgomp.so.1.0.0  [.] gomp_barrier_wait_end
+     0.15%  real     libgomp.so.1.0.0  [.] gomp_team_start
+     0.14%  real     real              [.] vranlc
+     0.13%  real     libgomp.so.1.0.0  [.] omp_get_num_threads
+     0.10%  real     libgomp.so.1.0.0  [.] gomp_team_barrier_wait_final
+     0.09%  real     libgomp.so.1.0.0  [.] gomp_barrier_wait
+     0.08%  real     libgomp.so.1.0.0  [.] gomp_team_barrier_wait_end
+     0.04%  real     real              [.] mg3P.constprop.4
+     0.03%  real     libgomp.so.1.0.0  [.] gomp_init_task
+     0.02%  real     real              [.] psinv
+     0.02%  real     libgomp.so.1.0.0  [.] gomp_team_end
+     0.01%  real     real              [.] memset@plt
+     0.01%  real     libgomp.so.1.0.0  [.] omp_get_wtime
+     0.01%  real     libgomp.so.1.0.0  [.] GOMP_parallel
+     0.01%  real     libgomp.so.1.0.0  [.] gomp_new_team
+     0.00%  real     libc-2.17.so      [.] __clock_gettime
+     0.00%  real     real              [.] main
+     0.00%  real     libc-2.17.so      [.] free
+     0.00%  real     libgomp.so.1.0.0  [.] GOMP_parallel_end
+     0.00%  real     libc-2.17.so      [.] __ctype_init
+     0.00%  real     libc-2.17.so      [.] vfprintf
+     0.00%  real     real              [.] omp_get_num_threads@plt
+     0.00%  real     libgomp.so.1.0.0  [.] gomp_end_task
+     0.00%  real     libc-2.17.so      [.] __clone
+     0.00%  real     libc-2.17.so      [.] __GI___mempcpy
+     0.00%  real     real              [.] resid
+     0.00%  real     real              [.] randlc
+     0.00%  real     libgomp.so.1.0.0  [.] gomp_init_work_share
+     0.00%  real     libc-2.17.so      [.] __strchrnul
+     0.00%  real     libgomp.so.1.0.0  [.] gomp_resolve_num_threads
+     0.00%  real     real              [.] timer_stop
+
+
+# Samples: 88K of event 'bus-cycles'
+# Event count (approx.): 7190571868
+#
+# Overhead  Command  Shared Object     Symbol                          
+# ........  .......  ................  ................................
+#
+    63.41%  real     real              [.] resid._omp_fn.1
+    17.78%  real     real              [.] psinv._omp_fn.0
+     3.86%  real     libgomp.so.1.0.0  [.] gomp_barrier_wait_end
+     2.91%  real     real              [.] rprj3
+     2.90%  real     real              [.] interp
+     2.46%  real     real              [.] vranlc
+     1.93%  real     libgomp.so.1.0.0  [.] gomp_team_barrier_wait_end
+     0.93%  real     libc-2.17.so      [.] __memset_sse2
+     0.80%  real     real              [.] comm3.isra.2
+     0.35%  real     real              [.] norm2u3
+     0.15%  real     real              [.] zran3.isra.3.constprop.5
+     0.11%  real     libgomp.so.1.0.0  [.] gomp_thread_start
+     0.08%  real     libgomp.so.1.0.0  [.] omp_get_num_threads
+     0.06%  real     libgomp.so.1.0.0  [.] gomp_team_barrier_wait_final
+     0.04%  real     libgomp.so.1.0.0  [.] gomp_barrier_wait
+     0.04%  real     libgomp.so.1.0.0  [.] gomp_team_start
+     0.02%  real     libgomp.so.1.0.0  [.] gomp_new_team
+     0.02%  real     real              [.] mg3P.constprop.4
+     0.01%  real     libgomp.so.1.0.0  [.] gomp_init_task
+     0.01%  real     libgomp.so.1.0.0  [.] gomp_team_end
+     0.01%  real     real              [.] randlc
+     0.01%  real     real              [.] memset@plt
+     0.01%  real     real              [.] omp_get_num_threads@plt
+     0.00%  real     real              [.] psinv
+     0.00%  real     libc-2.17.so      [.] free
+     0.00%  real     libgomp.so.1.0.0  [.] gomp_init_work_share
+     0.00%  real     libgomp.so.1.0.0  [.] GOMP_parallel_end
+     0.00%  real     libc-2.17.so      [.] vfprintf
+     0.00%  real     libgomp.so.1.0.0  [.] gomp_end_task
+     0.00%  real     real              [.] omp_get_thread_num@plt
+     0.00%  real     libc-2.17.so      [.] __clock_gettime
+     0.00%  real     real              [.] main
+     0.00%  real     real              [.] resid
+     0.00%  real     libc-2.17.so      [.] __clone
+     0.00%  real     libc-2.17.so      [.] __ctype_init
+
+
+# Samples: 221K of event 'cpu-clock'
+# Event count (approx.): 55391250000
+#
+# Overhead  Command  Shared Object     Symbol                          
+# ........  .......  ................  ................................
+#
+    64.21%  real     real              [.] resid._omp_fn.1
+    18.40%  real     real              [.] psinv._omp_fn.0
+     3.84%  real     libgomp.so.1.0.0  [.] gomp_barrier_wait_end
+     2.93%  real     real              [.] rprj3
+     2.83%  real     real              [.] interp
+     2.41%  real     real              [.] vranlc
+     1.89%  real     libgomp.so.1.0.0  [.] gomp_team_barrier_wait_end
+     0.92%  real     libc-2.17.so      [.] __memset_sse2
+     0.78%  real     real              [.] comm3.isra.2
+     0.40%  real     real              [.] norm2u3
+     0.20%  real     real              [.] zran3.isra.3.constprop.5
+     0.13%  real     libgomp.so.1.0.0  [.] gomp_thread_start
+     0.08%  real     libgomp.so.1.0.0  [.] omp_get_num_threads
+     0.06%  real     libgomp.so.1.0.0  [.] gomp_team_barrier_wait_final
+     0.06%  real     libgomp.so.1.0.0  [.] gomp_barrier_wait
+     0.04%  real     libgomp.so.1.0.0  [.] gomp_team_start
+     0.03%  real     libgomp.so.1.0.0  [.] gomp_new_team
+     0.01%  real     real              [.] mg3P.constprop.4
+     0.01%  real     libgomp.so.1.0.0  [.] gomp_team_end
+     0.01%  real     real              [.] randlc
+     0.01%  real     real              [.] omp_get_num_threads@plt
+     0.00%  real     real              [.] psinv
+     0.00%  real     libgomp.so.1.0.0  [.] gomp_init_task
+     0.00%  real     libgomp.so.1.0.0  [.] gomp_init_work_share
+     0.00%  real     real              [.] memset@plt
+     0.00%  real     libc-2.17.so      [.] __clock_gettime
+     0.00%  real     libgomp.so.1.0.0  [.] gomp_resolve_num_threads
+     0.00%  real     libc-2.17.so      [.] free
+     0.00%  real     libgomp.so.1.0.0  [.] GOMP_parallel
+     0.00%  real     real              [.] main
+     0.00%  real     libgomp.so.1.0.0  [.] GOMP_parallel_end
+     0.00%  real     libgomp.so.1.0.0  [.] omp_get_wtime
+     0.00%  real     libgomp.so.1.0.0  [.] omp_get_thread_num
+
+
+#
+# (Tip: Compare performance results with: perf diff [<old file> <new file>])
+#
+ Percent |	Source code & Disassembly of real for cycles (55616 samples)
+----------------------------------------------------------------------------
+         :
+         :
+         :
+         :	Disassembly of section .text:
+         :
+         :	0000000000402e40 <resid._omp_fn.1>:
+         :	resid._omp_fn.1():
+         :
+         :	  int i3, i2, i1;
+         :	  double u1[M], u2[M];
+         :
+         :	  if (timeron) timer_start(T_resid);
+         :	  #pragma omp parallel for private(u1,u2) collapse(2)
+    0.00 :	  402e40:       push   %r15
+    0.00 :	  402e42:       push   %r14
+    0.00 :	  402e44:       push   %r13
+    0.00 :	  402e46:       push   %r12
+    0.00 :	  402e48:       push   %rbp
+    0.00 :	  402e49:       push   %rbx
+    0.00 :	  402e4a:       sub    $0x1138,%rsp
+    0.00 :	  402e51:       mov    0x3c(%rdi),%ebx
+    0.00 :	  402e54:       mov    0x40(%rdi),%eax
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+    0.00 :	  402e57:       lea    -0x1(%rbx),%esi
+    0.00 :	  402e5a:       mov    %esi,0x90(%rsp)
+    0.00 :	  402e61:       cmp    $0x2,%eax
+    0.00 :	  402e64:       jle    403472 <resid._omp_fn.1+0x632>
+    0.00 :	  402e6a:       lea    -0x2(%rax),%r12d
+    0.00 :	  402e6e:       cmp    $0x1,%esi
+    0.00 :	  402e71:       jle    403472 <resid._omp_fn.1+0x632>
+    0.00 :	  402e77:       mov    %rdi,0xc8(%rsp)
+    0.00 :	  402e7f:       sub    $0x2,%ebx
+    0.00 :	  402e82:       callq  4009d0 <omp_get_num_threads@plt>
+    0.00 :	  402e87:       mov    %eax,%ebp
+    0.00 :	  402e89:       callq  400970 <omp_get_thread_num@plt>
+    0.00 :	  402e8e:       xor    %edx,%edx
+    0.00 :	  402e90:       mov    %eax,%esi
+    0.00 :	  402e92:       mov    %r12d,%eax
+    0.00 :	  402e95:       imul   %ebx,%eax
+    0.00 :	  402e98:       div    %ebp
+    0.00 :	  402e9a:       mov    %eax,%ecx
+    0.00 :	  402e9c:       cmp    %edx,%esi
+    0.00 :	  402e9e:       jb     403671 <resid._omp_fn.1+0x831>
+    0.00 :	  402ea4:       imul   %ecx,%esi
+    0.00 :	  402ea7:       lea    (%rsi,%rdx,1),%eax
+    0.00 :	  402eaa:       lea    (%rcx,%rax,1),%edx
+    0.00 :	  402ead:       cmp    %edx,%eax
+    0.00 :	  402eaf:       jae    403472 <resid._omp_fn.1+0x632>
+    0.00 :	  402eb5:       xor    %edx,%edx
+         :
+         :	  int i3, i2, i1;
+         :	  double u1[M], u2[M];
+         :
+         :	  if (timeron) timer_start(T_resid);
+         :	  #pragma omp parallel for private(u1,u2) collapse(2)
+    0.00 :	  402eb7:       mov    0xc8(%rsp),%rdi
+    0.00 :	  402ebf:       div    %ebx
+    0.00 :	  402ec1:       mov    0x18(%rdi),%rsi
+    0.00 :	  402ec5:       mov    0x30(%rdi),%r10
+    0.00 :	  402ec9:       mov    0x28(%rdi),%r11
+    0.00 :	  402ecd:       mov    0x20(%rdi),%r15
+    0.00 :	  402ed1:       mov    %rsi,0x48(%rsp)
+    0.00 :	  402ed6:       mov    0x10(%rdi),%rsi
+    0.00 :	  402eda:       mov    (%rdi),%r14
+    0.00 :	  402edd:       mov    %r10,0xd0(%rsp)
+    0.00 :	  402ee5:       mov    %rsi,0x40(%rsp)
+    0.00 :	  402eea:       mov    0x8(%rdi),%rsi
+    0.00 :	  402eee:       mov    %r11,0xd8(%rsp)
+    0.00 :	  402ef6:       mov    %rsi,0x30(%rsp)
+    0.00 :	  402efb:       mov    0x38(%rdi),%esi
+    0.00 :	  402efe:       mov    %r15,0xe0(%rsp)
+         :	        u1[i1] = u[i3][i2-1][i1] + u[i3][i2+1][i1]
+         :	               + u[i3-1][i2][i1] + u[i3+1][i2][i1];
+         :	        u2[i1] = u[i3-1][i2-1][i1] + u[i3-1][i2+1][i1]
+         :	               + u[i3+1][i2-1][i1] + u[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+    0.00 :	  402f06:       lea    -0x1(%rsi),%r9d
+         :	        r[i3][i2][i1] = v[i3][i2][i1]
+    0.00 :	  402f0a:       shr    $0x3,%r11
+    0.00 :	  402f0e:       shr    $0x3,%r10
+         :
+         :	  int i3, i2, i1;
+         :	  double u1[M], u2[M];
+         :
+         :	  if (timeron) timer_start(T_resid);
+         :	  #pragma omp parallel for private(u1,u2) collapse(2)
+    0.00 :	  402f12:       mov    %esi,0x3c(%rsp)
+         :	        u1[i1] = u[i3][i2-1][i1] + u[i3][i2+1][i1]
+         :	               + u[i3-1][i2][i1] + u[i3+1][i2][i1];
+         :	        u2[i1] = u[i3-1][i2-1][i1] + u[i3-1][i2+1][i1]
+         :	               + u[i3+1][i2-1][i1] + u[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+    0.00 :	  402f16:       mov    %r9d,0x70(%rsp)
+         :	  if (timeron) timer_start(T_resid);
+         :	  #pragma omp parallel for private(u1,u2) collapse(2)
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+         :	        u1[i1] = u[i3][i2-1][i1] + u[i3][i2+1][i1]
+    0.00 :	  402f1b:       shr    $0x3,%r15
+         :	               + u[i3-1][i2][i1] + u[i3+1][i2][i1];
+         :	        u2[i1] = u[i3-1][i2-1][i1] + u[i3-1][i2+1][i1]
+         :	               + u[i3+1][i2-1][i1] + u[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        r[i3][i2][i1] = v[i3][i2][i1]
+    0.00 :	  402f1f:       mov    %r11,0x18(%rsp)
+    0.00 :	  402f24:       mov    %r10,0x20(%rsp)
+    0.00 :	  402f29:       lea    0x1(%rdx),%ebx
+    0.00 :	  402f2c:       add    $0x1,%eax
+         :	  if (timeron) timer_start(T_resid);
+         :	  #pragma omp parallel for private(u1,u2) collapse(2)
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+         :	        u1[i1] = u[i3][i2-1][i1] + u[i3][i2+1][i1]
+    0.00 :	  402f2f:       movslq 0x48(%rdi),%rdx
+    0.00 :	  402f33:       mov    %eax,0x54(%rsp)
+    0.00 :	  402f37:       movslq 0x4c(%rdi),%rax
+    0.00 :	  402f3b:       mov    %ebx,0xc(%rsp)
+    0.00 :	  402f3f:       mov    %rdx,%rbx
+         :	               + u[i3-1][i2][i1] + u[i3+1][i2][i1];
+         :	        u2[i1] = u[i3-1][i2-1][i1] + u[i3-1][i2+1][i1]
+         :	               + u[i3+1][i2-1][i1] + u[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        r[i3][i2][i1] = v[i3][i2][i1]
+    0.00 :	  402f42:       movslq 0x50(%rdi),%rdx
+         :	  if (timeron) timer_start(T_resid);
+         :	  #pragma omp parallel for private(u1,u2) collapse(2)
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+         :	        u1[i1] = u[i3][i2-1][i1] + u[i3][i2+1][i1]
+    0.00 :	  402f46:       imul   %rax,%rbx
+         :	               + u[i3-1][i2][i1] + u[i3+1][i2][i1];
+         :	        u2[i1] = u[i3-1][i2-1][i1] + u[i3-1][i2+1][i1]
+         :	               + u[i3+1][i2-1][i1] + u[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        r[i3][i2][i1] = v[i3][i2][i1]
+    0.00 :	  402f4a:       movslq 0x54(%rdi),%rax
+    0.00 :	  402f4e:       imul   %rax,%rdx
+    0.00 :	  402f52:       movslq 0x5c(%rdi),%rax
+         :	  if (timeron) timer_start(T_resid);
+         :	  #pragma omp parallel for private(u1,u2) collapse(2)
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+         :	        u1[i1] = u[i3][i2-1][i1] + u[i3][i2+1][i1]
+    0.00 :	  402f56:       mov    %rbx,0x58(%rsp)
+         :	               + u[i3-1][i2][i1] + u[i3+1][i2][i1];
+         :	        u2[i1] = u[i3-1][i2-1][i1] + u[i3-1][i2+1][i1]
+         :	               + u[i3+1][i2-1][i1] + u[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        r[i3][i2][i1] = v[i3][i2][i1]
+    0.00 :	  402f5b:       mov    %rdx,0x78(%rsp)
+    0.00 :	  402f60:       movslq 0x58(%rdi),%rdx
+    0.00 :	  402f64:       lea    -0x2(%rsi),%edi
+    0.00 :	  402f67:       imul   %rax,%rdx
+    0.00 :	  402f6b:       lea    -0x1(%rcx),%eax
+    0.00 :	  402f6e:       mov    %eax,0x74(%rsp)
+    0.00 :	  402f72:       mov    %esi,%eax
+    0.00 :	  402f74:       shr    %eax
+    0.00 :	  402f76:       shl    $0x4,%rax
+    0.00 :	  402f7a:       mov    %rdx,0x80(%rsp)
+    0.00 :	  402f82:       mov    %rax,0x98(%rsp)
+    0.00 :	  402f8a:       mov    %esi,%eax
+    0.00 :	  402f8c:       and    $0xfffffffe,%eax
+    0.00 :	  402f8f:       mov    %eax,0xb0(%rsp)
+    0.00 :	  402f96:       mov    %edi,%eax
+    0.00 :	  402f98:       shr    %eax
+    0.00 :	  402f9a:       mov    %edi,0x94(%rsp)
+    0.00 :	  402fa1:       shl    $0x4,%rax
+         :	        //  Assume a[1] = 0      (Enable 2 lines below if a[1] not= 0)
+         :	        //-------------------------------------------------------------------
+         :	        //            - a[1] * ( u[i3][i2][i1-1] + u[i3][i2][i1+1]
+         :	        //                     + u1[i1] )
+         :	        //-------------------------------------------------------------------
+         :	                      - a[2] * ( u2[i1] + u1[i1-1] + u1[i1+1] )
+    0.00 :	  402fa5:       movl   $0x0,0x50(%rsp)
+    0.00 :	  402fad:       mov    %rax,0xb8(%rsp)
+    0.00 :	  402fb5:       mov    %edi,%eax
+    0.00 :	  402fb7:       and    $0xfffffffe,%edi
+    0.00 :	  402fba:       lea    0x1(%rdi),%ecx
+    0.00 :	  402fbd:       mov    %edi,0xb4(%rsp)
+    0.00 :	  402fc4:       add    $0x2,%edi
+    0.00 :	  402fc7:       cmp    $0x2,%eax
+    0.00 :	  402fca:       setg   %dl
+    0.00 :	  402fcd:       cmp    $0x80000001,%esi
+    0.00 :	  402fd3:       mov    %edi,0x38(%rsp)
+    0.00 :	  402fd7:       mov    %eax,%edi
+    0.00 :	  402fd9:       setne  %al
+    0.00 :	  402fdc:       mov    %ecx,0x2c(%rsp)
+    0.00 :	  402fe0:       and    %eax,%edx
+    0.00 :	  402fe2:       test   %r9d,%r9d
+    0.00 :	  402fe5:       mov    $0x1,%eax
+    0.00 :	  402fea:       cmovg  %r9d,%eax
+    0.00 :	  402fee:       mov    %dl,0xeb(%rsp)
+    0.00 :	  402ff5:       mov    %eax,0xec(%rsp)
+    0.00 :	  402ffc:       lea    (%rbx,%rbx,1),%rax
+    0.00 :	  403000:       mov    %rax,0x88(%rsp)
+    0.00 :	  403008:       lea    (%r15,%r15,1),%rax
+    0.00 :	  40300c:       mov    %rax,0x60(%rsp)
+    0.00 :	  403011:       mov    %edi,%eax
+    0.00 :	  403013:       add    $0x1,%rax
+    0.00 :	  403017:       mov    %rax,0xa0(%rsp)
+    0.00 :	  40301f:       lea    0x20(%r14),%rax
+    0.00 :	  403023:       mov    %rax,0xa8(%rsp)
+    0.00 :	  40302b:       lea    0xf8(%rsp),%rax
+    0.00 :	  403033:       mov    %rax,0xc0(%rsp)
+    0.00 :	  40303b:       mov    %r15,%rax
+    0.00 :	  40303e:       mov    %r14,%r15
+    0.00 :	  403041:       mov    %rax,%r14
+    0.00 :	  403044:       nopl   0x0(%rax)
+         :
+         :	  if (timeron) timer_start(T_resid);
+         :	  #pragma omp parallel for private(u1,u2) collapse(2)
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+    0.00 :	  403048:       mov    0x3c(%rsp),%eax
+    0.01 :	  40304c:       test   %eax,%eax
+    0.00 :	  40304e:       jle    4031f1 <resid._omp_fn.1+0x3b1>
+    0.00 :	  403054:       mov    0x58(%rsp),%rax
+         :	        u1[i1] = u[i3][i2-1][i1] + u[i3][i2+1][i1]
+    0.00 :	  403059:       movslq 0x54(%rsp),%r9
+    0.00 :	  40305e:       mov    0xc(%rsp),%ebx
+    0.00 :	  403062:       mov    0x30(%rsp),%rdx
+    0.01 :	  403067:       imul   %rax,%r9
+    0.01 :	  40306b:       lea    0x1(%rbx),%ecx
+    0.00 :	  40306e:       mov    %ecx,0x28(%rsp)
+    0.00 :	  403072:       lea    -0x1(%rbx),%ecx
+    0.00 :	  403075:       mov    %r9,%r11
+    0.00 :	  403078:       lea    (%rdx,%r9,8),%r8
+    0.00 :	  40307c:       sub    %rax,%r11
+    0.01 :	  40307f:       mov    0x88(%rsp),%rax
+         :	               + u[i3-1][i2][i1] + u[i3+1][i2][i1];
+    0.00 :	  403087:       lea    (%rdx,%r11,8),%rdi
+    0.01 :	  40308b:       add    %r11,%rax
+    0.00 :	  40308e:       cmpl   $0x1,0x3c(%rsp)
+    0.00 :	  403093:       lea    (%rdx,%rax,8),%rsi
+    0.00 :	  403097:       je     403662 <resid._omp_fn.1+0x822>
+    0.00 :	  40309d:       movslq %ecx,%rbx
+    0.05 :	  4030a0:       mov    %rsi,0x68(%rsp)
+    0.01 :	  4030a5:       mov    0x98(%rsp),%rsi
+    0.00 :	  4030ad:       mov    %rbx,%r10
+    0.00 :	  4030b0:       mov    %rbx,0x10(%rsp)
+    0.00 :	  4030b5:       imul   %r14,%r10
+    0.00 :	  4030b9:       lea    (%r9,%r10,1),%rbx
+    0.00 :	  4030bd:       add    0x60(%rsp),%r10
+    0.00 :	  4030c2:       add    %r10,%r9
+    0.00 :	  4030c5:       sub    %r14,%r10
+    0.00 :	  4030c8:       lea    (%rdx,%rbx,8),%rcx
+    0.00 :	  4030cc:       mov    %rdx,%rbx
+    0.00 :	  4030cf:       lea    (%rdx,%r9,8),%rdx
+    0.00 :	  4030d3:       lea    (%r11,%r10,1),%r9
+    0.01 :	  4030d7:       lea    (%rbx,%r9,8),%r13
+    0.00 :	  4030db:       lea    (%r10,%rax,1),%r9
+    0.00 :	  4030df:       sub    %r14,%r10
+    0.00 :	  4030e2:       lea    (%rbx,%r9,8),%r12
+    0.00 :	  4030e6:       lea    (%r11,%r10,1),%r9
+    0.01 :	  4030ea:       lea    (%rbx,%r9,8),%rbp
+    0.00 :	  4030ee:       mov    0x60(%rsp),%r9
+    0.00 :	  4030f3:       add    %r10,%r9
+    0.00 :	  4030f6:       add    %rax,%r10
+    0.00 :	  4030f9:       add    %r9,%r11
+    0.00 :	  4030fc:       add    %r9,%rax
+    0.00 :	  4030ff:       lea    0x910(%rsp),%r9
+    0.00 :	  403107:       lea    (%rbx,%r11,8),%rbx
+    0.00 :	  40310b:       mov    0x30(%rsp),%r11
+    0.00 :	  403110:       lea    (%r11,%r10,8),%r11
+    0.00 :	  403114:       mov    0x30(%rsp),%r10
+    0.00 :	  403119:       lea    (%r10,%rax,8),%r10
+    0.01 :	  40311d:       xor    %eax,%eax
+    0.00 :	  40311f:       nop
+         :	  if (timeron) timer_start(T_resid);
+         :	  #pragma omp parallel for private(u1,u2) collapse(2)
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+         :	        u1[i1] = u[i3][i2-1][i1] + u[i3][i2+1][i1]
+    0.51 :	  403120:       movupd (%rdx,%rax,1),%xmm5
+   10.23 :	  403125:       movupd (%rcx,%rax,1),%xmm0
+         :	               + u[i3-1][i2][i1] + u[i3+1][i2][i1];
+    0.85 :	  40312a:       movupd 0x0(%r13,%rax,1),%xmm7
+    0.73 :	  403131:       movupd (%r12,%rax,1),%xmm6
+         :	  if (timeron) timer_start(T_resid);
+         :	  #pragma omp parallel for private(u1,u2) collapse(2)
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+         :	        u1[i1] = u[i3][i2-1][i1] + u[i3][i2+1][i1]
+    1.25 :	  403137:       addpd  %xmm5,%xmm0
+         :	               + u[i3-1][i2][i1] + u[i3+1][i2][i1];
+         :	        u2[i1] = u[i3-1][i2-1][i1] + u[i3-1][i2+1][i1]
+    0.06 :	  40313b:       movupd (%rbx,%rax,1),%xmm4
+         :	               + u[i3+1][i2-1][i1] + u[i3+1][i2+1][i1];
+   16.06 :	  403140:       movupd (%r11,%rax,1),%xmm3
+    1.31 :	  403146:       movupd (%r10,%rax,1),%xmm5
+         :	  #pragma omp parallel for private(u1,u2) collapse(2)
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+         :	        u1[i1] = u[i3][i2-1][i1] + u[i3][i2+1][i1]
+         :	               + u[i3-1][i2][i1] + u[i3+1][i2][i1];
+   17.19 :	  40314c:       addpd  %xmm7,%xmm0
+    0.12 :	  403150:       addpd  %xmm6,%xmm0
+         :	  if (timeron) timer_start(T_resid);
+         :	  #pragma omp parallel for private(u1,u2) collapse(2)
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+         :	        u1[i1] = u[i3][i2-1][i1] + u[i3][i2+1][i1]
+    0.32 :	  403154:       movaps %xmm0,(%r9,%rax,1)
+         :	               + u[i3-1][i2][i1] + u[i3+1][i2][i1];
+         :	        u2[i1] = u[i3-1][i2-1][i1] + u[i3-1][i2+1][i1]
+    0.56 :	  403159:       movupd 0x0(%rbp,%rax,1),%xmm0
+    2.53 :	  40315f:       addpd  %xmm4,%xmm0
+         :	               + u[i3+1][i2-1][i1] + u[i3+1][i2+1][i1];
+    0.41 :	  403163:       addpd  %xmm3,%xmm0
+    0.48 :	  403167:       addpd  %xmm5,%xmm0
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+         :	        u1[i1] = u[i3][i2-1][i1] + u[i3][i2+1][i1]
+         :	               + u[i3-1][i2][i1] + u[i3+1][i2][i1];
+         :	        u2[i1] = u[i3-1][i2-1][i1] + u[i3-1][i2+1][i1]
+    0.92 :	  40316b:       movaps %xmm0,0xf0(%rsp,%rax,1)
+    0.48 :	  403173:       add    $0x10,%rax
+    0.00 :	  403177:       cmp    %rsi,%rax
+    0.00 :	  40317a:       jne    403120 <resid._omp_fn.1+0x2e0>
+    0.00 :	  40317c:       mov    0x68(%rsp),%rsi
+    0.06 :	  403181:       movslq 0xb0(%rsp),%rax
+    0.03 :	  403189:       cmp    %eax,0x3c(%rsp)
+    0.01 :	  40318d:       je     4031f1 <resid._omp_fn.1+0x3b1>
+         :	  if (timeron) timer_start(T_resid);
+         :	  #pragma omp parallel for private(u1,u2) collapse(2)
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+         :	        u1[i1] = u[i3][i2-1][i1] + u[i3][i2+1][i1]
+    0.00 :	  40318f:       movslq 0x28(%rsp),%rdx
+    0.00 :	  403194:       mov    0x10(%rsp),%rcx
+    0.00 :	  403199:       imul   %r14,%rdx
+    0.00 :	  40319d:       imul   %r14,%rcx
+    0.00 :	  4031a1:       add    %rax,%rdx
+    0.00 :	  4031a4:       add    %rax,%rcx
+    0.00 :	  4031a7:       movsd  (%r8,%rdx,8),%xmm0
+    0.00 :	  4031ad:       addsd  (%r8,%rcx,8),%xmm0
+         :	               + u[i3-1][i2][i1] + u[i3+1][i2][i1];
+    0.00 :	  4031b3:       movslq 0xc(%rsp),%r8
+    0.00 :	  4031b8:       imul   %r14,%r8
+    0.00 :	  4031bc:       add    %rax,%r8
+    0.00 :	  4031bf:       addsd  (%rdi,%r8,8),%xmm0
+    0.00 :	  4031c5:       addsd  (%rsi,%r8,8),%xmm0
+         :	  if (timeron) timer_start(T_resid);
+         :	  #pragma omp parallel for private(u1,u2) collapse(2)
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+         :	        u1[i1] = u[i3][i2-1][i1] + u[i3][i2+1][i1]
+    0.00 :	  4031cb:       movsd  %xmm0,0x910(%rsp,%rax,8)
+         :	               + u[i3-1][i2][i1] + u[i3+1][i2][i1];
+         :	        u2[i1] = u[i3-1][i2-1][i1] + u[i3-1][i2+1][i1]
+    0.00 :	  4031d4:       movsd  (%rdi,%rdx,8),%xmm0
+    0.00 :	  4031d9:       addsd  (%rdi,%rcx,8),%xmm0
+         :	               + u[i3+1][i2-1][i1] + u[i3+1][i2+1][i1];
+    0.00 :	  4031de:       addsd  (%rsi,%rcx,8),%xmm0
+    0.00 :	  4031e3:       addsd  (%rsi,%rdx,8),%xmm0
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+         :	        u1[i1] = u[i3][i2-1][i1] + u[i3][i2+1][i1]
+         :	               + u[i3-1][i2][i1] + u[i3+1][i2][i1];
+         :	        u2[i1] = u[i3-1][i2-1][i1] + u[i3-1][i2+1][i1]
+    0.00 :	  4031e8:       movsd  %xmm0,0xf0(%rsp,%rax,8)
+         :	               + u[i3+1][i2-1][i1] + u[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+    0.00 :	  4031f1:       cmpl   $0x1,0x70(%rsp)
+    0.01 :	  4031f6:       jle    403431 <resid._omp_fn.1+0x5f1>
+         :	        r[i3][i2][i1] = v[i3][i2][i1]
+    0.00 :	  4031fc:       movslq 0x54(%rsp),%rdx
+    0.00 :	  403201:       movslq 0xc(%rsp),%rax
+    0.01 :	  403206:       mov    0x78(%rsp),%rcx
+    0.00 :	  40320b:       mov    0x58(%rsp),%rsi
+    0.00 :	  403210:       mov    0x18(%rsp),%r9
+    0.00 :	  403215:       mov    0x20(%rsp),%rbp
+    0.00 :	  40321a:       imul   %rdx,%rcx
+    0.01 :	  40321e:       mov    0x40(%rsp),%r11
+    0.00 :	  403223:       mov    0x48(%rsp),%rbx
+    0.00 :	  403228:       imul   %rdx,%rsi
+         :	                      - a[0] * u[i3][i2][i1]
+    0.01 :	  40322c:       mov    0x30(%rsp),%r12
+    0.00 :	  403231:       imul   0x80(%rsp),%rdx
+    0.04 :	  40323a:       imul   %rax,%r9
+         :	               + u[i3-1][i2][i1] + u[i3+1][i2][i1];
+         :	        u2[i1] = u[i3-1][i2-1][i1] + u[i3-1][i2+1][i1]
+         :	               + u[i3+1][i2-1][i1] + u[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        r[i3][i2][i1] = v[i3][i2][i1]
+    0.01 :	  40323e:       lea    (%r11,%rcx,8),%r10
+    0.00 :	  403242:       imul   %rax,%rbp
+         :	                      - a[0] * u[i3][i2][i1]
+    0.00 :	  403246:       lea    (%r12,%rsi,8),%r8
+         :	               + u[i3-1][i2][i1] + u[i3+1][i2][i1];
+         :	        u2[i1] = u[i3-1][i2-1][i1] + u[i3-1][i2+1][i1]
+         :	               + u[i3+1][i2-1][i1] + u[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        r[i3][i2][i1] = v[i3][i2][i1]
+    0.00 :	  40324a:       lea    (%rbx,%rdx,8),%r13
+    0.01 :	  40324e:       add    %rcx,%r9
+    0.00 :	  403251:       lea    (%rdx,%rbp,1),%rdi
+    0.01 :	  403255:       lea    0x8(%rbx,%rdi,8),%rcx
+    0.01 :	  40325a:       lea    0x18(%rbx,%rdi,8),%rbx
+    0.00 :	  40325f:       lea    0x8(%r11,%r9,8),%rdi
+    0.00 :	  403264:       mov    %r14,%r11
+    0.00 :	  403267:       imul   %rax,%r11
+    0.00 :	  40326b:       add    %rsi,%r11
+    0.00 :	  40326e:       lea    0x8(%r12,%r11,8),%rsi
+    0.00 :	  403273:       lea    0x18(%r12,%r11,8),%r11
+    0.00 :	  403278:       cmp    %r11,%rcx
+    0.01 :	  40327b:       setae  %r12b
+    0.00 :	  40327f:       cmp    %rbx,%rsi
+    0.00 :	  403282:       setae  %r11b
+    0.00 :	  403286:       or     %r12d,%r11d
+    0.01 :	  403289:       mov    0x40(%rsp),%r12
+    0.00 :	  40328e:       lea    0x18(%r12,%r9,8),%r9
+    0.00 :	  403293:       cmp    %r9,%rcx
+    0.00 :	  403296:       setae  %r12b
+    0.00 :	  40329a:       cmp    %rbx,%rdi
+    0.00 :	  40329d:       setae  %r9b
+    0.00 :	  4032a1:       or     %r9d,%r12d
+    0.01 :	  4032a4:       and    %r12d,%r11d
+    0.00 :	  4032a7:       cmpl   $0x3,0x3c(%rsp)
+    0.00 :	  4032ac:       setne  %r9b
+    0.00 :	  4032b0:       test   %r9b,%r11b
+    0.00 :	  4032b3:       je     403488 <resid._omp_fn.1+0x648>
+    0.00 :	  4032b9:       add    0xa0(%rsp),%rdx
+    0.00 :	  4032c1:       mov    0x48(%rsp),%rbx
+    0.00 :	  4032c6:       add    %rbp,%rdx
+    0.00 :	  4032c9:       lea    (%rbx,%rdx,8),%rdx
+    0.00 :	  4032cd:       cmp    %rdx,%r15
+    0.00 :	  4032d0:       setae  %r9b
+    0.00 :	  4032d4:       cmp    0xa8(%rsp),%rcx
+    0.00 :	  4032dc:       setae  %dl
+    0.00 :	  4032df:       or     %dl,%r9b
+    0.00 :	  4032e2:       je     403488 <resid._omp_fn.1+0x648>
+    0.00 :	  4032e8:       movsd  (%r15),%xmm7
+    0.13 :	  4032ed:       movsd  0x10(%r15),%xmm6
+    0.01 :	  4032f3:       xor    %edx,%edx
+         :	        //-------------------------------------------------------------------
+         :	        //            - a[1] * ( u[i3][i2][i1-1] + u[i3][i2][i1+1]
+         :	        //                     + u1[i1] )
+         :	        //-------------------------------------------------------------------
+         :	                      - a[2] * ( u2[i1] + u1[i1-1] + u1[i1+1] )
+         :	                      - a[3] * ( u2[i1-1] + u2[i1+1] );
+    0.00 :	  4032f5:       lea    0x100(%rsp),%r9
+    0.00 :	  4032fd:       movsd  0x18(%r15),%xmm5
+    0.00 :	  403303:       mov    0xb8(%rsp),%r11
+    0.00 :	  40330b:       mov    0xc0(%rsp),%rbx
+    0.00 :	  403313:       unpcklpd %xmm7,%xmm7
+    0.00 :	  403317:       unpcklpd %xmm6,%xmm6
+    0.00 :	  40331b:       movapd 0xf0(%rsp),%xmm2
+    0.01 :	  403324:       movapd 0x910(%rsp),%xmm3
+    0.02 :	  40332d:       unpcklpd %xmm5,%xmm5
+    0.00 :	  403331:       nopl   0x0(%rax)
+         :	        //  Assume a[1] = 0      (Enable 2 lines below if a[1] not= 0)
+         :	        //-------------------------------------------------------------------
+         :	        //            - a[1] * ( u[i3][i2][i1-1] + u[i3][i2][i1+1]
+         :	        //                     + u1[i1] )
+         :	        //-------------------------------------------------------------------
+         :	                      - a[2] * ( u2[i1] + u1[i1-1] + u1[i1+1] )
+    0.42 :	  403338:       movupd (%rbx,%rdx,1),%xmm1
+         :	        u2[i1] = u[i3-1][i2-1][i1] + u[i3-1][i2+1][i1]
+         :	               + u[i3+1][i2-1][i1] + u[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        r[i3][i2][i1] = v[i3][i2][i1]
+         :	                      - a[0] * u[i3][i2][i1]
+    1.01 :	  40333d:       movupd (%rsi,%rdx,1),%xmm0
+         :	        //-------------------------------------------------------------------
+         :	        //            - a[1] * ( u[i3][i2][i1-1] + u[i3][i2][i1+1]
+         :	        //                     + u1[i1] )
+         :	        //-------------------------------------------------------------------
+         :	                      - a[2] * ( u2[i1] + u1[i1-1] + u1[i1+1] )
+         :	                      - a[3] * ( u2[i1-1] + u2[i1+1] );
+    2.74 :	  403342:       movapd (%r9,%rdx,1),%xmm4
+         :	        u2[i1] = u[i3-1][i2-1][i1] + u[i3-1][i2+1][i1]
+         :	               + u[i3+1][i2-1][i1] + u[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        r[i3][i2][i1] = v[i3][i2][i1]
+         :	                      - a[0] * u[i3][i2][i1]
+    0.02 :	  403348:       movupd (%rdi,%rdx,1),%xmm8
+         :	        //  Assume a[1] = 0      (Enable 2 lines below if a[1] not= 0)
+         :	        //-------------------------------------------------------------------
+         :	        //            - a[1] * ( u[i3][i2][i1-1] + u[i3][i2][i1+1]
+         :	        //                     + u1[i1] )
+         :	        //-------------------------------------------------------------------
+         :	                      - a[2] * ( u2[i1] + u1[i1-1] + u1[i1+1] )
+   27.52 :	  40334e:       addpd  %xmm3,%xmm1
+         :	        u2[i1] = u[i3-1][i2-1][i1] + u[i3-1][i2+1][i1]
+         :	               + u[i3+1][i2-1][i1] + u[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        r[i3][i2][i1] = v[i3][i2][i1]
+         :	                      - a[0] * u[i3][i2][i1]
+    0.03 :	  403352:       mulpd  %xmm7,%xmm0
+         :	        //  Assume a[1] = 0      (Enable 2 lines below if a[1] not= 0)
+         :	        //-------------------------------------------------------------------
+         :	        //            - a[1] * ( u[i3][i2][i1-1] + u[i3][i2][i1+1]
+         :	        //                     + u1[i1] )
+         :	        //-------------------------------------------------------------------
+         :	                      - a[2] * ( u2[i1] + u1[i1-1] + u1[i1+1] )
+    0.06 :	  403356:       movapd 0x920(%rsp,%rdx,1),%xmm3
+         :	                      - a[3] * ( u2[i1-1] + u2[i1+1] );
+    0.90 :	  40335f:       addpd  %xmm4,%xmm2
+         :	        //  Assume a[1] = 0      (Enable 2 lines below if a[1] not= 0)
+         :	        //-------------------------------------------------------------------
+         :	        //            - a[1] * ( u[i3][i2][i1-1] + u[i3][i2][i1+1]
+         :	        //                     + u1[i1] )
+         :	        //-------------------------------------------------------------------
+         :	                      - a[2] * ( u2[i1] + u1[i1-1] + u1[i1+1] )
+    0.08 :	  403363:       addpd  %xmm3,%xmm1
+         :	                      - a[3] * ( u2[i1-1] + u2[i1+1] );
+    0.03 :	  403367:       mulpd  %xmm5,%xmm2
+         :	        u2[i1] = u[i3-1][i2-1][i1] + u[i3-1][i2+1][i1]
+         :	               + u[i3+1][i2-1][i1] + u[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        r[i3][i2][i1] = v[i3][i2][i1]
+         :	                      - a[0] * u[i3][i2][i1]
+    0.06 :	  40336b:       subpd  %xmm0,%xmm8
+         :	        //  Assume a[1] = 0      (Enable 2 lines below if a[1] not= 0)
+         :	        //-------------------------------------------------------------------
+         :	        //            - a[1] * ( u[i3][i2][i1-1] + u[i3][i2][i1+1]
+         :	        //                     + u1[i1] )
+         :	        //-------------------------------------------------------------------
+         :	                      - a[2] * ( u2[i1] + u1[i1-1] + u1[i1+1] )
+    0.59 :	  403370:       mulpd  %xmm6,%xmm1
+         :	        u2[i1] = u[i3-1][i2-1][i1] + u[i3-1][i2+1][i1]
+         :	               + u[i3+1][i2-1][i1] + u[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        r[i3][i2][i1] = v[i3][i2][i1]
+         :	                      - a[0] * u[i3][i2][i1]
+    0.10 :	  403374:       movapd %xmm8,%xmm0
+         :	        //  Assume a[1] = 0      (Enable 2 lines below if a[1] not= 0)
+         :	        //-------------------------------------------------------------------
+         :	        //            - a[1] * ( u[i3][i2][i1-1] + u[i3][i2][i1+1]
+         :	        //                     + u1[i1] )
+         :	        //-------------------------------------------------------------------
+         :	                      - a[2] * ( u2[i1] + u1[i1-1] + u1[i1+1] )
+    0.16 :	  403379:       subpd  %xmm1,%xmm0
+         :	                      - a[3] * ( u2[i1-1] + u2[i1+1] );
+    0.63 :	  40337d:       subpd  %xmm2,%xmm0
+    1.04 :	  403381:       movapd %xmm4,%xmm2
+         :	               + u[i3-1][i2][i1] + u[i3+1][i2][i1];
+         :	        u2[i1] = u[i3-1][i2-1][i1] + u[i3-1][i2+1][i1]
+         :	               + u[i3+1][i2-1][i1] + u[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        r[i3][i2][i1] = v[i3][i2][i1]
+    0.01 :	  403385:       movups %xmm0,(%rcx,%rdx,1)
+    7.70 :	  403389:       add    $0x10,%rdx
+    0.00 :	  40338d:       cmp    %r11,%rdx
+    0.35 :	  403390:       jne    403338 <resid._omp_fn.1+0x4f8>
+    0.00 :	  403392:       mov    0xb4(%rsp),%ebx
+    0.06 :	  403399:       mov    0x94(%rsp),%edi
+    0.01 :	  4033a0:       cmp    %edi,%ebx
+    0.01 :	  4033a2:       je     403431 <resid._omp_fn.1+0x5f1>
+    0.00 :	  4033a8:       mov    0x20(%rsp),%rcx
+    0.00 :	  4033ad:       mov    0x18(%rsp),%rsi
+    0.00 :	  4033b2:       movslq 0x2c(%rsp),%rdx
+    0.00 :	  4033b7:       imul   %rax,%rcx
+    0.00 :	  4033bb:       imul   %rax,%rsi
+         :	                      - a[0] * u[i3][i2][i1]
+    0.00 :	  4033bf:       imul   %r14,%rax
+         :	               + u[i3-1][i2][i1] + u[i3+1][i2][i1];
+         :	        u2[i1] = u[i3-1][i2-1][i1] + u[i3-1][i2+1][i1]
+         :	               + u[i3+1][i2-1][i1] + u[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        r[i3][i2][i1] = v[i3][i2][i1]
+    0.00 :	  4033c3:       add    %rdx,%rcx
+    0.00 :	  4033c6:       add    %rdx,%rsi
+         :	                      - a[0] * u[i3][i2][i1]
+    0.00 :	  4033c9:       add    %rdx,%rax
+    0.00 :	  4033cc:       movsd  (%r10,%rsi,8),%xmm0
+    0.00 :	  4033d2:       movsd  (%r8,%rax,8),%xmm1
+    0.00 :	  4033d8:       mulsd  (%r15),%xmm1
+         :	        //  Assume a[1] = 0      (Enable 2 lines below if a[1] not= 0)
+         :	        //-------------------------------------------------------------------
+         :	        //            - a[1] * ( u[i3][i2][i1-1] + u[i3][i2][i1+1]
+         :	        //                     + u1[i1] )
+         :	        //-------------------------------------------------------------------
+         :	                      - a[2] * ( u2[i1] + u1[i1-1] + u1[i1+1] )
+    0.00 :	  4033dd:       movslq %ebx,%rax
+         :	        u2[i1] = u[i3-1][i2-1][i1] + u[i3-1][i2+1][i1]
+         :	               + u[i3+1][i2-1][i1] + u[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        r[i3][i2][i1] = v[i3][i2][i1]
+         :	                      - a[0] * u[i3][i2][i1]
+    0.00 :	  4033e0:       subsd  %xmm1,%xmm0
+         :	        //  Assume a[1] = 0      (Enable 2 lines below if a[1] not= 0)
+         :	        //-------------------------------------------------------------------
+         :	        //            - a[1] * ( u[i3][i2][i1-1] + u[i3][i2][i1+1]
+         :	        //                     + u1[i1] )
+         :	        //-------------------------------------------------------------------
+         :	                      - a[2] * ( u2[i1] + u1[i1-1] + u1[i1+1] )
+    0.00 :	  4033e4:       movsd  0x910(%rsp,%rax,8),%xmm1
+    0.00 :	  4033ed:       addsd  0xf0(%rsp,%rdx,8),%xmm1
+    0.00 :	  4033f6:       movslq 0x38(%rsp),%rdx
+    0.00 :	  4033fb:       addsd  0x910(%rsp,%rdx,8),%xmm1
+    0.00 :	  403404:       mulsd  0x10(%r15),%xmm1
+    0.00 :	  40340a:       subsd  %xmm1,%xmm0
+         :	                      - a[3] * ( u2[i1-1] + u2[i1+1] );
+    0.00 :	  40340e:       movsd  0xf0(%rsp,%rdx,8),%xmm1
+    0.00 :	  403417:       addsd  0xf0(%rsp,%rax,8),%xmm1
+    0.00 :	  403420:       mulsd  0x18(%r15),%xmm1
+    0.00 :	  403426:       subsd  %xmm1,%xmm0
+         :	               + u[i3-1][i2][i1] + u[i3+1][i2][i1];
+         :	        u2[i1] = u[i3-1][i2-1][i1] + u[i3-1][i2+1][i1]
+         :	               + u[i3+1][i2-1][i1] + u[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        r[i3][i2][i1] = v[i3][i2][i1]
+    0.00 :	  40342a:       movsd  %xmm0,0x0(%r13,%rcx,8)
+    0.00 :	  403431:       mov    0x74(%rsp),%edi
+    0.01 :	  403435:       cmp    %edi,0x50(%rsp)
+    0.01 :	  403439:       je     403460 <resid._omp_fn.1+0x620>
+    0.00 :	  40343b:       addl   $0x1,0xc(%rsp)
+    0.03 :	  403440:       mov    0xc(%rsp),%eax
+    0.02 :	  403444:       cmp    %eax,0x90(%rsp)
+    0.01 :	  40344b:       jle    403650 <resid._omp_fn.1+0x810>
+    0.00 :	  403451:       addl   $0x1,0x50(%rsp)
+    0.05 :	  403456:       jmpq   403048 <resid._omp_fn.1+0x208>
+    0.00 :	  40345b:       nopl   0x0(%rax,%rax,1)
+    0.00 :	  403460:       mov    0xc8(%rsp),%rax
+    0.00 :	  403468:       mov    0xec(%rsp),%edi
+    0.00 :	  40346f:       mov    %edi,0x44(%rax)
+         :
+         :	  int i3, i2, i1;
+         :	  double u1[M], u2[M];
+         :
+         :	  if (timeron) timer_start(T_resid);
+         :	  #pragma omp parallel for private(u1,u2) collapse(2)
+    0.00 :	  403472:       add    $0x1138,%rsp
+    0.00 :	  403479:       pop    %rbx
+    0.00 :	  40347a:       pop    %rbp
+    0.00 :	  40347b:       pop    %r12
+    0.00 :	  40347d:       pop    %r13
+    0.00 :	  40347f:       pop    %r14
+    0.00 :	  403481:       pop    %r15
+    0.00 :	  403483:       retq   
+    0.00 :	  403484:       nopl   0x0(%rax)
+    0.00 :	  403488:       cmpb   $0x0,0xeb(%rsp)
+    0.00 :	  403490:       je     40367b <resid._omp_fn.1+0x83b>
+    0.00 :	  403496:       mov    0xd8(%rsp),%rcx
+    0.00 :	  40349e:       mov    0xe0(%rsp),%rdi
+    0.00 :	  4034a6:       lea    0x910(%rsp),%r9
+    0.00 :	  4034ae:       mov    0xd0(%rsp),%rdx
+    0.00 :	  4034b6:       movsd  0x910(%rsp),%xmm4
+    0.00 :	  4034bf:       movsd  0x918(%rsp),%xmm3
+    0.00 :	  4034c8:       imul   %rax,%rcx
+    0.00 :	  4034cc:       movsd  0xf0(%rsp),%xmm2
+    0.00 :	  4034d5:       movsd  0xf8(%rsp),%xmm0
+    0.00 :	  4034de:       imul   %rax,%rdx
+    0.00 :	  4034e2:       imul   %rax,%rdi
+    0.00 :	  4034e6:       add    %r10,%rcx
+    0.00 :	  4034e9:       lea    0x0(%r13,%rdx,1),%r11
+         :	               + u[i3-1][i2][i1] + u[i3+1][i2][i1];
+         :	        u2[i1] = u[i3-1][i2-1][i1] + u[i3-1][i2+1][i1]
+         :	               + u[i3+1][i2-1][i1] + u[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        r[i3][i2][i1] = v[i3][i2][i1]
+    0.00 :	  4034ee:       mov    $0x3,%edx
+    0.00 :	  4034f3:       add    %r8,%rdi
+         :	        //  Assume a[1] = 0      (Enable 2 lines below if a[1] not= 0)
+         :	        //-------------------------------------------------------------------
+         :	        //            - a[1] * ( u[i3][i2][i1-1] + u[i3][i2][i1+1]
+         :	        //                     + u1[i1] )
+         :	        //-------------------------------------------------------------------
+         :	                      - a[2] * ( u2[i1] + u1[i1-1] + u1[i1+1] )
+    0.03 :	  4034f6:       movapd %xmm4,%xmm6
+         :	        u2[i1] = u[i3-1][i2-1][i1] + u[i3-1][i2+1][i1]
+         :	               + u[i3+1][i2-1][i1] + u[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        r[i3][i2][i1] = v[i3][i2][i1]
+         :	                      - a[0] * u[i3][i2][i1]
+    0.00 :	  4034fa:       movsd  -0x10(%rdi,%rdx,8),%xmm7
+         :	        //  Assume a[1] = 0      (Enable 2 lines below if a[1] not= 0)
+         :	        //-------------------------------------------------------------------
+         :	        //            - a[1] * ( u[i3][i2][i1-1] + u[i3][i2][i1+1]
+         :	        //                     + u1[i1] )
+         :	        //-------------------------------------------------------------------
+         :	                      - a[2] * ( u2[i1] + u1[i1-1] + u1[i1+1] )
+    0.00 :	  403500:       mov    %edx,%ebx
+    0.00 :	  403502:       movsd  -0x8(%r9,%rdx,8),%xmm4
+         :	        u2[i1] = u[i3-1][i2-1][i1] + u[i3-1][i2+1][i1]
+         :	               + u[i3+1][i2-1][i1] + u[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        r[i3][i2][i1] = v[i3][i2][i1]
+         :	                      - a[0] * u[i3][i2][i1]
+    0.03 :	  403509:       mulsd  (%r15),%xmm7
+         :	        //  Assume a[1] = 0      (Enable 2 lines below if a[1] not= 0)
+         :	        //-------------------------------------------------------------------
+         :	        //            - a[1] * ( u[i3][i2][i1-1] + u[i3][i2][i1+1]
+         :	        //                     + u1[i1] )
+         :	        //-------------------------------------------------------------------
+         :	                      - a[2] * ( u2[i1] + u1[i1-1] + u1[i1+1] )
+    0.01 :	  40350e:       addsd  %xmm0,%xmm6
+         :	        u2[i1] = u[i3-1][i2-1][i1] + u[i3-1][i2+1][i1]
+         :	               + u[i3+1][i2-1][i1] + u[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        r[i3][i2][i1] = v[i3][i2][i1]
+         :	                      - a[0] * u[i3][i2][i1]
+    0.00 :	  403512:       movsd  -0x10(%rcx,%rdx,8),%xmm1
+         :	        //-------------------------------------------------------------------
+         :	        //            - a[1] * ( u[i3][i2][i1-1] + u[i3][i2][i1+1]
+         :	        //                     + u1[i1] )
+         :	        //-------------------------------------------------------------------
+         :	                      - a[2] * ( u2[i1] + u1[i1-1] + u1[i1+1] )
+         :	                      - a[3] * ( u2[i1-1] + u2[i1+1] );
+    0.12 :	  403518:       movsd  0xe8(%rsp,%rdx,8),%xmm5
+         :	        //  Assume a[1] = 0      (Enable 2 lines below if a[1] not= 0)
+         :	        //-------------------------------------------------------------------
+         :	        //            - a[1] * ( u[i3][i2][i1-1] + u[i3][i2][i1+1]
+         :	        //                     + u1[i1] )
+         :	        //-------------------------------------------------------------------
+         :	                      - a[2] * ( u2[i1] + u1[i1-1] + u1[i1+1] )
+    0.03 :	  403521:       addsd  %xmm4,%xmm6
+    0.00 :	  403525:       mulsd  0x10(%r15),%xmm6
+         :	                      - a[3] * ( u2[i1-1] + u2[i1+1] );
+    0.00 :	  40352b:       addsd  %xmm5,%xmm2
+    0.00 :	  40352f:       mulsd  0x18(%r15),%xmm2
+         :	        //  Assume a[1] = 0      (Enable 2 lines below if a[1] not= 0)
+         :	        //-------------------------------------------------------------------
+         :	        //            - a[1] * ( u[i3][i2][i1-1] + u[i3][i2][i1+1]
+         :	        //                     + u1[i1] )
+         :	        //-------------------------------------------------------------------
+         :	                      - a[2] * ( u2[i1] + u1[i1-1] + u1[i1+1] )
+    0.05 :	  403535:       addsd  %xmm5,%xmm3
+         :	        u2[i1] = u[i3-1][i2-1][i1] + u[i3-1][i2+1][i1]
+         :	               + u[i3+1][i2-1][i1] + u[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        r[i3][i2][i1] = v[i3][i2][i1]
+         :	                      - a[0] * u[i3][i2][i1]
+    0.00 :	  403539:       subsd  %xmm7,%xmm1
+         :	        //-------------------------------------------------------------------
+         :	        //            - a[1] * ( u[i3][i2][i1-1] + u[i3][i2][i1+1]
+         :	        //                     + u1[i1] )
+         :	        //-------------------------------------------------------------------
+         :	                      - a[2] * ( u2[i1] + u1[i1-1] + u1[i1+1] )
+         :	                      - a[3] * ( u2[i1-1] + u2[i1+1] );
+    0.00 :	  40353d:       movsd  0xf0(%rsp,%rdx,8),%xmm7
+    0.00 :	  403546:       addsd  %xmm7,%xmm0
+         :	        //  Assume a[1] = 0      (Enable 2 lines below if a[1] not= 0)
+         :	        //-------------------------------------------------------------------
+         :	        //            - a[1] * ( u[i3][i2][i1-1] + u[i3][i2][i1+1]
+         :	        //                     + u1[i1] )
+         :	        //-------------------------------------------------------------------
+         :	                      - a[2] * ( u2[i1] + u1[i1-1] + u1[i1+1] )
+    0.03 :	  40354a:       subsd  %xmm6,%xmm1
+         :	                      - a[3] * ( u2[i1-1] + u2[i1+1] );
+    0.01 :	  40354e:       subsd  %xmm2,%xmm1
+         :	        //  Assume a[1] = 0      (Enable 2 lines below if a[1] not= 0)
+         :	        //-------------------------------------------------------------------
+         :	        //            - a[1] * ( u[i3][i2][i1-1] + u[i3][i2][i1+1]
+         :	        //                     + u1[i1] )
+         :	        //-------------------------------------------------------------------
+         :	                      - a[2] * ( u2[i1] + u1[i1-1] + u1[i1+1] )
+    0.03 :	  403552:       movapd %xmm3,%xmm2
+    0.00 :	  403556:       movsd  (%r9,%rdx,8),%xmm3
+    0.02 :	  40355c:       addsd  %xmm3,%xmm2
+         :	               + u[i3-1][i2][i1] + u[i3+1][i2][i1];
+         :	        u2[i1] = u[i3-1][i2-1][i1] + u[i3-1][i2+1][i1]
+         :	               + u[i3+1][i2-1][i1] + u[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        r[i3][i2][i1] = v[i3][i2][i1]
+    0.00 :	  403560:       movsd  %xmm1,-0x10(%r11,%rdx,8)
+         :	                      - a[0] * u[i3][i2][i1]
+    0.01 :	  403567:       movsd  (%r15),%xmm6
+    0.00 :	  40356c:       mulsd  -0x8(%rdi,%rdx,8),%xmm6
+    0.02 :	  403572:       movsd  -0x8(%rcx,%rdx,8),%xmm1
+         :	        //  Assume a[1] = 0      (Enable 2 lines below if a[1] not= 0)
+         :	        //-------------------------------------------------------------------
+         :	        //            - a[1] * ( u[i3][i2][i1-1] + u[i3][i2][i1+1]
+         :	        //                     + u1[i1] )
+         :	        //-------------------------------------------------------------------
+         :	                      - a[2] * ( u2[i1] + u1[i1-1] + u1[i1+1] )
+    1.04 :	  403578:       mulsd  0x10(%r15),%xmm2
+         :	                      - a[3] * ( u2[i1-1] + u2[i1+1] );
+    0.02 :	  40357e:       mulsd  0x18(%r15),%xmm0
+         :	        u2[i1] = u[i3-1][i2-1][i1] + u[i3-1][i2+1][i1]
+         :	               + u[i3+1][i2-1][i1] + u[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        r[i3][i2][i1] = v[i3][i2][i1]
+         :	                      - a[0] * u[i3][i2][i1]
+    0.01 :	  403584:       subsd  %xmm6,%xmm1
+         :	        //  Assume a[1] = 0      (Enable 2 lines below if a[1] not= 0)
+         :	        //-------------------------------------------------------------------
+         :	        //            - a[1] * ( u[i3][i2][i1-1] + u[i3][i2][i1+1]
+         :	        //                     + u1[i1] )
+         :	        //-------------------------------------------------------------------
+         :	                      - a[2] * ( u2[i1] + u1[i1-1] + u1[i1+1] )
+    0.03 :	  403588:       subsd  %xmm2,%xmm1
+    0.06 :	  40358c:       movapd %xmm5,%xmm2
+         :	                      - a[3] * ( u2[i1-1] + u2[i1+1] );
+    0.00 :	  403590:       subsd  %xmm0,%xmm1
+    0.06 :	  403594:       movapd %xmm7,%xmm0
+         :	               + u[i3-1][i2][i1] + u[i3+1][i2][i1];
+         :	        u2[i1] = u[i3-1][i2-1][i1] + u[i3-1][i2+1][i1]
+         :	               + u[i3+1][i2-1][i1] + u[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        r[i3][i2][i1] = v[i3][i2][i1]
+    0.01 :	  403598:       movsd  %xmm1,-0x8(%r11,%rdx,8)
+    0.03 :	  40359f:       add    $0x2,%rdx
+    0.00 :	  4035a3:       lea    -0x1(%rdx),%esi
+    0.00 :	  4035a6:       cmp    %esi,0x94(%rsp)
+    0.01 :	  4035ad:       jg     4034f6 <resid._omp_fn.1+0x6b6>
+    0.00 :	  4035b3:       mov    0xd8(%rsp),%rcx
+    0.00 :	  4035bb:       mov    0x70(%rsp),%esi
+    0.00 :	  4035bf:       movslq %ebx,%rdx
+    0.00 :	  4035c2:       imul   %rax,%rcx
+    0.00 :	  4035c6:       add    %rcx,%r10
+    0.00 :	  4035c9:       mov    0xe0(%rsp),%rcx
+    0.00 :	  4035d1:       imul   %rax,%rcx
+    0.00 :	  4035d5:       imul   0xd0(%rsp),%rax
+    0.00 :	  4035de:       add    %r8,%rcx
+    0.00 :	  4035e1:       add    %r13,%rax
+    0.00 :	  4035e4:       nopl   0x0(%rax)
+         :	                      - a[0] * u[i3][i2][i1]
+    0.00 :	  4035e8:       movsd  (%r15),%xmm1
+    0.00 :	  4035ed:       mulsd  (%rcx,%rdx,8),%xmm1
+    0.00 :	  4035f2:       movsd  (%r10,%rdx,8),%xmm0
+    0.03 :	  4035f8:       subsd  %xmm1,%xmm0
+         :	        //  Assume a[1] = 0      (Enable 2 lines below if a[1] not= 0)
+         :	        //-------------------------------------------------------------------
+         :	        //            - a[1] * ( u[i3][i2][i1-1] + u[i3][i2][i1+1]
+         :	        //                     + u1[i1] )
+         :	        //-------------------------------------------------------------------
+         :	                      - a[2] * ( u2[i1] + u1[i1-1] + u1[i1+1] )
+    0.00 :	  4035fc:       movsd  0xf0(%rsp,%rdx,8),%xmm1
+    0.00 :	  403605:       addsd  -0x8(%r9,%rdx,8),%xmm1
+    0.00 :	  40360c:       addsd  0x8(%r9,%rdx,8),%xmm1
+    0.00 :	  403613:       mulsd  0x10(%r15),%xmm1
+    0.00 :	  403619:       subsd  %xmm1,%xmm0
+         :	                      - a[3] * ( u2[i1-1] + u2[i1+1] );
+    0.00 :	  40361d:       movsd  0xe8(%rsp,%rdx,8),%xmm1
+    0.00 :	  403626:       addsd  0xf8(%rsp,%rdx,8),%xmm1
+    0.00 :	  40362f:       mulsd  0x18(%r15),%xmm1
+    0.00 :	  403635:       subsd  %xmm1,%xmm0
+         :	               + u[i3-1][i2][i1] + u[i3+1][i2][i1];
+         :	        u2[i1] = u[i3-1][i2-1][i1] + u[i3-1][i2+1][i1]
+         :	               + u[i3+1][i2-1][i1] + u[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        r[i3][i2][i1] = v[i3][i2][i1]
+    0.00 :	  403639:       movsd  %xmm0,(%rax,%rdx,8)
+    0.00 :	  40363e:       add    $0x1,%rdx
+         :	        u1[i1] = u[i3][i2-1][i1] + u[i3][i2+1][i1]
+         :	               + u[i3-1][i2][i1] + u[i3+1][i2][i1];
+         :	        u2[i1] = u[i3-1][i2-1][i1] + u[i3-1][i2+1][i1]
+         :	               + u[i3+1][i2-1][i1] + u[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+    0.00 :	  403642:       cmp    %edx,%esi
+    0.00 :	  403644:       jg     4035e8 <resid._omp_fn.1+0x7a8>
+    0.00 :	  403646:       jmpq   403431 <resid._omp_fn.1+0x5f1>
+    0.00 :	  40364b:       nopl   0x0(%rax,%rax,1)
+    0.00 :	  403650:       addl   $0x1,0x54(%rsp)
+         :	  double u1[M], u2[M];
+         :
+         :	  if (timeron) timer_start(T_resid);
+         :	  #pragma omp parallel for private(u1,u2) collapse(2)
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+    0.00 :	  403655:       movl   $0x1,0xc(%rsp)
+    0.00 :	  40365d:       jmpq   403451 <resid._omp_fn.1+0x611>
+    0.00 :	  403662:       movslq %ecx,%rbx
+         :	      for (i1 = 0; i1 < n1; i1++) {
+    0.00 :	  403665:       xor    %eax,%eax
+    0.00 :	  403667:       mov    %rbx,0x10(%rsp)
+    0.00 :	  40366c:       jmpq   40318f <resid._omp_fn.1+0x34f>
+    0.00 :	  403671:       add    $0x1,%ecx
+         :	  double u1[M], u2[M];
+         :
+         :	  if (timeron) timer_start(T_resid);
+         :	  #pragma omp parallel for private(u1,u2) collapse(2)
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+    0.00 :	  403674:       xor    %edx,%edx
+    0.00 :	  403676:       jmpq   402ea4 <resid._omp_fn.1+0x64>
+         :	               + u[i3-1][i2][i1] + u[i3+1][i2][i1];
+         :	        u2[i1] = u[i3-1][i2-1][i1] + u[i3-1][i2+1][i1]
+         :	               + u[i3+1][i2-1][i1] + u[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        r[i3][i2][i1] = v[i3][i2][i1]
+    0.00 :	  40367b:       mov    $0x1,%ebx
+    0.00 :	  403680:       lea    0x910(%rsp),%r9
+    0.00 :	  403688:       jmpq   4035b3 <resid._omp_fn.1+0x773>
+ Percent |	Source code & Disassembly of real for cycles (16348 samples)
+----------------------------------------------------------------------------
+         :
+         :
+         :
+         :	Disassembly of section .text:
+         :
+         :	00000000004025b0 <psinv._omp_fn.0>:
+         :	psinv._omp_fn.0():
+         :
+         :	  double r1[M], r2[M];
+         :
+         :	  if (timeron) timer_start(T_psinv);
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	        #pragma omp parallel for private(r1,r2)
+    0.00 :	  4025b0:       push   %r15
+    0.01 :	  4025b2:       mov    %rdi,%r15
+    0.00 :	  4025b5:       push   %r14
+    0.00 :	  4025b7:       push   %r13
+    0.00 :	  4025b9:       push   %r12
+    0.00 :	  4025bb:       push   %rbp
+    0.00 :	  4025bc:       push   %rbx
+    0.00 :	  4025bd:       sub    $0x1168,%rsp
+    0.00 :	  4025c4:       mov    %rdi,0x110(%rsp)
+    0.00 :	  4025cc:       callq  4009d0 <omp_get_num_threads@plt>
+    0.00 :	  4025d1:       mov    %eax,%ebx
+    0.00 :	  4025d3:       callq  400970 <omp_get_thread_num@plt>
+    0.00 :	  4025d8:       mov    %eax,%ecx
+    0.00 :	  4025da:       mov    0x2c(%r15),%eax
+    0.11 :	  4025de:       mov    %eax,0x8(%rsp)
+    0.01 :	  4025e2:       sub    $0x2,%eax
+    0.00 :	  4025e5:       cltd   
+    0.00 :	  4025e6:       idiv   %ebx
+    0.01 :	  4025e8:       cmp    %edx,%ecx
+    0.00 :	  4025ea:       jl     402e22 <psinv._omp_fn.0+0x872>
+    0.00 :	  4025f0:       imul   %eax,%ecx
+    0.00 :	  4025f3:       add    %edx,%ecx
+    0.00 :	  4025f5:       lea    (%rax,%rcx,1),%r12d
+    0.00 :	  4025f9:       cmp    %r12d,%ecx
+    0.00 :	  4025fc:       jge    402c62 <psinv._omp_fn.0+0x6b2>
+    0.00 :	  402602:       mov    0x110(%rsp),%rbx
+    0.00 :	  40260a:       lea    0x1(%rcx),%edx
+    0.00 :	  40260d:       movslq %ecx,%rcx
+    0.00 :	  402610:       add    $0x1,%r12d
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+         :	        r1[i1] = r[i3][i2-1][i1] + r[i3][i2+1][i1]
+    0.00 :	  402614:       movslq 0x3c(%rbx),%r15
+         :
+         :	  double r1[M], r2[M];
+         :
+         :	  if (timeron) timer_start(T_psinv);
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	        #pragma omp parallel for private(r1,r2)
+    0.02 :	  402618:       mov    0x20(%rbx),%rax
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+         :	        r1[i1] = r[i3][i2-1][i1] + r[i3][i2+1][i1]
+    0.00 :	  40261c:       movslq 0x38(%rbx),%r11
+         :
+         :	  double r1[M], r2[M];
+         :
+         :	  if (timeron) timer_start(T_psinv);
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	        #pragma omp parallel for private(r1,r2)
+    0.00 :	  402620:       mov    0x30(%rbx),%r10d
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+         :	        r1[i1] = r[i3][i2-1][i1] + r[i3][i2+1][i1]
+    0.00 :	  402624:       mov    %r15,%r9
+         :
+         :	  double r1[M], r2[M];
+         :
+         :	  if (timeron) timer_start(T_psinv);
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	        #pragma omp parallel for private(r1,r2)
+    0.00 :	  402627:       mov    0x8(%rbx),%r8
+    0.00 :	  40262b:       mov    0x10(%rbx),%r14
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+         :	        r1[i1] = r[i3][i2-1][i1] + r[i3][i2+1][i1]
+    0.00 :	  40262f:       mov    %r15,0x8(%rsp)
+         :
+         :	  double r1[M], r2[M];
+         :
+         :	  if (timeron) timer_start(T_psinv);
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	        #pragma omp parallel for private(r1,r2)
+    0.00 :	  402634:       mov    %rax,0x98(%rsp)
+    0.00 :	  40263c:       mov    0x28(%rbx),%eax
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+         :	        r1[i1] = r[i3][i2-1][i1] + r[i3][i2+1][i1]
+    0.00 :	  40263f:       imul   %r11,%r9
+         :
+         :	  double r1[M], r2[M];
+         :
+         :	  if (timeron) timer_start(T_psinv);
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	        #pragma omp parallel for private(r1,r2)
+    0.01 :	  402643:       mov    0x18(%rbx),%rsi
+    0.00 :	  402647:       mov    (%rbx),%rdi
+    0.00 :	  40264a:       mov    %eax,%r13d
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+         :	        r1[i1] = r[i3][i2-1][i1] + r[i3][i2+1][i1]
+    0.00 :	  40264d:       movslq %r10d,%rax
+    0.00 :	  402650:       mov    %rax,%rbp
+    0.00 :	  402653:       mov    %r9,%rbx
+         :	               + r[i3-1][i2][i1] + r[i3+1][i2][i1];
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+    0.00 :	  402656:       mov    %r13d,0x44(%rsp)
+    0.00 :	  40265b:       imul   %r9,%rbp
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	        #pragma omp parallel for private(r1,r2)
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+         :	        r1[i1] = r[i3][i2-1][i1] + r[i3][i2+1][i1]
+         :	               + r[i3-1][i2][i1] + r[i3+1][i2][i1];
+    0.00 :	  40265f:       lea    -0x1(%r10),%r9d
+    0.00 :	  402663:       add    $0x1,%r10d
+         :
+         :	  double r1[M], r2[M];
+         :
+         :	  if (timeron) timer_start(T_psinv);
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	        #pragma omp parallel for private(r1,r2)
+    0.00 :	  402667:       mov    %rsi,0xa0(%rsp)
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+         :	        r1[i1] = r[i3][i2-1][i1] + r[i3][i2+1][i1]
+         :	               + r[i3-1][i2][i1] + r[i3+1][i2][i1];
+    0.00 :	  40266f:       movslq %r10d,%r10
+    0.00 :	  402672:       movslq %r9d,%r9
+         :	  if (timeron) timer_start(T_psinv);
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	        #pragma omp parallel for private(r1,r2)
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+         :	        r1[i1] = r[i3][i2-1][i1] + r[i3][i2+1][i1]
+    0.00 :	  402675:       shr    $0x3,%rsi
+         :	               + r[i3-1][i2][i1] + r[i3+1][i2][i1];
+    0.00 :	  402679:       imul   %rbx,%r10
+    0.00 :	  40267d:       imul   %rbx,%r9
+         :	  if (timeron) timer_start(T_psinv);
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	        #pragma omp parallel for private(r1,r2)
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+         :	        r1[i1] = r[i3][i2-1][i1] + r[i3][i2+1][i1]
+    0.00 :	  402681:       lea    (%r8,%rbp,8),%r15
+         :	               + r[i3-1][i2][i1] + r[i3+1][i2][i1];
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+    0.00 :	  402685:       mov    0x110(%rsp),%rbx
+         :	  if (timeron) timer_start(T_psinv);
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	        #pragma omp parallel for private(r1,r2)
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+         :	        r1[i1] = r[i3][i2-1][i1] + r[i3][i2+1][i1]
+    0.00 :	  40268d:       mov    %r15,0x10(%rsp)
+    0.00 :	  402692:       imul   %rsi,%rcx
+         :	               + r[i3-1][i2][i1] + r[i3+1][i2][i1];
+    0.00 :	  402696:       mov    %r10,0x38(%rsp)
+    0.00 :	  40269b:       lea    (%r8,%r10,8),%r15
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+    0.00 :	  40269f:       mov    %r13d,%r10d
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+    0.00 :	  4026a2:       mov    0x98(%rsp),%r13
+         :	        r1[i1] = r[i3][i2-1][i1] + r[i3][i2+1][i1]
+         :	               + r[i3-1][i2][i1] + r[i3+1][i2][i1];
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+    0.00 :	  4026aa:       sub    $0x1,%r10d
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	        #pragma omp parallel for private(r1,r2)
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+         :	        r1[i1] = r[i3][i2-1][i1] + r[i3][i2+1][i1]
+         :	               + r[i3-1][i2][i1] + r[i3+1][i2][i1];
+    0.00 :	  4026ae:       mov    %r9,0x18(%rsp)
+    0.00 :	  4026b3:       lea    (%r8,%r9,8),%r9
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+    0.00 :	  4026b7:       mov    %r10d,0x94(%rsp)
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+    0.00 :	  4026bf:       mov    %r13,%r10
+    0.00 :	  4026c2:       add    %rbp,%rcx
+    0.00 :	  4026c5:       shr    $0x3,%r10
+    0.00 :	  4026c9:       mov    %r10,0x28(%rsp)
+    0.00 :	  4026ce:       movslq 0x40(%rbx),%r10
+    0.00 :	  4026d2:       movslq 0x44(%rbx),%rbx
+    0.00 :	  4026d6:       imul   %rax,%r10
+    0.00 :	  4026da:       imul   %r11,%rax
+    0.00 :	  4026de:       imul   0x8(%rsp),%rax
+    0.00 :	  4026e4:       imul   %rbx,%r10
+         :	                      + c[0] * r[i3][i2][i1]
+    0.04 :	  4026e8:       lea    (%r8,%rax,8),%r11
+         :	               + r[i3-1][i2][i1] + r[i3+1][i2][i1];
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+    0.00 :	  4026ec:       lea    (%r14,%r10,8),%rbx
+         :	                      + c[0] * r[i3][i2][i1]
+    0.00 :	  4026f0:       mov    %r11,0x20(%rsp)
+    0.00 :	  4026f5:       movslq %edx,%r11
+         :	               + r[i3-1][i2][i1] + r[i3+1][i2][i1];
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+    0.00 :	  4026f8:       mov    %rbx,0x30(%rsp)
+    0.00 :	  4026fd:       mov    %r13,%rbx
+    0.00 :	  402700:       mov    0x30(%rsp),%r13
+    0.00 :	  402705:       imul   %r11,%rbx
+    0.00 :	  402709:       add    %rbx,%r13
+    0.00 :	  40270c:       mov    0x28(%rsp),%rbx
+    0.00 :	  402711:       mov    %r13,0x80(%rsp)
+    0.00 :	  402719:       imul   %r11,%rbx
+    0.00 :	  40271d:       imul   %rsi,%r11
+    0.00 :	  402721:       lea    0x1(%r10,%rbx,1),%r10
+    0.00 :	  402726:       mov    %r11,0x88(%rsp)
+    0.00 :	  40272e:       mov    %r11,%rbx
+    0.00 :	  402731:       lea    (%rax,%r11,1),%r11
+    0.00 :	  402735:       lea    (%r14,%r10,8),%r10
+    0.00 :	  402739:       lea    (%r8,%r11,8),%r14
+    0.00 :	  40273d:       lea    (%r8,%rcx,8),%r11
+    0.00 :	  402741:       mov    %r11,0x50(%rsp)
+    0.00 :	  402746:       mov    %rbx,%r11
+    0.00 :	  402749:       add    %rsi,%r11
+    0.00 :	  40274c:       lea    (%r11,%rbp,1),%rcx
+    0.00 :	  402750:       mov    %r11,0x48(%rsp)
+    0.00 :	  402755:       mov    %r12d,0xb8(%rsp)
+    0.00 :	  40275d:       lea    (%r8,%rcx,8),%r11
+    0.00 :	  402761:       mov    0x18(%rsp),%r8
+    0.00 :	  402766:       mov    0x44(%rsp),%ebx
+    0.00 :	  40276a:       mov    0x10(%rsp),%r13
+    0.00 :	  40276f:       mov    %r11,0x18(%rsp)
+    0.00 :	  402774:       mov    %r8,%rcx
+    0.00 :	  402777:       sub    %rax,%rcx
+    0.00 :	  40277a:       lea    0x0(,%rcx,8),%r12
+    0.00 :	  402782:       mov    0x38(%rsp),%rcx
+    0.00 :	  402787:       mov    %r12,0xc8(%rsp)
+    0.00 :	  40278f:       mov    %rcx,%r12
+    0.00 :	  402792:       sub    %rax,%r12
+    0.00 :	  402795:       mov    %r12,%rax
+    0.00 :	  402798:       mov    %r14,%r12
+    0.00 :	  40279b:       shl    $0x3,%rax
+    0.00 :	  40279f:       mov    %rax,0xd0(%rsp)
+    0.00 :	  4027a7:       mov    %r8,%rax
+    0.00 :	  4027aa:       sub    %rbp,%rax
+    0.00 :	  4027ad:       shl    $0x3,%rax
+    0.00 :	  4027b1:       mov    %rax,0xd8(%rsp)
+    0.00 :	  4027b9:       mov    %rcx,%rax
+    0.00 :	  4027bc:       sub    %rbp,%rax
+    0.00 :	  4027bf:       shl    $0x3,%rax
+    0.01 :	  4027c3:       mov    %rax,0xe0(%rsp)
+    0.00 :	  4027cb:       mov    %ebx,%eax
+    0.00 :	  4027cd:       shr    %eax
+    0.00 :	  4027cf:       shl    $0x4,%rax
+    0.00 :	  4027d3:       mov    %rax,0xc0(%rsp)
+    0.00 :	  4027db:       mov    %ebx,%eax
+    0.00 :	  4027dd:       and    $0xfffffffe,%eax
+    0.00 :	  4027e0:       mov    %eax,0xe8(%rsp)
+    0.00 :	  4027e7:       lea    -0x2(%rbx),%eax
+    0.00 :	  4027ea:       mov    %rax,%rcx
+    0.00 :	  4027ed:       mov    %eax,0xbc(%rsp)
+    0.00 :	  4027f4:       shl    $0x3,%rax
+    0.00 :	  4027f8:       mov    %rax,0xa8(%rsp)
+    0.00 :	  402800:       mov    %ecx,%eax
+    0.00 :	  402802:       shr    %eax
+    0.00 :	  402804:       shl    $0x4,%rax
+    0.00 :	  402808:       mov    %rax,0xf0(%rsp)
+    0.00 :	  402810:       mov    %ecx,%eax
+    0.00 :	  402812:       and    $0xfffffffe,%ecx
+    0.00 :	  402815:       cmp    $0x80000001,%ebx
+         :	                      + c[0] * r[i3][i2][i1]
+         :	                      + c[1] * ( r[i3][i2][i1-1] + r[i3][i2][i1+1]
+    0.00 :	  40281b:       lea    0x2(%rcx),%ebp
+    0.00 :	  40281e:       lea    0x1(%rcx),%r8d
+    0.00 :	  402822:       mov    %ecx,0xec(%rsp)
+    0.00 :	  402829:       setne  %cl
+    0.00 :	  40282c:       cmp    $0x2,%eax
+         :	               + r[i3-1][i2][i1] + r[i3+1][i2][i1];
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+    0.00 :	  40282f:       movslq %r8d,%r8
+         :	                      + c[0] * r[i3][i2][i1]
+         :	                      + c[1] * ( r[i3][i2][i1-1] + r[i3][i2][i1+1]
+    0.00 :	  402832:       mov    %ebp,0x38(%rsp)
+    0.00 :	  402836:       setg   %al
+         :	               + r[i3-1][i2][i1] + r[i3+1][i2][i1];
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+    0.00 :	  402839:       mov    %r8,%rbp
+    0.00 :	  40283c:       and    %eax,%ecx
+    0.00 :	  40283e:       mov    $0x1,%eax
+    0.00 :	  402843:       mov    %cl,0x11b(%rsp)
+    0.00 :	  40284a:       mov    0x94(%rsp),%ecx
+    0.00 :	  402851:       test   %ecx,%ecx
+    0.00 :	  402853:       cmovg  %ecx,%eax
+    0.00 :	  402856:       mov    %eax,0x11c(%rsp)
+    0.00 :	  40285d:       lea    0x18(%rdi),%rax
+    0.00 :	  402861:       mov    %rax,0xb0(%rsp)
+         :	                      + c[0] * r[i3][i2][i1]
+         :	                      + c[1] * ( r[i3][i2][i1-1] + r[i3][i2][i1+1]
+         :	                               + r1[i1] )
+         :	                      + c[2] * ( r2[i1] + r1[i1-1] + r1[i1+1] );
+    0.00 :	  402869:       lea    0x948(%rsp),%rax
+    0.00 :	  402871:       mov    %rax,0xf8(%rsp)
+    0.00 :	  402879:       lea    0x130(%rsp),%rax
+    0.00 :	  402881:       mov    %rax,0x100(%rsp)
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+         :	                      + c[0] * r[i3][i2][i1]
+         :	                      + c[1] * ( r[i3][i2][i1-1] + r[i3][i2][i1+1]
+         :	                               + r1[i1] )
+    0.00 :	  402889:       lea    0x128(%rsp),%rax
+    0.00 :	  402891:       mov    %rax,0x108(%rsp)
+    0.00 :	  402899:       nopl   0x0(%rax)
+         :
+         :	  if (timeron) timer_start(T_psinv);
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	        #pragma omp parallel for private(r1,r2)
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+    0.01 :	  4028a0:       lea    0x1(%rdx),%eax
+    0.00 :	  4028a3:       mov    %eax,0x8(%rsp)
+    0.01 :	  4028a7:       mov    0x44(%rsp),%eax
+    0.01 :	  4028ab:       test   %eax,%eax
+    0.01 :	  4028ad:       jle    402a36 <psinv._omp_fn.0+0x486>
+    0.00 :	  4028b3:       lea    -0x1(%rdx),%eax
+    0.00 :	  4028b6:       cmpl   $0x1,0x44(%rsp)
+    0.00 :	  4028bb:       mov    %eax,0x10(%rsp)
+    0.01 :	  4028bf:       je     402e1a <psinv._omp_fn.0+0x86a>
+    0.00 :	  4028c5:       mov    0x50(%rsp),%r14
+    0.00 :	  4028ca:       mov    0x18(%rsp),%r8
+    0.00 :	  4028cf:       mov    %edx,0x90(%rsp)
+    0.01 :	  4028d6:       mov    0xc8(%rsp),%rax
+    0.00 :	  4028de:       mov    0xd0(%rsp),%rcx
+    0.01 :	  4028e6:       mov    %rdi,0x68(%rsp)
+    0.00 :	  4028eb:       mov    %r14,%r11
+    0.01 :	  4028ee:       mov    %rsi,0x70(%rsp)
+    0.00 :	  4028f3:       mov    %r14,%rdx
+    0.00 :	  4028f6:       add    %r12,%rax
+    0.00 :	  4028f9:       add    %r12,%rcx
+    0.01 :	  4028fc:       mov    %r9,0x78(%rsp)
+    0.00 :	  402901:       mov    0xc0(%rsp),%r9
+    0.00 :	  402909:       mov    %rax,0x58(%rsp)
+    0.00 :	  40290e:       mov    0xd8(%rsp),%rax
+    0.01 :	  402916:       mov    %rcx,0x60(%rsp)
+    0.00 :	  40291b:       mov    %r14,%rcx
+    0.00 :	  40291e:       mov    0x58(%rsp),%rsi
+    0.00 :	  402923:       lea    (%r8,%rax,1),%rbx
+    0.01 :	  402927:       add    %rax,%rcx
+    0.00 :	  40292a:       mov    0x18(%rsp),%r14
+    0.01 :	  40292f:       mov    0xe0(%rsp),%rax
+    0.00 :	  402937:       mov    0x60(%rsp),%rdi
+    0.01 :	  40293c:       add    %rax,%r11
+    0.00 :	  40293f:       add    %rax,%r8
+    0.01 :	  402942:       xor    %eax,%eax
+    0.00 :	  402944:       nopl   0x0(%rax)
+         :	        r1[i1] = r[i3][i2-1][i1] + r[i3][i2+1][i1]
+    1.01 :	  402948:       movupd (%r14,%rax,1),%xmm7
+    3.12 :	  40294e:       movupd (%rdx,%rax,1),%xmm0
+         :	               + r[i3-1][i2][i1] + r[i3+1][i2][i1];
+    1.08 :	  402953:       movupd (%rsi,%rax,1),%xmm5
+    0.98 :	  402958:       movupd (%rdi,%rax,1),%xmm6
+         :	  if (timeron) timer_start(T_psinv);
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	        #pragma omp parallel for private(r1,r2)
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+         :	        r1[i1] = r[i3][i2-1][i1] + r[i3][i2+1][i1]
+    3.70 :	  40295d:       addpd  %xmm7,%xmm0
+         :	               + r[i3-1][i2][i1] + r[i3+1][i2][i1];
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+    0.09 :	  402961:       movupd (%rbx,%rax,1),%xmm4
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+    6.31 :	  402966:       movupd (%r11,%rax,1),%xmm7
+    2.97 :	  40296c:       movupd (%r8,%rax,1),%xmm3
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	        #pragma omp parallel for private(r1,r2)
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+         :	        r1[i1] = r[i3][i2-1][i1] + r[i3][i2+1][i1]
+         :	               + r[i3-1][i2][i1] + r[i3+1][i2][i1];
+   25.46 :	  402972:       addpd  %xmm5,%xmm0
+    0.04 :	  402976:       addpd  %xmm6,%xmm0
+         :	  if (timeron) timer_start(T_psinv);
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	        #pragma omp parallel for private(r1,r2)
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+         :	        r1[i1] = r[i3][i2-1][i1] + r[i3][i2+1][i1]
+    0.28 :	  40297a:       movaps %xmm0,0x120(%rsp,%rax,1)
+         :	               + r[i3-1][i2][i1] + r[i3+1][i2][i1];
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+    0.59 :	  402982:       movupd (%rcx,%rax,1),%xmm0
+    2.82 :	  402987:       addpd  %xmm4,%xmm0
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+    0.64 :	  40298b:       addpd  %xmm7,%xmm0
+    0.80 :	  40298f:       addpd  %xmm3,%xmm0
+         :	        #pragma omp parallel for private(r1,r2)
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+         :	        r1[i1] = r[i3][i2-1][i1] + r[i3][i2+1][i1]
+         :	               + r[i3-1][i2][i1] + r[i3+1][i2][i1];
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+    1.31 :	  402993:       movaps %xmm0,0x940(%rsp,%rax,1)
+    0.80 :	  40299b:       add    $0x10,%rax
+    0.01 :	  40299f:       cmp    %r9,%rax
+    0.00 :	  4029a2:       jne    402948 <psinv._omp_fn.0+0x398>
+    0.00 :	  4029a4:       mov    0x68(%rsp),%rdi
+    0.09 :	  4029a9:       mov    0x70(%rsp),%rsi
+    0.02 :	  4029ae:       mov    %r14,0x18(%rsp)
+    0.01 :	  4029b3:       mov    0x90(%rsp),%edx
+    0.01 :	  4029ba:       mov    0x78(%rsp),%r9
+    0.00 :	  4029bf:       movslq 0xe8(%rsp),%r8
+    0.04 :	  4029c7:       cmp    %r8d,0x44(%rsp)
+    0.02 :	  4029cc:       je     402a36 <psinv._omp_fn.0+0x486>
+         :	  if (timeron) timer_start(T_psinv);
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	        #pragma omp parallel for private(r1,r2)
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+         :	        r1[i1] = r[i3][i2-1][i1] + r[i3][i2+1][i1]
+    0.00 :	  4029ce:       movslq 0x10(%rsp),%rcx
+    0.00 :	  4029d3:       movslq 0x8(%rsp),%rax
+         :	               + r[i3-1][i2][i1] + r[i3+1][i2][i1];
+    0.00 :	  4029d8:       movslq %edx,%r11
+    0.00 :	  4029db:       imul   %rsi,%r11
+         :	  if (timeron) timer_start(T_psinv);
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	        #pragma omp parallel for private(r1,r2)
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+         :	        r1[i1] = r[i3][i2-1][i1] + r[i3][i2+1][i1]
+    0.00 :	  4029df:       imul   %rsi,%rcx
+    0.00 :	  4029e3:       imul   %rsi,%rax
+         :	               + r[i3-1][i2][i1] + r[i3+1][i2][i1];
+    0.00 :	  4029e7:       add    %r8,%r11
+         :	  if (timeron) timer_start(T_psinv);
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	        #pragma omp parallel for private(r1,r2)
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+         :	        r1[i1] = r[i3][i2-1][i1] + r[i3][i2+1][i1]
+    0.00 :	  4029ea:       add    %r8,%rcx
+    0.00 :	  4029ed:       add    %r8,%rax
+    0.00 :	  4029f0:       movsd  0x0(%r13,%rcx,8),%xmm0
+    0.00 :	  4029f7:       addsd  0x0(%r13,%rax,8),%xmm0
+         :	               + r[i3-1][i2][i1] + r[i3+1][i2][i1];
+    0.00 :	  4029fe:       addsd  (%r9,%r11,8),%xmm0
+    0.00 :	  402a04:       addsd  (%r15,%r11,8),%xmm0
+         :	  if (timeron) timer_start(T_psinv);
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	        #pragma omp parallel for private(r1,r2)
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+         :	        r1[i1] = r[i3][i2-1][i1] + r[i3][i2+1][i1]
+    0.00 :	  402a0a:       movsd  %xmm0,0x120(%rsp,%r8,8)
+         :	               + r[i3-1][i2][i1] + r[i3+1][i2][i1];
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+    0.00 :	  402a14:       movsd  (%r9,%rcx,8),%xmm0
+    0.00 :	  402a1a:       addsd  (%r9,%rax,8),%xmm0
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+    0.00 :	  402a20:       addsd  (%r15,%rcx,8),%xmm0
+    0.00 :	  402a26:       addsd  (%r15,%rax,8),%xmm0
+         :	        #pragma omp parallel for private(r1,r2)
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+         :	        r1[i1] = r[i3][i2-1][i1] + r[i3][i2+1][i1]
+         :	               + r[i3-1][i2][i1] + r[i3+1][i2][i1];
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+    0.00 :	  402a2c:       movsd  %xmm0,0x940(%rsp,%r8,8)
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+    0.00 :	  402a36:       cmpl   $0x1,0x94(%rsp)
+    0.01 :	  402a3e:       jle    402bf8 <psinv._omp_fn.0+0x648>
+    0.01 :	  402a44:       mov    0xa8(%rsp),%rax
+    0.01 :	  402a4c:       cmp    0xb0(%rsp),%r10
+    0.00 :	  402a54:       lea    0x10(%r10),%r8
+    0.00 :	  402a58:       setae  %cl
+    0.01 :	  402a5b:       add    %r10,%rax
+    0.00 :	  402a5e:       cmp    %rax,%rdi
+    0.00 :	  402a61:       setae  %al
+    0.00 :	  402a64:       or     %eax,%ecx
+    0.01 :	  402a66:       lea    0x20(%r12),%rax
+    0.00 :	  402a6b:       cmp    %rax,%r10
+    0.01 :	  402a6e:       setae  %al
+    0.01 :	  402a71:       cmp    %r8,%r12
+    0.01 :	  402a74:       setae  %r8b
+    0.00 :	  402a78:       or     %r8d,%eax
+    0.03 :	  402a7b:       test   %al,%cl
+    0.01 :	  402a7d:       je     402c78 <psinv._omp_fn.0+0x6c8>
+    0.01 :	  402a83:       cmpl   $0x3,0x44(%rsp)
+    0.01 :	  402a88:       je     402c78 <psinv._omp_fn.0+0x6c8>
+    0.01 :	  402a8e:       movsd  (%rdi),%xmm6
+    0.16 :	  402a92:       movsd  0x8(%rdi),%xmm5
+    0.01 :	  402a97:       mov    %edx,0x10(%rsp)
+    0.00 :	  402a9b:       xor    %eax,%eax
+    0.01 :	  402a9d:       movsd  0x10(%rdi),%xmm4
+    0.05 :	  402aa2:       mov    %rsi,0x58(%rsp)
+    0.00 :	  402aa7:       lea    0x8(%r12),%r8
+    0.00 :	  402aac:       lea    0x10(%r12),%rcx
+    0.00 :	  402ab1:       movapd 0x120(%rsp),%xmm3
+    0.02 :	  402aba:       mov    0xf0(%rsp),%rsi
+    0.00 :	  402ac2:       unpcklpd %xmm6,%xmm6
+    0.00 :	  402ac6:       unpcklpd %xmm5,%xmm5
+    0.00 :	  402aca:       mov    0x18(%rsp),%r14
+    0.01 :	  402acf:       mov    0xf8(%rsp),%rdx
+    0.01 :	  402ad7:       unpcklpd %xmm4,%xmm4
+    0.00 :	  402adb:       mov    0x100(%rsp),%r11
+    0.00 :	  402ae3:       mov    0x108(%rsp),%rbx
+    0.01 :	  402aeb:       nopl   0x0(%rax,%rax,1)
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+         :	                      + c[0] * r[i3][i2][i1]
+         :	                      + c[1] * ( r[i3][i2][i1-1] + r[i3][i2][i1+1]
+    0.83 :	  402af0:       movupd (%rcx,%rax,1),%xmm7
+    2.18 :	  402af5:       movupd (%r12,%rax,1),%xmm0
+         :	                               + r1[i1] )
+         :	                      + c[2] * ( r2[i1] + r1[i1-1] + r1[i1+1] );
+    0.73 :	  402afb:       movupd (%rdx,%rax,1),%xmm1
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+         :	                      + c[0] * r[i3][i2][i1]
+    0.87 :	  402b00:       movupd (%r8,%rax,1),%xmm2
+         :	                      + c[1] * ( r[i3][i2][i1-1] + r[i3][i2][i1+1]
+    0.83 :	  402b06:       addpd  %xmm7,%xmm0
+         :	                               + r1[i1] )
+    0.02 :	  402b0a:       movupd (%rbx,%rax,1),%xmm7
+         :	                      + c[2] * ( r2[i1] + r1[i1-1] + r1[i1+1] );
+    0.91 :	  402b0f:       addpd  %xmm3,%xmm1
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+         :	                      + c[0] * r[i3][i2][i1]
+    0.01 :	  402b13:       mulpd  %xmm6,%xmm2
+         :	                      + c[1] * ( r[i3][i2][i1-1] + r[i3][i2][i1+1]
+         :	                               + r1[i1] )
+         :	                      + c[2] * ( r2[i1] + r1[i1-1] + r1[i1+1] );
+    0.13 :	  402b17:       movapd (%r11,%rax,1),%xmm3
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+         :	                      + c[0] * r[i3][i2][i1]
+         :	                      + c[1] * ( r[i3][i2][i1-1] + r[i3][i2][i1+1]
+         :	                               + r1[i1] )
+    0.86 :	  402b1d:       addpd  %xmm7,%xmm0
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+         :	                      + c[0] * r[i3][i2][i1]
+    0.01 :	  402b21:       movupd (%r10,%rax,1),%xmm7
+         :	                      + c[1] * ( r[i3][i2][i1-1] + r[i3][i2][i1+1]
+         :	                               + r1[i1] )
+         :	                      + c[2] * ( r2[i1] + r1[i1-1] + r1[i1+1] );
+   33.29 :	  402b27:       addpd  %xmm3,%xmm1
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+         :	                      + c[0] * r[i3][i2][i1]
+         :	                      + c[1] * ( r[i3][i2][i1-1] + r[i3][i2][i1+1]
+    0.04 :	  402b2b:       mulpd  %xmm5,%xmm0
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+         :	                      + c[0] * r[i3][i2][i1]
+    0.16 :	  402b2f:       addpd  %xmm7,%xmm2
+         :	                      + c[1] * ( r[i3][i2][i1-1] + r[i3][i2][i1+1]
+         :	                               + r1[i1] )
+         :	                      + c[2] * ( r2[i1] + r1[i1-1] + r1[i1+1] );
+    1.43 :	  402b33:       mulpd  %xmm4,%xmm1
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+         :	                      + c[0] * r[i3][i2][i1]
+         :	                      + c[1] * ( r[i3][i2][i1-1] + r[i3][i2][i1+1]
+    0.13 :	  402b37:       addpd  %xmm2,%xmm0
+         :	                               + r1[i1] )
+         :	                      + c[2] * ( r2[i1] + r1[i1-1] + r1[i1+1] );
+    1.14 :	  402b3b:       addpd  %xmm1,%xmm0
+         :	               + r[i3-1][i2][i1] + r[i3+1][i2][i1];
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+    1.22 :	  402b3f:       movups %xmm0,(%r10,%rax,1)
+    2.06 :	  402b44:       add    $0x10,%rax
+    0.01 :	  402b48:       cmp    %rsi,%rax
+    0.00 :	  402b4b:       jne    402af0 <psinv._omp_fn.0+0x540>
+    0.01 :	  402b4d:       movslq 0x10(%rsp),%rdx
+    0.06 :	  402b52:       mov    0x58(%rsp),%rsi
+    0.00 :	  402b57:       mov    %r14,0x18(%rsp)
+    0.01 :	  402b5c:       mov    0xbc(%rsp),%eax
+    0.01 :	  402b63:       mov    0xec(%rsp),%r14d
+    0.00 :	  402b6b:       cmp    %eax,%r14d
+    0.01 :	  402b6e:       je     402bf8 <psinv._omp_fn.0+0x648>
+    0.00 :	  402b74:       mov    0x28(%rsp),%rax
+         :	                      + c[0] * r[i3][i2][i1]
+         :	                      + c[1] * ( r[i3][i2][i1-1] + r[i3][i2][i1+1]
+    0.00 :	  402b79:       movslq 0x38(%rsp),%rcx
+    0.00 :	  402b7e:       movslq %r14d,%r8
+    0.00 :	  402b81:       mov    0x20(%rsp),%r14
+         :	               + r[i3-1][i2][i1] + r[i3+1][i2][i1];
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+    0.00 :	  402b86:       imul   %rdx,%rax
+         :	                      + c[0] * r[i3][i2][i1]
+         :	                      + c[1] * ( r[i3][i2][i1-1] + r[i3][i2][i1+1]
+    0.00 :	  402b8a:       imul   %rsi,%rdx
+         :	               + r[i3-1][i2][i1] + r[i3+1][i2][i1];
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+    0.00 :	  402b8e:       add    %rbp,%rax
+         :	                      + c[0] * r[i3][i2][i1]
+         :	                      + c[1] * ( r[i3][i2][i1-1] + r[i3][i2][i1+1]
+    0.00 :	  402b91:       lea    (%rcx,%rdx,1),%rbx
+    0.00 :	  402b95:       lea    (%r8,%rdx,1),%r11
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+         :	                      + c[0] * r[i3][i2][i1]
+    0.00 :	  402b99:       add    %rbp,%rdx
+         :	                      + c[1] * ( r[i3][i2][i1-1] + r[i3][i2][i1+1]
+    0.00 :	  402b9c:       movsd  (%r14,%rbx,8),%xmm0
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+         :	                      + c[0] * r[i3][i2][i1]
+    0.00 :	  402ba2:       mov    0x30(%rsp),%rbx
+         :	                      + c[1] * ( r[i3][i2][i1-1] + r[i3][i2][i1+1]
+    0.00 :	  402ba7:       addsd  (%r14,%r11,8),%xmm0
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+         :	                      + c[0] * r[i3][i2][i1]
+    0.00 :	  402bad:       movsd  (%r14,%rdx,8),%xmm1
+         :	                      + c[1] * ( r[i3][i2][i1-1] + r[i3][i2][i1+1]
+         :	                               + r1[i1] )
+    0.00 :	  402bb3:       addsd  0x120(%rsp,%rbp,8),%xmm0
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+         :	                      + c[0] * r[i3][i2][i1]
+         :	                      + c[1] * ( r[i3][i2][i1-1] + r[i3][i2][i1+1]
+    0.00 :	  402bbc:       mulsd  0x8(%rdi),%xmm0
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+         :	                      + c[0] * r[i3][i2][i1]
+    0.00 :	  402bc1:       mulsd  (%rdi),%xmm1
+    0.00 :	  402bc5:       addsd  (%rbx,%rax,8),%xmm1
+         :	                      + c[1] * ( r[i3][i2][i1-1] + r[i3][i2][i1+1]
+    0.00 :	  402bca:       addsd  %xmm1,%xmm0
+         :	                               + r1[i1] )
+         :	                      + c[2] * ( r2[i1] + r1[i1-1] + r1[i1+1] );
+    0.00 :	  402bce:       movsd  0x120(%rsp,%r8,8),%xmm1
+    0.00 :	  402bd8:       addsd  0x940(%rsp,%rbp,8),%xmm1
+    0.00 :	  402be1:       addsd  0x120(%rsp,%rcx,8),%xmm1
+    0.00 :	  402bea:       mulsd  0x10(%rdi),%xmm1
+    0.00 :	  402bef:       addsd  %xmm1,%xmm0
+         :	               + r[i3-1][i2][i1] + r[i3+1][i2][i1];
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+    0.00 :	  402bf3:       movsd  %xmm0,(%rbx,%rax,8)
+    0.00 :	  402bf8:       mov    0x98(%rsp),%rdx
+    0.01 :	  402c00:       mov    0xa0(%rsp),%rax
+    0.00 :	  402c08:       mov    0x48(%rsp),%rbx
+    0.00 :	  402c0d:       add    %rdx,0x80(%rsp)
+    0.06 :	  402c15:       add    %rdx,%r10
+    0.00 :	  402c18:       add    %rax,%r12
+    0.00 :	  402c1b:       add    %rax,0x50(%rsp)
+    0.02 :	  402c20:       mov    0x8(%rsp),%edx
+    0.00 :	  402c24:       mov    %rbx,0x88(%rsp)
+    0.00 :	  402c2c:       add    %rax,0x18(%rsp)
+    0.01 :	  402c31:       cmp    0xb8(%rsp),%edx
+    0.00 :	  402c38:       je     402c50 <psinv._omp_fn.0+0x6a0>
+    0.00 :	  402c3e:       lea    (%rsi,%rbx,1),%rax
+    0.01 :	  402c42:       mov    %rax,0x48(%rsp)
+    0.02 :	  402c47:       jmpq   4028a0 <psinv._omp_fn.0+0x2f0>
+    0.00 :	  402c4c:       nopl   0x0(%rax)
+    0.00 :	  402c50:       mov    0x110(%rsp),%rax
+    0.00 :	  402c58:       mov    0x11c(%rsp),%edi
+    0.00 :	  402c5f:       mov    %edi,0x34(%rax)
+         :
+         :	  double r1[M], r2[M];
+         :
+         :	  if (timeron) timer_start(T_psinv);
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	        #pragma omp parallel for private(r1,r2)
+    0.00 :	  402c62:       add    $0x1168,%rsp
+    0.00 :	  402c69:       pop    %rbx
+    0.00 :	  402c6a:       pop    %rbp
+    0.00 :	  402c6b:       pop    %r12
+    0.00 :	  402c6d:       pop    %r13
+    0.00 :	  402c6f:       pop    %r14
+    0.00 :	  402c71:       pop    %r15
+    0.00 :	  402c73:       retq   
+    0.00 :	  402c74:       nopl   0x0(%rax)
+    0.00 :	  402c78:       cmpb   $0x0,0x11b(%rsp)
+    0.00 :	  402c80:       je     402e2c <psinv._omp_fn.0+0x87c>
+    0.00 :	  402c86:       mov    0x80(%rsp),%rax
+         :	        r1[i1] = r[i3][i2-1][i1] + r[i3][i2+1][i1]
+         :	               + r[i3-1][i2][i1] + r[i3+1][i2][i1];
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+    0.00 :	  402c8e:       mov    0x18(%rsp),%r14
+    0.00 :	  402c93:       mov    $0x3,%ecx
+    0.00 :	  402c98:       mov    0x88(%rsp),%rdx
+    0.00 :	  402ca0:       movsd  0x120(%rsp),%xmm3
+    0.00 :	  402ca9:       movsd  0x128(%rsp),%xmm2
+    0.00 :	  402cb2:       lea    0x8(%rax),%r8
+    0.00 :	  402cb6:       mov    0x20(%rsp),%rax
+    0.00 :	  402cbb:       lea    (%rax,%rdx,8),%rax
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+         :	                      + c[0] * r[i3][i2][i1]
+         :	                      + c[1] * ( r[i3][i2][i1-1] + r[i3][i2][i1+1]
+    0.00 :	  402cbf:       movsd  0x10(%rax),%xmm0
+    0.00 :	  402cc4:       addsd  (%rax),%xmm0
+    0.00 :	  402cc8:       mov    %ecx,%r11d
+    0.00 :	  402ccb:       add    $0x10,%r8
+         :	                               + r1[i1] )
+         :	                      + c[2] * ( r2[i1] + r1[i1-1] + r1[i1+1] );
+    0.00 :	  402ccf:       addsd  0x930(%rsp,%rcx,8),%xmm3
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+         :	                      + c[0] * r[i3][i2][i1]
+    0.00 :	  402cd8:       movsd  0x8(%rax),%xmm4
+    0.00 :	  402cdd:       add    $0x10,%rax
+    0.00 :	  402ce1:       mulsd  (%rdi),%xmm4
+         :	                      + c[1] * ( r[i3][i2][i1-1] + r[i3][i2][i1+1]
+         :	                               + r1[i1] )
+    0.00 :	  402ce5:       addsd  %xmm2,%xmm0
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+         :	                      + c[0] * r[i3][i2][i1]
+         :	                      + c[1] * ( r[i3][i2][i1-1] + r[i3][i2][i1+1]
+    0.00 :	  402ce9:       mulsd  0x8(%rdi),%xmm0
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+         :	                      + c[0] * r[i3][i2][i1]
+    0.00 :	  402cee:       addsd  -0x10(%r8),%xmm4
+         :	                      + c[1] * ( r[i3][i2][i1-1] + r[i3][i2][i1+1]
+         :	                               + r1[i1] )
+         :	                      + c[2] * ( r2[i1] + r1[i1-1] + r1[i1+1] );
+    0.00 :	  402cf4:       addsd  0x938(%rsp,%rcx,8),%xmm2
+    0.00 :	  402cfd:       movapd %xmm3,%xmm1
+    0.00 :	  402d01:       movsd  0x118(%rsp,%rcx,8),%xmm3
+    0.00 :	  402d0a:       addsd  %xmm3,%xmm1
+    0.00 :	  402d0e:       mulsd  0x10(%rdi),%xmm1
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+         :	                      + c[0] * r[i3][i2][i1]
+         :	                      + c[1] * ( r[i3][i2][i1-1] + r[i3][i2][i1+1]
+    0.00 :	  402d13:       addsd  %xmm4,%xmm0
+         :	                               + r1[i1] )
+         :	                      + c[2] * ( r2[i1] + r1[i1-1] + r1[i1+1] );
+    0.00 :	  402d17:       addsd  %xmm1,%xmm0
+    0.00 :	  402d1b:       movapd %xmm2,%xmm1
+    0.00 :	  402d1f:       movsd  0x120(%rsp,%rcx,8),%xmm2
+    0.00 :	  402d28:       add    $0x2,%rcx
+    0.00 :	  402d2c:       lea    -0x1(%rcx),%edx
+    0.00 :	  402d2f:       addsd  %xmm2,%xmm1
+         :	               + r[i3-1][i2][i1] + r[i3+1][i2][i1];
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+    0.00 :	  402d33:       movsd  %xmm0,-0x10(%r8)
+         :	                      + c[0] * r[i3][i2][i1]
+         :	                      + c[1] * ( r[i3][i2][i1-1] + r[i3][i2][i1+1]
+    0.00 :	  402d39:       movsd  -0x8(%rax),%xmm0
+    0.00 :	  402d3e:       addsd  0x8(%rax),%xmm0
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+         :	                      + c[0] * r[i3][i2][i1]
+    0.00 :	  402d43:       movsd  (%rax),%xmm4
+    0.00 :	  402d47:       mulsd  (%rdi),%xmm4
+    0.00 :	  402d4b:       addsd  -0x8(%r8),%xmm4
+         :	                      + c[1] * ( r[i3][i2][i1-1] + r[i3][i2][i1+1]
+         :	                               + r1[i1] )
+         :	                      + c[2] * ( r2[i1] + r1[i1-1] + r1[i1+1] );
+    0.00 :	  402d51:       mulsd  0x10(%rdi),%xmm1
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+         :	                      + c[0] * r[i3][i2][i1]
+         :	                      + c[1] * ( r[i3][i2][i1-1] + r[i3][i2][i1+1]
+         :	                               + r1[i1] )
+    0.00 :	  402d56:       addsd  %xmm3,%xmm0
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+         :	                      + c[0] * r[i3][i2][i1]
+         :	                      + c[1] * ( r[i3][i2][i1-1] + r[i3][i2][i1+1]
+    0.00 :	  402d5a:       mulsd  0x8(%rdi),%xmm0
+    0.00 :	  402d5f:       addsd  %xmm4,%xmm0
+         :	                               + r1[i1] )
+         :	                      + c[2] * ( r2[i1] + r1[i1-1] + r1[i1+1] );
+    0.00 :	  402d63:       addsd  %xmm1,%xmm0
+         :	               + r[i3-1][i2][i1] + r[i3+1][i2][i1];
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+    0.00 :	  402d67:       movsd  %xmm0,-0x8(%r8)
+    0.00 :	  402d6d:       cmp    %edx,0xbc(%rsp)
+    0.00 :	  402d74:       jg     402cbf <psinv._omp_fn.0+0x70f>
+    0.00 :	  402d7a:       mov    %r14,0x18(%rsp)
+    0.00 :	  402d7f:       mov    0x88(%rsp),%rdx
+    0.00 :	  402d87:       mov    0x20(%rsp),%rcx
+    0.00 :	  402d8c:       movslq %r11d,%rax
+    0.00 :	  402d8f:       mov    0x94(%rsp),%r8d
+    0.00 :	  402d97:       mov    0x18(%rsp),%r14
+    0.00 :	  402d9c:       add    %rax,%rdx
+    0.00 :	  402d9f:       lea    (%rcx,%rdx,8),%rdx
+    0.00 :	  402da3:       mov    0x80(%rsp),%rcx
+    0.00 :	  402dab:       nopl   0x0(%rax,%rax,1)
+         :	                      + c[0] * r[i3][i2][i1]
+         :	                      + c[1] * ( r[i3][i2][i1-1] + r[i3][i2][i1+1]
+    0.00 :	  402db0:       movsd  -0x8(%rdx),%xmm0
+    0.00 :	  402db5:       addsd  0x8(%rdx),%xmm0
+    0.00 :	  402dba:       add    $0x8,%rdx
+         :	                               + r1[i1] )
+    0.00 :	  402dbe:       addsd  0x120(%rsp,%rax,8),%xmm0
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+         :	                      + c[0] * r[i3][i2][i1]
+         :	                      + c[1] * ( r[i3][i2][i1-1] + r[i3][i2][i1+1]
+    0.00 :	  402dc7:       mulsd  0x8(%rdi),%xmm0
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+         :	                      + c[0] * r[i3][i2][i1]
+    0.00 :	  402dcc:       movsd  (%rdi),%xmm1
+    0.00 :	  402dd0:       mulsd  -0x8(%rdx),%xmm1
+    0.00 :	  402dd5:       addsd  (%rcx,%rax,8),%xmm1
+         :	                      + c[1] * ( r[i3][i2][i1-1] + r[i3][i2][i1+1]
+    0.00 :	  402dda:       addsd  %xmm1,%xmm0
+         :	                               + r1[i1] )
+         :	                      + c[2] * ( r2[i1] + r1[i1-1] + r1[i1+1] );
+    0.00 :	  402dde:       movsd  0x940(%rsp,%rax,8),%xmm1
+    0.00 :	  402de7:       addsd  0x118(%rsp,%rax,8),%xmm1
+    0.00 :	  402df0:       addsd  0x128(%rsp,%rax,8),%xmm1
+    0.00 :	  402df9:       mulsd  0x10(%rdi),%xmm1
+    0.00 :	  402dfe:       addsd  %xmm1,%xmm0
+         :	               + r[i3-1][i2][i1] + r[i3+1][i2][i1];
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+         :	        u[i3][i2][i1] = u[i3][i2][i1]
+    0.00 :	  402e02:       movsd  %xmm0,(%rcx,%rax,8)
+    0.00 :	  402e07:       add    $0x1,%rax
+         :	        r1[i1] = r[i3][i2-1][i1] + r[i3][i2+1][i1]
+         :	               + r[i3-1][i2][i1] + r[i3+1][i2][i1];
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+    0.00 :	  402e0b:       cmp    %eax,%r8d
+    0.00 :	  402e0e:       jg     402db0 <psinv._omp_fn.0+0x800>
+    0.00 :	  402e10:       mov    %r14,0x18(%rsp)
+    0.00 :	  402e15:       jmpq   402bf8 <psinv._omp_fn.0+0x648>
+         :
+         :	  if (timeron) timer_start(T_psinv);
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	        #pragma omp parallel for private(r1,r2)
+         :	    for (i2 = 1; i2 < n2-1; i2++) {
+         :	      for (i1 = 0; i1 < n1; i1++) {
+    0.00 :	  402e1a:       xor    %r8d,%r8d
+    0.00 :	  402e1d:       jmpq   4029ce <psinv._omp_fn.0+0x41e>
+    0.00 :	  402e22:       add    $0x1,%eax
+         :
+         :	  double r1[M], r2[M];
+         :
+         :	  if (timeron) timer_start(T_psinv);
+         :	  for (i3 = 1; i3 < n3-1; i3++) {
+         :	        #pragma omp parallel for private(r1,r2)
+    0.00 :	  402e25:       xor    %edx,%edx
+    0.00 :	  402e27:       jmpq   4025f0 <psinv._omp_fn.0+0x40>
+         :	        r1[i1] = r[i3][i2-1][i1] + r[i3][i2+1][i1]
+         :	               + r[i3-1][i2][i1] + r[i3+1][i2][i1];
+         :	        r2[i1] = r[i3-1][i2-1][i1] + r[i3-1][i2+1][i1]
+         :	               + r[i3+1][i2-1][i1] + r[i3+1][i2+1][i1];
+         :	      }
+         :	      for (i1 = 1; i1 < n1-1; i1++) {
+    0.00 :	  402e2c:       mov    $0x1,%r11d
+    0.00 :	  402e32:       jmpq   402d7f <psinv._omp_fn.0+0x7cf>
