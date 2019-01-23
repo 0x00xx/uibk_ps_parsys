@@ -823,28 +823,12 @@ static void norm2u3(void *or, int n1, int n2, int n3,
   max_rnmu = 0.0;
 
   double my_rnmu = 0.0;
-  #pragma omp parallel
-  {
-    double l_rnmu = 0.0;
-    #pragma omp for collapse(3)
-    for (i3 = 1; i3 < n3 - 1; i3++) {
-      for (i2 = 1; i2 < n2 - 1; i2++) {
-        for (i1 = 1; i1 < n1 - 1; i1++) {
-          a = fabs(r[i3][i2][i1]);
-          l_rnmu = (a > l_rnmu) ? a : l_rnmu;
-        }
-      }
-    }
-    #pragma omp critical
-    {
-      my_rnmu = (l_rnmu > my_rnmu) ? l_rnmu : my_rnmu;
-    };
-    #pragma omp for collapse(3) reduction(+:s)
-    for (i3 = 1; i3 < n3 - 1; i3++) {
-      for (i2 = 1; i2 < n2 - 1; i2++) {
-        for (i1 = 1; i1 < n1 - 1; i1++) {
-          s += pow(r[i3][i2][i1], 2.0);
-        }
+  for (i3 = 1; i3 < n3-1; i3++) {
+    for (i2 = 1; i2 < n2-1; i2++) {
+      for (i1 = 1; i1 < n1-1; i1++) {
+        s = s + pow(r[i3][i2][i1], 2.0);
+        a = fabs(r[i3][i2][i1]);
+        my_rnmu = (a > my_rnmu) ? a : my_rnmu;
       }
     }
   }
