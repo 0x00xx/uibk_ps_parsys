@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+#$ -q std.q
+#$ -cwd
+#$ -o output_real
+#$ -e error_real
+#$ -pe openmp 8
+
+export OMP_NUM_THREADS=1
+time ./real
+
+export OMP_NUM_THREADS=2
+time ./real
+
+export OMP_NUM_THREADS=4
+time ./real
+
+export OMP_NUM_THREADS=8
+time ./real
