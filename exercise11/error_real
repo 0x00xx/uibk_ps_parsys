@@ -1,0 +1,19 @@
+  Loading gcc/8.2.0
+
+real	0m17.342s
+user	0m17.154s
+sys	0m0.169s
+
+ Performance counter stats for './real':
+
+    43,253,102,018      cycles                    #    2.479 GHz                      (40.00%)
+    31,686,593,629      instructions              #    0.73  insn per cycle           (60.00%)
+     1,165,907,140      cache-references          #   66.815 M/sec                    (60.00%)
+        29,280,486      cache-misses              #    2.511 % of all cache refs      (60.00%)
+     5,770,396,986      bus-cycles                #  330.688 M/sec                    (40.00%)
+      17449.653262      cpu-clock (msec)          #    1.000 CPUs utilized          
+
+      17.452037034 seconds time elapsed
+
+[ perf record: Woken up 46 times to write data ]
+[ perf record: Captured and wrote 11.500 MB perf.data (250858 samples) ]
